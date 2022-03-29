@@ -12,6 +12,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+-- Dumping database structure for denr_pportal
+CREATE DATABASE IF NOT EXISTS `denr_pportal` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `denr_pportal`;
+
 -- Dumping structure for table denr_pportal.failed_jobs
 CREATE TABLE IF NOT EXISTS `failed_jobs` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -46,8 +51,8 @@ REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(4, '2019_12_14_000001_create_personal_access_tokens_table', 1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
--- Dumping structure for table denr_pportal.office
-CREATE TABLE IF NOT EXISTS `office` (
+-- Dumping structure for table denr_pportal.offices
+CREATE TABLE IF NOT EXISTS `offices` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `officename` varchar(50) DEFAULT NULL,
   `province_id` int(11) DEFAULT NULL,
@@ -56,9 +61,9 @@ CREATE TABLE IF NOT EXISTS `office` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.office: ~24 rows (approximately)
-/*!40000 ALTER TABLE `office` DISABLE KEYS */;
-REPLACE INTO `office` (`id`, `officename`, `province_id`, `officetype`, `location`) VALUES
+-- Dumping data for table denr_pportal.offices: ~24 rows (approximately)
+/*!40000 ALTER TABLE `offices` DISABLE KEYS */;
+REPLACE INTO `offices` (`id`, `officename`, `province_id`, `officetype`, `location`) VALUES
 	(1, 'PENRO Davao Oriental', 5, 'PENRO', 'Dahican, Mati'),
 	(2, 'PENRO Davao del Norte', 1, 'PENRO', 'Tagum'),
 	(3, 'PENRO Davao de Oro', 4, 'PENRO', 'Nabunturan'),
@@ -83,7 +88,7 @@ REPLACE INTO `office` (`id`, `officename`, `province_id`, `officetype`, `locatio
 	(22, 'Planning and Management Division', 6, 'ARED MS', 'Regional Office'),
 	(23, 'Legal Division', 6, 'ARED MS', 'Regional Office'),
 	(24, 'Admin Division', 6, 'ARED MS', 'Regional Office');
-/*!40000 ALTER TABLE `office` ENABLE KEYS */;
+/*!40000 ALTER TABLE `offices` ENABLE KEYS */;
 
 -- Dumping structure for table denr_pportal.password_resets
 CREATE TABLE IF NOT EXISTS `password_resets` (
@@ -125,45 +130,91 @@ CREATE TABLE IF NOT EXISTS `personnels` (
   `lastname` varchar(50) DEFAULT NULL,
   `date_of_birth` datetime DEFAULT NULL,
   `gender` varchar(50) DEFAULT NULL,
-  `office_id` int(11) DEFAULT NULL,
+  `email_address` varchar(50) DEFAULT NULL,
+  `contact_no` varchar(50) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table denr_pportal.personnels: ~0 rows (approximately)
 /*!40000 ALTER TABLE `personnels` DISABLE KEYS */;
+REPLACE INTO `personnels` (`id`, `firstname`, `middlename`, `lastname`, `date_of_birth`, `gender`, `email_address`, `contact_no`, `created_at`, `updated_at`, `deleted_at`) VALUES
+	(1, 'Albert Neil ', 'Dela Cruz', 'Bandiola', '1991-05-04 09:33:07', 'Male', NULL, NULL, '2022-03-29 16:33:22', '2022-03-29 16:33:23', NULL);
 /*!40000 ALTER TABLE `personnels` ENABLE KEYS */;
 
--- Dumping structure for table denr_pportal.plantilla
-CREATE TABLE IF NOT EXISTS `plantilla` (
+-- Dumping structure for table denr_pportal.personnel_assignments
+CREATE TABLE IF NOT EXISTS `personnel_assignments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `personnel_id` int(11) NOT NULL DEFAULT 0,
+  `office_id` int(11) NOT NULL DEFAULT 0,
+  `date_assigned` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `deleted_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table denr_pportal.personnel_assignments: ~0 rows (approximately)
+/*!40000 ALTER TABLE `personnel_assignments` DISABLE KEYS */;
+REPLACE INTO `personnel_assignments` (`id`, `personnel_id`, `office_id`, `date_assigned`, `created_at`, `updated_at`, `deleted_at`) VALUES
+	(1, 1, 1, '2022-01-07 08:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+/*!40000 ALTER TABLE `personnel_assignments` ENABLE KEYS */;
+
+-- Dumping structure for table denr_pportal.plantillas
+CREATE TABLE IF NOT EXISTS `plantillas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `plantilla_position` varchar(50) DEFAULT NULL,
   `item_no` varchar(50) DEFAULT NULL,
   `office_id` int(11) DEFAULT NULL,
   `salary_grade` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.plantilla: ~0 rows (approximately)
-/*!40000 ALTER TABLE `plantilla` DISABLE KEYS */;
-/*!40000 ALTER TABLE `plantilla` ENABLE KEYS */;
+-- Dumping data for table denr_pportal.plantillas: ~1 rows (approximately)
+/*!40000 ALTER TABLE `plantillas` DISABLE KEYS */;
+REPLACE INTO `plantillas` (`id`, `plantilla_position`, `item_no`, `office_id`, `salary_grade`) VALUES
+	(1, 'Information Systems Analyst II', 'DENR-ISAII-1111', 1, 16);
+/*!40000 ALTER TABLE `plantillas` ENABLE KEYS */;
 
--- Dumping structure for table denr_pportal.province
-CREATE TABLE IF NOT EXISTS `province` (
+-- Dumping structure for table denr_pportal.promotions
+CREATE TABLE IF NOT EXISTS `promotions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `personnel_id` int(11) NOT NULL DEFAULT 0,
+  `plantilla_id` int(11) NOT NULL DEFAULT 0,
+  `salaryStep` int(11) NOT NULL DEFAULT 0,
+  `fromDate` datetime DEFAULT NULL,
+  `toDate` datetime DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table denr_pportal.promotions: ~1 rows (approximately)
+/*!40000 ALTER TABLE `promotions` DISABLE KEYS */;
+REPLACE INTO `promotions` (`id`, `personnel_id`, `plantilla_id`, `salaryStep`, `fromDate`, `toDate`, `created_at`, `updated_at`, `deleted_at`) VALUES
+	(1, 1, 1, 2, '2015-09-07 10:33:35', NULL, NULL, NULL, NULL);
+/*!40000 ALTER TABLE `promotions` ENABLE KEYS */;
+
+-- Dumping structure for table denr_pportal.provinces
+CREATE TABLE IF NOT EXISTS `provinces` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `provincename` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.province: ~6 rows (approximately)
-/*!40000 ALTER TABLE `province` DISABLE KEYS */;
-REPLACE INTO `province` (`id`, `provincename`) VALUES
+-- Dumping data for table denr_pportal.provinces: ~6 rows (approximately)
+/*!40000 ALTER TABLE `provinces` DISABLE KEYS */;
+REPLACE INTO `provinces` (`id`, `provincename`) VALUES
 	(1, 'Davao del Norte'),
 	(2, 'Davao Occidental'),
 	(3, 'Davao del Sur'),
 	(4, 'Davao de Oro'),
 	(5, 'Davao Oriental'),
 	(6, 'Davao City');
-/*!40000 ALTER TABLE `province` ENABLE KEYS */;
+/*!40000 ALTER TABLE `provinces` ENABLE KEYS */;
 
 -- Dumping structure for table denr_pportal.users
 CREATE TABLE IF NOT EXISTS `users` (
