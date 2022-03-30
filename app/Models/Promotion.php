@@ -23,7 +23,7 @@ class Promotion extends Model
 
     public function personnel()
     {
-        return $this->belongsTo('App\Models\Personnel', 'personnel_id');
+        return $this->belongsTo('App\Models\User', 'user_id');
     }
 
     public function plantilla()
