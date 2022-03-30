@@ -24,6 +24,9 @@ class Personnel_Assignment extends Model
     {
         return $this->belongsTo('App\Models\Personnel', 'personnel_id');
     }
-
+    public function office()
+    {
+        return $this->belongsTo('App\Models\Office', 'office_id');
+    }
 
 }
