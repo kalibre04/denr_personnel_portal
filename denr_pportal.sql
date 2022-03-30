@@ -132,6 +132,7 @@ CREATE TABLE IF NOT EXISTS `personnels` (
   `gender` varchar(50) DEFAULT NULL,
   `email_address` varchar(50) DEFAULT NULL,
   `contact_no` varchar(50) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -140,14 +141,14 @@ CREATE TABLE IF NOT EXISTS `personnels` (
 
 -- Dumping data for table denr_pportal.personnels: ~0 rows (approximately)
 /*!40000 ALTER TABLE `personnels` DISABLE KEYS */;
-REPLACE INTO `personnels` (`id`, `firstname`, `middlename`, `lastname`, `date_of_birth`, `gender`, `email_address`, `contact_no`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(1, 'Albert Neil ', 'Dela Cruz', 'Bandiola', '1991-05-04 09:33:07', 'Male', NULL, NULL, '2022-03-29 16:33:22', '2022-03-29 16:33:23', NULL);
+REPLACE INTO `personnels` (`id`, `firstname`, `middlename`, `lastname`, `date_of_birth`, `gender`, `email_address`, `contact_no`, `user_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+	(1, 'Albert Neil ', 'Dela Cruz', 'Bandiola', '1991-05-04 09:33:07', 'Male', NULL, NULL, 1, '2022-03-29 16:33:22', '2022-03-29 16:33:23', NULL);
 /*!40000 ALTER TABLE `personnels` ENABLE KEYS */;
 
 -- Dumping structure for table denr_pportal.personnel_assignments
 CREATE TABLE IF NOT EXISTS `personnel_assignments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `personnel_id` int(11) NOT NULL DEFAULT 0,
+  `user_id` int(11) NOT NULL DEFAULT 0,
   `office_id` int(11) NOT NULL DEFAULT 0,
   `date_assigned` datetime NOT NULL,
   `created_at` datetime NOT NULL,
@@ -158,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `personnel_assignments` (
 
 -- Dumping data for table denr_pportal.personnel_assignments: ~0 rows (approximately)
 /*!40000 ALTER TABLE `personnel_assignments` DISABLE KEYS */;
-REPLACE INTO `personnel_assignments` (`id`, `personnel_id`, `office_id`, `date_assigned`, `created_at`, `updated_at`, `deleted_at`) VALUES
+REPLACE INTO `personnel_assignments` (`id`, `user_id`, `office_id`, `date_assigned`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(1, 1, 1, '2022-01-07 08:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `personnel_assignments` ENABLE KEYS */;
 
@@ -172,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `plantillas` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.plantillas: ~1 rows (approximately)
+-- Dumping data for table denr_pportal.plantillas: ~0 rows (approximately)
 /*!40000 ALTER TABLE `plantillas` DISABLE KEYS */;
 REPLACE INTO `plantillas` (`id`, `plantilla_position`, `item_no`, `office_id`, `salary_grade`) VALUES
 	(1, 'Information Systems Analyst II', 'DENR-ISAII-1111', 1, 16);
@@ -181,7 +182,7 @@ REPLACE INTO `plantillas` (`id`, `plantilla_position`, `item_no`, `office_id`, `
 -- Dumping structure for table denr_pportal.promotions
 CREATE TABLE IF NOT EXISTS `promotions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `personnel_id` int(11) NOT NULL DEFAULT 0,
+  `user_id` int(11) NOT NULL DEFAULT 0,
   `plantilla_id` int(11) NOT NULL DEFAULT 0,
   `salaryStep` int(11) NOT NULL DEFAULT 0,
   `fromDate` datetime DEFAULT NULL,
@@ -192,10 +193,10 @@ CREATE TABLE IF NOT EXISTS `promotions` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.promotions: ~1 rows (approximately)
+-- Dumping data for table denr_pportal.promotions: ~0 rows (approximately)
 /*!40000 ALTER TABLE `promotions` DISABLE KEYS */;
-REPLACE INTO `promotions` (`id`, `personnel_id`, `plantilla_id`, `salaryStep`, `fromDate`, `toDate`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(1, 1, 1, 2, '2015-09-07 10:33:35', NULL, NULL, NULL, NULL);
+REPLACE INTO `promotions` (`id`, `user_id`, `plantilla_id`, `salaryStep`, `fromDate`, `toDate`, `created_at`, `updated_at`, `deleted_at`) VALUES
+	(1, 2, 1, 2, '2015-09-07 10:33:35', NULL, '2022-03-30 08:06:43', '2022-03-30 08:06:43', NULL);
 /*!40000 ALTER TABLE `promotions` ENABLE KEYS */;
 
 -- Dumping structure for table denr_pportal.provinces
@@ -219,7 +220,12 @@ REPLACE INTO `provinces` (`id`, `provincename`) VALUES
 -- Dumping structure for table denr_pportal.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `firstname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `middlename` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lastname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date_of_birth` date NOT NULL,
+  `gender` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contact_no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -228,12 +234,12 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table denr_pportal.users: ~0 rows (approximately)
+-- Dumping data for table denr_pportal.users: ~1 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-REPLACE INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-	(1, 'Albert', 'bandio.al@gmail.com', NULL, '$2y$10$Eho6o/WnS/odS5apSH5aPO3PmI1PQ/BDz3bA9sfuvJAqzlJ2nOiPe', NULL, '2022-03-28 07:19:03', '2022-03-28 07:19:03');
+REPLACE INTO `users` (`id`, `firstname`, `middlename`, `lastname`, `date_of_birth`, `gender`, `contact_no`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+	(2, 'Albert Neil', 'Dela Cruz', 'Bandiola', '1991-05-04', 'Male', '09989762395', 'adbandiola@denr.gov.ph', NULL, '$2y$10$UaJcv6CcWugUCFZyrB0ABOIAE2F8Zm9aOsvFsbJ28zcu7GTVnuCpm', NULL, '2022-03-30 06:59:14', '2022-03-30 06:59:14');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
