@@ -160,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `personnel_assignments` (
 -- Dumping data for table denr_pportal.personnel_assignments: ~0 rows (approximately)
 /*!40000 ALTER TABLE `personnel_assignments` DISABLE KEYS */;
 REPLACE INTO `personnel_assignments` (`id`, `user_id`, `office_id`, `date_assigned`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(1, 1, 1, '2022-01-07 08:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+	(1, 1, 22, '2022-01-07 08:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `personnel_assignments` ENABLE KEYS */;
 
 -- Dumping structure for table denr_pportal.plantillas
@@ -236,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table denr_pportal.users: ~1 rows (approximately)
+-- Dumping data for table denr_pportal.users: ~0 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 REPLACE INTO `users` (`id`, `firstname`, `middlename`, `lastname`, `date_of_birth`, `gender`, `contact_no`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(2, 'Albert Neil', 'Dela Cruz', 'Bandiola', '1991-05-04', 'Male', '09989762395', 'adbandiola@denr.gov.ph', NULL, '$2y$10$UaJcv6CcWugUCFZyrB0ABOIAE2F8Zm9aOsvFsbJ28zcu7GTVnuCpm', NULL, '2022-03-30 06:59:14', '2022-03-30 06:59:14');

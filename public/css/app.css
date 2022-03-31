@@ -622,6 +622,27 @@ progress {
   color: #6c757d;
 }
 
+.container-login100 {
+  width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  
+  background-color: #ebebeb;
+  background-image: url('https://gttp.imgix.net/199734/x/0/top-15-tourist-spots-in-davao-including-samal-island-amp-mount-apo-5.jpg?auto=compress%2Cformat&ch=Width%2CDPR&dpr=1&ixlib=php-2.3.0&w=1300');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
 .container,
 .container-fluid,
 .container-xxl,
