@@ -23,5 +23,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/profile/{id}', 'App\Http\Controllers\PersonnelController@profile')->name('personnel.profile');
-Route::patch('/profile/updateprofile/{id}', 'App\Http\Controllers\PersonnelController@profileupdate')->name('personnel.profile.update');
+Route::patch('/profile/updateprofile/{id}', 'App\Http\Controllers\PersonnelController@updateprofile')->name('personnel.profile.update');
 Route::patch('/profile/updatepassword/{id}', 'App\Http\Controllers\PersonnelController@profilepasswordupdate')->name('personnel.password.update');
+Route::get('travel/{url}', 'App\Http\Controllers\PersonnelController@index')->name('travel.index');
