@@ -157,7 +157,7 @@
                                             <tr>
                                             <th>ID</th>
                                             <th>Plantilla</th>
-                                            <th>Salary Step</th>
+                                            <!-- <th>Salary Step</th> -->
                                             <th>From</th>
                                             <th>To</th>
                                             </tr>
@@ -166,7 +166,7 @@
                                             <tr>
                                             <td>183</td>
                                             <td>John Doe</td>
-                                            <td>11-7-2014</td>
+                                            <!-- <td>11-7-2014</td> -->
                                             <td><span class="tag tag-success">Approved</span></td>
                                             <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
                                             </tr>
