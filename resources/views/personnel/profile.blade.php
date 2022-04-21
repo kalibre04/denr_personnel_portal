@@ -25,7 +25,8 @@
             <div class="col-lg-4 col-xlg-3 col-md-5">
                 <div class="card">
                     <div class="card-body">
-                        <center class="m-t-30"> <img src="/public/assets/images/users/10_avatar-512.png" class="rounded-circle" width="150" />
+                        <center class="m-t-30">
+                            <!-- <img src="/public/assets/images/users/10_avatar-512.png" class="rounded-circle" width="150" /> -->
                             <h4 class="card-title m-t-10">{{ $user->firstname." ". substr(Auth::user()->middlename, 0, 1). " " .$user->lastname }}</h4>
                             <h6 class="card-subtitle">{{ $user->gender }}</h6>
                             <h6 class="card-subtitle">{{ $user->date_of_birth }}</h6>

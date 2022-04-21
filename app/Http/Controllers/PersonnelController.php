@@ -70,8 +70,6 @@ class PersonnelController extends Controller
         return redirect()->back();
 
     }
-    public function index(){
-        return view('travel_order.index');
-    }
+    
 
 }
