@@ -185,47 +185,24 @@
 
                                             {!! Form::model($user, ['route' => ['personnel.profile.update',$user->id], 'method' => 'PATCH', 'files' => true]) !!}
                                                     <div class="form-group">
-                                                        <label class="col-md-12">First Name</label>
+                                                        <label class="col-md-12">Plantilla</label>
                                                         <div class="col-md-12">
-                                                            {{ Form::text('firstname', null,['class' => 'form-control form-control-line']) }}
+                                                            {{ Form::select('plantilla', $plantillas->pluck('plantilla_position', 'id'), null,['class' => 'form-control select2']) }}
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-md-12">Middle Name</label>
-                                                        <div class="col-md-12">
-                                                            {{ Form::text('middlename', null,['class' => 'form-control form-control-line']) }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-12">Last Name</label>
-                                                        <div class="col-md-12">
-                                                            {{ Form::text('lastname', null,['class' => 'form-control form-control-line']) }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-12">Date of birth</label>
+                                                        <label class="col-md-12">From Date</label>
                                                         <div class="col-md-12">
                                                             {{ Form::date('date_of_birth', null,['class' => 'form-control form-control-line']) }}
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-md-12">Contact No.</label>
+                                                        <label class="col-md-12">To Date</label>
                                                         <div class="col-md-12">
-                                                            {{ Form::number('contact_no', null,['class' => 'form-control form-control-line']) }}
+                                                            {{ Form::date('date_of_birth', null,['class' => 'form-control form-control-line']) }}
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="form-group">
-                                                        <label class="col-md-12">Username</label>
-                                                        <div class="col-md-12">
-                                                            {{ Form::text('username', null,['class' => 'form-control form-control-line']) }}
-                                                        </div>
-                                                    </div> -->
-                                                    <div class="form-group">
-                                                        <label for="example-email" class="col-md-12">Email</label>
-                                                        <div class="col-md-12">
-                                                            {{ Form::email('email', null,['class' => 'form-control form-control-line']) }}
-                                                        </div>
-                                                    </div>
+                                                    
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
                                                             {{ Form::submit('Add Position',['class' => 'btn btn-success']) }}

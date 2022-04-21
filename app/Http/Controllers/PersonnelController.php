@@ -10,7 +10,7 @@ use Session;
 
 use App\Models\User;
 use App\Models\Promotion;
-
+use App\Models\Plantilla;
 
 
 class PersonnelController extends Controller
@@ -20,7 +20,8 @@ class PersonnelController extends Controller
         if(Auth::user()->id == $id){
             $user = User::find($id);
             $promotion = Promotion::where('user_id', Auth::user()->id)->with('plantilla')->orderBy('created_at', 'DESC')->get();
-            return view('personnel.profile', compact('user', 'promotion'));
+            $plantillas = Plantilla::get(['plantilla_position', 'item_no', 'id']);
+            return view('personnel.profile', compact('user', 'promotion', 'plantillas'));
         }else{
             return redirect()->back();
         }
