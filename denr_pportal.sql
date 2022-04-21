@@ -1861,12 +1861,13 @@ CREATE TABLE IF NOT EXISTS `promotions` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table denr_pportal.promotions: ~0 rows (approximately)
 /*!40000 ALTER TABLE `promotions` DISABLE KEYS */;
 REPLACE INTO `promotions` (`id`, `user_id`, `plantilla_id`, `salaryStep`, `fromDate`, `toDate`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(1, 2, 1, 2, '2015-09-07 10:33:35', NULL, '2022-03-30 08:06:43', '2022-03-30 08:06:43', NULL);
+	(1, 2, 1, 2, '2015-09-07 10:33:35', NULL, '2022-03-30 08:06:43', '2022-04-21 08:13:48', NULL),
+	(2, 2, 1, 2, '2022-09-07 10:33:35', NULL, '2022-04-21 14:59:42', '2022-04-21 09:18:30', '2022-04-21 09:18:30');
 /*!40000 ALTER TABLE `promotions` ENABLE KEYS */;
 
 -- Dumping structure for table denr_pportal.provinces
@@ -2015,7 +2016,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `account_type` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `account_type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -2026,7 +2027,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table denr_pportal.users: ~0 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 REPLACE INTO `users` (`id`, `firstname`, `middlename`, `lastname`, `date_of_birth`, `gender`, `contact_no`, `email`, `email_verified_at`, `password`, `account_type`, `remember_token`, `created_at`, `updated_at`) VALUES
-	(2, 'Albert Neil', 'Dela Cruz', 'Bandiola', '1991-05-04', 'Male', '09989762395', 'adbandiola@denr.gov.ph', NULL, '$2y$10$tNKaZAE9giCEmfiWZ43uW.gNDxGDJHasPCBHQYNJIDKRUmbEOJBF.', 'Personnel', NULL, '2022-03-30 06:59:14', '2022-04-19 01:56:58');
+	(2, 'Albert Neil', 'Dela Cruz', 'Bandiola', '1991-05-04', 'Male', '09989762395', 'adbandiola@denr.gov.ph', NULL, '$2y$10$tNKaZAE9giCEmfiWZ43uW.gNDxGDJHasPCBHQYNJIDKRUmbEOJBF.', 'Division Personnel', NULL, '2022-03-30 06:59:14', '2022-04-19 01:56:58');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
