@@ -39,7 +39,8 @@
                         <small class="text-muted p-t-30 db">Account Type</small>
                         <h6>{{ $user->account_type }}</h6> 
                         <small class="text-muted p-t-30 db">Department</small>
-                        <h6>{{ $user->department }}</h6>
+                        <!-- <h6>{{ $user->department }}</h6> -->
+                        
                     </div>
                 </div>
             </div>
@@ -163,29 +164,76 @@
                                             </tr>
                                             </thead>
                                             <tbody>
+                                            @foreach($promotion as $promotions)
                                             <tr>
-                                            <td>183</td>
-                                            <td>John Doe</td>
+                                            <td>{{ $promotions->id }}</td>
+                                            <td>{{ $promotions->plantilla->plantilla_position }}</td>
                                             <!-- <td>11-7-2014</td> -->
-                                            <td><span class="tag tag-success">Approved</span></td>
-                                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                            <!-- <td><span class="tag tag-success">Approved</span></td> -->
+                                            <td>{{ $promotions->fromDate }}</td>
+                                            <td>{{ $promotions->toDate }}</td>
+                                            <td><a href='delete/{{ $promotions->id }}'>Delete</a></td>
                                             </tr>
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
+                                            @endforeach
                                             
                                             </tbody>
                                             </table>
                                             </div>
-
+                                            </div>
+                                            </div>
                                             </div>
 
-                                            </div>
-                                            </div>
-                            
+                                            {!! Form::model($user, ['route' => ['personnel.profile.update',$user->id], 'method' => 'PATCH', 'files' => true]) !!}
+                                                    <div class="form-group">
+                                                        <label class="col-md-12">First Name</label>
+                                                        <div class="col-md-12">
+                                                            {{ Form::text('firstname', null,['class' => 'form-control form-control-line']) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-12">Middle Name</label>
+                                                        <div class="col-md-12">
+                                                            {{ Form::text('middlename', null,['class' => 'form-control form-control-line']) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-12">Last Name</label>
+                                                        <div class="col-md-12">
+                                                            {{ Form::text('lastname', null,['class' => 'form-control form-control-line']) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-12">Date of birth</label>
+                                                        <div class="col-md-12">
+                                                            {{ Form::date('date_of_birth', null,['class' => 'form-control form-control-line']) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-12">Contact No.</label>
+                                                        <div class="col-md-12">
+                                                            {{ Form::number('contact_no', null,['class' => 'form-control form-control-line']) }}
+                                                        </div>
+                                                    </div>
+                                                    <!-- <div class="form-group">
+                                                        <label class="col-md-12">Username</label>
+                                                        <div class="col-md-12">
+                                                            {{ Form::text('username', null,['class' => 'form-control form-control-line']) }}
+                                                        </div>
+                                                    </div> -->
+                                                    <div class="form-group">
+                                                        <label for="example-email" class="col-md-12">Email</label>
+                                                        <div class="col-md-12">
+                                                            {{ Form::email('email', null,['class' => 'form-control form-control-line']) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-12">
+                                                            {{ Form::submit('Add Position',['class' => 'btn btn-success']) }}
+                                                        </div>
+                                                    </div>
+                                            {!! Form::close() !!}
+
+
                             </div>
                             <div class="tab-pane" id="tab4">
                                 {!! Form::model($user, ['route' => ['personnel.profile.update',$user->id], 'method' => 'PATCH', 'files' => true]) !!}

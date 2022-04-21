@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Session;
 
 use App\Models\User;
+use App\Models\Promotion;
 
 
 
@@ -18,7 +19,8 @@ class PersonnelController extends Controller
     {
         if(Auth::user()->id == $id){
             $user = User::find($id);
-            return view('personnel.profile',compact('user'));
+            $promotion = Promotion::where('user_id', Auth::user()->id)->with('plantilla')->orderBy('created_at', 'DESC')->get();
+            return view('personnel.profile', compact('user', 'promotion'));
         }else{
             return redirect()->back();
         }

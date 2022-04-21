@@ -11,7 +11,7 @@ use Personnel;
 class Promotion extends Model
 {
     use HasFactory;
-
+    use SoftDeletes;
     protected $table = 'promotions';
     protected $fillable = [
         'personnel_id',
