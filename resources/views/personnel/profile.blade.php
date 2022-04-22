@@ -38,7 +38,7 @@
                         <h6>{{ $user->email }}</h6> 
                         <small class="text-muted p-t-30 db">Account Type</small>
                         <h6>{{ $user->account_type }}</h6> 
-                        <small class="text-muted p-t-30 db">Department</small>
+                        <small class="text-muted p-t-30 db">Current Department</small>
                         <!-- <h6>{{ $user->department }}</h6> -->
                         
                     </div>
@@ -159,8 +159,8 @@
                                                     <th>ID</th>
                                                     <th>Plantilla</th>
                                                 <!-- <th>Salary Step</th> -->
-                                                    <th>From</th>
-                                                    <th>To</th>
+                                                    <th>Date Promoted</th>
+                                                    
                                                     </tr>
                                                     </thead>
                                                         <tbody>
@@ -170,8 +170,8 @@
                                                         <td>{{ $promotions->plantilla->plantilla_position }}</td>
                                                         <!-- <td>11-7-2014</td> -->
                                                         <!-- <td><span class="tag tag-success">Approved</span></td> -->
-                                                        <td>{{ $promotions->fromDate }}</td>
-                                                        <td>{{ $promotions->toDate }}</td>
+                                                        <td>{{ $promotions->datePromoted }}</td>
+                                                        
                                                         <td><a href='delete/{{ $promotions->id }}'>Delete</a></td>
                                                         </tr>
                                                         @endforeach
@@ -193,15 +193,10 @@
                                                     <div class="form-group">
                                                         <label class="col-md-12">From Date</label>
                                                         <div class="col-md-12">
-                                                            {{ Form::date('fromDate', null,['class' => 'form-control form-control-line']) }}
+                                                            {{ Form::date('datePromoted', null,['class' => 'form-control form-control-line']) }}
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-12">To Date</label>
-                                                        <div class="col-md-12">
-                                                            {{ Form::date('toDate', null,['class' => 'form-control form-control-line']) }}
-                                                        </div>
-                                                    </div>
+                                                    
                                                     
                                                     <div class="form-group">
                                                         <div class="col-sm-12">

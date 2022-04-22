@@ -46,13 +46,11 @@ class PromotionController extends Controller
 
         $promotion->user_id = Auth::user()->id;
         $promotion->plantilla_id = $request->plantilla;
-        $promotion->fromDate = $request->fromDate;
-        $promotion->toDate = $request->toDate;
-
+        $promotion->datePromoted = $request->datePromoted;
         $promotion->save();
+
         Session::flash('flash_message','Your Promotion History has been updated');
         return redirect()->back();
-
 
     }
 
