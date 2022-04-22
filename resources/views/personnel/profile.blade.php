@@ -58,7 +58,7 @@
                                 <a href="#tab3" data-toggle="tab" class="nav-link">Promotions</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#tab4" data-toggle="tab" class="nav-link">Department</a>
+                                <a href="#tab4" data-toggle="tab" class="nav-link">Office Assignments</a>
                             </li>
                         </ul>
                         <div class="tab-content py-3">
@@ -206,55 +206,75 @@
                                             {!! Form::close() !!}
                             </div>
                             <div class="tab-pane" id="tab4">
-                                {!! Form::model($user, ['route' => ['personnel.profile.update',$user->id], 'method' => 'PATCH', 'files' => true]) !!}
-                                    <div class="form-group">
-                                        <label class="col-md-12">First Name</label>
-                                        <div class="col-md-12">
-                                            {{ Form::text('firstname', null,['class' => 'form-control form-control-line']) }}
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Middle Name</label>
-                                        <div class="col-md-12">
-                                            {{ Form::text('middlename', null,['class' => 'form-control form-control-line']) }}
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Last Name</label>
-                                        <div class="col-md-12">
-                                            {{ Form::text('lastname', null,['class' => 'form-control form-control-line']) }}
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Date of birth</label>
-                                        <div class="col-md-12">
-                                            {{ Form::date('date_of_birth', null,['class' => 'form-control form-control-line']) }}
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Contact No.</label>
-                                        <div class="col-md-12">
-                                            {{ Form::number('contact_no', null,['class' => 'form-control form-control-line']) }}
-                                        </div>
-                                    </div>
-                                    <!-- <div class="form-group">
-                                        <label class="col-md-12">Username</label>
-                                        <div class="col-md-12">
-                                            {{ Form::text('username', null,['class' => 'form-control form-control-line']) }}
-                                        </div>
-                                    </div> -->
-                                    <div class="form-group">
-                                        <label for="example-email" class="col-md-12">Email</label>
-                                        <div class="col-md-12">
-                                            {{ Form::email('email', null,['class' => 'form-control form-control-line']) }}
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            {{ Form::submit('Update Profile',['class' => 'btn btn-success']) }}
-                                        </div>
-                                    </div>
-                                {!! Form::close() !!}
+                            <div class="row">
+                                            <div class="col-12">
+                                            <div class="card">
+                                            <div class="card-header">
+                                            <h3 class="card-title">Office Assignment History</h3>
+                                            <div class="card-tools">
+                                            <div class="input-group input-group-sm" style="width: 150px;">
+                                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                            <div class="input-group-append">
+                                            <button type="submit" class="btn btn-default">
+                                            <i class="fas fa-search"></i>
+                                            </button>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+
+                                            <div class="card-body table-responsive p-0" style="height: 300px;">
+                                                <table class="table table-head-fixed text-nowrap">
+                                                    <thead>
+                                                    <tr>
+                                                    <th>ID</th>
+                                                    <th>Office/Division</th>
+                                                <!-- <th>Salary Step</th> -->
+                                                    <th>Date Assigned</th>
+                                                    
+                                                    </tr>
+                                                    </thead>
+                                                        <tbody>
+                                                        @foreach($promotion as $promotions)
+                                                        <tr>
+                                                        <td>{{ $promotions->id }}</td>
+                                                        <td>{{ $promotions->plantilla->plantilla_position }}</td>
+                                                        <!-- <td>11-7-2014</td> -->
+                                                        <!-- <td><span class="tag tag-success">Approved</span></td> -->
+                                                        <td>{{ $promotions->datePromoted }}</td>
+                                                        
+                                                        <td><a href='delete/{{ $promotions->id }}'>Delete</a></td>
+                                                        </tr>
+                                                        @endforeach
+                                                        
+                                                        </tbody>
+                                                </table>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+
+                                            {!! Form::model($user, ['route' => ['promotion.add',$user->id], 'method' => 'POST', 'files' => true]) !!}
+                                                    <div class="form-group">
+                                                        <label class="col-md-12">Plantilla</label>
+                                                        <div class="col-md-12">
+                                                            {{ Form::select('plantilla', $plantillas, null,['class' => 'form-control select2']) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-12">From Date</label>
+                                                        <div class="col-md-12">
+                                                            {{ Form::date('datePromoted', null,['class' => 'form-control form-control-line']) }}
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                    <div class="form-group">
+                                                        <div class="col-sm-12">
+                                                            {{ Form::submit('Add Position',['class' => 'btn btn-success']) }}
+                                                        </div>
+                                                    </div>
+                                            {!! Form::close() !!}
                             </div>
                         </div>
                     </div>
