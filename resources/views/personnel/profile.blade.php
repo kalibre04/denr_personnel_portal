@@ -55,7 +55,7 @@
                                 <a href="#tab2" data-toggle="tab" class="nav-link">Change Password</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#tab3" data-toggle="tab" class="nav-link">Position</a>
+                                <a href="#tab3" data-toggle="tab" class="nav-link">Promotions</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#tab4" data-toggle="tab" class="nav-link">Department</a>
@@ -187,7 +187,7 @@
                                                     <div class="form-group">
                                                         <label class="col-md-12">Plantilla</label>
                                                         <div class="col-md-12">
-                                                            {{ Form::select('plantilla', $plantillas->pluck('plantilla_position', 'id'), null,['class' => 'form-control select2']) }}
+                                                            {{ Form::select('plantilla', $plantillas, null,['class' => 'form-control select2']) }}
                                                         </div>
                                                     </div>
                                                     <div class="form-group">

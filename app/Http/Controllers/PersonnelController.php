@@ -20,7 +20,8 @@ class PersonnelController extends Controller
         if(Auth::user()->id == $id){
             $user = User::find($id);
             $promotion = Promotion::where('user_id', Auth::user()->id)->with('plantilla')->orderBy('created_at', 'DESC')->get();
-            $plantillas = Plantilla::get(['plantilla_position', 'item_no', 'id']);
+            //$plantillas = Plantilla::get(['plantilla_position', 'item_no', 'id']);
+            $plantillas = Plantilla::selectRaw('id, CONCAT(plantilla_position, " - ", item_no) as item')->pluck('item', 'id');
             return view('personnel.profile', compact('user', 'promotion', 'plantillas'));
         }else{
             return redirect()->back();
