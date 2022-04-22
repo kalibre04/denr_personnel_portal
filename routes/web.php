@@ -22,9 +22,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/profile/{id}', 'App\Http\Controllers\PersonnelController@profile')->name('personnel.profile');
+Route::get('/profile/{id}', [App\Http\Controllers\PersonnelController::class, 'profile'])->name('personnel.profile');
+//Route::get('/profile/{id}', 'App\Http\Controllers\PersonnelController@profile')->name('personnel.profile');
 Route::patch('/profile/updateprofile/{id}', 'App\Http\Controllers\PersonnelController@updateprofile')->name('personnel.profile.update');
 Route::patch('/profile/updatepassword/{id}', 'App\Http\Controllers\PersonnelController@profilepasswordupdate')->name('personnel.password.update');
+
+Route::post('/profile/promotion/{id}', [App\Http\Controllers\PromotionController::class, 'store'])->name('promotion.add');
+
 Route::get('/profile/delete/{id}', 'App\Http\Controllers\PromotionController@destroy');
 Route::get('travel/{url}', 'App\Http\Controllers\TravelController@index')->name('travel.index');
 

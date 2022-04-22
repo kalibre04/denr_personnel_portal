@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Carbon\Carbon;
+use Session;
+use Illuminate\Support\Facades\Validator;
+use Auth;
 use App\Models\User;
 use App\Models\Promotion;
 
@@ -37,7 +41,19 @@ class PromotionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd(Auth::user()->id);
+        $promotion = new Promotion;
+
+        $promotion->user_id = Auth::user()->id;
+        $promotion->plantilla_id = $request->plantilla;
+        $promotion->fromDate = $request->fromDate;
+        $promotion->toDate = $request->toDate;
+
+        $promotion->save();
+        Session::flash('flash_message','Your Promotion History has been updated');
+        return redirect()->back();
+
+
     }
 
     /**

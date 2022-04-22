@@ -153,37 +153,37 @@
                                             </div>
 
                                             <div class="card-body table-responsive p-0" style="height: 300px;">
-                                            <table class="table table-head-fixed text-nowrap">
-                                            <thead>
-                                            <tr>
-                                            <th>ID</th>
-                                            <th>Plantilla</th>
-                                            <!-- <th>Salary Step</th> -->
-                                            <th>From</th>
-                                            <th>To</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            @foreach($promotion as $promotions)
-                                            <tr>
-                                            <td>{{ $promotions->id }}</td>
-                                            <td>{{ $promotions->plantilla->plantilla_position }}</td>
-                                            <!-- <td>11-7-2014</td> -->
-                                            <!-- <td><span class="tag tag-success">Approved</span></td> -->
-                                            <td>{{ $promotions->fromDate }}</td>
-                                            <td>{{ $promotions->toDate }}</td>
-                                            <td><a href='delete/{{ $promotions->id }}'>Delete</a></td>
-                                            </tr>
-                                            @endforeach
-                                            
-                                            </tbody>
-                                            </table>
+                                                <table class="table table-head-fixed text-nowrap">
+                                                    <thead>
+                                                    <tr>
+                                                    <th>ID</th>
+                                                    <th>Plantilla</th>
+                                                <!-- <th>Salary Step</th> -->
+                                                    <th>From</th>
+                                                    <th>To</th>
+                                                    </tr>
+                                                    </thead>
+                                                        <tbody>
+                                                        @foreach($promotion as $promotions)
+                                                        <tr>
+                                                        <td>{{ $promotions->id }}</td>
+                                                        <td>{{ $promotions->plantilla->plantilla_position }}</td>
+                                                        <!-- <td>11-7-2014</td> -->
+                                                        <!-- <td><span class="tag tag-success">Approved</span></td> -->
+                                                        <td>{{ $promotions->fromDate }}</td>
+                                                        <td>{{ $promotions->toDate }}</td>
+                                                        <td><a href='delete/{{ $promotions->id }}'>Delete</a></td>
+                                                        </tr>
+                                                        @endforeach
+                                                        
+                                                        </tbody>
+                                                </table>
                                             </div>
                                             </div>
                                             </div>
                                             </div>
 
-                                            {!! Form::model($user, ['route' => ['personnel.profile.update',$user->id], 'method' => 'PATCH', 'files' => true]) !!}
+                                            {!! Form::model($user, ['route' => ['promotion.add',$user->id], 'method' => 'POST', 'files' => true]) !!}
                                                     <div class="form-group">
                                                         <label class="col-md-12">Plantilla</label>
                                                         <div class="col-md-12">
@@ -193,13 +193,13 @@
                                                     <div class="form-group">
                                                         <label class="col-md-12">From Date</label>
                                                         <div class="col-md-12">
-                                                            {{ Form::date('date_of_birth', null,['class' => 'form-control form-control-line']) }}
+                                                            {{ Form::date('fromDate', null,['class' => 'form-control form-control-line']) }}
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-md-12">To Date</label>
                                                         <div class="col-md-12">
-                                                            {{ Form::date('date_of_birth', null,['class' => 'form-control form-control-line']) }}
+                                                            {{ Form::date('toDate', null,['class' => 'form-control form-control-line']) }}
                                                         </div>
                                                     </div>
                                                     
@@ -209,8 +209,6 @@
                                                         </div>
                                                     </div>
                                             {!! Form::close() !!}
-
-
                             </div>
                             <div class="tab-pane" id="tab4">
                                 {!! Form::model($user, ['route' => ['personnel.profile.update',$user->id], 'method' => 'PATCH', 'files' => true]) !!}
