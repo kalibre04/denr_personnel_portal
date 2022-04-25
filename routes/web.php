@@ -28,7 +28,11 @@ Route::patch('/profile/updateprofile/{id}', 'App\Http\Controllers\PersonnelContr
 Route::patch('/profile/updatepassword/{id}', 'App\Http\Controllers\PersonnelController@profilepasswordupdate')->name('personnel.password.update');
 
 Route::post('/profile/promotion/{id}', [App\Http\Controllers\PromotionController::class, 'store'])->name('promotion.add');
-
 Route::get('/profile/delete/{id}', 'App\Http\Controllers\PromotionController@destroy');
+
+Route::post('/profile/officeassign/{id}', [App\Http\Controllers\OfficeAssignmentController::class, 'store'])->name('officeassign.add');
+Route::get('/profile/deleteassign/{id}', 'App\Http\Controllers\OfficeAssignmentController@destroy');
+
+
 Route::get('travel/{url}', 'App\Http\Controllers\TravelController@index')->name('travel.index');
 

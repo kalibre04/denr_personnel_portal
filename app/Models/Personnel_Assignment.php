@@ -12,7 +12,7 @@ class Personnel_Assignment extends Model
 {
     use HasFactory;
     protected $table = 'personnel_assignments';
-
+    use SoftDeletes;
     protected $fillable = [
         'personnel_id',
         'office_id',

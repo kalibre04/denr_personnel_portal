@@ -11,7 +11,8 @@ use Session;
 use App\Models\User;
 use App\Models\Promotion;
 use App\Models\Plantilla;
-
+use App\Models\Personnel_Assignment;
+use App\Models\Office;
 
 class PersonnelController extends Controller
 {
@@ -22,7 +23,10 @@ class PersonnelController extends Controller
             $promotion = Promotion::where('user_id', Auth::user()->id)->with('plantilla')->orderBy('created_at', 'DESC')->get();
             //$plantillas = Plantilla::get(['plantilla_position', 'item_no', 'id']);
             $plantillas = Plantilla::selectRaw('id, CONCAT(plantilla_position, " - ", item_no) as item')->pluck('item', 'id');
-            return view('personnel.profile', compact('user', 'promotion', 'plantillas'));
+            $officeassignments = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->orderBy('created_at', 'DESC')->get();
+            $offices = Office::get()->pluck('officename', 'id');
+
+            return view('personnel.profile', compact('user', 'promotion', 'plantillas', 'officeassignments', 'offices'));
         }else{
             return redirect()->back();
         }

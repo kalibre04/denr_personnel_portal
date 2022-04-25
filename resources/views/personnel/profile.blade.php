@@ -235,15 +235,15 @@
                                                     </tr>
                                                     </thead>
                                                         <tbody>
-                                                        @foreach($promotion as $promotions)
+                                                        @foreach($officeassignments as $officeassignment)
                                                         <tr>
-                                                        <td>{{ $promotions->id }}</td>
-                                                        <td>{{ $promotions->plantilla->plantilla_position }}</td>
+                                                        <td>{{ $officeassignment->id }}</td>
+                                                        <td>{{ $officeassignment->office->officename }}</td>
                                                         <!-- <td>11-7-2014</td> -->
                                                         <!-- <td><span class="tag tag-success">Approved</span></td> -->
-                                                        <td>{{ $promotions->datePromoted }}</td>
+                                                        <td>{{ $officeassignment->date_assigned }}</td>
                                                         
-                                                        <td><a href='delete/{{ $promotions->id }}'>Delete</a></td>
+                                                        <td><a href='deleteassign/{{ $officeassignment->id }}'>Delete</a></td>
                                                         </tr>
                                                         @endforeach
                                                         
@@ -254,24 +254,22 @@
                                             </div>
                                             </div>
 
-                                            {!! Form::model($user, ['route' => ['promotion.add',$user->id], 'method' => 'POST', 'files' => true]) !!}
+                                            {!! Form::model($user, ['route' => ['officeassign.add',$user->id], 'method' => 'POST', 'files' => true]) !!}
                                                     <div class="form-group">
                                                         <label class="col-md-12">Plantilla</label>
                                                         <div class="col-md-12">
-                                                            {{ Form::select('plantilla', $plantillas, null,['class' => 'form-control select2']) }}
+                                                            {{ Form::select('officeassigned', $offices, null,['class' => 'form-control select2']) }}
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-md-12">From Date</label>
                                                         <div class="col-md-12">
-                                                            {{ Form::date('datePromoted', null,['class' => 'form-control form-control-line']) }}
+                                                            {{ Form::date('date_assigned', null,['class' => 'form-control form-control-line']) }}
                                                         </div>
                                                     </div>
-                                                    
-                                                    
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
-                                                            {{ Form::submit('Add Position',['class' => 'btn btn-success']) }}
+                                                            {{ Form::submit('Add Office',['class' => 'btn btn-success']) }}
                                                         </div>
                                                     </div>
                                             {!! Form::close() !!}
