@@ -1813,11 +1813,11 @@ CREATE TABLE IF NOT EXISTS `personnel_assignments` (
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.personnel_assignments: ~0 rows (approximately)
+-- Dumping data for table denr_pportal.personnel_assignments: ~2 rows (approximately)
 REPLACE INTO `personnel_assignments` (`id`, `user_id`, `office_id`, `date_assigned`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(2, 2, 22, '2022-01-07 00:00:00', '2022-04-25 04:01:54', '2022-04-25 04:01:54', NULL);
+	(2, 2, 22, '2022-01-07 00:00:00', '2022-01-07 04:01:54', '2022-04-25 07:51:57', NULL);
 
 -- Dumping structure for table denr_pportal.plantillas
 CREATE TABLE IF NOT EXISTS `plantillas` (
@@ -1856,7 +1856,7 @@ CREATE TABLE IF NOT EXISTS `promotions` (
 
 -- Dumping data for table denr_pportal.promotions: ~0 rows (approximately)
 REPLACE INTO `promotions` (`id`, `user_id`, `plantilla_id`, `salaryStep`, `datePromoted`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(5, 2, 1, 0, '2015-09-07 00:00:00', '2022-04-21 23:45:25', '2022-04-21 23:45:25', NULL);
+	(5, 2, 1, 0, '2015-09-07 00:00:00', '2022-04-21 23:45:25', '2022-04-24 21:13:02', NULL);
 
 -- Dumping structure for table denr_pportal.provinces
 CREATE TABLE IF NOT EXISTS `provinces` (
