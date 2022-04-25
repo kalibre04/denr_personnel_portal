@@ -24,9 +24,10 @@ class PersonnelController extends Controller
             //$plantillas = Plantilla::get(['plantilla_position', 'item_no', 'id']);
             $plantillas = Plantilla::selectRaw('id, CONCAT(plantilla_position, " - ", item_no) as item')->pluck('item', 'id');
             $officeassignments = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->orderBy('created_at', 'DESC')->get();
+            $office_assigned = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
             $offices = Office::get()->pluck('officename', 'id');
 
-            return view('personnel.profile', compact('user', 'promotion', 'plantillas', 'officeassignments', 'offices'));
+            return view('personnel.profile', compact('user', 'promotion', 'plantillas', 'officeassignments', 'offices', 'office_assigned'));
         }else{
             return redirect()->back();
         }

@@ -39,8 +39,11 @@
                         <small class="text-muted p-t-30 db">Account Type</small>
                         <h6>{{ $user->account_type }}</h6> 
                         <small class="text-muted p-t-30 db">Current Department</small>
-                        <!-- <h6>{{ $user->department }}</h6> -->
-                        
+                        @if($office_assigned == null)
+                            
+                        @else
+                        <h6>{{ $office_assigned->office->officename }}</h6>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -96,6 +96,9 @@ class OfficeAssignmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Personnel_Assignment::destroy($id);
+
+        Session::flash('flash_message','Your Office Assignment History has been deleted');
+        return redirect()->back();
     }
 }

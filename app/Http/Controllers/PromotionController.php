@@ -97,6 +97,7 @@ class PromotionController extends Controller
     public function destroy($id)
     {
         Promotion::destroy($id);
+        Session::flash('flash_message','Your Promotion History has been deleted');
         return redirect()->back();
     }
 }
