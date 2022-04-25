@@ -1811,13 +1811,13 @@ CREATE TABLE IF NOT EXISTS `personnel_assignments` (
   `date_assigned` datetime NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `deleted_at` datetime NOT NULL,
+  `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table denr_pportal.personnel_assignments: ~0 rows (approximately)
 REPLACE INTO `personnel_assignments` (`id`, `user_id`, `office_id`, `date_assigned`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(1, 2, 22, '2022-01-07 08:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+	(2, 2, 22, '2022-01-07 00:00:00', '2022-04-25 04:01:54', '2022-04-25 04:01:54', NULL);
 
 -- Dumping structure for table denr_pportal.plantillas
 CREATE TABLE IF NOT EXISTS `plantillas` (
@@ -1829,7 +1829,7 @@ CREATE TABLE IF NOT EXISTS `plantillas` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.plantillas: ~9 rows (approximately)
+-- Dumping data for table denr_pportal.plantillas: ~8 rows (approximately)
 REPLACE INTO `plantillas` (`id`, `plantilla_position`, `item_no`, `office_id`, `salary_grade`) VALUES
 	(1, 'Information Systems Analyst II', 'OSEC-DENRB-INFOSA2-25-2014', 1, 16),
 	(2, 'Forest Technician I', '1111111111', 1, NULL),
@@ -1854,7 +1854,7 @@ CREATE TABLE IF NOT EXISTS `promotions` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.promotions: ~4 rows (approximately)
+-- Dumping data for table denr_pportal.promotions: ~0 rows (approximately)
 REPLACE INTO `promotions` (`id`, `user_id`, `plantilla_id`, `salaryStep`, `datePromoted`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(5, 2, 1, 0, '2015-09-07 00:00:00', '2022-04-21 23:45:25', '2022-04-21 23:45:25', NULL);
 
