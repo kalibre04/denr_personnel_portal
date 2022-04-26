@@ -21,7 +21,6 @@ Route::group(['middleware' => 'auth'], function () {
         return view('template');
     });
     
-
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/profile/{id}', [App\Http\Controllers\PersonnelController::class, 'profile'])->name('personnel.profile');
     //Route::get('/profile/{id}', 'App\Http\Controllers\PersonnelController@profile')->name('personnel.profile');
@@ -35,6 +34,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/deleteassign/{id}', 'App\Http\Controllers\OfficeAssignmentController@destroy');
 
 
-    Route::get('travel/{url}', 'App\Http\Controllers\TravelController@index')->name('travel.index');
+    Route::get('/{url}', 'App\Http\Controllers\TravelController@index')->name('travel.index');
 
 });
