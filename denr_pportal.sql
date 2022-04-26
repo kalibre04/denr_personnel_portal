@@ -1815,7 +1815,7 @@ CREATE TABLE IF NOT EXISTS `personnel_assignments` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.personnel_assignments: ~2 rows (approximately)
+-- Dumping data for table denr_pportal.personnel_assignments: ~1 rows (approximately)
 REPLACE INTO `personnel_assignments` (`id`, `user_id`, `office_id`, `date_assigned`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(2, 2, 22, '2022-01-07 00:00:00', '2022-01-07 04:01:54', '2022-04-25 07:51:57', NULL);
 
@@ -1987,6 +1987,33 @@ REPLACE INTO `regions` (`id`, `region`, `created_at`, `updated_at`) VALUES
 	(15, 'AUTONOMOUS REGION IN MUSLIM MINDANAO (ARMM)', NULL, NULL),
 	(16, 'REGION XIII (Caraga)', NULL, NULL),
 	(17, 'REGION IV-B (MIMAROPA)', NULL, NULL);
+
+-- Dumping structure for table denr_pportal.travel_orders
+CREATE TABLE IF NOT EXISTS `travel_orders` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `to_number` varchar(50) DEFAULT NULL,
+  `date_depart` date DEFAULT NULL,
+  `date_arrived` date DEFAULT NULL,
+  `destination` varchar(255) DEFAULT NULL,
+  `purpose` varchar(255) DEFAULT NULL,
+  `expenses` varchar(255) DEFAULT NULL,
+  `assist_labor_allowed` varchar(255) DEFAULT NULL,
+  `instructions` varchar(255) DEFAULT NULL,
+  `application_status` varchar(255) DEFAULT 'Pending',
+  `date_submitted` timestamp NULL DEFAULT NULL,
+  `immediate_boss_approval` varchar(10) DEFAULT NULL,
+  `ared_ms_approval` varchar(10) DEFAULT NULL,
+  `ared_ts_approval` varchar(10) DEFAULT NULL,
+  `red_approval` varchar(10) DEFAULT NULL,
+  `decline_reason` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  KEY `Primary Key` (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table denr_pportal.travel_orders: ~0 rows (approximately)
 
 -- Dumping structure for table denr_pportal.users
 CREATE TABLE IF NOT EXISTS `users` (
