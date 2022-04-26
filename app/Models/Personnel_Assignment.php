@@ -20,9 +20,9 @@ class Personnel_Assignment extends Model
         'date_assigned'
     ];
 
-    public function personnel()
+    public function user()
     {
-        return $this->belongsTo('App\Models\Personnel', 'personnel_id');
+        return $this->belongsTo('App\Models\User', 'user_id');
     }
     public function office()
     {

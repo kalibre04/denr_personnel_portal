@@ -18,6 +18,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Select2 -->
   <link rel="stylesheet" href="<?php echo asset('public/adminlte/plugins/select2/css/select2.min.css')?>">
   <link rel="stylesheet" href="<?php echo asset('public/adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')?>">
+  <!-- Datatable  -->
+  <link rel="stylesheet" href="cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
