@@ -35,5 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     Route::get('/{url}', 'App\Http\Controllers\TravelController@index')->name('travel.index');
+    Route::get('travel/{url}', 'App\Http\Controllers\TravelController@create')->name('travel.create');
+
 
 });

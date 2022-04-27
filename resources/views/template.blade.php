@@ -19,8 +19,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?php echo asset('public/adminlte/plugins/select2/css/select2.min.css')?>">
   <link rel="stylesheet" href="<?php echo asset('public/adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')?>">
   <!-- Datatable  -->
-  <link rel="stylesheet" href="cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -80,6 +81,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
+<!-- Vue  -->
+<script src="<?php echo asset('public/js/app.js') ?>"></script>
+
 
 <!-- jQuery -->
 <script src="<?php echo asset('public/adminlte/plugins/jquery/jquery.min.js') ?>"></script>
@@ -106,11 +110,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <script src="<?php echo asset('public/adminlte/plugins/dropzone/min/dropzone.min.js')?>"></script>
 
+<script type="text/javascript" charset="utf8" src="<?php echo asset('public/adminlte/plugins/datatables/jquery.dataTables.js')?>"></script>
 
 <script>
+    
+    
   $(function () {
     //Initialize Select2 Elements
     $('.select2').select2()
+
+    // Datatable
+    $('#travelTable').DataTable()
 
     //Initialize Select2 Elements
     $('.select2bs4').select2({
@@ -165,7 +175,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     $('#timepicker').datetimepicker({
       format: 'LT'
     })
-
+    
     //Bootstrap Duallistbox
     $('.duallistbox').bootstrapDualListbox()
 

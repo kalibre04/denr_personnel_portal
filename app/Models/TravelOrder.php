@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TravelOrder extends Model
 {
-    protected $table = 'plantillas';
+    protected $table = 'travel_orders';
     use HasFactory;
 
     protected $fillable = [
