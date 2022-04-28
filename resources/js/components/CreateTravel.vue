@@ -81,22 +81,21 @@ export default {
     console.log('Component Mounted')
   },
   methods: {
-    submitTO() {
-        //alert('test');
-      axios.post('saveto', {
-          destination : this.destination,
-          purpose : this.purpose,
-          datedepart : this.datedepart,
-          datearrive : this.datearrive,
-          expenses : this.expenses,
-          assist_labor_allowed : this.assist_labor_allowed,
-          instructions : this.instructions
-        })
-        .then(response => console.log(response));
-    },
-    back(){
-        window.location.href='/denr_personnel_portal/Travel';
-    }
+            submitTO() {
+            axios.post('saveto', {
+                destination : this.destination,
+                purpose : this.purpose,
+                datedepart : this.datedepart,
+                datearrive : this.datearrive,
+                expenses : this.expenses,
+                assist_labor_allowed : this.assist_labor_allowed,
+                instructions : this.instructions
+                })
+                .then(response => console.log(response));
+            },
+            back(){
+                window.location.href='/denr_personnel_portal/Travel';
+            }
   },
 };
 </script>

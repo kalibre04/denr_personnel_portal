@@ -2003,6 +2003,7 @@ CREATE TABLE IF NOT EXISTS `travel_orders` (
   `application_status` varchar(255) DEFAULT 'Pending',
   `date_submitted` timestamp NULL DEFAULT NULL,
   `immediate_boss_approval` varchar(10) DEFAULT NULL,
+  `div_chief_approval` varchar(10) DEFAULT NULL,
   `ared_ms_approval` varchar(10) DEFAULT NULL,
   `ared_ts_approval` varchar(10) DEFAULT NULL,
   `red_approval` varchar(10) DEFAULT NULL,
@@ -2011,9 +2012,13 @@ CREATE TABLE IF NOT EXISTS `travel_orders` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   KEY `Primary Key` (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table denr_pportal.travel_orders: ~0 rows (approximately)
+REPLACE INTO `travel_orders` (`id`, `user_id`, `to_number`, `date_depart`, `date_arrived`, `destination`, `purpose`, `expenses`, `assist_labor_allowed`, `instructions`, `application_status`, `date_submitted`, `immediate_boss_approval`, `div_chief_approval`, `ared_ms_approval`, `ared_ts_approval`, `red_approval`, `decline_reason`, `created_at`, `updated_at`, `deleted_at`) VALUES
+	(2, 2, '2022-000001', '2022-04-28', '2022-04-29', 'Davao', 'Tour', '1800', 'none', 'none', 'Pending', '2022-04-28 00:47:34', NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 00:47:34', '2022-04-28 00:47:34', NULL),
+	(3, 2, '2022-000003', '2022-05-02', '2022-05-06', 'Manila', 'Tour gihapon', '1800', 'none', 'none', 'Pending', '2022-04-28 00:48:55', NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 00:48:55', '2022-04-28 00:48:55', NULL),
+	(4, 2, '2022-000004', '2022-05-11', '2022-05-13', 'Cebu', 'Tour', '1800', 'yes', 'yes', 'Pending', '2022-04-28 00:57:13', NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 00:57:13', '2022-04-28 00:57:13', NULL);
 
 -- Dumping structure for table denr_pportal.users
 CREATE TABLE IF NOT EXISTS `users` (

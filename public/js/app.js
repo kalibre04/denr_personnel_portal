@@ -5349,7 +5349,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submitTO: function submitTO() {
-      //alert('test');
       axios.post('saveto', {
         destination: this.destination,
         purpose: this.purpose,
