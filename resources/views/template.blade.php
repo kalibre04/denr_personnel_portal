@@ -13,6 +13,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?php echo asset('public/adminlte/plugins/fontawesome-free/css/all.min.css')?>">
+  <link rel="stylesheet" href="<?php echo asset('public/adminlte/plugins/daterangepicker/daterangepicker.css')?>">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo asset('public/adminlte/dist/css/adminlte.min.css') ?>">
   <!-- Select2 -->
@@ -144,6 +145,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     //Date range picker
     $('#reservation').daterangepicker()
+    
+    // Travel Date Range picker
+    $('#traveldaterange').daterangepicker()
+
     //Date range picker with time picker
     $('#reservationtime').daterangepicker({
       timePicker: true,
@@ -152,6 +157,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         format: 'MM/DD/YYYY hh:mm A'
       }
     })
+    
     //Date range as a button
     $('#daterange-btn').daterangepicker(
       {

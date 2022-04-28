@@ -35,4 +35,37 @@ class TravelController extends Controller
 
         return view('travel_order.create');
     }
+
+    public function create_travel(){
+        
+        // $now = Carbon::now();
+        // $travel_id = TravelOrder::latest()->first();
+        // if($travel_id == NULL){
+        //     $default = "000001";
+        //     $val = $now->year .'-'.$default;
+            
+        // }else{
+        //     $default = "000000";
+        //     $after_year = sprintf('%06d', $default + intval($travel_id->id + 000001));
+        //     $val = $now->year .'-'.$after_year;
+            
+        // }
+
+        // $travel = new TravelOrder;
+
+        // $travel->user_id = Auth::user()->id;
+        // $travel->date_depart = $request->datedepart;
+        // $travel->date_arrived = $request->datearrive;
+        // $travel->destination = $request->destination;
+        // $travel->purpose = $request->purpose;
+        // $travel->expenses = $request->expenses;
+        // $travel->assist_labor_allowed = $request->assist_labor_allowed;
+        // $travel->instructions = $request->instructions;
+        // $travel->date_submitted = Carbon::now();
+        // $travel->to_number = $val;
+
+        // $travel->save();
+
+        return 'Ok';
+    }
 }

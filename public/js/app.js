@@ -5307,17 +5307,64 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      email: '',
-      password: '',
-      upload: '',
-      job_order: ''
+      destination: "",
+      purpose: "",
+      datedepart: "",
+      datearrive: "",
+      expenses: "",
+      assist_labor_allowed: "",
+      instructions: ""
     };
   },
   mounted: function mounted() {
     console.log('Component Mounted');
+  },
+  methods: {
+    submitTO: function submitTO() {
+      //alert('test');
+      axios.post('saveto', {
+        destination: this.destination,
+        purpose: this.purpose,
+        datedepart: this.datedepart,
+        datearrive: this.datearrive,
+        expenses: this.expenses,
+        assist_labor_allowed: this.assist_labor_allowed,
+        instructions: this.instructions
+      }).then(function (response) {
+        return console.log(response);
+      });
+    },
+    back: function back() {
+      window.location.href = '/denr_personnel_portal/Travel';
+    }
   }
 });
 
@@ -28045,7 +28092,7 @@ var render = function () {
       _c("div", { staticClass: "card-body" }, [
         _c("div", { staticClass: "form-group" }, [
           _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-            _vm._v("Email address"),
+            _vm._v("Destination"),
           ]),
           _vm._v(" "),
           _c("input", {
@@ -28053,23 +28100,19 @@ var render = function () {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.email,
-                expression: "email",
+                value: _vm.destination,
+                expression: "destination",
               },
             ],
             staticClass: "form-control",
-            attrs: {
-              type: "email",
-              id: "exampleInputEmail1",
-              placeholder: "Enter email",
-            },
-            domProps: { value: _vm.email },
+            attrs: { type: "text", placeholder: "Destination" },
+            domProps: { value: _vm.destination },
             on: {
               input: function ($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.email = $event.target.value
+                _vm.destination = $event.target.value
               },
             },
           }),
@@ -28077,7 +28120,95 @@ var render = function () {
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
           _c("label", { attrs: { for: "exampleInputPassword1" } }, [
-            _vm._v("Password"),
+            _vm._v("Purpose"),
+          ]),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.purpose,
+                expression: "purpose",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { rows: "3", placeholder: "Purpose of travel" },
+            domProps: { value: _vm.purpose },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.purpose = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Departure Date:")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-group" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.datedepart,
+                  expression: "datedepart",
+                },
+              ],
+              staticClass: "form-control float-right",
+              attrs: { type: "date" },
+              domProps: { value: _vm.datedepart },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.datedepart = $event.target.value
+                },
+              },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Arrival Date:")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-group" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.datearrive,
+                  expression: "datearrive",
+                },
+              ],
+              staticClass: "form-control float-right",
+              attrs: { type: "date" },
+              domProps: { value: _vm.datearrive },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.datearrive = $event.target.value
+                },
+              },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Per Diems/Expenses Allowed:"),
           ]),
           _vm._v(" "),
           _c("input", {
@@ -28085,82 +28216,110 @@ var render = function () {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.password,
-                expression: "password",
+                value: _vm.expenses,
+                expression: "expenses",
               },
             ],
             staticClass: "form-control",
-            attrs: {
-              type: "password",
-              id: "exampleInputPassword1",
-              placeholder: "Password",
-            },
-            domProps: { value: _vm.password },
+            attrs: { type: "text", placeholder: "Per Diems/Expenses" },
+            domProps: { value: _vm.expenses },
             on: {
               input: function ($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.password = $event.target.value
+                _vm.expenses = $event.target.value
               },
             },
           }),
         ]),
         _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-check" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Assistants or Laborers Allowed:"),
+          ]),
+          _vm._v(" "),
           _c("input", {
             directives: [
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.job_order,
-                expression: "job_order",
+                value: _vm.assist_labor_allowed,
+                expression: "assist_labor_allowed",
               },
             ],
-            staticClass: "form-check-input",
-            attrs: { type: "checkbox", id: "exampleCheck1" },
-            domProps: {
-              checked: Array.isArray(_vm.job_order)
-                ? _vm._i(_vm.job_order, null) > -1
-                : _vm.job_order,
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              placeholder: "Assistants or Laborers Allowed",
             },
+            domProps: { value: _vm.assist_labor_allowed },
             on: {
-              change: function ($event) {
-                var $$a = _vm.job_order,
-                  $$el = $event.target,
-                  $$c = $$el.checked ? true : false
-                if (Array.isArray($$a)) {
-                  var $$v = null,
-                    $$i = _vm._i($$a, $$v)
-                  if ($$el.checked) {
-                    $$i < 0 && (_vm.job_order = $$a.concat([$$v]))
-                  } else {
-                    $$i > -1 &&
-                      (_vm.job_order = $$a
-                        .slice(0, $$i)
-                        .concat($$a.slice($$i + 1)))
-                  }
-                } else {
-                  _vm.job_order = $$c
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
                 }
+                _vm.assist_labor_allowed = $event.target.value
               },
             },
           }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Remarks or Special Instructions:"),
+          ]),
           _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "form-check-label",
-              attrs: { for: "exampleCheck1" },
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.instructions,
+                expression: "instructions",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Special Instructions" },
+            domProps: { value: _vm.instructions },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.instructions = $event.target.value
+              },
             },
-            [_vm._v("Check me out")]
-          ),
+          }),
         ]),
       ]),
       _vm._v(" "),
-      _vm._m(2),
+      _c("div", { staticClass: "card-footer" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            attrs: { type: "submit" },
+            on: {
+              click: function ($event) {
+                $event.preventDefault()
+                return _vm.submitTO.apply(null, arguments)
+              },
+            },
+          },
+          [_vm._v("Submit")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            attrs: { type: "button" },
+            on: { click: _vm.back },
+          },
+          [_vm._v("Cancel")]
+        ),
+      ]),
     ]),
   ])
 }
@@ -28170,38 +28329,16 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "card-title" }, [_vm._v("Quick Example")]),
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Create Travel Order")]),
     ])
   },
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputFile" } }, [
-        _vm._v("File input"),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "input-group" }, [
-        _c("div", { staticClass: "custom-file" }, [
-          _c("input", {
-            staticClass: "custom-file-input",
-            attrs: { type: "file", id: "exampleInputFile" },
-          }),
-          _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "custom-file-label",
-              attrs: { for: "exampleInputFile" },
-            },
-            [_vm._v("Choose file")]
-          ),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group-append" }, [
-          _c("span", { staticClass: "input-group-text" }, [_vm._v("Upload")]),
-        ]),
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [
+        _c("i", { staticClass: "far fa-calendar-alt" }),
       ]),
     ])
   },
@@ -28209,12 +28346,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-footer" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Submit")]
-      ),
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [
+        _c("i", { staticClass: "far fa-calendar-alt" }),
+      ]),
     ])
   },
 ]
