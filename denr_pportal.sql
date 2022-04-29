@@ -1813,11 +1813,14 @@ CREATE TABLE IF NOT EXISTS `personnel_assignments` (
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.personnel_assignments: ~1 rows (approximately)
+-- Dumping data for table denr_pportal.personnel_assignments: ~4 rows (approximately)
 REPLACE INTO `personnel_assignments` (`id`, `user_id`, `office_id`, `date_assigned`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(2, 2, 22, '2022-01-07 00:00:00', '2022-01-07 04:01:54', '2022-04-25 07:51:57', NULL);
+	(2, 2, 22, '2022-01-07 00:00:00', '2022-01-07 04:01:54', '2022-04-25 07:51:57', NULL),
+	(7, 3, 22, '2022-04-29 00:00:00', '2022-04-29 02:50:14', '2022-04-29 02:50:14', NULL),
+	(8, 3, 8, '2022-04-29 00:00:00', '2022-04-29 07:52:05', '2022-04-29 07:52:05', NULL),
+	(9, 3, 11, '2022-04-29 00:00:00', '2022-04-29 08:01:36', '2022-04-29 08:01:36', NULL);
 
 -- Dumping structure for table denr_pportal.plantillas
 CREATE TABLE IF NOT EXISTS `plantillas` (
@@ -1852,11 +1855,15 @@ CREATE TABLE IF NOT EXISTS `promotions` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.promotions: ~0 rows (approximately)
+-- Dumping data for table denr_pportal.promotions: ~5 rows (approximately)
 REPLACE INTO `promotions` (`id`, `user_id`, `plantilla_id`, `salaryStep`, `datePromoted`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(5, 2, 1, 0, '2015-09-07 00:00:00', '2022-04-21 23:45:25', '2022-04-24 21:13:02', NULL);
+	(5, 2, 1, 0, '2015-09-07 00:00:00', '2022-04-21 23:45:25', '2022-04-24 21:13:02', NULL),
+	(6, 3, 2, 0, '2022-04-29 00:00:00', '2022-04-28 18:50:02', '2022-04-28 18:50:02', NULL),
+	(7, 3, 7, 0, '2022-04-29 00:00:00', '2022-04-28 23:57:02', '2022-04-28 23:57:02', NULL),
+	(8, 3, 1, 0, NULL, '2022-04-28 23:57:51', '2022-04-28 23:57:51', NULL),
+	(9, 3, 9, 0, '2022-04-29 00:00:00', '2022-04-29 00:01:01', '2022-04-29 00:01:01', NULL);
 
 -- Dumping structure for table denr_pportal.provinces
 CREATE TABLE IF NOT EXISTS `provinces` (
@@ -2002,6 +2009,7 @@ CREATE TABLE IF NOT EXISTS `travel_orders` (
   `instructions` varchar(255) DEFAULT NULL,
   `application_status` varchar(255) DEFAULT 'Pending',
   `date_submitted` timestamp NULL DEFAULT NULL,
+  `office` varchar(50) DEFAULT NULL,
   `immediate_boss_approval` varchar(10) DEFAULT NULL,
   `div_chief_approval` varchar(10) DEFAULT NULL,
   `ared_ms_approval` varchar(10) DEFAULT NULL,
@@ -2012,13 +2020,15 @@ CREATE TABLE IF NOT EXISTS `travel_orders` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   KEY `Primary Key` (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.travel_orders: ~0 rows (approximately)
-REPLACE INTO `travel_orders` (`id`, `user_id`, `to_number`, `date_depart`, `date_arrived`, `destination`, `purpose`, `expenses`, `assist_labor_allowed`, `instructions`, `application_status`, `date_submitted`, `immediate_boss_approval`, `div_chief_approval`, `ared_ms_approval`, `ared_ts_approval`, `red_approval`, `decline_reason`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(2, 2, '2022-000001', '2022-04-28', '2022-04-29', 'Davao', 'Tour', '1800', 'none', 'none', 'Pending', '2022-04-28 00:47:34', NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 00:47:34', '2022-04-28 00:47:34', NULL),
-	(3, 2, '2022-000003', '2022-05-02', '2022-05-06', 'Manila', 'Tour gihapon', '1800', 'none', 'none', 'Pending', '2022-04-28 00:48:55', NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 00:48:55', '2022-04-28 00:48:55', NULL),
-	(4, 2, '2022-000004', '2022-05-11', '2022-05-13', 'Cebu', 'Tour', '1800', 'yes', 'yes', 'Pending', '2022-04-28 00:57:13', NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 00:57:13', '2022-04-28 00:57:13', NULL);
+-- Dumping data for table denr_pportal.travel_orders: ~5 rows (approximately)
+REPLACE INTO `travel_orders` (`id`, `user_id`, `to_number`, `date_depart`, `date_arrived`, `destination`, `purpose`, `expenses`, `assist_labor_allowed`, `instructions`, `application_status`, `date_submitted`, `office`, `immediate_boss_approval`, `div_chief_approval`, `ared_ms_approval`, `ared_ts_approval`, `red_approval`, `decline_reason`, `created_at`, `updated_at`, `deleted_at`) VALUES
+	(3, 2, '22-00000', '2022-04-29', '2022-04-29', 'Tagum', 'Uli Balay', '1800', 'yes', 'yes', 'Pending', '2022-04-28 21:22:28', 'Planning and Management Division', NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:22:28', '2022-04-28 21:22:28', NULL),
+	(4, 3, '22-00000', '2022-04-29', '2022-05-07', 'mati', 'dasdsadsa', 'no', 'no', 'no', 'Pending', '2022-04-28 21:22:29', 'Planning and Management Division', NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:22:29', '2022-04-28 21:22:29', NULL),
+	(5, 3, '22-00001', '2022-04-29', '2022-04-30', 'laak ko danrick tkeiko', 'dasdasdsa', 'no', 'no', 'no', 'Pending', '2022-04-28 21:29:58', 'Planning and Management Division', NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:29:58', '2022-04-28 21:29:58', NULL),
+	(6, 2, '22-00002', '2022-04-30', '2022-05-01', 'Mawab', 'laag sa mainit', NULL, NULL, NULL, 'Pending', '2022-04-28 21:29:58', 'Planning and Management Division', NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:29:58', '2022-04-28 21:29:58', NULL),
+	(7, 3, '22-00003', '2022-04-29', '2022-05-07', 'gensan', 'mangayu og kwarta kay manny pacquiao', 'no', 'no', 'no', 'Pending', '2022-04-28 23:53:17', 'CENRO Manay', NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 23:53:17', '2022-04-28 23:53:17', NULL);
 
 -- Dumping structure for table denr_pportal.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -2038,11 +2048,12 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table denr_pportal.users: ~0 rows (approximately)
+-- Dumping data for table denr_pportal.users: ~1 rows (approximately)
 REPLACE INTO `users` (`id`, `firstname`, `middlename`, `lastname`, `date_of_birth`, `gender`, `contact_no`, `email`, `email_verified_at`, `password`, `account_type`, `remember_token`, `created_at`, `updated_at`) VALUES
-	(2, 'Albert Neil', 'Dela Cruz', 'Bandiola', '1991-05-04', 'Male', '09989762395', 'adbandiola@denr.gov.ph', NULL, '$2y$10$tNKaZAE9giCEmfiWZ43uW.gNDxGDJHasPCBHQYNJIDKRUmbEOJBF.', 'Division Personnel', NULL, '2022-03-29 22:59:14', '2022-04-18 17:56:58');
+	(2, 'Albert Neil', 'Dela Cruz', 'Bandiola', '1991-05-04', 'Male', '09989762395', 'adbandiola@denr.gov.ph', NULL, '$2y$10$tNKaZAE9giCEmfiWZ43uW.gNDxGDJHasPCBHQYNJIDKRUmbEOJBF.', 'Division Personnel', NULL, '2022-03-29 22:59:14', '2022-04-18 17:56:58'),
+	(3, 'danrick', 'cubal', 'tekiko', '1996-11-15', 'Male', '09199533529', 'dcode0516@gmail.com', NULL, '$2y$10$btfsqX18b16sBtpyEknZUerDkBGcaih3B6EPN8N87BOnOMw31IMzC', NULL, NULL, '2022-04-28 18:49:17', '2022-04-28 18:49:17');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
