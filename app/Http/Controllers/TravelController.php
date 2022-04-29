@@ -32,24 +32,50 @@ class TravelController extends Controller
 
     public function create()
     {
-
-        return view('travel_order.create');
+        $now = Carbon::now();
+        $travel_id = TravelOrder::latest()->first();
+        if($travel_id == NULL){
+            $office_assigned = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+            $default = "000001";
+            $val = $now->year .'-'.$default;
+            return view('travel_order.create', compact('val', 'office_assigned'));
+        }else{
+            $office_assigned = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+            $default = "000000";
+            $after_year = sprintf('%06d', $default + intval($travel_id->id + 000001));
+            $val = $now->year .'-'.$after_year;
+            return view('travel_order.create', compact('val', 'office_assigned'));
+        }
+        
     }
 
     public function create_travel(Request $request){
 
-        $now = Carbon::now();
-        $travel_id = TravelOrder::latest()->first();
-        if($travel_id == NULL){
-            $default = "000001";
-            $val = $now->year .'-'.$default;
+        $validator = Validator::make($request->all(), [ 
+            'destination'        => 'required',
+            'purpose'       => 'required',
+            'datedepart'         => 'required|date',
+            'datearrive'    => 'required|date'
             
-        }else{
-            $default = "000000";
-            $after_year = sprintf('%06d', $default + intval($travel_id->id + 000001));
-            $val = $now->year .'-'.$after_year;
-            
+        ]);
+        if ($validator->fails()) { 
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();          
         }
+
+        // $now = Carbon::now();
+        // $travel_id = TravelOrder::latest()->first();
+        // if($travel_id == NULL){
+        //     $default = "000001";
+        //     $val = $now->year .'-'.$default;
+            
+        // }else{
+        //     $default = "000000";
+        //     $after_year = sprintf('%06d', $default + intval($travel_id->id + 000001));
+        //     $val = $now->year .'-'.$after_year;
+            
+        // }
 
         $travel = new TravelOrder;
 
@@ -62,10 +88,11 @@ class TravelController extends Controller
         $travel->assist_labor_allowed = $request->assist_labor_allowed;
         $travel->instructions = $request->instructions;
         $travel->date_submitted = Carbon::now();
-        $travel->to_number = $val;
 
+        $travel->to_number = $request->toNumber;
+        $travel->office = $request->currentDept;
         $travel->save();
 
-        return 'Ok';
+        return response()->json(['message' => 'Travel Order Successfully Created' ]);
     }
 }

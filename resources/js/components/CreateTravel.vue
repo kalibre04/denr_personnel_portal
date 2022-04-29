@@ -3,9 +3,17 @@
     <div class="card-header">
       <h3 class="card-title">Create Travel Order</h3>
     </div>
-
+    
     <form>
             <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Travel Order No.</label>
+                    <input type="text" v-model="toNumber" class="form-control" disabled="true"/>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Current Department</label>
+                    <input type="text" v-model="currentDept" class="form-control" disabled="true" />
+                </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Destination</label>
                     <input type="text" v-model="destination" class="form-control" placeholder="Destination"/>
@@ -66,6 +74,18 @@
 </template>
 <script>
 export default {
+  props:{
+      toNumber:{
+          type: String,
+          required: true
+      },
+      currentDept:{
+          type: String,
+          required: true
+      }
+
+  },
+  
   data() {
     return {
       destination: "",
@@ -75,10 +95,16 @@ export default {
       expenses: "",
       assist_labor_allowed: "",
       instructions: "",
+      toNumber: "",
+      currentDept: "",
+      error: false,
+      successful: false,
+      errors: []
+      
     };
   },
   mounted() {
-    console.log('Component Mounted')
+    //console.log('Component Mounted')
   },
   methods: {
             submitTO() {
@@ -89,10 +115,57 @@ export default {
                 datearrive : this.datearrive,
                 expenses : this.expenses,
                 assist_labor_allowed : this.assist_labor_allowed,
-                instructions : this.instructions
+                instructions : this.instructions,
+                toNumber : this.toNumber,
+                currentDept: this.currentDept
                 })
-                .then(response => console.log(response));
+                .then(response => {
+
+                    if(response.data.message == 'Travel Order Successfully Created'){
+                        Swal.fire({
+                            title: 'Success!',
+                            text: response.data.message,
+                            icon: 'success',
+                            confirmButtonText: 'Okay'
+                        }).then(function() {
+                            window.location = "/denr_personnel_portal/Travel";
+                        });
+
+                    }else{
+                        Swal.fire({
+                            title: 'Oops...',
+                            text: 'fill out required fields',
+                            icon: 'error',
+                            confirmButtonText: 'Okay'
+                        })
+
+
+                    }
+
+
+
+                }).catch(error => {
+                    
+                    if (!_.isEmpty(error.response)) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong!',
+                        });
+                        if ((error.response.status = 422)) {
+                            this.errors = error.response.data.errors;
+                            this.successful = false;
+                            this.error = true;
+                            this.submitted = false;
+                        }
+                    }
+
+
+                });
             },
+
+
+
             back(){
                 window.location.href='/denr_personnel_portal/Travel';
             }

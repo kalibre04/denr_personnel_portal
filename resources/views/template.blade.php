@@ -19,6 +19,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Select2 -->
   <link rel="stylesheet" href="<?php echo asset('public/adminlte/plugins/select2/css/select2.min.css')?>">
   <link rel="stylesheet" href="<?php echo asset('public/adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')?>">
+  <!-- SWAL Alert -->
+  <link rel="stylesheet" href="<?php echo asset('public/adminlte/plugins/sweetalert2/sweetalert2.min.css')?>">
+  
   <!-- Datatable  -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
@@ -112,6 +115,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="<?php echo asset('public/adminlte/plugins/dropzone/min/dropzone.min.js')?>"></script>
 
 <script type="text/javascript" charset="utf8" src="<?php echo asset('public/adminlte/plugins/datatables/jquery.dataTables.js')?>"></script>
+<script type="text/javascript" charset="utf8" src="<?php echo asset('public/adminlte/plugins/sweetalert2/sweetalert2.min.js')?>"></script>
+
 
 <script>
     

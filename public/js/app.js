@@ -5332,7 +5332,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    toNumber: {
+      type: String,
+      required: true
+    },
+    currentDept: {
+      type: String,
+      required: true
+    }
+  },
   data: function data() {
     return {
       destination: "",
@@ -5341,14 +5359,20 @@ __webpack_require__.r(__webpack_exports__);
       datearrive: "",
       expenses: "",
       assist_labor_allowed: "",
-      instructions: ""
+      instructions: "",
+      toNumber: "",
+      currentDept: "",
+      error: false,
+      successful: false,
+      errors: []
     };
   },
-  mounted: function mounted() {
-    console.log('Component Mounted');
+  mounted: function mounted() {//console.log('Component Mounted')
   },
   methods: {
     submitTO: function submitTO() {
+      var _this = this;
+
       axios.post('saveto', {
         destination: this.destination,
         purpose: this.purpose,
@@ -5356,9 +5380,42 @@ __webpack_require__.r(__webpack_exports__);
         datearrive: this.datearrive,
         expenses: this.expenses,
         assist_labor_allowed: this.assist_labor_allowed,
-        instructions: this.instructions
+        instructions: this.instructions,
+        toNumber: this.toNumber,
+        currentDept: this.currentDept
       }).then(function (response) {
-        return console.log(response);
+        if (response.data.message == 'Travel Order Successfully Created') {
+          Swal.fire({
+            title: 'Success!',
+            text: response.data.message,
+            icon: 'success',
+            confirmButtonText: 'Okay'
+          }).then(function () {
+            window.location = "/denr_personnel_portal/Travel";
+          });
+        } else {
+          Swal.fire({
+            title: 'Oops...',
+            text: 'fill out required fields',
+            icon: 'error',
+            confirmButtonText: 'Okay'
+          });
+        }
+      })["catch"](function (error) {
+        if (!_.isEmpty(error.response)) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!'
+          });
+
+          if (error.response.status = 422) {
+            _this.errors = error.response.data.errors;
+            _this.successful = false;
+            _this.error = true;
+            _this.submitted = false;
+          }
+        }
       });
     },
     back: function back() {
@@ -28089,6 +28146,62 @@ var render = function () {
     _vm._v(" "),
     _c("form", [
       _c("div", { staticClass: "card-body" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Travel Order No."),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.toNumber,
+                expression: "toNumber",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", disabled: "true" },
+            domProps: { value: _vm.toNumber },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.toNumber = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Current Department"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.currentDept,
+                expression: "currentDept",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", disabled: "true" },
+            domProps: { value: _vm.currentDept },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.currentDept = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
           _c("label", { attrs: { for: "exampleInputEmail1" } }, [
             _vm._v("Destination"),
