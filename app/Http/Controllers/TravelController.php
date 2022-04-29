@@ -19,35 +19,38 @@ use App\Models\Region;
 class TravelController extends Controller
 {
     public function index(){
+        $travels = TravelOrder::where('user_id', Auth::user()->id)->get();
 
-
-        return view('travel_order.index');
+        return view('travel_order.index', compact('travels'));
     }
 
-    public function region()
-    {
-        $regions = Region::get();
-        return response()->json(compact('regions'));
-    }
+    // public function create()
+    // {
+    //     $now = Carbon::now();
+    //     $travel_id = TravelOrder::latest()->first();
+    //     if($travel_id == NULL){
+    //         $office_assigned = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+    //         $default = "000001";
+    //         $val = $now->year .'-'.$default;
+    //         return view('travel_order.create', compact('val', 'office_assigned'));
+    //     }else{
+    //         $office_assigned = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+    //         $default = "000000";
+    //         $after_year = sprintf('%06d', $default + intval($travel_id->id + 000001));
+    //         $val = $now->year .'-'.$after_year;
+    //         return view('travel_order.create', compact('val', 'office_assigned'));
+    //     }
+        
+    // }
 
     public function create()
     {
-        $now = Carbon::now();
-        $travel_id = TravelOrder::latest()->first();
-        if($travel_id == NULL){
-            $office_assigned = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
-            $default = "000001";
-            $val = $now->year .'-'.$default;
-            return view('travel_order.create', compact('val', 'office_assigned'));
-        }else{
-            $office_assigned = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
-            $default = "000000";
-            $after_year = sprintf('%06d', $default + intval($travel_id->id + 000001));
-            $val = $now->year .'-'.$after_year;
-            return view('travel_order.create', compact('val', 'office_assigned'));
-        }
-        
-    }
+		$now = Carbon::now()->format('y');
+		$rounded = TravelOrder::IDGenerator(new TravelOrder,'to_number', 5, $now);
+		$office_assigned = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+        return view('travel_order.create', compact('rounded', 'office_assigned'));
+    }    
+
 
     public function create_travel(Request $request){
 
@@ -76,7 +79,9 @@ class TravelController extends Controller
         //     $val = $now->year .'-'.$after_year;
             
         // }
-
+        $now = Carbon::now()->format('y');
+        $to_num = TravelOrder::IDGenerator(new TravelOrder,'to_number', 5, $now);    
+        
         $travel = new TravelOrder;
 
         $travel->user_id = Auth::user()->id;
@@ -89,7 +94,7 @@ class TravelController extends Controller
         $travel->instructions = $request->instructions;
         $travel->date_submitted = Carbon::now();
 
-        $travel->to_number = $request->toNumber;
+        $travel->to_number = $to_num;
         $travel->office = $request->currentDept;
         $travel->save();
 

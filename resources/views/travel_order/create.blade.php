@@ -5,7 +5,7 @@
 
         <div id="app">
     	  	<createtravel 
-                      :to-number="{{ json_encode($val) }}"
+                      :to-number="{{ json_encode($rounded) }}"
                       :current-dept="{{ json_encode($office_assigned->office->officename) }}"
                 ></createtravel>
         </div>
