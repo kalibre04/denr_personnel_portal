@@ -79,7 +79,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       PMD-ICT
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2022 <a href="https://www.r11.denr.gov.ph">DENR Regional Office XI</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2022 <a href="https://r11.denr.gov.ph">DENR Regional Office XI</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->
@@ -261,6 +261,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     myDropzone.removeAllFiles(true)
   }
   // DropzoneJS Demo Code End
+
+  
+
 </script>
 </body>
 </html>

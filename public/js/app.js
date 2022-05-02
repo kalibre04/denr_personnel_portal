@@ -28425,7 +28425,7 @@ var render = function () {
         _c(
           "button",
           {
-            staticClass: "btn btn-primary",
+            staticClass: "btn btn-secondary",
             attrs: { type: "button" },
             on: { click: _vm.back },
           },

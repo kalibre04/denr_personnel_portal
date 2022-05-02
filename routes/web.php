@@ -38,4 +38,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('travel/{url}', 'App\Http\Controllers\TravelController@create')->name('travel.create');
     Route::post('travel/saveto', 'App\Http\Controllers\TravelController@create_travel');
 
+
+    //Division Chief Middleware start
+    Route::group(['middleware' => 'divchief'], function () {
+        
+    
+    });
+    //Division Chief Middleware end
+
+
 });

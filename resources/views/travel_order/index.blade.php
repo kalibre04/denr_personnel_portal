@@ -12,7 +12,8 @@
                   <div class="card-header">  
                   
                         <a href="{{ route('travel.create', 'createtravel') }}" class="btn btn-primary">Create</a>
-                        <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+                        <a href="{{ route('home') }}" class="btn btn-secondary">Back</a>
+                        <!-- <a href="{{ url()->previous() }}" class="btn btn-secondary">Back</a> -->
                   </div>
                   <div class="card-body pad table-responsive">
                       <table id ="travelTable" class="display">
@@ -20,12 +21,12 @@
                           <tr>
                             <th>ID</th>
                             <th>T.O. #</th>
-                            <th>Office/Department</th>
+                            <th>Purpose</th>
                             <th>Status</th>
                             <th>Destination</th>
                             <th>Departure Date</th>
                             <th>Arrival Date</th>
-                            <th>Purpose</th>
+                            <th>Office/Department</th>
                             <th>Action</th>
                           </tr>
                         </thead>
@@ -34,12 +35,12 @@
                           <tr>
                             <td>{{ $travel->id }}</td>
                             <td>{{ $travel->to_number }}</td>
-                            <td>{{ $travel->office }}</td>
+                            <td>{{ $travel->purpose }}</td>
                             <td><span class="tag tag-success">{{ $travel->application_status }}</span></td>
                             <td>{{ $travel->destination }}</td>
                             <td>{{ $travel->date_depart }}</td>
                             <td>{{ $travel->date_arrived }}</td>
-                            <td>{{ $travel->purpose }}</td>
+                            <td>{{ $travel->office }}</td>
                             <td>Action</td>
                           </tr>
                         @endforeach         

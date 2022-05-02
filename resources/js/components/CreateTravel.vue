@@ -67,7 +67,7 @@
 
             <div class="card-footer">
                 <button type="submit" @click.prevent="submitTO" class="btn btn-primary">Submit</button>
-                <button type="button" @click="back" class="btn btn-primary">Cancel</button>
+                <button type="button" @click="back" class="btn btn-secondary">Cancel</button>
             </div>
     </form>
   </div>
