@@ -34,15 +34,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/deleteassign/{id}', 'App\Http\Controllers\OfficeAssignmentController@destroy');
 
 
-    Route::get('/{url}', 'App\Http\Controllers\TravelController@index')->name('travel.index');
-    Route::get('travel/{url}', 'App\Http\Controllers\TravelController@create')->name('travel.create');
+    Route::get('/travel', 'App\Http\Controllers\TravelController@index')->name('travel.index');
+    Route::get('travel/createtravel', 'App\Http\Controllers\TravelController@create')->name('travel.create');
     Route::post('travel/saveto', 'App\Http\Controllers\TravelController@create_travel');
 
 
     //Division Chief Middleware start
     Route::group(['middleware' => 'divchief'], function () {
+        Route::get('travel/chiefindex', 'App\Http\Controllers\TravelApproverController@chief_index')->name('travel.chiefindex');
         
-    
     });
     //Division Chief Middleware end
 

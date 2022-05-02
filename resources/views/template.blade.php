@@ -262,7 +262,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   }
   // DropzoneJS Demo Code End
 
-  
 
 </script>
 </body>

@@ -30,33 +30,34 @@
       </div> -->
 
       <!-- Sidebar Menu -->
-      <!-- <nav class="mt-2">
+      @if(Auth::user()->account_type == 'Division Chief')
+      <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           
           <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Starter Pages
+                Approver Tab
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('travel.index', 'Travel') }}" class="nav-link active">
+                <a href="{{ route('travel.chiefindex') }}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Travel</p>
+                  <p>Travel Orders</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
+              <!-- <li class="nav-item">
+                <a href="#" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Inactive Page</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
@@ -64,9 +65,10 @@
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>
-          </li>
+          </li> -->
         </ul>
-      </nav> -->
+      </nav>
+      @endif
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

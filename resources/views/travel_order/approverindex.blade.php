@@ -11,8 +11,8 @@
                   </div>
                   <div class="card-header">  
                   
-                        <a href="{{ route('travel.create') }}" class="btn btn-primary">Create</a>
-                        <a href="{{ route('home') }}" class="btn btn-secondary">Back</a>
+                        <!-- <a href="{{ route('travel.create') }}" class="btn btn-primary">Create</a>
+                        <a href="{{ route('home') }}" class="btn btn-secondary">Back</a> -->
                         <!-- <a href="{{ url()->previous() }}" class="btn btn-secondary">Back</a> -->
                   </div>
                   <div class="card-body pad table-responsive">
