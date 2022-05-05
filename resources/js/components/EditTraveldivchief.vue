@@ -1,7 +1,7 @@
 <template>
   <div class="card card-primary">
     <div class="card-header">
-      <h3 class="card-title">Create Travel Order</h3>
+      <h3 class="card-title">Edit Travel Order</h3>
     </div>
     
     <form>
@@ -70,7 +70,7 @@
             </div>
 
             <div class="card-footer">
-                <button type="submit" @click.prevent="submitTO()" class="btn btn-primary">Submit</button>
+                <button type="submit" @click.prevent="submitTO()" class="btn btn-primary">Approve</button>
                 <button type="button" @click="back" class="btn btn-secondary">Cancel</button>
             </div>
     </form>
@@ -84,6 +84,30 @@ export default {
           required: true
       },
       destination:{
+          type: String,
+          required: true
+      },
+      currentDept:{
+          type: String,
+          required: true
+      },
+      datedepart:{
+          type: Date,
+          required: true
+      },
+      datearrive:{
+          type: Date,
+          required: true
+      },
+      expenses:{
+          type: String,
+          required: true
+      },
+      assist_labor_allowed:{
+          type: String,
+          required: true
+      },
+      instructions:{
           type: String,
           required: true
       },
@@ -118,12 +142,7 @@ export default {
     
   },
   methods: {
-            editTO(id){
-                axios.get('denr_personnel_portal/travel/chiefeditto/'+id).then(response => {
-                    this.destination = response.data.destination;
-                    this.purpose = response.data.purpose;
-                });
-            },
+            
 
             submitTO() {
             axios.post('saveto', {

@@ -5535,6 +5535,30 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true
     },
+    currentDept: {
+      type: String,
+      required: true
+    },
+    datedepart: {
+      type: Date,
+      required: true
+    },
+    datearrive: {
+      type: Date,
+      required: true
+    },
+    expenses: {
+      type: String,
+      required: true
+    },
+    assist_labor_allowed: {
+      type: String,
+      required: true
+    },
+    instructions: {
+      type: String,
+      required: true
+    },
     purpose: {
       type: String,
       required: true
@@ -5561,16 +5585,8 @@ __webpack_require__.r(__webpack_exports__);
     //this.sampleMount();
   },
   methods: {
-    editTO: function editTO(id) {
-      var _this = this;
-
-      axios.get('denr_personnel_portal/travel/chiefeditto/' + id).then(function (response) {
-        _this.destination = response.data.destination;
-        _this.purpose = response.data.purpose;
-      });
-    },
     submitTO: function submitTO() {
-      var _this2 = this;
+      var _this = this;
 
       axios.post('saveto', {
         destination: this.destination,
@@ -5610,10 +5626,10 @@ __webpack_require__.r(__webpack_exports__);
           });
 
           if (error.response.status = 422) {
-            _this2.errors = error.response.data.errors;
-            _this2.successful = false;
-            _this2.error = true;
-            _this2.submitted = false;
+            _this.errors = error.response.data.errors;
+            _this.successful = false;
+            _this.error = true;
+            _this.submitted = false;
           }
         }
       });
@@ -29086,7 +29102,7 @@ var render = function () {
               },
             },
           },
-          [_vm._v("Submit")]
+          [_vm._v("Approve")]
         ),
         _vm._v(" "),
         _c(
@@ -29108,7 +29124,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "card-title" }, [_vm._v("Create Travel Order")]),
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Edit Travel Order")]),
     ])
   },
   function () {
