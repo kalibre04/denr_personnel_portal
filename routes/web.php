@@ -42,7 +42,10 @@ Route::group(['middleware' => 'auth'], function () {
     //Division Chief Middleware start
     Route::group(['middleware' => 'divchief'], function () {
         Route::get('travel/chiefindex', 'App\Http\Controllers\TravelApproverController@chief_index')->name('travel.chiefindex');
+        Route::get('travel/chiefedit/{id}', 'App\Http\Controllers\TravelApproverController@chief_edit')->name('travel.chiefeditto');
         
+
+
     });
     //Division Chief Middleware end
 

@@ -11,7 +11,7 @@
                     <div class="card-img-overlay d-flex flex-column justify-content-end">
                         <h4 class="card-title text-primary text-white">Travel Orders</h4>
                         <p class="card-text text-white pb-2 pt-1">Module for Travel Orders</p>
-                        <a href="{{ route('travel.index', 'Travel') }}" class="text-white">Apply </a>
+                        <a href="{{ route('travel.index') }}" class="text-white">Apply </a>
                     </div>
                     </div>
                 </div>

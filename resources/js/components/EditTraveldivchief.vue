@@ -70,7 +70,7 @@
             </div>
 
             <div class="card-footer">
-                <button type="submit" @click.prevent="submitTO" class="btn btn-primary">Submit</button>
+                <button type="submit" @click.prevent="submitTO()" class="btn btn-primary">Submit</button>
                 <button type="button" @click="back" class="btn btn-secondary">Cancel</button>
             </div>
     </form>
@@ -83,11 +83,11 @@ export default {
           type: String,
           required: true
       },
-      currentDept:{
+      destination:{
           type: String,
           required: true
       },
-      currentDeptid:{
+      purpose:{
           type: String,
           required: true
       }
@@ -114,8 +114,17 @@ export default {
   },
   mounted() {
     //console.log('Component Mounted')
+    //this.sampleMount();
+    
   },
   methods: {
+            editTO(id){
+                axios.get('denr_personnel_portal/travel/chiefeditto/'+id).then(response => {
+                    this.destination = response.data.destination;
+                    this.purpose = response.data.purpose;
+                });
+            },
+
             submitTO() {
             axios.post('saveto', {
                 destination : this.destination,

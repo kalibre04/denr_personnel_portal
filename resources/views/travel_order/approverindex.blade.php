@@ -7,10 +7,10 @@
               <!-- /.card-header -->
               <div class="card card-primary card-outline">
                   <div class="card-header">
-                        <h3>Travel Orders</h3>
+                        <h3>Travel Orders for Approval</h3>
                   </div>
                   <div class="card-header">  
-                  
+
                         <!-- <a href="{{ route('travel.create') }}" class="btn btn-primary">Create</a>
                         <a href="{{ route('home') }}" class="btn btn-secondary">Back</a> -->
                         <!-- <a href="{{ url()->previous() }}" class="btn btn-secondary">Back</a> -->
@@ -41,7 +41,7 @@
                             <td>{{ $travel->date_depart }}</td>
                             <td>{{ $travel->date_arrived }}</td>
                             <td>{{ $travel->office }}</td>
-                            <td>Action</td>
+                            <td><a href="{{ route('travel.chiefeditto', $travel->id) }}" class="btn btn-primary">View</a></td>
                           </tr>
                         @endforeach         
                         </tbody>

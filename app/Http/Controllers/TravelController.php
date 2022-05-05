@@ -96,6 +96,7 @@ class TravelController extends Controller
 
         $travel->to_number = $to_num;
         $travel->office = $request->currentDept;
+        $travel->office_id = $request->currentDeptid;
         $travel->save();
 
         return response()->json(['message' => 'Travel Order Successfully Created' ]);
