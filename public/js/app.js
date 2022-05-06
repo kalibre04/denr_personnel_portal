@@ -5429,7 +5429,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     back: function back() {
-      window.location.href = '/denr_personnel_portal/Travel';
+      window.location.href = '/denr_personnel_portal/travel';
     }
   }
 });
@@ -5447,6 +5447,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
 //
 //
 //
@@ -5562,6 +5564,10 @@ __webpack_require__.r(__webpack_exports__);
     purpose: {
       type: String,
       required: true
+    },
+    id: {
+      type: String,
+      required: true
     }
   },
   data: function data() {
@@ -5585,10 +5591,47 @@ __webpack_require__.r(__webpack_exports__);
     //this.sampleMount();
   },
   methods: {
-    submitTO: function submitTO() {
+    disapproveTO: function disapproveTO() {
       var _this = this;
 
-      axios.post('saveto', {
+      Swal.fire({
+        title: 'Are you sure you want to decline this Travel Order?',
+        text: "kindly state why",
+        input: 'textarea',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes!'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          //console.log(result);   
+          axios.patch('disapproveto/' + _this.id, result).then(function (response) {
+            if (response.data.message == "Travel Order Disapproved") {
+              Swal.fire({
+                title: 'Success!',
+                text: response.data.message,
+                icon: 'success',
+                confirmButtonText: 'Okay'
+              }).then(function () {
+                window.location = "/denr_personnel_portal/travel/chiefindex";
+              });
+            } else {
+              Swal.fire({
+                title: 'Oops!',
+                text: response.data.message,
+                icon: 'warning',
+                confirmButtonText: 'Okay'
+              });
+            }
+          });
+        }
+      });
+    },
+    approveTO: function approveTO() {
+      var _this2 = this;
+
+      axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
         datedepart: this.datedepart,
@@ -5598,16 +5641,17 @@ __webpack_require__.r(__webpack_exports__);
         instructions: this.instructions,
         toNumber: this.toNumber,
         currentDept: this.currentDept,
-        currentDeptid: this.currentDeptid
+        currentDeptid: this.currentDeptid,
+        id: this.id
       }).then(function (response) {
-        if (response.data.message == 'Travel Order Successfully Created') {
+        if (response.data.message == 'Travel Order Approved') {
           Swal.fire({
             title: 'Success!',
             text: response.data.message,
             icon: 'success',
             confirmButtonText: 'Okay'
           }).then(function () {
-            window.location = "/denr_personnel_portal/travel";
+            window.location = "/denr_personnel_portal/travel/chiefindex";
           });
         } else {
           Swal.fire({
@@ -5626,16 +5670,16 @@ __webpack_require__.r(__webpack_exports__);
           });
 
           if (error.response.status = 422) {
-            _this.errors = error.response.data.errors;
-            _this.successful = false;
-            _this.error = true;
-            _this.submitted = false;
+            _this2.errors = error.response.data.errors;
+            _this2.successful = false;
+            _this2.error = true;
+            _this2.submitted = false;
           }
         }
       });
     },
     back: function back() {
-      window.location.href = '/denr_personnel_portal/Travel';
+      window.location.href = '/denr_personnel_portal/travel/chiefindex';
     }
   }
 });
@@ -28831,6 +28875,28 @@ var render = function () {
               },
             },
           }),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.id,
+                expression: "id",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", disabled: "true", hidden: "true" },
+            domProps: { value: _vm.id },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.id = $event.target.value
+              },
+            },
+          }),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
@@ -29098,7 +29164,7 @@ var render = function () {
             on: {
               click: function ($event) {
                 $event.preventDefault()
-                return _vm.submitTO()
+                return _vm.approveTO()
               },
             },
           },
@@ -29108,11 +29174,26 @@ var render = function () {
         _c(
           "button",
           {
+            staticClass: "btn btn-warning",
+            attrs: { type: "submit" },
+            on: {
+              click: function ($event) {
+                $event.preventDefault()
+                return _vm.disapproveTO()
+              },
+            },
+          },
+          [_vm._v("Disapprove")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
             staticClass: "btn btn-secondary",
             attrs: { type: "button" },
             on: { click: _vm.back },
           },
-          [_vm._v("Cancel")]
+          [_vm._v("Back")]
         ),
       ]),
     ]),

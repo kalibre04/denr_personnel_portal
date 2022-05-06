@@ -38,14 +38,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('travel/createtravel', 'App\Http\Controllers\TravelController@create')->name('travel.create');
     Route::post('travel/saveto', 'App\Http\Controllers\TravelController@create_travel');
 
-
     //Division Chief Middleware start
     Route::group(['middleware' => 'divchief'], function () {
         Route::get('travel/chiefindex', 'App\Http\Controllers\TravelApproverController@chief_index')->name('travel.chiefindex');
         Route::get('travel/chiefedit/{id}', 'App\Http\Controllers\TravelApproverController@chief_edit')->name('travel.chiefeditto');
-        
-
-
+        Route::get('travel/chiefapproved', 'App\Http\Controllers\TravelApproverController@chief_approvedindex')->name('travel.chiefapproved');
+        Route::get('travel/chiefcancelled', 'App\Http\Controllers\TravelApproverController@chief_cancelledindex')->name('travel.chiefcancelled');
+        Route::post('travel/chiefedit/updateto/{id}', 'App\Http\Controllers\TravelApproverController@update_travel');
+        Route::patch('travel/chiefedit/disapproveto/{id}', 'App\Http\Controllers\TravelApproverController@disapprove_travel');
     });
     //Division Chief Middleware end
 

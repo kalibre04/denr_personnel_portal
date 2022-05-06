@@ -1819,8 +1819,8 @@ CREATE TABLE IF NOT EXISTS `personnel_assignments` (
 REPLACE INTO `personnel_assignments` (`id`, `user_id`, `office_id`, `date_assigned`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(2, 2, 22, '2022-01-07 00:00:00', '2022-01-07 04:01:54', '2022-04-25 07:51:57', NULL),
 	(7, 3, 22, '2022-04-29 00:00:00', '2022-04-29 02:50:14', '2022-04-29 02:50:14', NULL),
-	(8, 3, 8, '2022-04-29 00:00:00', '2022-04-29 07:52:05', '2022-04-29 07:52:05', NULL),
-	(9, 3, 11, '2022-04-29 00:00:00', '2022-04-29 08:01:36', '2022-04-29 08:01:36', NULL),
+	(8, 3, 8, '2022-04-29 00:00:00', '2022-04-29 07:52:05', '2022-05-06 05:40:21', '2022-05-06 05:40:21'),
+	(9, 3, 11, '2022-04-29 00:00:00', '2022-04-29 08:01:36', '2022-05-06 05:40:24', '2022-05-06 05:40:24'),
 	(10, 2, 8, '2022-05-05 00:00:00', '2022-05-05 04:32:40', '2022-05-05 04:33:08', '2022-05-05 04:33:08'),
 	(11, 2, 8, '2022-05-05 00:00:00', '2022-05-05 08:57:24', '2022-05-05 08:57:43', '2022-05-05 08:57:43');
 
@@ -2015,24 +2015,30 @@ CREATE TABLE IF NOT EXISTS `travel_orders` (
   `office_id` int(11) DEFAULT NULL,
   `immediate_boss_approval` varchar(10) DEFAULT NULL,
   `div_chief_approval` varchar(10) DEFAULT NULL,
+  `divchief_approval_date` date DEFAULT NULL,
   `ared_ms_approval` varchar(10) DEFAULT NULL,
+  `aredms_approval_date` date DEFAULT NULL,
   `ared_ts_approval` varchar(10) DEFAULT NULL,
+  `aredts_approval_date` date DEFAULT NULL,
   `red_approval` varchar(10) DEFAULT NULL,
-  `decline_reason` varchar(255) DEFAULT NULL,
+  `red_approval_date` date DEFAULT NULL,
+  `disapprove_reason` varchar(500) DEFAULT NULL,
+  `disapprove_date` date DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   KEY `Primary Key` (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.travel_orders: ~4 rows (approximately)
-REPLACE INTO `travel_orders` (`id`, `user_id`, `to_number`, `date_depart`, `date_arrived`, `destination`, `purpose`, `expenses`, `assist_labor_allowed`, `instructions`, `application_status`, `date_submitted`, `office`, `office_id`, `immediate_boss_approval`, `div_chief_approval`, `ared_ms_approval`, `ared_ts_approval`, `red_approval`, `decline_reason`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(3, 2, '22-00000', '2022-04-29', '2022-04-29', 'Tagum', 'To conduct network and server maintenance/ installation of software updates ', '1800', 'yes', 'yes', 'Pending', '2022-04-28 21:22:28', 'Planning and Management Division', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:22:28', '2022-04-28 21:22:28', NULL),
-	(4, 3, '22-00000', '2022-04-29', '2022-05-07', 'mati', 'dasdsadsa', 'no', 'no', 'no', 'Pending', '2022-04-28 21:22:29', 'Planning and Management Division', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:22:29', '2022-04-28 21:22:29', NULL),
-	(5, 3, '22-00001', '2022-04-29', '2022-04-30', 'laak ko danrick tkeiko', 'dasdasdsa', 'no', 'no', 'no', 'Pending', '2022-04-28 21:29:58', 'Planning and Management Division', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:29:58', '2022-04-28 21:29:58', NULL),
-	(6, 2, '22-00002', '2022-04-30', '2022-05-01', 'Mawab', 'laag sa mainit', NULL, NULL, NULL, 'Pending', '2022-04-28 21:29:58', 'Planning and Management Division', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:29:58', '2022-04-28 21:29:58', NULL),
-	(7, 3, '22-00003', '2022-04-29', '2022-05-07', 'gensan', 'mangayu og kwarta kay manny pacquiao', 'no', 'no', 'no', 'Pending', '2022-04-28 23:53:17', 'CENRO Manay', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 23:53:17', '2022-04-28 23:53:17', NULL),
-	(10, 2, '22-00004', '2022-05-05', '2022-05-06', 'Carmen', 'Laag and tours', '16789', 'none', 'none', 'Pending', '2022-05-04 17:58:24', 'Planning and Management Division', 22, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-04 17:58:24', '2022-05-04 17:58:24', NULL);
+-- Dumping data for table denr_pportal.travel_orders: ~7 rows (approximately)
+REPLACE INTO `travel_orders` (`id`, `user_id`, `to_number`, `date_depart`, `date_arrived`, `destination`, `purpose`, `expenses`, `assist_labor_allowed`, `instructions`, `application_status`, `date_submitted`, `office`, `office_id`, `immediate_boss_approval`, `div_chief_approval`, `divchief_approval_date`, `ared_ms_approval`, `aredms_approval_date`, `ared_ts_approval`, `aredts_approval_date`, `red_approval`, `red_approval_date`, `disapprove_reason`, `disapprove_date`, `created_at`, `updated_at`, `deleted_at`) VALUES
+	(3, 2, '22-00000', '2022-04-29', '2022-04-29', 'Tagum', 'To conduct network and server maintenance/ installation of software updates', '1800', 'yes', 'no', 'Division Chief Approved', '2022-04-28 21:22:28', 'Planning and Management Division', NULL, NULL, '2', '2022-05-06', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:22:28', '2022-05-05 20:18:19', NULL),
+	(4, 3, '22-00000', '2022-04-29', '2022-05-07', 'mati', 'dasdsadsa', 'no', 'no', 'no', 'Disapproved', '2022-04-28 21:22:29', 'Planning and Management Division', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Nope', '2022-05-06', '2022-04-28 21:22:29', '2022-05-06 00:26:07', NULL),
+	(5, 3, '22-00001', '2022-04-29', '2022-04-30', 'laak ko danrick tkeiko', 'dasdasdsa', 'no', 'no', 'no', 'Pending', '2022-04-28 21:29:58', 'Planning and Management Division', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:29:58', '2022-04-28 21:29:58', NULL),
+	(6, 2, '22-00002', '2022-04-30', '2022-05-01', 'Mawab', 'laag sa mainit', NULL, NULL, NULL, 'Pending', '2022-04-28 21:29:58', 'Planning and Management Division', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:29:58', '2022-04-28 21:29:58', NULL),
+	(7, 3, '22-00003', '2022-04-29', '2022-05-07', 'gensan', 'mangayu og kwarta kay manny pacquiao', 'no', 'no', 'no', 'Pending', '2022-04-28 23:53:17', 'CENRO Manay', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 23:53:17', '2022-04-28 23:53:17', NULL),
+	(10, 2, '22-00004', '2022-05-05', '2022-05-06', 'Carmen', 'Laag and tours', '16789', 'none', 'none', 'Pending', '2022-05-04 17:58:24', 'Planning and Management Division', 22, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-04 17:58:24', '2022-05-04 17:58:24', NULL),
+	(11, 3, '22-00005', '2022-05-11', '2022-05-13', 'DIgos', 'To inspect newly installed structured cabling', '1500', 'no', 'please take geotagged photos', 'Division Chief Approved', '2022-05-05 21:41:22', 'Planning and Management Division', 22, NULL, '2', '2022-05-06', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-05 21:41:22', '2022-05-05 21:44:33', NULL);
 
 -- Dumping structure for table denr_pportal.users
 CREATE TABLE IF NOT EXISTS `users` (

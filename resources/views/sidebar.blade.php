@@ -50,9 +50,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('travel.chiefindex') }}" class="nav-link active">
+                <a href="{{ route('travel.chiefapproved') }}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Approved T.O</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('travel.chiefcancelled') }}" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Cancelled T.O</p>
                 </a>
               </li>
               <!-- <li class="nav-item">

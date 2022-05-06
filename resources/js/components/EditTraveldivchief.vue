@@ -9,6 +9,7 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1">Travel Order No.</label>
                     <input type="text" v-model="toNumber" class="form-control" disabled="true"/>
+                    <input type="text" v-model="id" class="form-control" disabled="true" hidden="true"/>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Current Department</label>
@@ -70,8 +71,9 @@
             </div>
 
             <div class="card-footer">
-                <button type="submit" @click.prevent="submitTO()" class="btn btn-primary">Approve</button>
-                <button type="button" @click="back" class="btn btn-secondary">Cancel</button>
+                <button type="submit" @click.prevent="approveTO()" class="btn btn-primary">Approve</button>
+                <button type="submit" @click.prevent="disapproveTO()" class="btn btn-warning">Disapprove</button>
+                <button type="button" @click="back" class="btn btn-secondary">Back</button>
             </div>
     </form>
   </div>
@@ -114,6 +116,10 @@ export default {
       purpose:{
           type: String,
           required: true
+      },
+      id:{
+          type: String,
+          required: true
       }
 
   },
@@ -142,10 +148,45 @@ export default {
     
   },
   methods: {
-            
+            disapproveTO(){
+            Swal.fire({
+            title: 'Are you sure you want to decline this Travel Order?',
+                text: "kindly state why",
+                input: 'textarea',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes!',
 
-            submitTO() {
-            axios.post('saveto', {
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        //console.log(result);   
+                        axios.patch('disapproveto/' + this.id, result).then(response => {
+                            if(response.data.message == "Travel Order Disapproved"){
+                                Swal.fire({
+                                title: 'Success!',
+                                text: response.data.message,
+                                icon: 'success',
+                                confirmButtonText: 'Okay'
+                                }).then(function() {
+                                    window.location = "/denr_personnel_portal/travel/chiefindex";
+                                });
+                            }else{
+                                Swal.fire({
+                                title: 'Oops!',
+                                text: response.data.message,
+                                icon: 'warning',
+                                confirmButtonText: 'Okay'
+                                });
+                            }
+                        });
+                    }
+                })
+            },
+
+            approveTO() {
+            axios.post("updateto/"+ this.id, {
                 destination : this.destination,
                 purpose : this.purpose,
                 datedepart : this.datedepart,
@@ -155,18 +196,19 @@ export default {
                 instructions : this.instructions,
                 toNumber : this.toNumber,
                 currentDept: this.currentDept,
-                currentDeptid: this.currentDeptid
+                currentDeptid: this.currentDeptid,
+                id: this.id
                 })
                 .then(response => {
 
-                    if(response.data.message == 'Travel Order Successfully Created'){
+                    if(response.data.message == 'Travel Order Approved'){
                         Swal.fire({
                             title: 'Success!',
                             text: response.data.message,
                             icon: 'success',
                             confirmButtonText: 'Okay'
                         }).then(function() {
-                            window.location = "/denr_personnel_portal/travel";
+                            window.location = "/denr_personnel_portal/travel/chiefindex";
                         });
 
                     }else{
@@ -197,15 +239,11 @@ export default {
                             this.submitted = false;
                         }
                     }
-
-
                 });
             },
 
-
-
             back(){
-                window.location.href='/denr_personnel_portal/Travel';
+                window.location.href='/denr_personnel_portal/travel/chiefindex';
             }
   },
 };

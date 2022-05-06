@@ -7,7 +7,7 @@
               <!-- /.card-header -->
               <div class="card card-primary card-outline">
                   <div class="card-header">
-                        <h3>Travel Orders for Approval</h3>
+                        <h3>Disapproved Travel Orders</h3>
                   </div>
                   <div class="card-header">  
 

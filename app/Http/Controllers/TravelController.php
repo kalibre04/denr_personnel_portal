@@ -19,29 +19,10 @@ use App\Models\Region;
 class TravelController extends Controller
 {
     public function index(){
-        $travels = TravelOrder::where('user_id', Auth::user()->id)->get();
+        $travels = TravelOrder::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->get();
 
         return view('travel_order.index', compact('travels'));
     }
-
-    // public function create()
-    // {
-    //     $now = Carbon::now();
-    //     $travel_id = TravelOrder::latest()->first();
-    //     if($travel_id == NULL){
-    //         $office_assigned = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
-    //         $default = "000001";
-    //         $val = $now->year .'-'.$default;
-    //         return view('travel_order.create', compact('val', 'office_assigned'));
-    //     }else{
-    //         $office_assigned = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
-    //         $default = "000000";
-    //         $after_year = sprintf('%06d', $default + intval($travel_id->id + 000001));
-    //         $val = $now->year .'-'.$after_year;
-    //         return view('travel_order.create', compact('val', 'office_assigned'));
-    //     }
-        
-    // }
 
     public function create()
     {

@@ -177,7 +177,7 @@ export default {
 
 
             back(){
-                window.location.href='/denr_personnel_portal/Travel';
+                window.location.href='/denr_personnel_portal/travel';
             }
   },
 };

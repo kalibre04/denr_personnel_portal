@@ -22,15 +22,23 @@ class TravelOrder extends Model
         'destination',
         'purpose',
         'expenses',
+        'office',
+        'office_id',
         'assist_labor_allowed',
         'instructions',
         'application_status',
         'date_submitted',
         'immediate_boss_approval',
+        'div_chief_approval',
+        'divchief_approval_date',
         'ared_ms_approval',
+        'aredms_approval_date',
         'ared_ts_approval',
+        'aredts_approval_date',
         'red_approval',
-        'decline_reason'
+        'red_approval_date',
+        'disapprove_reason',
+        'disapprove_date'
     ];
 
     public static function IDGenerator($model,$trow,$length = 4, $prefix){
@@ -52,6 +60,9 @@ class TravelOrder extends Model
         }
         return $prefix.'-'.$zeros.$last_number;
     }
-
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id');
+    }
 
 }
