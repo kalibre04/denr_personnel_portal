@@ -22,9 +22,13 @@ window.Vue = require('vue').default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+Vue.component('disapptravel', require('./components/DisappTraveldivchief.vue').default);
+Vue.component('viewtravel', require('./components/ViewTravel.vue').default);
+Vue.component('apptraveldivchief', require('./components/AppTraveldivchief.vue').default);
 Vue.component('examplecomponent', require('./components/ExampleComponent.vue').default);
 Vue.component('createtravel', require('./components/CreateTravel.vue').default);
 Vue.component('edittraveldivchief', require('./components/EditTraveldivchief.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

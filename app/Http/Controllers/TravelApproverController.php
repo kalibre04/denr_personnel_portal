@@ -42,6 +42,16 @@ class TravelApproverController extends Controller
         return view('travel_order.edittraveldivchief', compact('travel_order'));        
     }
 
+    public function chief_disapprove($id){
+        $travel_order = TravelOrder::find($id);
+        return view('travel_order.disapprovetraveldivchief', compact('travel_order'));
+    }
+
+    public function chief_approvefromcancelled($id){
+        $travel_order = TravelOrder::find($id);
+        return view('travel_order.approvetraveldivchief', compact('travel_order'));
+    }
+
     public function chief_editto($id){
         $travel_order = TravelOrder::find($id);
         return response()->json(compact('travel_order'));

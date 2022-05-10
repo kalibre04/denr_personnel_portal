@@ -23,7 +23,7 @@
                         <p class="card-text pb-2 pt-1 text-white">
                         Module for leave application
                         </p>
-                        <a href="#" class="text-white">Apply</a>
+                        <a href="{{ route('travel.chiefdisapprove', 3) }}" class="text-white">Apply</a>
                     </div>
                     </div>
                 </div>

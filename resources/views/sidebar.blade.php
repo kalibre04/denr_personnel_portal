@@ -46,19 +46,25 @@
               <li class="nav-item">
                 <a href="{{ route('travel.chiefindex') }}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>T.O For Approval</p>
+                  <p>Travel Orders For Approval</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('travel.chiefapproved') }}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Approved T.O</p>
+                  <p>Approved Travel Orders</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('travel.chiefcancelled') }}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Cancelled T.O</p>
+                  <p>Cancelled Travel Orders</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('travel.chiefcancelled') }}" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Completed Travel Orders</p>
                 </a>
               </li>
               <!-- <li class="nav-item">

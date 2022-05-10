@@ -35,6 +35,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     Route::get('/travel', 'App\Http\Controllers\TravelController@index')->name('travel.index');
+    Route::get('travel/viewtravel/{id}', 'App\Http\Controllers\TravelController@view_traveldetails')->name('travel.viewtravel');
+
+
     Route::get('travel/createtravel', 'App\Http\Controllers\TravelController@create')->name('travel.create');
     Route::post('travel/saveto', 'App\Http\Controllers\TravelController@create_travel');
 
@@ -42,6 +45,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'divchief'], function () {
         Route::get('travel/chiefindex', 'App\Http\Controllers\TravelApproverController@chief_index')->name('travel.chiefindex');
         Route::get('travel/chiefedit/{id}', 'App\Http\Controllers\TravelApproverController@chief_edit')->name('travel.chiefeditto');
+
+        // route sa pag disapprove if na approve na ang Travel Order sa Div Chief
+        Route::get('travel/chiefeditdisapprove/{id}', 'App\Http\Controllers\TravelApproverController@chief_disapprove')->name('travel.chiefdisapprove');
+        Route::patch('travel/chiefeditdisapprove/disapproveto/{id}', 'App\Http\Controllers\TravelApproverController@disapprove_travel');
+        // end
+
+        // route sa pag approve if gi cancel sa Div Chief and Travel Order 
+        Route::get('travel/chieftravelapprove/{id}', 'App\Http\Controllers\TravelApproverController@chief_approvefromcancelled')->name('travel.chiefapprovetravel');
+        Route::post('travel/chieftravelapprove/updateto/{id}', 'App\Http\Controllers\TravelApproverController@update_travel');
+        // end
+
         Route::get('travel/chiefapproved', 'App\Http\Controllers\TravelApproverController@chief_approvedindex')->name('travel.chiefapproved');
         Route::get('travel/chiefcancelled', 'App\Http\Controllers\TravelApproverController@chief_cancelledindex')->name('travel.chiefcancelled');
         Route::post('travel/chiefedit/updateto/{id}', 'App\Http\Controllers\TravelApproverController@update_travel');
