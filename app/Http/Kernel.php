@@ -44,7 +44,8 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-        'divchief'   => [\App\Http\Middleware\DivChief::class,]
+        'divchief'   => [\App\Http\Middleware\DivChief::class,],
+        'cenro'   => [\App\Http\Middleware\Cenro::class,]
     ];
 
     /**

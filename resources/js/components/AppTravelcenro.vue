@@ -184,7 +184,7 @@ export default {
                                 icon: 'success',
                                 confirmButtonText: 'Okay'
                                 }).then(function() {
-                                    window.location = "/denr_personnel_portal/travel/chiefapproved";
+                                    window.location = "/denr_personnel_portal/travel/cenroapproved";
                                 });
                             }else{
                                 Swal.fire({
@@ -222,7 +222,7 @@ export default {
                             icon: 'success',
                             confirmButtonText: 'Okay'
                         }).then(function() {
-                            window.location = "/denr_personnel_portal/travel/chiefcancelled";
+                            window.location = "/denr_personnel_portal/travel/cenrocancelled";
                         });
 
                     }else{
@@ -254,7 +254,7 @@ export default {
             },
 
             back(){
-                window.location.href='/denr_personnel_portal/travel/chiefindex';
+                window.location.href='/denr_personnel_portal/travel/cenroindex';
             }
   },
 };

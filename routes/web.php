@@ -48,20 +48,44 @@ Route::group(['middleware' => 'auth'], function () {
 
         // route sa pag disapprove if na approve na ang Travel Order sa Div Chief
         Route::get('travel/chiefeditdisapprove/{id}', 'App\Http\Controllers\TravelApproverController@chief_disapprove')->name('travel.chiefdisapprove');
-        Route::patch('travel/chiefeditdisapprove/disapproveto/{id}', 'App\Http\Controllers\TravelApproverController@disapprove_travel');
+        Route::patch('travel/chiefeditdisapprove/disapproveto/{id}', 'App\Http\Controllers\TravelApproverController@divchief_disapprove_travel');
         // end
 
         // route sa pag approve if gi cancel sa Div Chief and Travel Order 
         Route::get('travel/chieftravelapprove/{id}', 'App\Http\Controllers\TravelApproverController@chief_approvefromcancelled')->name('travel.chiefapprovetravel');
-        Route::post('travel/chieftravelapprove/updateto/{id}', 'App\Http\Controllers\TravelApproverController@update_travel');
+        Route::post('travel/chieftravelapprove/updateto/{id}', 'App\Http\Controllers\TravelApproverController@divchief_update_travel');
         // end
 
         Route::get('travel/chiefapproved', 'App\Http\Controllers\TravelApproverController@chief_approvedindex')->name('travel.chiefapproved');
         Route::get('travel/chiefcancelled', 'App\Http\Controllers\TravelApproverController@chief_cancelledindex')->name('travel.chiefcancelled');
-        Route::post('travel/chiefedit/updateto/{id}', 'App\Http\Controllers\TravelApproverController@update_travel');
-        Route::patch('travel/chiefedit/disapproveto/{id}', 'App\Http\Controllers\TravelApproverController@disapprove_travel');
+        Route::get('travel/chiefcompleted', 'App\Http\Controllers\TravelApproverController@chief_completedindex')->name('travel.chiefcompleted');
+        Route::post('travel/chiefedit/updateto/{id}', 'App\Http\Controllers\TravelApproverController@divchief_update_travel');
+        Route::patch('travel/chiefedit/disapproveto/{id}', 'App\Http\Controllers\TravelApproverController@divchief_disapprove_travel');
     });
     //Division Chief Middleware end
+    /********************************************************************************************************************************/
+    
+    //CENRO Middleware start
+    Route::group(['middleware' => 'cenro'], function () {
+        Route::get('travel/cenroindex', 'App\Http\Controllers\TravelApproverCenroController@cenro_index')->name('travel.cenroindex');
+        Route::get('travel/cenroedit/{id}', 'App\Http\Controllers\TravelApproverCenroController@cenro_edit')->name('travel.cenroeditto');
 
+        // route sa pag disapprove if na approve na ang Travel Order sa Div Chief
+        Route::get('travel/cenroeditdisapprove/{id}', 'App\Http\Controllers\TravelApproverCenroController@cenro_disapprove')->name('travel.cenrodisapprove');
+        Route::patch('travel/cenroeditdisapprove/disapproveto/{id}', 'App\Http\Controllers\TravelApproverCenroController@cenro_disapprove_travel');
+        // end
+
+        // route sa pag approve if gi cancel sa Div Chief and Travel Order 
+        Route::get('travel/cenrotravelapprove/{id}', 'App\Http\Controllers\TravelApproverCenroController@cenro_approvefromcancelled')->name('travel.cenroapprovetravel');
+        Route::post('travel/cenrotravelapprove/updateto/{id}', 'App\Http\Controllers\TravelApproverCenroController@cenro_update_travel');
+        // end
+
+        Route::get('travel/cenroapproved', 'App\Http\Controllers\TravelApproverCenroController@cenro_approvedindex')->name('travel.cenroapproved');
+        Route::get('travel/cenrocancelled', 'App\Http\Controllers\TravelApproverCenroController@cenro_cancelledindex')->name('travel.cenrocancelled');
+        Route::get('travel/cenrocompleted', 'App\Http\Controllers\TravelApproverCenroController@cenro_completedindex')->name('travel.cenrocompleted');
+        Route::post('travel/cenroedit/updateto/{id}', 'App\Http\Controllers\TravelApproverCenroController@cenro_update_travel');
+        Route::patch('travel/cenroedit/disapproveto/{id}', 'App\Http\Controllers\TravelApproverCenroController@cenro_disapprove_travel');
+    });
+    //CENRO Middleware end
 
 });

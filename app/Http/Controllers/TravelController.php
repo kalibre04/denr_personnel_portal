@@ -29,6 +29,11 @@ class TravelController extends Controller
         return view('travel_order.viewtravel', compact('travel_order'));
     }
 
+    public function view_traveldetailscenro($id){
+        $travel_order = TravelOrder::find($id);
+        return view('travel_order.cenro.viewtravel', compact('travel_order'));
+    }
+
     public function create()
     {
 		$now = Carbon::now()->format('y');

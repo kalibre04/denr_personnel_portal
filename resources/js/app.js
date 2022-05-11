@@ -21,8 +21,11 @@ window.Vue = require('vue').default;
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-Vue.component('disapptravel', require('./components/DisappTraveldivchief.vue').default);
+Vue.component('viewtravelcenro', require('./components/ViewTravelcenro.vue').default);
+Vue.component('disapptravelcenro', require('./components/DisappTravelcenro.vue').default);
+Vue.component('edittravelcenro', require('./components/EditTravelcenro.vue').default);
+Vue.component('apptravelcenro', require('./components/AppTravelcenro.vue').default);
+Vue.component('disapptraveldivchief', require('./components/DisappTraveldivchief.vue').default);
 Vue.component('viewtravel', require('./components/ViewTravel.vue').default);
 Vue.component('apptraveldivchief', require('./components/AppTraveldivchief.vue').default);
 Vue.component('examplecomponent', require('./components/ExampleComponent.vue').default);

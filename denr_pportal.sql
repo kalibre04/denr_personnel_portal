@@ -1813,7 +1813,7 @@ CREATE TABLE IF NOT EXISTS `personnel_assignments` (
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table denr_pportal.personnel_assignments: ~3 rows (approximately)
 REPLACE INTO `personnel_assignments` (`id`, `user_id`, `office_id`, `date_assigned`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -1822,7 +1822,8 @@ REPLACE INTO `personnel_assignments` (`id`, `user_id`, `office_id`, `date_assign
 	(8, 3, 8, '2022-04-29 00:00:00', '2022-04-29 07:52:05', '2022-05-06 05:40:21', '2022-05-06 05:40:21'),
 	(9, 3, 11, '2022-04-29 00:00:00', '2022-04-29 08:01:36', '2022-05-06 05:40:24', '2022-05-06 05:40:24'),
 	(10, 2, 8, '2022-05-05 00:00:00', '2022-05-05 04:32:40', '2022-05-05 04:33:08', '2022-05-05 04:33:08'),
-	(11, 2, 8, '2022-05-05 00:00:00', '2022-05-05 08:57:24', '2022-05-05 08:57:43', '2022-05-05 08:57:43');
+	(11, 2, 8, '2022-05-05 00:00:00', '2022-05-05 08:57:24', '2022-05-05 08:57:43', '2022-05-05 08:57:43'),
+	(12, 3, 8, '2022-05-11 00:00:00', '2022-05-11 03:08:14', '2022-05-11 03:08:14', NULL);
 
 -- Dumping structure for table denr_pportal.plantillas
 CREATE TABLE IF NOT EXISTS `plantillas` (
@@ -2014,31 +2015,40 @@ CREATE TABLE IF NOT EXISTS `travel_orders` (
   `office` varchar(50) DEFAULT NULL,
   `office_id` int(11) DEFAULT NULL,
   `immediate_boss_approval` varchar(10) DEFAULT NULL,
-  `div_chief_approval` varchar(10) DEFAULT NULL,
-  `divchief_approval_date` date DEFAULT NULL,
-  `ared_ms_approval` varchar(10) DEFAULT NULL,
-  `aredms_approval_date` date DEFAULT NULL,
-  `ared_ts_approval` varchar(10) DEFAULT NULL,
-  `aredts_approval_date` date DEFAULT NULL,
+  `divchief_approval` varchar(10) DEFAULT NULL,
+  `divchief_approval_date` datetime DEFAULT NULL,
+  `divdisapprove_reason` varchar(500) DEFAULT NULL,
+  `divdisapprove_date` datetime DEFAULT NULL,
+  `cenro_approval` varchar(50) DEFAULT NULL,
+  `cenro_approval_date` datetime DEFAULT NULL,
+  `cenrodisapprove_reason` varchar(500) DEFAULT NULL,
+  `cenrodisapprove_date` datetime DEFAULT NULL,
+  `aredms_approval` varchar(10) DEFAULT NULL,
+  `aredms_approval_date` datetime DEFAULT NULL,
+  `aredmsdisapprove_reason` varchar(500) DEFAULT NULL,
+  `aredmsdisapprove_date` datetime DEFAULT NULL,
+  `aredts_approval` varchar(10) DEFAULT NULL,
+  `aredts_approval_date` datetime DEFAULT NULL,
+  `aredtsdisapprove_reason` varchar(500) DEFAULT NULL,
+  `aredtsdisapprove_date` datetime DEFAULT NULL,
   `red_approval` varchar(10) DEFAULT NULL,
-  `red_approval_date` date DEFAULT NULL,
-  `disapprove_reason` varchar(500) DEFAULT NULL,
-  `disapprove_date` date DEFAULT NULL,
+  `red_approval_date` datetime DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   KEY `Primary Key` (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.travel_orders: ~7 rows (approximately)
-REPLACE INTO `travel_orders` (`id`, `user_id`, `to_number`, `date_depart`, `date_arrived`, `destination`, `purpose`, `expenses`, `assist_labor_allowed`, `instructions`, `application_status`, `date_submitted`, `office`, `office_id`, `immediate_boss_approval`, `div_chief_approval`, `divchief_approval_date`, `ared_ms_approval`, `aredms_approval_date`, `ared_ts_approval`, `aredts_approval_date`, `red_approval`, `red_approval_date`, `disapprove_reason`, `disapprove_date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(3, 2, '22-00000', '2022-04-29', '2022-04-29', 'Tagum', 'To conduct network and server maintenance/ installation of software updates', '1800', 'yes', 'dala pasalubong', 'Pending', '2022-04-28 21:22:28', 'Planning and Management Division', NULL, NULL, '2', '2022-05-10', NULL, NULL, NULL, NULL, NULL, NULL, 'No need for Travel', '2022-05-10', '2022-04-28 21:22:28', '2022-05-09 22:29:17', NULL),
-	(4, 3, '22-00000', '2022-05-11', '2022-05-11', 'mati', 'To conduct network and server maintenance/ CCTV Maintenance', 'no', 'no', 'no', 'Division Chief Approved', '2022-04-28 21:22:29', 'Planning and Management Division', NULL, NULL, '2', '2022-05-10', NULL, NULL, NULL, NULL, NULL, NULL, 'Nope', '2022-05-06', '2022-04-28 21:22:29', '2022-05-09 22:15:57', NULL),
-	(5, 3, '22-00001', '2022-05-26', '2022-05-27', 'laak ko danrick tkeiko', 'dasdasdsa', 'no', 'no', 'no', 'Division Chief Approved', '2022-04-28 21:29:58', 'Planning and Management Division', NULL, NULL, '2', '2022-05-10', NULL, NULL, NULL, NULL, NULL, NULL, 'ayaw sa pag T.o', '2022-05-10', '2022-04-28 21:29:58', '2022-05-09 22:31:48', NULL),
-	(6, 2, '22-00002', '2022-05-10', '2022-05-13', 'Mawab', 'laag sa mainit', NULL, NULL, 'ask for Report', 'Division Chief Approved', '2022-04-28 21:29:58', 'Planning and Management Division', NULL, NULL, '2', '2022-05-10', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:29:58', '2022-05-09 18:45:52', NULL),
-	(7, 3, '22-00003', '2022-04-29', '2022-05-07', 'gensan', 'mangayu og kwarta kay manny pacquiao', 'no', 'no', 'no', 'Pending', '2022-04-28 23:53:17', 'CENRO Manay', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 23:53:17', '2022-04-28 23:53:17', NULL),
-	(10, 2, '22-00004', '2022-05-23', '2022-05-25', 'Carmen', 'Check CCTV', '16789', 'none', 'pangayo ug C.A', 'Division Chief Approved', '2022-05-04 17:58:24', 'Planning and Management Division', 22, NULL, '2', '2022-05-10', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-04 17:58:24', '2022-05-09 22:30:56', NULL),
-	(11, 3, '22-00005', '2022-05-11', '2022-05-13', 'DIgos', 'To inspect newly installed structured cabling', '1500', 'no', 'please take geotagged photos', 'Division Chief Approved', '2022-05-05 21:41:22', 'Planning and Management Division', 22, NULL, '2', '2022-05-06', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-05 21:41:22', '2022-05-05 21:44:33', NULL);
+-- Dumping data for table denr_pportal.travel_orders: ~8 rows (approximately)
+REPLACE INTO `travel_orders` (`id`, `user_id`, `to_number`, `date_depart`, `date_arrived`, `destination`, `purpose`, `expenses`, `assist_labor_allowed`, `instructions`, `application_status`, `date_submitted`, `office`, `office_id`, `immediate_boss_approval`, `divchief_approval`, `divchief_approval_date`, `divdisapprove_reason`, `divdisapprove_date`, `cenro_approval`, `cenro_approval_date`, `cenrodisapprove_reason`, `cenrodisapprove_date`, `aredms_approval`, `aredms_approval_date`, `aredmsdisapprove_reason`, `aredmsdisapprove_date`, `aredts_approval`, `aredts_approval_date`, `aredtsdisapprove_reason`, `aredtsdisapprove_date`, `red_approval`, `red_approval_date`, `created_at`, `updated_at`, `deleted_at`) VALUES
+	(3, 2, '22-00000', '2022-05-16', '2022-05-17', 'Tagum', 'To conduct network and server maintenance/ replace CCTV NVR Hard Drive', '1800', 'yes', 'dala pasalubong', 'Division Chief Approved', '2022-04-28 21:22:28', 'Planning and Management Division', NULL, NULL, '2', '2022-05-11 08:43:10', 'follow the travel plan', '2022-05-11 00:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:22:28', '2022-05-11 00:43:10', NULL),
+	(4, 3, '22-00000', '2022-05-11', '2022-05-11', 'mati', 'To conduct network and server maintenance/ CCTV Maintenance', 'no', 'no', 'no', 'Disapproved', '2022-04-28 21:22:29', 'Planning and Management Division', NULL, NULL, '2', '2022-05-11 00:00:00', 'Nope', '2022-05-06 00:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:22:29', '2022-05-10 22:20:58', NULL),
+	(5, 3, '22-00001', '2022-05-26', '2022-05-27', 'laak ko danrick tkeiko', 'dasdasdsa', 'no', 'no', 'no', 'Pending', '2022-04-28 21:29:58', 'Planning and Management Division', NULL, NULL, '2', '2022-05-10 00:00:00', 'ayaw sa pag T.o', '2022-05-10 00:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:29:58', '2022-05-09 22:31:48', NULL),
+	(6, 2, '22-00002', '2022-05-10', '2022-05-13', 'Mawab', 'laag sa mainit', NULL, NULL, 'ask for Report', 'CENRO Approved', '2022-04-28 21:29:58', 'Planning and Management Division', NULL, NULL, '2', '2022-05-10 00:00:00', NULL, NULL, '3', '2022-05-11 08:13:51', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:29:58', '2022-05-11 00:13:51', NULL),
+	(7, 3, '22-00003', '2022-04-29', '2022-05-07', 'gensan', 'To install software update and install MS Office', 'no', 'no', 'no', 'Disapproved', '2022-04-28 23:53:17', 'CENRO Manay', NULL, NULL, '2', '2022-05-11 07:53:15', NULL, NULL, '3', '2022-05-11 07:37:38', 'submit previous T.O. report muna bago mag T.O', '2022-05-11 07:39:20', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 23:53:17', '2022-05-10 23:53:15', NULL),
+	(10, 2, '22-00004', '2022-05-23', '2022-05-25', 'Carmen', 'Check CCTV', '16789', 'none', 'pangayo ug C.A', 'Pending', '2022-05-04 17:58:24', 'Planning and Management Division', 22, NULL, '2', '2022-05-10 00:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-04 17:58:24', '2022-05-09 22:30:56', NULL),
+	(11, 3, '22-00005', '2022-05-11', '2022-05-13', 'DIgos', 'To inspect newly installed structured cabling', '1500', 'no', 'please take geotagged photos', 'Pending', '2022-05-05 21:41:22', 'Planning and Management Division', 22, NULL, '2', '2022-05-06 00:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-05 21:41:22', '2022-05-05 21:44:33', NULL),
+	(12, 3, '22-00006', '2022-05-11', '2022-05-12', 'Tagum', 'Laag', NULL, NULL, NULL, 'Disapproved', '2022-05-11 00:37:34', 'CENRO Manay', 8, NULL, NULL, NULL, NULL, NULL, '3', '2022-05-11 08:39:10', 'dapat dli laag imo purpose', '2022-05-11 08:41:18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-11 00:37:34', '2022-05-11 00:41:18', NULL);
 
 -- Dumping structure for table denr_pportal.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -2063,7 +2073,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table denr_pportal.users: ~0 rows (approximately)
 REPLACE INTO `users` (`id`, `firstname`, `middlename`, `lastname`, `date_of_birth`, `gender`, `contact_no`, `email`, `email_verified_at`, `password`, `account_type`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(2, 'Albert Neil', 'Dela Cruz', 'Bandiola', '1991-05-04', 'Male', '09989762395', 'adbandiola@denr.gov.ph', NULL, '$2y$10$tNKaZAE9giCEmfiWZ43uW.gNDxGDJHasPCBHQYNJIDKRUmbEOJBF.', 'Division Chief', NULL, '2022-03-29 22:59:14', '2022-04-18 17:56:58'),
-	(3, 'danrick', 'cubal', 'tekiko', '1996-11-15', 'Male', '09199533529', 'dcode0516@gmail.com', NULL, '$2y$10$btfsqX18b16sBtpyEknZUerDkBGcaih3B6EPN8N87BOnOMw31IMzC', 'Division Personnel', NULL, '2022-04-28 18:49:17', '2022-04-28 18:49:17');
+	(3, 'danrick', 'cubal', 'tekiko', '1996-11-15', 'Male', '09199533529', 'dcode0516@gmail.com', NULL, '$2y$10$btfsqX18b16sBtpyEknZUerDkBGcaih3B6EPN8N87BOnOMw31IMzC', 'CENRO', NULL, '2022-04-28 18:49:17', '2022-04-28 18:49:17');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

@@ -68,17 +68,11 @@
                     <label for="exampleInputEmail1">Remarks or Special Instructions:</label>
                     <input type="text" v-model="instructions" class="form-control" placeholder="Special Instructions"/>
                 </div>
-                <div v-if="appstatus === 'Disapproved'" class="form-group">
-                    <label for="exampleInputEmail1">Reason for disapproval</label>
-                    <p>{{ disappreason }}</p>
-                    <label for="exampleInputEmail1">Disapproval Date</label>
-                    <p>{{ disapp_date }}</p>
-                </div>
             </div>
 
             <div class="card-footer">
                 <button type="submit" @click.prevent="approveTO()" class="btn btn-primary">Approve</button>
-                <!-- <button type="submit" @click.prevent="disapproveTO()" class="btn btn-warning">Disapprove</button> -->
+                <button type="submit" @click.prevent="disapproveTO()" class="btn btn-warning">Disapprove</button>
                 <button type="button" @click="back" class="btn btn-secondary">Back</button>
             </div>
     </form>
@@ -88,14 +82,6 @@
 export default {
   props:{
       toNumber:{
-          type: String,
-          required: true
-      },
-      disappreason:{
-          type: String,
-          required: true
-      },
-      disapp_date:{
           type: String,
           required: true
       },
@@ -184,7 +170,7 @@ export default {
                                 icon: 'success',
                                 confirmButtonText: 'Okay'
                                 }).then(function() {
-                                    window.location = "/denr_personnel_portal/travel/chiefapproved";
+                                    window.location = "/denr_personnel_portal/travel/cenroindex";
                                 });
                             }else{
                                 Swal.fire({
@@ -222,7 +208,7 @@ export default {
                             icon: 'success',
                             confirmButtonText: 'Okay'
                         }).then(function() {
-                            window.location = "/denr_personnel_portal/travel/chiefcancelled";
+                            window.location = "/denr_personnel_portal/travel/cenroindex";
                         });
 
                     }else{
@@ -254,7 +240,7 @@ export default {
             },
 
             back(){
-                window.location.href='/denr_personnel_portal/travel/chiefindex';
+                window.location.href='/denr_personnel_portal/travel/cenroindex';
             }
   },
 };
