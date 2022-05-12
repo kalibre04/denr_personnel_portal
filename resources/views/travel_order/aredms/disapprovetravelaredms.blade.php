@@ -4,7 +4,7 @@
 <div class="container-fluid">    
 
         <div id="app">
-    	  	<apptraveldivchief
+    	  	<disapptravelaredms
                       :to-number="{{ json_encode($travel_order->to_number) }}"
                       :destination="{{ json_encode($travel_order->destination) }}"
                       :purpose="{{ json_encode($travel_order->purpose) }}"
@@ -15,10 +15,7 @@
                       :assist_labor_allowed="{{ json_encode($travel_order->assist_labor_allowed) }}"
                       :instructions="{{ json_encode($travel_order->instructions) }}"
                       :id="{{ json_encode($travel_order->id) }}"
-                      :appstatus="{{ json_encode($travel_order->application_status) }}"
-                      :disappreason="{{ json_encode($travel_order->disapprove_reason) }}"
-                      :disapp_date="{{ json_encode($travel_order->disapprove_date) }}"
-                ></apptraveldivchief>
+                ></disapptravelaredms>
         </div>
 </div>
 @endsection

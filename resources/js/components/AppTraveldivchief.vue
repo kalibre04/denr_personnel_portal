@@ -95,6 +95,10 @@ export default {
           type: String,
           required: true
       },
+      appstatus:{
+          type: String,
+          required: true
+      },
       disapp_date:{
           type: String,
           required: true
@@ -254,7 +258,7 @@ export default {
             },
 
             back(){
-                window.location.href='/denr_personnel_portal/travel/chiefindex';
+                window.location.href='/denr_personnel_portal/travel/chiefcancelled';
             }
   },
 };

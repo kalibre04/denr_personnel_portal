@@ -71,7 +71,7 @@
             </div>
 
             <div class="card-footer">
-                <!-- <button type="submit" @click.prevent="approveTO()" class="btn btn-primary">Approve</button> -->
+                <button type="submit" @click.prevent="approveTO()" class="btn btn-primary">Approve</button>
                 <button type="submit" @click.prevent="disapproveTO()" class="btn btn-warning">Disapprove</button>
                 <button type="button" @click="back" class="btn btn-secondary">Back</button>
             </div>
@@ -170,7 +170,7 @@ export default {
                                 icon: 'success',
                                 confirmButtonText: 'Okay'
                                 }).then(function() {
-                                    window.location = "/denr_personnel_portal/travel/chiefapproved";
+                                    window.location = "/denr_personnel_portal/travel/chiefindex";
                                 });
                             }else{
                                 Swal.fire({
@@ -240,7 +240,7 @@ export default {
             },
 
             back(){
-                window.location.href='/denr_personnel_portal/travel/chiefapproved';
+                window.location.href='/denr_personnel_portal/travel/chiefindex';
             }
   },
 };

@@ -19,18 +19,23 @@ use App\Models\Region;
 class TravelController extends Controller
 {
     public function index(){
-        $travels = TravelOrder::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->get();
+        $office_assigned = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+        $travels = TravelOrder::where('user_id', Auth::user()->id)->where('office', $office_assigned->office->officename)->orderBy('created_at', 'DESC')->get();
 
         return view('travel_order.index', compact('travels'));
     }
 
-    public function view_traveldetails($id){
-        $travel_order = TravelOrder::find($id);
+    public function view_traveldetailsdivchief($id){
+        $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+        
+        $travel_order = TravelOrder::where('id', $id)->where('office', $user_office->office->officename)->first();
         return view('travel_order.viewtravel', compact('travel_order'));
     }
 
     public function view_traveldetailscenro($id){
-        $travel_order = TravelOrder::find($id);
+        $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+        
+        $travel_order = TravelOrder::where('id', $id)->where('office', $user_office->office->officename)->first();
         return view('travel_order.cenro.viewtravel', compact('travel_order'));
     }
 

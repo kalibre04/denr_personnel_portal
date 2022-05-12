@@ -33,10 +33,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/profile/officeassign/{id}', [App\Http\Controllers\OfficeAssignmentController::class, 'store'])->name('officeassign.add');
     Route::get('/profile/deleteassign/{id}', 'App\Http\Controllers\OfficeAssignmentController@destroy');
 
-
     Route::get('/travel', 'App\Http\Controllers\TravelController@index')->name('travel.index');
-    Route::get('travel/viewtravel/{id}', 'App\Http\Controllers\TravelController@view_traveldetails')->name('travel.viewtravel');
+    Route::get('travel/viewtravel/{id}', 'App\Http\Controllers\TravelController@view_traveldetailsdivchief')->name('travel.viewtravel');
 
+    Route::get('travel/viewtravelcenro/{id}', 'App\Http\Controllers\TravelController@view_traveldetailscenro')->name('travel.viewtravelcenro');
 
     Route::get('travel/createtravel', 'App\Http\Controllers\TravelController@create')->name('travel.create');
     Route::post('travel/saveto', 'App\Http\Controllers\TravelController@create_travel');
@@ -87,5 +87,29 @@ Route::group(['middleware' => 'auth'], function () {
         Route::patch('travel/cenroedit/disapproveto/{id}', 'App\Http\Controllers\TravelApproverCenroController@cenro_disapprove_travel');
     });
     //CENRO Middleware end
+    /****************************************************************************************************************/
+    //ARED MS Middleware start
+    Route::group(['middleware' => 'aredms'], function () {
+        Route::get('travel/aredmsindex', 'App\Http\Controllers\TravelApproverAredmsController@aredms_index')->name('travel.aredmsindex');
+        Route::get('travel/aredmsedit/{id}', 'App\Http\Controllers\TravelApproverAredmsController@aredms_edit')->name('travel.aredmseditto');
+
+        // route sa pag disapprove if na approve na ang Travel Order sa Div Chief
+        Route::get('travel/aredmseditdisapprove/{id}', 'App\Http\Controllers\TravelApproverAredmsController@aredms_disapprove')->name('travel.aredmsdisapprove');
+        Route::patch('travel/aredmseditdisapprove/disapproveto/{id}', 'App\Http\Controllers\TravelApproverAredmsController@aredms_disapprove_travel');
+        // end
+
+        // route sa pag approve if gi cancel sa Div Chief and Travel Order 
+        Route::get('travel/aredmstravelapprove/{id}', 'App\Http\Controllers\TravelApproverAredmsController@aredms_approvefromcancelled')->name('travel.aredmsapprovetravel');
+        Route::post('travel/aredmstravelapprove/updateto/{id}', 'App\Http\Controllers\TravelApproverAredmsController@aredms_update_travel');
+        // end
+
+        Route::get('travel/aredmsapproved', 'App\Http\Controllers\TravelApproverAredmsController@aredms_approvedindex')->name('travel.aredmsapproved');
+        Route::get('travel/aredmscancelled', 'App\Http\Controllers\TravelApproverAredmsController@aredms_cancelledindex')->name('travel.aredmscancelled');
+        Route::get('travel/aredmscompleted', 'App\Http\Controllers\TravelApproverAredmsController@aredms_completedindex')->name('travel.aredmscompleted');
+        Route::post('travel/aredmsedit/updateto/{id}', 'App\Http\Controllers\TravelApproverAredmsController@aredms_update_travel');
+        Route::patch('travel/aredmsedit/disapproveto/{id}', 'App\Http\Controllers\TravelApproverAredmsController@aredms_disapprove_travel');
+    });
+    //ARED MS Middleware end
+
 
 });

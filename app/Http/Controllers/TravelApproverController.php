@@ -109,8 +109,8 @@ class TravelApproverController extends Controller
     public function divchief_disapprove_travel(Request $request, $id){
         $travel = TravelOrder::find($id);
         $travel->application_status = 'Disapproved';
-        $travel->divdisapprove_date = Carbon::now();
-        $travel->divdisapprove_reason = $request->input('value');
+        $travel->disapprove_date = Carbon::now();
+        $travel->disapprove_reason = $request->input('value');
         $travel->save();
         return response()->json(['message' => 'Travel Order Disapproved' ]);
     }

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
 use Carbon\Carbon;
 use Session;
 use Auth;
@@ -14,66 +13,78 @@ use App\Models\Promotion;
 use App\Models\Personnel_Assignment;
 use App\Models\TravelOrder;
 
-class TravelApproverCenroController extends Controller
+
+class TravelApproverAredmsController extends Controller
 {
-    // FUNCTIONS FOR CENRO
-    public function cenro_index(){
+    // FUNCTIONS FOR ARED MS
+    public function aredms_index(){
         $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
 
-        $travels = TravelOrder::where('application_status', 'Pending')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
+        $travels = TravelOrder::where('application_status', 'Division Chief Approved')
+                ->where('office', 'Planning and Management Division')
+                ->orWhere('office', 'Finance Division')
+                ->orWhere('office', 'Legal Division')
+                ->orWhere('office', 'Admin Division')
+                ->orWhere('office', 'ARED for Management Services')
+                ->orWhere('office', 'ARED for Techincal Services')
+                ->orWhere('office', 'Conservation and Development Division')
+                ->orWhere('office', 'Licences Patents and Deeds Division')
+                ->orWhere('office', 'Surveys and Mapping Division')
+                ->orWhere('office', 'Enforcement Division')
+                ->orderBy('created_at', 'DESC')->get();
         
-        return view('travel_order.cenro.approverindex', compact('travels'));
+        return view('travel_order.aredms.approverindex', compact('travels'));
     }
 
-    public function cenro_approvedindex(){
+    public function aredms_approvedindex(){
         $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
 
-        $travels = TravelOrder::where('application_status', 'CENRO Approved')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
+        $travels = TravelOrder::where('application_status', 'ARED MS Approved')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
         
-        return view('travel_order.cenro.approvedindex', compact('travels'));
+        return view('travel_order.aredms.approvedindex', compact('travels'));
     }
-    public function cenro_cancelledindex(){
+    public function aredms_cancelledindex(){
         $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
         $travels = TravelOrder::where('application_status', 'Disapproved')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
         
-        return view('travel_order.cenro.cancelledindex', compact('travels'));
+        return view('travel_order.aredms.cancelledindex', compact('travels'));
     }
     
-    public function cenro_completedindex(){
+    public function aredms_completedindex(){
         $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
         $travels = TravelOrder::where('application_status', 'Completed')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
         
-        return view('travel_order.cenro.completedindex', compact('travels'));
+        return view('travel_order.aredms.completedindex', compact('travels'));
     }
 
-    public function cenro_edit($id){
+    public function aredms_edit($id){
         $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
         
         $travel_order = TravelOrder::where('id', $id)->where('office', $user_office->office->officename)->first();
-        return view('travel_order.cenro.edittravelcenro', compact('travel_order'));        
+        return view('travel_order.aredms.edittravelaredms', compact('travel_order'));        
     }
 
-    public function cenro_disapprove($id){
+    public function aredms_disapprove($id){
         $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
         
         $travel_order = TravelOrder::where('id', $id)->where('office', $user_office->office->officename)->first();
-        return view('travel_order.cenro.disapprovetravelcenro', compact('travel_order'));
+        return view('travel_order.aredms.disapprovetravelaredms', compact('travel_order'));
     }
 
-    public function cenro_approvefromcancelled($id){
+    public function aredms_approvefromcancelled($id){
         $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
         
         $travel_order = TravelOrder::where('id', $id)->where('office', $user_office->office->officename)->first();
-        return view('travel_order.cenro.approvetravelcenro', compact('travel_order'));
+        return view('travel_order.aredms.approvetravelaredms', compact('travel_order'));
     }
 
-    public function cenro_editto($id){
+    public function aredms_editto($id){
         $travel_order = TravelOrder::find($id);
         return response()->json(compact('travel_order'));
     }
 
 
-    public function cenro_update_travel(Request $request, $id){
+    public function aredms_update_travel(Request $request, $id){
         $validator = Validator::make($request->all(), [ 
             'destination'        => 'required',
             'purpose'       => 'required',
@@ -97,15 +108,15 @@ class TravelApproverCenroController extends Controller
         $travel->expenses = $request->expenses;
         $travel->assist_labor_allowed = $request->assist_labor_allowed;
         $travel->instructions = $request->instructions;
-        $travel->cenro_approval_date = Carbon::now();
-        $travel->cenro_approval = Auth::user()->id;
-        $travel->application_status = 'CENRO Approved';
+        $travel->aredms_approval_date = Carbon::now();
+        $travel->aredms_approval = Auth::user()->id;
+        $travel->application_status = 'ARED MS Approved';
         
         $travel->save();
 
         return response()->json(['message' => 'Travel Order Approved' ]);
     }
-    public function cenro_disapprove_travel(Request $request, $id){
+    public function aredms_disapprove_travel(Request $request, $id){
         $travel = TravelOrder::find($id);
         $travel->application_status = 'Disapproved';
         $travel->disapprove_date = Carbon::now();
@@ -114,5 +125,5 @@ class TravelApproverCenroController extends Controller
         return response()->json(['message' => 'Travel Order Disapproved' ]);
     }
 
-    //END OF FUNCTIONS FOR CENRO
+    //END OF FUNCTIONS FOR ARED MS
 }
