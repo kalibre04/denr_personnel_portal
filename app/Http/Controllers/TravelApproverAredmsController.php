@@ -19,19 +19,20 @@ class TravelApproverAredmsController extends Controller
     // FUNCTIONS FOR ARED MS
     public function aredms_index(){
         $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+        // $travels = TravelOrder::where('application_status', 'Division Chief Approved')->get();
 
-        $travels = TravelOrder::where('application_status', 'Division Chief Approved')
-                ->where('office', 'Planning and Management Division')
-                ->orWhere('office', 'Finance Division')
-                ->orWhere('office', 'Legal Division')
-                ->orWhere('office', 'Admin Division')
-                ->orWhere('office', 'ARED for Management Services')
-                ->orWhere('office', 'ARED for Techincal Services')
-                ->orWhere('office', 'Conservation and Development Division')
-                ->orWhere('office', 'Licences Patents and Deeds Division')
-                ->orWhere('office', 'Surveys and Mapping Division')
-                ->orWhere('office', 'Enforcement Division')
-                ->orderBy('created_at', 'DESC')->get();
+        // $travels = TravelOrder::where('application_status', 'Division Chief Approved')
+        //         ->orWhere('office', 'Planning and Management Division')
+        //         ->orWhere('office', 'Finance Division')
+        //         ->orWhere('office', 'Legal Division')
+        //         ->orWhere('office', 'Admin Division')
+        //         ->orWhere('office', 'ARED for Management Services')
+        //         ->orWhere('office', 'ARED for Techincal Services')
+        //         ->orWhere('office', 'Conservation and Development Division')
+        //         ->orWhere('office', 'Licences Patents and Deeds Division')
+        //         ->orWhere('office', 'Surveys and Mapping Division')
+        //         ->orWhere('office', 'Enforcement Division')
+        //         ->orderBy('created_at', 'DESC')->get();
         
         return view('travel_order.aredms.approverindex', compact('travels'));
     }
