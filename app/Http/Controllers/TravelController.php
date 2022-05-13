@@ -44,8 +44,9 @@ class TravelController extends Controller
 		$now = Carbon::now()->format('y');
 		$rounded = TravelOrder::IDGenerator(new TravelOrder,'to_number', 5, $now);
 		$office_assigned = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
-        return view('travel_order.create', compact('rounded', 'office_assigned'));
-    }    
+        $account_type = Auth::user()->account_type;
+        return view('travel_order.create', compact('rounded', 'office_assigned', 'account_type'));
+    }
 
 
     public function create_travel(Request $request){
@@ -93,6 +94,7 @@ class TravelController extends Controller
         $travel->to_number = $to_num;
         $travel->office = $request->currentDept;
         $travel->office_id = $request->currentDeptid;
+        $travel->account_type = $request->accounttype;
         $travel->save();
 
         return response()->json(['message' => 'Travel Order Successfully Created' ]);

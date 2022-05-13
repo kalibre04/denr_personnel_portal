@@ -19,23 +19,23 @@ class TravelApproverCenroController extends Controller
     // FUNCTIONS FOR CENRO
     public function cenro_index(){
         $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
-
-        $travels = TravelOrder::where('application_status', 'Pending')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
         
+        $trav = TravelOrder::where('application_status', 'Pending')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
+        $travels = $trav->where('account_type', 'Personnel');
         return view('travel_order.cenro.approverindex', compact('travels'));
     }
 
     public function cenro_approvedindex(){
         $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
 
-        $travels = TravelOrder::where('application_status', 'CENRO Approved')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
-        
+        $trav = TravelOrder::where('application_status', 'CENRO Approved')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
+        $travels = $trav->where('account_type', 'Personnel');
         return view('travel_order.cenro.approvedindex', compact('travels'));
     }
     public function cenro_cancelledindex(){
         $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
-        $travels = TravelOrder::where('application_status', 'Disapproved')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
-        
+        $trav = TravelOrder::where('application_status', 'Disapproved')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
+        $travels = $trav->where('account_type', 'Personnel');
         return view('travel_order.cenro.cancelledindex', compact('travels'));
     }
     
@@ -106,10 +106,11 @@ class TravelApproverCenroController extends Controller
         return response()->json(['message' => 'Travel Order Approved' ]);
     }
     public function cenro_disapprove_travel(Request $request, $id){
+        $reason = $request->input('value');
         $travel = TravelOrder::find($id);
         $travel->application_status = 'Disapproved';
         $travel->disapprove_date = Carbon::now();
-        $travel->disapprove_reason = $request->input('value');
+        $travel->disapprove_reason = $reason ."       /Disapproved By: " . Auth::user()->firstname . " " . Auth::user()->lastname ;
         $travel->save();
         return response()->json(['message' => 'Travel Order Disapproved' ]);
     }

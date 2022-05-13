@@ -1,7 +1,7 @@
 <template>
   <div class="card card-primary">
     <div class="card-header">
-      <h3 class="card-title">Edit Travel Order</h3>
+      <h3 class="card-title">View Travel Order</h3>
     </div>
     
     <form>
@@ -78,7 +78,7 @@
 
             <div v-if="appstatus === 'Pending'" class="card-footer">
                 
-                <button type="submit" @click.prevent="approveTO()" class="btn btn-primary">Approve</button>
+                <!-- <button type="submit" @click.prevent="approveTO()" class="btn btn-primary">Approve</button> -->
 
                 <!-- <button type="submit" @click.prevent="disapproveTO()" class="btn btn-warning">Disapprove</button> -->
                 <button type="button" @click="back" class="btn btn-secondary">Back</button>

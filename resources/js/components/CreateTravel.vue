@@ -9,6 +9,7 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1">Travel Order No.</label>
                     <input type="text" v-model="toNumber" class="form-control" disabled="true"/>
+                    <input type="text" v-model="accounttype" class="form-control" hidden="true"/>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Current Department</label>
@@ -87,6 +88,10 @@ export default {
           type: String,
           required: true
       },
+      accounttype:{
+          type: String,
+          required: true
+      },
       currentDeptid:{
           type: String,
           required: true
@@ -103,6 +108,7 @@ export default {
       expenses: "",
       assist_labor_allowed: "",
       instructions: "",
+      accounttype: "",
       toNumber: "",
       currentDept: "",
       currentDeptid: "",
@@ -127,7 +133,8 @@ export default {
                 instructions : this.instructions,
                 toNumber : this.toNumber,
                 currentDept: this.currentDept,
-                currentDeptid: this.currentDeptid
+                currentDeptid: this.currentDeptid,
+                accounttype: this.accounttype
                 })
                 .then(response => {
 

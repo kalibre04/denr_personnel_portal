@@ -5451,7 +5451,7 @@ __webpack_require__.r(__webpack_exports__);
                 icon: 'success',
                 confirmButtonText: 'Okay'
               }).then(function () {
-                window.location = "/denr_personnel_portal/travel/cenroapproved";
+                window.location = "/denr_personnel_portal/travel/aredmsapproved";
               });
             } else {
               Swal.fire({
@@ -5488,7 +5488,7 @@ __webpack_require__.r(__webpack_exports__);
             icon: 'success',
             confirmButtonText: 'Okay'
           }).then(function () {
-            window.location = "/denr_personnel_portal/travel/cenrocancelled";
+            window.location = "/denr_personnel_portal/travel/aredmscancelled";
           });
         } else {
           Swal.fire({
@@ -5516,7 +5516,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     back: function back() {
-      window.location.href = '/denr_personnel_portal/travel/cenrocancelled';
+      window.location.href = '/denr_personnel_portal/travel/aredmscancelled';
     }
   }
 });
@@ -6148,6 +6148,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -6155,6 +6156,10 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     currentDept: {
+      type: String,
+      required: true
+    },
+    accounttype: {
       type: String,
       required: true
     },
@@ -6172,6 +6177,7 @@ __webpack_require__.r(__webpack_exports__);
       expenses: "",
       assist_labor_allowed: "",
       instructions: "",
+      accounttype: "",
       toNumber: "",
       currentDept: "",
       currentDeptid: "",
@@ -6196,7 +6202,8 @@ __webpack_require__.r(__webpack_exports__);
         instructions: this.instructions,
         toNumber: this.toNumber,
         currentDept: this.currentDept,
-        currentDeptid: this.currentDeptid
+        currentDeptid: this.currentDeptid,
+        accounttype: this.accounttype
       }).then(function (response) {
         if (response.data.message == 'Travel Order Successfully Created') {
           Swal.fire({
@@ -6418,7 +6425,7 @@ __webpack_require__.r(__webpack_exports__);
                 icon: 'success',
                 confirmButtonText: 'Okay'
               }).then(function () {
-                window.location = "/denr_personnel_portal/travel/cenroapproved";
+                window.location = "/denr_personnel_portal/travel/aredmsapproved";
               });
             } else {
               Swal.fire({
@@ -6455,7 +6462,7 @@ __webpack_require__.r(__webpack_exports__);
             icon: 'success',
             confirmButtonText: 'Okay'
           }).then(function () {
-            window.location = "/denr_personnel_portal/travel/cenroindex";
+            window.location = "/denr_personnel_portal/travel/aredmsindex";
           });
         } else {
           Swal.fire({
@@ -6483,7 +6490,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     back: function back() {
-      window.location.href = '/denr_personnel_portal/travel/chiefindex';
+      window.location.href = '/denr_personnel_portal/travel/aredmsindex';
     }
   }
 });
@@ -7168,7 +7175,7 @@ __webpack_require__.r(__webpack_exports__);
                 icon: 'success',
                 confirmButtonText: 'Okay'
               }).then(function () {
-                window.location = "/denr_personnel_portal/travel/chiefindex";
+                window.location = "/denr_personnel_portal/travel/aredmsindex";
               });
             } else {
               Swal.fire({
@@ -7205,7 +7212,7 @@ __webpack_require__.r(__webpack_exports__);
             icon: 'success',
             confirmButtonText: 'Okay'
           }).then(function () {
-            window.location = "/denr_personnel_portal/travel/chiefindex";
+            window.location = "/denr_personnel_portal/travel/aredmsindex";
           });
         } else {
           Swal.fire({
@@ -7233,7 +7240,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     back: function back() {
-      window.location.href = '/denr_personnel_portal/travel/chiefindex';
+      window.location.href = '/denr_personnel_portal/travel/aredmsindex';
     }
   }
 });
@@ -33061,6 +33068,28 @@ var render = function () {
               },
             },
           }),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.accounttype,
+                expression: "accounttype",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", hidden: "true" },
+            domProps: { value: _vm.accounttype },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.accounttype = $event.target.value
+              },
+            },
+          }),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
@@ -36177,21 +36206,6 @@ var render = function () {
             _c(
               "button",
               {
-                staticClass: "btn btn-primary",
-                attrs: { type: "submit" },
-                on: {
-                  click: function ($event) {
-                    $event.preventDefault()
-                    return _vm.approveTO()
-                  },
-                },
-              },
-              [_vm._v("Approve")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
                 staticClass: "btn btn-secondary",
                 attrs: { type: "button" },
                 on: { click: _vm.back },
@@ -36219,7 +36233,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "card-title" }, [_vm._v("Edit Travel Order")]),
+      _c("h3", { staticClass: "card-title" }, [_vm._v("View Travel Order")]),
     ])
   },
   function () {

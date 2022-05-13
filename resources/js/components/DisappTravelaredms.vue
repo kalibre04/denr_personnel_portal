@@ -170,7 +170,7 @@ export default {
                                 icon: 'success',
                                 confirmButtonText: 'Okay'
                                 }).then(function() {
-                                    window.location = "/denr_personnel_portal/travel/cenroapproved";
+                                    window.location = "/denr_personnel_portal/travel/aredmsapproved";
                                 });
                             }else{
                                 Swal.fire({
@@ -208,7 +208,7 @@ export default {
                             icon: 'success',
                             confirmButtonText: 'Okay'
                         }).then(function() {
-                            window.location = "/denr_personnel_portal/travel/cenroindex";
+                            window.location = "/denr_personnel_portal/travel/aredmsindex";
                         });
 
                     }else{
@@ -240,7 +240,7 @@ export default {
             },
 
             back(){
-                window.location.href='/denr_personnel_portal/travel/chiefindex';
+                window.location.href='/denr_personnel_portal/travel/aredmsindex';
             }
   },
 };

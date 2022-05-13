@@ -18,35 +18,81 @@ class TravelApproverAredmsController extends Controller
 {
     // FUNCTIONS FOR ARED MS
     public function aredms_index(){
-        $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
-        // $travels = TravelOrder::where('application_status', 'Division Chief Approved')->get();
-
-        // $travels = TravelOrder::where('application_status', 'Division Chief Approved')
-        //         ->orWhere('office', 'Planning and Management Division')
-        //         ->orWhere('office', 'Finance Division')
-        //         ->orWhere('office', 'Legal Division')
-        //         ->orWhere('office', 'Admin Division')
-        //         ->orWhere('office', 'ARED for Management Services')
-        //         ->orWhere('office', 'ARED for Techincal Services')
-        //         ->orWhere('office', 'Conservation and Development Division')
-        //         ->orWhere('office', 'Licences Patents and Deeds Division')
-        //         ->orWhere('office', 'Surveys and Mapping Division')
-        //         ->orWhere('office', 'Enforcement Division')
-        //         ->orderBy('created_at', 'DESC')->get();
+        // $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+        //  $aredms_offices = ['office' => 'Planning and Management Division', 'office' => 'Legal Division',  'office'=>'CENRO Manay'];
+                
+                //->orWhere('office', 'Conservation and Development Division')
+                // ->orWhere('office', 'Licences Patents and Deeds Division')
+                // ->orWhere('office', 'Surveys and Mapping Division')
+                // ->orWhere('office', 'Enforcement Division')
         
+
+        $travels_ms = TravelOrder::where('office', 'Planning and Management Division')
+                ->orWhere('office', 'Finance Division')
+                ->orWhere('office', 'Legal Division')
+                ->orWhere('office', 'Admin Division')
+                ->orWhere('office', 'ARED for Management Services')
+                ->orderBy('created_at', 'DESC')->get();
+
+        
+        $travel_ms_divchief = $travels_ms->where('account_type', 'Division Chief');
+        $travel_ms_personnel = $travels_ms->where('account_type', 'Personnel');
+
+        $travel_ms_approved = $travel_ms_personnel->where('application_status', 'Division Chief Approved');
+        $travel_ms_pending = $travel_ms_divchief->where('application_status', 'Pending');
+
+        $travels_ms_approved_pending = $travel_ms_approved->merge($travel_ms_pending);
+
+        $travels_ts = TravelOrder::where('office', 'Conservation and Development Division')
+                ->orWhere('office', 'Enforcement Division')
+                ->orWhere('office', 'Surveys and Mapping Division')
+                ->orWhere('office', 'Licenses Patents and Deeds Division')
+                ->orWhere('office', 'ARED for Technical Services')
+                ->orderBy('created_at', 'DESC')->get();
+        
+        $travel_ts_divchief = $travels_ts->where('account_type', 'Division Chief');
+        $travel_ts_personnel = $travels_ts->where('account_type', 'Personnel');
+        
+        $travel_ts_approved = $travel_ts_personnel->where('application_status', 'Division Chief Approved');
+        $travel_ts_pending = $travel_ts_divchief->where('application_status', 'Pending');
+        
+        $travels_ts_approved_pending = $travel_ts_approved->merge($travel_ts_pending);
+        
+
+        $travels = $travels_ms_approved_pending->merge($travels_ts_approved_pending);
+
+
         return view('travel_order.aredms.approverindex', compact('travels'));
+
     }
 
     public function aredms_approvedindex(){
-        $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
-
-        $travels = TravelOrder::where('application_status', 'ARED MS Approved')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
+        // $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+                
+        $travels = TravelOrder::where('application_status', 'ARED MS Approved')->orderBy('created_at', 'DESC')->get();
         
         return view('travel_order.aredms.approvedindex', compact('travels'));
     }
     public function aredms_cancelledindex(){
-        $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
-        $travels = TravelOrder::where('application_status', 'Disapproved')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
+        //$user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+        
+        $travels_ts = TravelOrder::where('office', 'Conservation and Development Division')
+                ->orWhere('office', 'Enforcement Division')
+                ->orWhere('office', 'Surveys and Mapping Division')
+                ->orWhere('office', 'Licenses Patents and Deeds Division')
+                ->orWhere('office', 'ARED for Technical Services')
+                ->orderBy('created_at', 'DESC')->get();
+        $travels_ms = TravelOrder::where('office', 'Planning and Management Division')
+                ->orWhere('office', 'Finance Division')
+                ->orWhere('office', 'Legal Division')
+                ->orWhere('office', 'Admin Division')
+                ->orWhere('office', 'ARED for Management Services')
+                ->orderBy('created_at', 'DESC')->get();
+        
+        $trav_ms = $travels_ms->where('application_status', 'Disapproved');
+        $trav_ts = $travels_ts->where('application_status', 'Disapproved');
+        $travels = $trav_ms->merge($trav_ts);
+        // $travels = TravelOrder::where('application_status', 'Disapproved')->orderBy('created_at', 'DESC')->get();
         
         return view('travel_order.aredms.cancelledindex', compact('travels'));
     }
@@ -61,13 +107,16 @@ class TravelApproverAredmsController extends Controller
     public function aredms_edit($id){
         $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
         
-        $travel_order = TravelOrder::where('id', $id)->where('office', $user_office->office->officename)->first();
+        $travel_order = TravelOrder::where('id', $id)->first();
+       
         return view('travel_order.aredms.edittravelaredms', compact('travel_order'));        
     }
 
     public function aredms_disapprove($id){
         $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
         
+        
+
         $travel_order = TravelOrder::where('id', $id)->where('office', $user_office->office->officename)->first();
         return view('travel_order.aredms.disapprovetravelaredms', compact('travel_order'));
     }
@@ -75,7 +124,7 @@ class TravelApproverAredmsController extends Controller
     public function aredms_approvefromcancelled($id){
         $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
         
-        $travel_order = TravelOrder::where('id', $id)->where('office', $user_office->office->officename)->first();
+        $travel_order = TravelOrder::where('id', $id)->first();
         return view('travel_order.aredms.approvetravelaredms', compact('travel_order'));
     }
 
@@ -118,10 +167,11 @@ class TravelApproverAredmsController extends Controller
         return response()->json(['message' => 'Travel Order Approved' ]);
     }
     public function aredms_disapprove_travel(Request $request, $id){
+        $reason = $request->input('value');
         $travel = TravelOrder::find($id);
         $travel->application_status = 'Disapproved';
         $travel->disapprove_date = Carbon::now();
-        $travel->disapprove_reason = $request->input('value');
+        $travel->disapprove_reason = $reason ."       /Disapproved By: " . Auth::user()->firstname . " " . Auth::user()->lastname ;
         $travel->save();
         return response()->json(['message' => 'Travel Order Disapproved' ]);
     }
