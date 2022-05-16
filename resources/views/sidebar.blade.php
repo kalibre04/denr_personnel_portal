@@ -144,6 +144,63 @@
         </ul>
       </nav>
       @endif
+      @if(Auth::user()->account_type == 'PENRO')
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Travel Orders
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('travel.penroindex') }}" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Travel Orders For Approval</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('travel.penroapproved') }}" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Approved Travel Orders</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('travel.penrocancelled') }}" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Disapproved Travel Orders</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('travel.penrocompleted') }}" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Completed Travel Orders</p>
+                </a>
+              </li>
+              <!-- <li class="nav-item">
+                <a href="#" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Inactive Page</p>
+                </a>
+              </li> -->
+            </ul>
+          </li>
+          <!-- <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Simple Link
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li> -->
+        </ul>
+      </nav>
+      @endif
       @if(Auth::user()->account_type == 'ARED MS')
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">

@@ -88,6 +88,34 @@ Route::group(['middleware' => 'auth'], function () {
     });
     //CENRO Middleware end
     /****************************************************************************************************************/
+
+     /********************************************************************************************************************************/
+    
+    //PENRO Middleware start
+    Route::group(['middleware' => 'penro'], function () {
+        Route::get('travel/penroindex', 'App\Http\Controllers\TravelApproverPenroController@penro_index')->name('travel.penroindex');
+        Route::get('travel/penroedit/{id}', 'App\Http\Controllers\TravelApproverPenroController@penro_edit')->name('travel.penroeditto');
+
+        // route sa pag disapprove if na approve na ang Travel Order sa Div Chief
+        Route::get('travel/penroeditdisapprove/{id}', 'App\Http\Controllers\TravelApproverPenroController@penro_disapprove')->name('travel.penrodisapprove');
+        Route::patch('travel/penroeditdisapprove/disapproveto/{id}', 'App\Http\Controllers\TravelApproverPenroController@penro_disapprove_travel');
+        // end
+
+        // route sa pag approve if gi cancel sa Div Chief and Travel Order 
+        Route::get('travel/penrotravelapprove/{id}', 'App\Http\Controllers\TravelApproverPenroController@cenro_approvefromcancelled')->name('travel.penroapprovetravel');
+        Route::post('travel/penrotravelapprove/updateto/{id}', 'App\Http\Controllers\TravelApproverPenroController@penro_update_travel');
+        // end
+
+        Route::get('travel/penroapproved', 'App\Http\Controllers\TravelApproverPenroController@penro_approvedindex')->name('travel.penroapproved');
+        Route::get('travel/penrocancelled', 'App\Http\Controllers\TravelApproverPenroController@penro_cancelledindex')->name('travel.penrocancelled');
+        Route::get('travel/penrocompleted', 'App\Http\Controllers\TravelApproverPenroController@penro_completedindex')->name('travel.penrocompleted');
+        Route::post('travel/penroedit/updateto/{id}', 'App\Http\Controllers\TravelApproverPenroController@penro_update_travel');
+        Route::patch('travel/penroedit/disapproveto/{id}', 'App\Http\Controllers\TravelApproverPenroController@penro_disapprove_travel');
+    });
+    //PENRO Middleware end
+    /****************************************************************************************************************/
+
+
     //ARED MS Middleware start
     Route::group(['middleware' => 'aredms'], function () {
         Route::get('travel/aredmsindex', 'App\Http\Controllers\TravelApproverAredmsController@aredms_index')->name('travel.aredmsindex');
