@@ -6059,6 +6059,274 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AppTravelpenro.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AppTravelpenro.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    toNumber: {
+      type: String,
+      required: true
+    },
+    disappreason: {
+      type: String,
+      required: true
+    },
+    appstatus: {
+      type: String,
+      required: true
+    },
+    disapp_date: {
+      type: String,
+      required: true
+    },
+    destination: {
+      type: String,
+      required: true
+    },
+    currentDept: {
+      type: String,
+      required: true
+    },
+    datedepart: {
+      type: Date,
+      required: true
+    },
+    datearrive: {
+      type: Date,
+      required: true
+    },
+    expenses: {
+      type: String,
+      required: true
+    },
+    assist_labor_allowed: {
+      type: String,
+      required: true
+    },
+    instructions: {
+      type: String,
+      required: true
+    },
+    purpose: {
+      type: String,
+      required: true
+    },
+    id: {
+      type: String,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      destination: "",
+      purpose: "",
+      datedepart: "",
+      datearrive: "",
+      expenses: "",
+      assist_labor_allowed: "",
+      instructions: "",
+      toNumber: "",
+      currentDept: "",
+      currentDeptid: "",
+      error: false,
+      successful: false,
+      errors: []
+    };
+  },
+  mounted: function mounted() {//console.log('Component Mounted')
+    //this.sampleMount();
+  },
+  methods: {
+    disapproveTO: function disapproveTO() {
+      var _this = this;
+
+      Swal.fire({
+        title: 'Are you sure you want to decline this Travel Order?',
+        text: "kindly state why",
+        input: 'textarea',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes!'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          //console.log(result);   
+          axios.patch('disapproveto/' + _this.id, result).then(function (response) {
+            if (response.data.message == "Travel Order Disapproved") {
+              Swal.fire({
+                title: 'Success!',
+                text: response.data.message,
+                icon: 'success',
+                confirmButtonText: 'Okay'
+              }).then(function () {
+                window.location = "/denr_personnel_portal/travel/penroapproved";
+              });
+            } else {
+              Swal.fire({
+                title: 'Oops!',
+                text: response.data.message,
+                icon: 'warning',
+                confirmButtonText: 'Okay'
+              });
+            }
+          });
+        }
+      });
+    },
+    approveTO: function approveTO() {
+      var _this2 = this;
+
+      axios.post("updateto/" + this.id, {
+        destination: this.destination,
+        purpose: this.purpose,
+        datedepart: this.datedepart,
+        datearrive: this.datearrive,
+        expenses: this.expenses,
+        assist_labor_allowed: this.assist_labor_allowed,
+        instructions: this.instructions,
+        toNumber: this.toNumber,
+        currentDept: this.currentDept,
+        currentDeptid: this.currentDeptid,
+        id: this.id
+      }).then(function (response) {
+        if (response.data.message == 'Travel Order Approved') {
+          Swal.fire({
+            title: 'Success!',
+            text: response.data.message,
+            icon: 'success',
+            confirmButtonText: 'Okay'
+          }).then(function () {
+            window.location = "/denr_personnel_portal/travel/penrocancelled";
+          });
+        } else {
+          Swal.fire({
+            title: 'Oops...',
+            text: 'fill out required fields',
+            icon: 'error',
+            confirmButtonText: 'Okay'
+          });
+        }
+      })["catch"](function (error) {
+        if (!_.isEmpty(error.response)) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!'
+          });
+
+          if (error.response.status = 422) {
+            _this2.errors = error.response.data.errors;
+            _this2.successful = false;
+            _this2.error = true;
+            _this2.submitted = false;
+          }
+        }
+      });
+    },
+    back: function back() {
+      window.location.href = '/denr_personnel_portal/travel/penrocancelled';
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CreateTravel.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CreateTravel.vue?vue&type=script&lang=js& ***!
@@ -6997,6 +7265,256 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DisappTravelpenro.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DisappTravelpenro.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    toNumber: {
+      type: String,
+      required: true
+    },
+    destination: {
+      type: String,
+      required: true
+    },
+    currentDept: {
+      type: String,
+      required: true
+    },
+    datedepart: {
+      type: Date,
+      required: true
+    },
+    datearrive: {
+      type: Date,
+      required: true
+    },
+    expenses: {
+      type: String,
+      required: true
+    },
+    assist_labor_allowed: {
+      type: String,
+      required: true
+    },
+    instructions: {
+      type: String,
+      required: true
+    },
+    purpose: {
+      type: String,
+      required: true
+    },
+    id: {
+      type: String,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      destination: "",
+      purpose: "",
+      datedepart: "",
+      datearrive: "",
+      expenses: "",
+      assist_labor_allowed: "",
+      instructions: "",
+      toNumber: "",
+      currentDept: "",
+      currentDeptid: "",
+      error: false,
+      successful: false,
+      errors: []
+    };
+  },
+  mounted: function mounted() {//console.log('Component Mounted')
+    //this.sampleMount();
+  },
+  methods: {
+    disapproveTO: function disapproveTO() {
+      var _this = this;
+
+      Swal.fire({
+        title: 'Are you sure you want to decline this Travel Order?',
+        text: "kindly state why",
+        input: 'textarea',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes!'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          //console.log(result);   
+          axios.patch('disapproveto/' + _this.id, result).then(function (response) {
+            if (response.data.message == "Travel Order Disapproved") {
+              Swal.fire({
+                title: 'Success!',
+                text: response.data.message,
+                icon: 'success',
+                confirmButtonText: 'Okay'
+              }).then(function () {
+                window.location = "/denr_personnel_portal/travel/penroapproved";
+              });
+            } else {
+              Swal.fire({
+                title: 'Oops!',
+                text: response.data.message,
+                icon: 'warning',
+                confirmButtonText: 'Okay'
+              });
+            }
+          });
+        }
+      });
+    },
+    approveTO: function approveTO() {
+      var _this2 = this;
+
+      axios.post("updateto/" + this.id, {
+        destination: this.destination,
+        purpose: this.purpose,
+        datedepart: this.datedepart,
+        datearrive: this.datearrive,
+        expenses: this.expenses,
+        assist_labor_allowed: this.assist_labor_allowed,
+        instructions: this.instructions,
+        toNumber: this.toNumber,
+        currentDept: this.currentDept,
+        currentDeptid: this.currentDeptid,
+        id: this.id
+      }).then(function (response) {
+        if (response.data.message == 'Travel Order Approved') {
+          Swal.fire({
+            title: 'Success!',
+            text: response.data.message,
+            icon: 'success',
+            confirmButtonText: 'Okay'
+          }).then(function () {
+            window.location = "/denr_personnel_portal/travel/penroindex";
+          });
+        } else {
+          Swal.fire({
+            title: 'Oops...',
+            text: 'fill out required fields',
+            icon: 'error',
+            confirmButtonText: 'Okay'
+          });
+        }
+      })["catch"](function (error) {
+        if (!_.isEmpty(error.response)) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!'
+          });
+
+          if (error.response.status = 422) {
+            _this2.errors = error.response.data.errors;
+            _this2.successful = false;
+            _this2.error = true;
+            _this2.submitted = false;
+          }
+        }
+      });
+    },
+    back: function back() {
+      window.location.href = '/denr_personnel_portal/travel/penroindex';
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EditTravelaredms.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EditTravelaredms.vue?vue&type=script&lang=js& ***!
@@ -7747,6 +8265,256 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EditTravelpenro.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EditTravelpenro.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    toNumber: {
+      type: String,
+      required: true
+    },
+    destination: {
+      type: String,
+      required: true
+    },
+    currentDept: {
+      type: String,
+      required: true
+    },
+    datedepart: {
+      type: Date,
+      required: true
+    },
+    datearrive: {
+      type: Date,
+      required: true
+    },
+    expenses: {
+      type: String,
+      required: true
+    },
+    assist_labor_allowed: {
+      type: String,
+      required: true
+    },
+    instructions: {
+      type: String,
+      required: true
+    },
+    purpose: {
+      type: String,
+      required: true
+    },
+    id: {
+      type: String,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      destination: "",
+      purpose: "",
+      datedepart: "",
+      datearrive: "",
+      expenses: "",
+      assist_labor_allowed: "",
+      instructions: "",
+      toNumber: "",
+      currentDept: "",
+      currentDeptid: "",
+      error: false,
+      successful: false,
+      errors: []
+    };
+  },
+  mounted: function mounted() {//console.log('Component Mounted')
+    //this.sampleMount();
+  },
+  methods: {
+    disapproveTO: function disapproveTO() {
+      var _this = this;
+
+      Swal.fire({
+        title: 'Are you sure you want to decline this Travel Order?',
+        text: "kindly state why",
+        input: 'textarea',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes!'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          //console.log(result);   
+          axios.patch('disapproveto/' + _this.id, result).then(function (response) {
+            if (response.data.message == "Travel Order Disapproved") {
+              Swal.fire({
+                title: 'Success!',
+                text: response.data.message,
+                icon: 'success',
+                confirmButtonText: 'Okay'
+              }).then(function () {
+                window.location = "/denr_personnel_portal/travel/penroindex";
+              });
+            } else {
+              Swal.fire({
+                title: 'Oops!',
+                text: response.data.message,
+                icon: 'warning',
+                confirmButtonText: 'Okay'
+              });
+            }
+          });
+        }
+      });
+    },
+    approveTO: function approveTO() {
+      var _this2 = this;
+
+      axios.post("updateto/" + this.id, {
+        destination: this.destination,
+        purpose: this.purpose,
+        datedepart: this.datedepart,
+        datearrive: this.datearrive,
+        expenses: this.expenses,
+        assist_labor_allowed: this.assist_labor_allowed,
+        instructions: this.instructions,
+        toNumber: this.toNumber,
+        currentDept: this.currentDept,
+        currentDeptid: this.currentDeptid,
+        id: this.id
+      }).then(function (response) {
+        if (response.data.message == 'Travel Order Approved') {
+          Swal.fire({
+            title: 'Success!',
+            text: response.data.message,
+            icon: 'success',
+            confirmButtonText: 'Okay'
+          }).then(function () {
+            window.location = "/denr_personnel_portal/travel/penroindex";
+          });
+        } else {
+          Swal.fire({
+            title: 'Oops...',
+            text: 'fill out required fields',
+            icon: 'error',
+            confirmButtonText: 'Okay'
+          });
+        }
+      })["catch"](function (error) {
+        if (!_.isEmpty(error.response)) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!'
+          });
+
+          if (error.response.status = 422) {
+            _this2.errors = error.response.data.errors;
+            _this2.successful = false;
+            _this2.error = true;
+            _this2.submitted = false;
+          }
+        }
+      });
+    },
+    back: function back() {
+      window.location.href = '/denr_personnel_portal/travel/penroindex';
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -8354,6 +9122,9 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+Vue.component('disapptravelpenro', (__webpack_require__(/*! ./components/DisappTravelpenro.vue */ "./resources/js/components/DisappTravelpenro.vue")["default"]));
+Vue.component('edittravelpenro', (__webpack_require__(/*! ./components/EditTravelpenro.vue */ "./resources/js/components/EditTravelpenro.vue")["default"]));
+Vue.component('apptravelpenro', (__webpack_require__(/*! ./components/AppTravelpenro.vue */ "./resources/js/components/AppTravelpenro.vue")["default"]));
 Vue.component('disapptravelaredms', (__webpack_require__(/*! ./components/DisappTravelaredms.vue */ "./resources/js/components/DisappTravelaredms.vue")["default"]));
 Vue.component('edittravelaredms', (__webpack_require__(/*! ./components/EditTravelaredms.vue */ "./resources/js/components/EditTravelaredms.vue")["default"]));
 Vue.component('apptravelaredms', (__webpack_require__(/*! ./components/AppTravelaredms.vue */ "./resources/js/components/AppTravelaredms.vue")["default"]));
@@ -30978,6 +31749,45 @@ component.options.__file = "resources/js/components/AppTraveldivchief.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/AppTravelpenro.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/AppTravelpenro.vue ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AppTravelpenro_vue_vue_type_template_id_79e979f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AppTravelpenro.vue?vue&type=template&id=79e979f4& */ "./resources/js/components/AppTravelpenro.vue?vue&type=template&id=79e979f4&");
+/* harmony import */ var _AppTravelpenro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AppTravelpenro.vue?vue&type=script&lang=js& */ "./resources/js/components/AppTravelpenro.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AppTravelpenro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AppTravelpenro_vue_vue_type_template_id_79e979f4___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AppTravelpenro_vue_vue_type_template_id_79e979f4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/AppTravelpenro.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/CreateTravel.vue":
 /*!**************************************************!*\
   !*** ./resources/js/components/CreateTravel.vue ***!
@@ -31134,6 +31944,45 @@ component.options.__file = "resources/js/components/DisappTraveldivchief.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/DisappTravelpenro.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/DisappTravelpenro.vue ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DisappTravelpenro_vue_vue_type_template_id_5ecb3be4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DisappTravelpenro.vue?vue&type=template&id=5ecb3be4& */ "./resources/js/components/DisappTravelpenro.vue?vue&type=template&id=5ecb3be4&");
+/* harmony import */ var _DisappTravelpenro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DisappTravelpenro.vue?vue&type=script&lang=js& */ "./resources/js/components/DisappTravelpenro.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _DisappTravelpenro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DisappTravelpenro_vue_vue_type_template_id_5ecb3be4___WEBPACK_IMPORTED_MODULE_0__.render,
+  _DisappTravelpenro_vue_vue_type_template_id_5ecb3be4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/DisappTravelpenro.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/EditTravelaredms.vue":
 /*!******************************************************!*\
   !*** ./resources/js/components/EditTravelaredms.vue ***!
@@ -31247,6 +32096,45 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/EditTraveldivchief.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/EditTravelpenro.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/EditTravelpenro.vue ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _EditTravelpenro_vue_vue_type_template_id_0f6f8137___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditTravelpenro.vue?vue&type=template&id=0f6f8137& */ "./resources/js/components/EditTravelpenro.vue?vue&type=template&id=0f6f8137&");
+/* harmony import */ var _EditTravelpenro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditTravelpenro.vue?vue&type=script&lang=js& */ "./resources/js/components/EditTravelpenro.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _EditTravelpenro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditTravelpenro_vue_vue_type_template_id_0f6f8137___WEBPACK_IMPORTED_MODULE_0__.render,
+  _EditTravelpenro_vue_vue_type_template_id_0f6f8137___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/EditTravelpenro.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -31416,6 +32304,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/AppTravelpenro.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/AppTravelpenro.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppTravelpenro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AppTravelpenro.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AppTravelpenro.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppTravelpenro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/CreateTravel.vue?vue&type=script&lang=js&":
 /*!***************************************************************************!*\
   !*** ./resources/js/components/CreateTravel.vue?vue&type=script&lang=js& ***!
@@ -31480,6 +32384,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/DisappTravelpenro.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/DisappTravelpenro.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DisappTravelpenro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DisappTravelpenro.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DisappTravelpenro.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DisappTravelpenro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/EditTravelaredms.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************!*\
   !*** ./resources/js/components/EditTravelaredms.vue?vue&type=script&lang=js& ***!
@@ -31525,6 +32445,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditTraveldivchief_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditTraveldivchief.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EditTraveldivchief.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditTraveldivchief_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/EditTravelpenro.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/EditTravelpenro.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditTravelpenro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditTravelpenro.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EditTravelpenro.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditTravelpenro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -31627,6 +32563,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/AppTravelpenro.vue?vue&type=template&id=79e979f4&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/AppTravelpenro.vue?vue&type=template&id=79e979f4& ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppTravelpenro_vue_vue_type_template_id_79e979f4___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppTravelpenro_vue_vue_type_template_id_79e979f4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppTravelpenro_vue_vue_type_template_id_79e979f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AppTravelpenro.vue?vue&type=template&id=79e979f4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AppTravelpenro.vue?vue&type=template&id=79e979f4&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/CreateTravel.vue?vue&type=template&id=00404821&":
 /*!*********************************************************************************!*\
   !*** ./resources/js/components/CreateTravel.vue?vue&type=template&id=00404821& ***!
@@ -31695,6 +32648,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/DisappTravelpenro.vue?vue&type=template&id=5ecb3be4&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/DisappTravelpenro.vue?vue&type=template&id=5ecb3be4& ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DisappTravelpenro_vue_vue_type_template_id_5ecb3be4___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DisappTravelpenro_vue_vue_type_template_id_5ecb3be4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DisappTravelpenro_vue_vue_type_template_id_5ecb3be4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DisappTravelpenro.vue?vue&type=template&id=5ecb3be4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DisappTravelpenro.vue?vue&type=template&id=5ecb3be4&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/EditTravelaredms.vue?vue&type=template&id=eb267336&":
 /*!*************************************************************************************!*\
   !*** ./resources/js/components/EditTravelaredms.vue?vue&type=template&id=eb267336& ***!
@@ -31742,6 +32712,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditTraveldivchief_vue_vue_type_template_id_667065c3___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditTraveldivchief_vue_vue_type_template_id_667065c3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditTraveldivchief.vue?vue&type=template&id=667065c3& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EditTraveldivchief.vue?vue&type=template&id=667065c3&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/EditTravelpenro.vue?vue&type=template&id=0f6f8137&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/EditTravelpenro.vue?vue&type=template&id=0f6f8137& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditTravelpenro_vue_vue_type_template_id_0f6f8137___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditTravelpenro_vue_vue_type_template_id_0f6f8137___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditTravelpenro_vue_vue_type_template_id_0f6f8137___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditTravelpenro.vue?vue&type=template&id=0f6f8137& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EditTravelpenro.vue?vue&type=template&id=0f6f8137&");
 
 
 /***/ }),
@@ -32617,6 +33604,414 @@ render._withStripped = true
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AppTraveldivchief.vue?vue&type=template&id=bde1c4d8& ***!
   \*****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card card-primary" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("form", [
+      _c("div", { staticClass: "card-body" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Travel Order No."),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.toNumber,
+                expression: "toNumber",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", disabled: "true" },
+            domProps: { value: _vm.toNumber },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.toNumber = $event.target.value
+              },
+            },
+          }),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.id,
+                expression: "id",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", disabled: "true", hidden: "true" },
+            domProps: { value: _vm.id },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.id = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Current Department"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.currentDept,
+                expression: "currentDept",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", disabled: "true" },
+            domProps: { value: _vm.currentDept },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.currentDept = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.currentDeptid,
+                expression: "currentDeptid",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", hidden: "true" },
+            domProps: { value: _vm.currentDeptid },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.currentDeptid = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Destination"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.destination,
+                expression: "destination",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Destination" },
+            domProps: { value: _vm.destination },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.destination = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputPassword1" } }, [
+            _vm._v("Purpose"),
+          ]),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.purpose,
+                expression: "purpose",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { rows: "3", placeholder: "Purpose of travel" },
+            domProps: { value: _vm.purpose },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.purpose = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Departure Date:")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-group" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.datedepart,
+                  expression: "datedepart",
+                },
+              ],
+              staticClass: "form-control float-right",
+              attrs: { type: "date" },
+              domProps: { value: _vm.datedepart },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.datedepart = $event.target.value
+                },
+              },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Arrival Date:")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-group" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.datearrive,
+                  expression: "datearrive",
+                },
+              ],
+              staticClass: "form-control float-right",
+              attrs: { type: "date" },
+              domProps: { value: _vm.datearrive },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.datearrive = $event.target.value
+                },
+              },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Per Diems/Expenses Allowed:"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.expenses,
+                expression: "expenses",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Per Diems/Expenses" },
+            domProps: { value: _vm.expenses },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.expenses = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Assistants or Laborers Allowed:"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.assist_labor_allowed,
+                expression: "assist_labor_allowed",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              placeholder: "Assistants or Laborers Allowed",
+            },
+            domProps: { value: _vm.assist_labor_allowed },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.assist_labor_allowed = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Remarks or Special Instructions:"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.instructions,
+                expression: "instructions",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Special Instructions" },
+            domProps: { value: _vm.instructions },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.instructions = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _vm.appstatus === "Disapproved"
+          ? _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Reason for disapproval"),
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(_vm.disappreason))]),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Disapproval Date"),
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(_vm.disapp_date))]),
+            ])
+          : _vm._e(),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-footer" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            attrs: { type: "submit" },
+            on: {
+              click: function ($event) {
+                $event.preventDefault()
+                return _vm.approveTO()
+              },
+            },
+          },
+          [_vm._v("Approve")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-secondary",
+            attrs: { type: "button" },
+            on: { click: _vm.back },
+          },
+          [_vm._v("Back")]
+        ),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Edit Travel Order")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [
+        _c("i", { staticClass: "far fa-calendar-alt" }),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [
+        _c("i", { staticClass: "far fa-calendar-alt" }),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AppTravelpenro.vue?vue&type=template&id=79e979f4&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AppTravelpenro.vue?vue&type=template&id=79e979f4& ***!
+  \**************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -34589,6 +35984,398 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DisappTravelpenro.vue?vue&type=template&id=5ecb3be4&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DisappTravelpenro.vue?vue&type=template&id=5ecb3be4& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card card-primary" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("form", [
+      _c("div", { staticClass: "card-body" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Travel Order No."),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.toNumber,
+                expression: "toNumber",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", disabled: "true" },
+            domProps: { value: _vm.toNumber },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.toNumber = $event.target.value
+              },
+            },
+          }),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.id,
+                expression: "id",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", disabled: "true", hidden: "true" },
+            domProps: { value: _vm.id },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.id = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Current Department"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.currentDept,
+                expression: "currentDept",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", disabled: "true" },
+            domProps: { value: _vm.currentDept },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.currentDept = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.currentDeptid,
+                expression: "currentDeptid",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", hidden: "true" },
+            domProps: { value: _vm.currentDeptid },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.currentDeptid = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Destination"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.destination,
+                expression: "destination",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Destination" },
+            domProps: { value: _vm.destination },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.destination = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputPassword1" } }, [
+            _vm._v("Purpose"),
+          ]),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.purpose,
+                expression: "purpose",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { rows: "3", placeholder: "Purpose of travel" },
+            domProps: { value: _vm.purpose },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.purpose = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Departure Date:")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-group" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.datedepart,
+                  expression: "datedepart",
+                },
+              ],
+              staticClass: "form-control float-right",
+              attrs: { type: "date" },
+              domProps: { value: _vm.datedepart },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.datedepart = $event.target.value
+                },
+              },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Arrival Date:")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-group" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.datearrive,
+                  expression: "datearrive",
+                },
+              ],
+              staticClass: "form-control float-right",
+              attrs: { type: "date" },
+              domProps: { value: _vm.datearrive },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.datearrive = $event.target.value
+                },
+              },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Per Diems/Expenses Allowed:"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.expenses,
+                expression: "expenses",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Per Diems/Expenses" },
+            domProps: { value: _vm.expenses },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.expenses = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Assistants or Laborers Allowed:"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.assist_labor_allowed,
+                expression: "assist_labor_allowed",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              placeholder: "Assistants or Laborers Allowed",
+            },
+            domProps: { value: _vm.assist_labor_allowed },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.assist_labor_allowed = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Remarks or Special Instructions:"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.instructions,
+                expression: "instructions",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Special Instructions" },
+            domProps: { value: _vm.instructions },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.instructions = $event.target.value
+              },
+            },
+          }),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-footer" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-warning",
+            attrs: { type: "submit" },
+            on: {
+              click: function ($event) {
+                $event.preventDefault()
+                return _vm.disapproveTO()
+              },
+            },
+          },
+          [_vm._v("Disapprove")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-secondary",
+            attrs: { type: "button" },
+            on: { click: _vm.back },
+          },
+          [_vm._v("Back")]
+        ),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Edit Travel Order")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [
+        _c("i", { staticClass: "far fa-calendar-alt" }),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [
+        _c("i", { staticClass: "far fa-calendar-alt" }),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EditTravelaredms.vue?vue&type=template&id=eb267336&":
 /*!****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EditTravelaredms.vue?vue&type=template&id=eb267336& ***!
@@ -35407,6 +37194,413 @@ render._withStripped = true
 /*!******************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EditTraveldivchief.vue?vue&type=template&id=667065c3& ***!
   \******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card card-primary" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("form", [
+      _c("div", { staticClass: "card-body" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Travel Order No."),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.toNumber,
+                expression: "toNumber",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", disabled: "true" },
+            domProps: { value: _vm.toNumber },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.toNumber = $event.target.value
+              },
+            },
+          }),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.id,
+                expression: "id",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", disabled: "true", hidden: "true" },
+            domProps: { value: _vm.id },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.id = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Current Department"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.currentDept,
+                expression: "currentDept",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", disabled: "true" },
+            domProps: { value: _vm.currentDept },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.currentDept = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.currentDeptid,
+                expression: "currentDeptid",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", hidden: "true" },
+            domProps: { value: _vm.currentDeptid },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.currentDeptid = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Destination"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.destination,
+                expression: "destination",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Destination" },
+            domProps: { value: _vm.destination },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.destination = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputPassword1" } }, [
+            _vm._v("Purpose"),
+          ]),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.purpose,
+                expression: "purpose",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { rows: "3", placeholder: "Purpose of travel" },
+            domProps: { value: _vm.purpose },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.purpose = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Departure Date:")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-group" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.datedepart,
+                  expression: "datedepart",
+                },
+              ],
+              staticClass: "form-control float-right",
+              attrs: { type: "date" },
+              domProps: { value: _vm.datedepart },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.datedepart = $event.target.value
+                },
+              },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Arrival Date:")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-group" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.datearrive,
+                  expression: "datearrive",
+                },
+              ],
+              staticClass: "form-control float-right",
+              attrs: { type: "date" },
+              domProps: { value: _vm.datearrive },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.datearrive = $event.target.value
+                },
+              },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Per Diems/Expenses Allowed:"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.expenses,
+                expression: "expenses",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Per Diems/Expenses" },
+            domProps: { value: _vm.expenses },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.expenses = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Assistants or Laborers Allowed:"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.assist_labor_allowed,
+                expression: "assist_labor_allowed",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              placeholder: "Assistants or Laborers Allowed",
+            },
+            domProps: { value: _vm.assist_labor_allowed },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.assist_labor_allowed = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Remarks or Special Instructions:"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.instructions,
+                expression: "instructions",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Special Instructions" },
+            domProps: { value: _vm.instructions },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.instructions = $event.target.value
+              },
+            },
+          }),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-footer" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            attrs: { type: "submit" },
+            on: {
+              click: function ($event) {
+                $event.preventDefault()
+                return _vm.approveTO()
+              },
+            },
+          },
+          [_vm._v("Approve")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-warning",
+            attrs: { type: "submit" },
+            on: {
+              click: function ($event) {
+                $event.preventDefault()
+                return _vm.disapproveTO()
+              },
+            },
+          },
+          [_vm._v("Disapprove")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-secondary",
+            attrs: { type: "button" },
+            on: { click: _vm.back },
+          },
+          [_vm._v("Back")]
+        ),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Edit Travel Order")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [
+        _c("i", { staticClass: "far fa-calendar-alt" }),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [
+        _c("i", { staticClass: "far fa-calendar-alt" }),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EditTravelpenro.vue?vue&type=template&id=0f6f8137&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EditTravelpenro.vue?vue&type=template&id=0f6f8137& ***!
+  \***************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";

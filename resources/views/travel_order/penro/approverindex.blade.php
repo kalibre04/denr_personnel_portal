@@ -43,7 +43,7 @@
                             <td>{{ $travel->date_depart }}</td>
                             <td>{{ $travel->date_arrived }}</td>
                             <td>{{ $travel->office }}</td>
-                            <td><a href="{{ route('travel.aredmseditto', $travel->id) }}" class="btn btn-primary">View</a></td>
+                            <td><a href="{{ route('travel.penroeditto', $travel->id) }}" class="btn btn-primary">View</a></td>
                           </tr>
                         @endforeach         
                         </tbody>

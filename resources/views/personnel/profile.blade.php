@@ -259,7 +259,7 @@
 
                                             {!! Form::model($user, ['route' => ['officeassign.add',$user->id], 'method' => 'POST', 'files' => true]) !!}
                                                     <div class="form-group">
-                                                        <label class="col-md-12">Plantilla</label>
+                                                        <label class="col-md-12">Office</label>
                                                         <div class="col-md-12">
                                                             {{ Form::select('officeassigned', $offices, null,['class' => 'form-control select2']) }}
                                                         </div>

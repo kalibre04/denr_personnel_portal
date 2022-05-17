@@ -20,7 +20,7 @@ class TravelController extends Controller
 {
     public function index(){
         $office_assigned = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
-        $travels = TravelOrder::where('user_id', Auth::user()->id)->where('office', $office_assigned->office->officename)->orderBy('created_at', 'DESC')->get();
+        $travels = TravelOrder::where('user_id', Auth::user()->id)->where('office', $office_assigned->office->officename)->orderBy('date_submitted', 'ASC')->get();
 
         return view('travel_order.index', compact('travels'));
     }

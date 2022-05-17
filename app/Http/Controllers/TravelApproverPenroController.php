@@ -25,56 +25,43 @@ class TravelApproverPenroController extends Controller
                 // ->orWhere('office', 'Licences Patents and Deeds Division')
                 // ->orWhere('office', 'Surveys and Mapping Division')
                 // ->orWhere('office', 'Enforcement Division')
-        
-
-        $travels_davnor = TravelOrder::where('office', 'PENRO Davao del Norte')
+        $office_assigned = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+        if($office_assigned->office->officename == "PENRO Davao del Norte"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao del Norte')
                 ->orWhere('office', 'CENRO Panabo')
                 ->orWhere('office', 'CENRO New Corella')
                 ->orderBy('created_at', 'DESC')->get();
-        
-        $travels_davor = TravelOrder::where('office', 'PENRO Davao Oriental')
+        }elseif($office_assigned->office->officename == "PENRO Davao Oriental"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao Oriental')
                 ->orWhere('office', 'CENRO Mati')
                 ->orWhere('office', 'CENRO Manay')
                 ->orWhere('office', 'CENRO Lupon')
                 ->orWhere('office', 'CENRO Baganga')
                 ->orderBy('created_at', 'DESC')->get();
-        $travels_davsur = TravelOrder::where('office', 'PENRO Davao del Sur')
+        }elseif($office_assigned->office->officename == "PENRO Davao del Sur"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao del Sur')
                 ->orWhere('office', 'CENRO Davao')
                 ->orWhere('office', 'CENRO Malalag')
                 ->orWhere('office', 'CENRO Digos')
                 ->orderBy('created_at', 'DESC')->get();
-        $travels_davdeoro = TravelOrder::where('office', 'PENRO Davao de Oro')
+        }elseif($office_assigned->office->officename == "PENRO Davao de Oro"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao de Oro')
                 ->orWhere('office', 'CENRO Maco')
                 ->orWhere('office', 'CENRO Monkayo')
                 ->orderBy('created_at', 'DESC')->get();
+        }else{
+            $travels_province = TravelOrder::where('office', 'PENRO Davao Occidental');
+        }
 
-        
-        
-        $travel_ms_divchief = $travels_ms->where('account_type', 'Division Chief');
-        $travel_ms_personnel = $travels_ms->where('account_type', 'Personnel');
+        $travels_cenr_officer = $travels_province->where('account_type', 'CENRO');
+        $travels_penr_officer = $travels_province->where('account_type', 'PENRO');
+        $travels_penr_cenr = $travels_cenr_officer->merge($travels_penr_officer);
 
-        $travel_ms_approved = $travel_ms_personnel->where('application_status', 'Division Chief Approved');
-        $travel_ms_pending = $travel_ms_divchief->where('application_status', 'Pending');
+        $travels_cenroapproved = $travels_province->where('application_status', 'CENRO Approved');
+        $travels_penropending = $travels_penr_officer->where('application_status', 'Pending');
+        $travels = $travels_cenroapproved->merge($travels_penropending);
 
-        $travels_ms_approved_pending = $travel_ms_approved->merge($travel_ms_pending);
-
-        $travels_ts = TravelOrder::where('office', 'Conservation and Development Division')
-                ->orWhere('office', 'Enforcement Division')
-                ->orWhere('office', 'Surveys and Mapping Division')
-                ->orWhere('office', 'Licenses Patents and Deeds Division')
-                ->orWhere('office', 'ARED for Technical Services')
-                ->orderBy('created_at', 'DESC')->get();
-        
-        $travel_ts_divchief = $travels_ts->where('account_type', 'Division Chief');
-        $travel_ts_personnel = $travels_ts->where('account_type', 'Personnel');
-        
-        $travel_ts_approved = $travel_ts_personnel->where('application_status', 'Division Chief Approved');
-        $travel_ts_pending = $travel_ts_divchief->where('application_status', 'Pending');
-        
-        $travels_ts_approved_pending = $travel_ts_approved->merge($travel_ts_pending);
-        
-
-        $travels = $travels_ms_approved_pending->merge($travels_ts_approved_pending);
+        //$travels = $travels_penr_cenr->merge($trav);
 
 
         return view('travel_order.penro.approverindex', compact('travels'));
@@ -82,31 +69,76 @@ class TravelApproverPenroController extends Controller
     }
 
     public function penro_approvedindex(){
-        // $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
-                
-        $travels = TravelOrder::where('application_status', 'ARED MS Approved')->orderBy('created_at', 'DESC')->get();
+        //$user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+        
+        $office_assigned = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+        
+        if($office_assigned->office->officename == "PENRO Davao del Norte"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao del Norte')
+                ->orWhere('office', 'CENRO Panabo')
+                ->orWhere('office', 'CENRO New Corella')
+                ->orderBy('created_at', 'DESC')->get();
+        }elseif($office_assigned->office->officename == "PENRO Davao Oriental"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao Oriental')
+                ->orWhere('office', 'CENRO Mati')
+                ->orWhere('office', 'CENRO Manay')
+                ->orWhere('office', 'CENRO Lupon')
+                ->orWhere('office', 'CENRO Baganga')
+                ->orderBy('created_at', 'DESC')->get();
+        }elseif($office_assigned->office->officename == "PENRO Davao del Sur"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao del Sur')
+                ->orWhere('office', 'CENRO Davao')
+                ->orWhere('office', 'CENRO Malalag')
+                ->orWhere('office', 'CENRO Digos')
+                ->orderBy('created_at', 'DESC')->get();
+        }elseif($office_assigned->office->officename == "PENRO Davao de Oro"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao de Oro')
+                ->orWhere('office', 'CENRO Maco')
+                ->orWhere('office', 'CENRO Monkayo')
+                ->orderBy('created_at', 'DESC')->get();
+        }else{
+            $travels_province = TravelOrder::where('office', 'PENRO Davao Occidental');
+        }    
+
+        //$travels_approved = TravelOrder::where('application_status', 'PENRO Approved')->orderBy('created_at', 'DESC')->get();
+        $travels = $travels_province->where('application_status', 'PENRO Approved');
+
         
         return view('travel_order.penro.approvedindex', compact('travels'));
     }
     public function penro_cancelledindex(){
         //$user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
         
-        $travels_ts = TravelOrder::where('office', 'Conservation and Development Division')
-                ->orWhere('office', 'Enforcement Division')
-                ->orWhere('office', 'Surveys and Mapping Division')
-                ->orWhere('office', 'Licenses Patents and Deeds Division')
-                ->orWhere('office', 'ARED for Technical Services')
-                ->orderBy('created_at', 'DESC')->get();
-        $travels_ms = TravelOrder::where('office', 'Planning and Management Division')
-                ->orWhere('office', 'Finance Division')
-                ->orWhere('office', 'Legal Division')
-                ->orWhere('office', 'Admin Division')
-                ->orWhere('office', 'ARED for Management Services')
-                ->orderBy('created_at', 'DESC')->get();
+        $office_assigned = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
         
-        $trav_ms = $travels_ms->where('application_status', 'Disapproved');
-        $trav_ts = $travels_ts->where('application_status', 'Disapproved');
-        $travels = $trav_ms->merge($trav_ts);
+        if($office_assigned->office->officename == "PENRO Davao del Norte"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao del Norte')
+                ->orWhere('office', 'CENRO Panabo')
+                ->orWhere('office', 'CENRO New Corella')
+                ->orderBy('created_at', 'DESC')->get();
+        }elseif($office_assigned->office->officename == "PENRO Davao Oriental"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao Oriental')
+                ->orWhere('office', 'CENRO Mati')
+                ->orWhere('office', 'CENRO Manay')
+                ->orWhere('office', 'CENRO Lupon')
+                ->orWhere('office', 'CENRO Baganga')
+                ->orderBy('created_at', 'DESC')->get();
+        }elseif($office_assigned->office->officename == "PENRO Davao del Sur"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao del Sur')
+                ->orWhere('office', 'CENRO Davao')
+                ->orWhere('office', 'CENRO Malalag')
+                ->orWhere('office', 'CENRO Digos')
+                ->orderBy('created_at', 'DESC')->get();
+        }elseif($office_assigned->office->officename == "PENRO Davao de Oro"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao de Oro')
+                ->orWhere('office', 'CENRO Maco')
+                ->orWhere('office', 'CENRO Monkayo')
+                ->orderBy('created_at', 'DESC')->get();
+        }else{
+            $travels_province = TravelOrder::where('office', 'PENRO Davao Occidental');
+        }
+                
+        $travels = $travels_province->where('application_status', 'Disapproved');
         // $travels = TravelOrder::where('application_status', 'Disapproved')->orderBy('created_at', 'DESC')->get();
         
         return view('travel_order.penro.cancelledindex', compact('travels'));

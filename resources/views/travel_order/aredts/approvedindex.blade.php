@@ -7,7 +7,7 @@
               <!-- /.card-header -->
               <div class="card card-primary card-outline">
                   <div class="card-header">
-                        <h3>Disapproved Travel Orders</h3>
+                        <h3>Approved Travel Orders</h3>
                   </div>
                   <div class="card-header">  
 
@@ -43,7 +43,7 @@
                             <td>{{ $travel->date_depart }}</td>
                             <td>{{ $travel->date_arrived }}</td>
                             <td>{{ $travel->office }}</td>
-                            <td><a href="{{ route('travel.penroapprovetravel', $travel->id) }}" class="btn btn-primary">View</a></td>
+                            <td><a href="{{ route('travel.aredmsdisapprove', $travel->id) }}" class="btn btn-primary">View</a></td>
                           </tr>
                         @endforeach         
                         </tbody>

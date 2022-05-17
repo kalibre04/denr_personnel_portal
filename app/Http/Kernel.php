@@ -47,6 +47,7 @@ class Kernel extends HttpKernel
         'divchief'   => [\App\Http\Middleware\DivChief::class,],
         'cenro'   => [\App\Http\Middleware\Cenro::class,],
         'aredms'   => [\App\Http\Middleware\AredMs::class,],
+        'aredts'   => [\App\Http\Middleware\AredTs::class,],
         'penro'   => [\App\Http\Middleware\Penro::class,]
     ];
 

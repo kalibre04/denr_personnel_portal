@@ -139,5 +139,28 @@ Route::group(['middleware' => 'auth'], function () {
     });
     //ARED MS Middleware end
 
+    //ARED TS Middleware start
+    Route::group(['middleware' => 'aredts'], function () {
+        Route::get('travel/aredtsindex', 'App\Http\Controllers\TravelApproverAredtsController@aredts_index')->name('travel.aredtsindex');
+        Route::get('travel/aredtsedit/{id}', 'App\Http\Controllers\TravelApproverAredtsController@aredts_edit')->name('travel.aredtseditto');
+
+        // route sa pag disapprove if na approve na ang Travel Order sa Div Chief
+        Route::get('travel/aredtseditdisapprove/{id}', 'App\Http\Controllers\TravelApproverAredtsController@aredts_disapprove')->name('travel.aredtsdisapprove');
+        Route::patch('travel/aredtseditdisapprove/disapproveto/{id}', 'App\Http\Controllers\TravelApproverAredtsController@aredts_disapprove_travel');
+        // end
+
+        // route sa pag approve if gi cancel sa Div Chief and Travel Order 
+        Route::get('travel/aredtstravelapprove/{id}', 'App\Http\Controllers\TravelApproverAredtsController@aredts_approvefromcancelled')->name('travel.aredtsapprovetravel');
+        Route::post('travel/aredtstravelapprove/updateto/{id}', 'App\Http\Controllers\TravelApproverAredtsController@aredts_update_travel');
+        // end
+
+        Route::get('travel/aredtsapproved', 'App\Http\Controllers\TravelApproverAredtsController@aredts_approvedindex')->name('travel.aredtsapproved');
+        Route::get('travel/aredtscancelled', 'App\Http\Controllers\TravelApproverAredtsController@aredts_cancelledindex')->name('travel.aredtscancelled');
+        Route::get('travel/aredtscompleted', 'App\Http\Controllers\TravelApproverAredtsController@aredts_completedindex')->name('travel.aredtscompleted');
+        Route::post('travel/aredtsedit/updateto/{id}', 'App\Http\Controllers\TravelApproverAredtsController@aredts_update_travel');
+        Route::patch('travel/aredtsedit/disapproveto/{id}', 'App\Http\Controllers\TravelApproverAredtsController@aredts_disapprove_travel');
+    });
+    //ARED TS Middleware end
+
 
 });

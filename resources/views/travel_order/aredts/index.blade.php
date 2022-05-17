@@ -7,12 +7,12 @@
               <!-- /.card-header -->
               <div class="card card-primary card-outline">
                   <div class="card-header">
-                        <h3>Disapproved Travel Orders</h3>
+                        <h3>Travel Orders</h3>
                   </div>
                   <div class="card-header">  
-
-                        <!-- <a href="{{ route('travel.create') }}" class="btn btn-primary">Create</a>
-                        <a href="{{ route('home') }}" class="btn btn-secondary">Back</a> -->
+                  
+                        <a href="{{ route('travel.create') }}" class="btn btn-primary">Create</a>
+                        <a href="{{ route('home') }}" class="btn btn-secondary">Back</a>
                         <!-- <a href="{{ url()->previous() }}" class="btn btn-secondary">Back</a> -->
                   </div>
                   <div class="card-body pad table-responsive">
@@ -21,7 +21,6 @@
                           <tr>
                             <th>ID</th>
                             <th>T.O. #</th>
-                            <th>Name</th>
                             <th>Purpose</th>
                             <th>Status</th>
                             <th>Destination</th>
@@ -36,14 +35,13 @@
                           <tr>
                             <td>{{ $travel->id }}</td>
                             <td>{{ $travel->to_number }}</td>
-                            <td>{{ App\Models\User::find($travel->user_id)->firstname ." ".  substr(App\Models\User::find($travel->user_id)->middlename, 0, 1) ." ". App\Models\User::find($travel->user_id)->lastname }}</td>
                             <td>{{ $travel->purpose }}</td>
                             <td><span class="tag tag-success">{{ $travel->application_status }}</span></td>
                             <td>{{ $travel->destination }}</td>
                             <td>{{ $travel->date_depart }}</td>
                             <td>{{ $travel->date_arrived }}</td>
                             <td>{{ $travel->office }}</td>
-                            <td><a href="{{ route('travel.penroapprovetravel', $travel->id) }}" class="btn btn-primary">View</a></td>
+                            <td><a href="{{ route('travel.viewtravel', $travel->id) }}" class="btn btn-primary">View</a></td>
                           </tr>
                         @endforeach         
                         </tbody>
