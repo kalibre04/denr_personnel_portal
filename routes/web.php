@@ -102,7 +102,7 @@ Route::group(['middleware' => 'auth'], function () {
         // end
 
         // route sa pag approve if gi cancel sa Div Chief and Travel Order 
-        Route::get('travel/penrotravelapprove/{id}', 'App\Http\Controllers\TravelApproverPenroController@cenro_approvefromcancelled')->name('travel.penroapprovetravel');
+        Route::get('travel/penrotravelapprove/{id}', 'App\Http\Controllers\TravelApproverPenroController@penro_approvefromcancelled')->name('travel.penroapprovetravel');
         Route::post('travel/penrotravelapprove/updateto/{id}', 'App\Http\Controllers\TravelApproverPenroController@penro_update_travel');
         // end
 

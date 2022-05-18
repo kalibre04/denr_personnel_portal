@@ -1,7 +1,7 @@
 <template>
   <div class="card card-primary">
     <div class="card-header">
-      <h3 class="card-title">Create Travel Order</h3>
+      <h3 class="card-title">Edit Travel Order</h3>
     </div>
     
     <form>
@@ -9,7 +9,7 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1">Travel Order No.</label>
                     <input type="text" v-model="toNumber" class="form-control" disabled="true"/>
-                    <input type="text" v-model="accounttype" class="form-control" hidden="true"/>
+                    <input type="text" v-model="id" class="form-control" disabled="true" hidden="true"/>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Current Department</label>
@@ -68,17 +68,12 @@
                     <label for="exampleInputEmail1">Remarks or Special Instructions:</label>
                     <input type="text" v-model="instructions" class="form-control" placeholder="Special Instructions"/>
                 </div>
-                <div class="form-group mb-0">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" name="travel_type" class="custom-control-input" id="exampleCheck1">
-                        <label class="custom-control-label" for="exampleCheck1">Check this if Travel is outside Area of Jurisdiction</label>
-                    </div>
-                </div>
             </div>
 
             <div class="card-footer">
-                <button type="submit" @click.prevent="submitTO" class="btn btn-primary">Submit</button>
-                <button type="button" @click="back" class="btn btn-secondary">Cancel</button>
+                <!-- <button type="submit" @click.prevent="approveTO()" class="btn btn-primary">Approve</button> -->
+                <button type="submit" @click.prevent="disapproveTO()" class="btn btn-warning">Disapprove</button>
+                <button type="button" @click="back" class="btn btn-secondary">Back</button>
             </div>
     </form>
   </div>
@@ -90,15 +85,39 @@ export default {
           type: String,
           required: true
       },
+      destination:{
+          type: String,
+          required: true
+      },
       currentDept:{
           type: String,
           required: true
       },
-      accounttype:{
+      datedepart:{
+          type: Date,
+          required: true
+      },
+      datearrive:{
+          type: Date,
+          required: true
+      },
+      expenses:{
           type: String,
           required: true
       },
-      currentDeptid:{
+      assist_labor_allowed:{
+          type: String,
+          required: true
+      },
+      instructions:{
+          type: String,
+          required: true
+      },
+      purpose:{
+          type: String,
+          required: true
+      },
+      id:{
           type: String,
           required: true
       }
@@ -114,7 +133,6 @@ export default {
       expenses: "",
       assist_labor_allowed: "",
       instructions: "",
-      accounttype: "",
       toNumber: "",
       currentDept: "",
       currentDeptid: "",
@@ -126,10 +144,49 @@ export default {
   },
   mounted() {
     //console.log('Component Mounted')
+    //this.sampleMount();
+    
   },
   methods: {
-            submitTO() {
-            axios.post('saveto', {
+            disapproveTO(){
+            Swal.fire({
+            title: 'Are you sure you want to decline this Travel Order?',
+                text: "kindly state why",
+                input: 'textarea',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes!',
+
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        //console.log(result);   
+                        axios.patch('disapproveto/' + this.id, result).then(response => {
+                            if(response.data.message == "Travel Order Disapproved"){
+                                Swal.fire({
+                                title: 'Success!',
+                                text: response.data.message,
+                                icon: 'success',
+                                confirmButtonText: 'Okay'
+                                }).then(function() {
+                                    window.location = "/denr_personnel_portal/travel/aredtsapproved";
+                                });
+                            }else{
+                                Swal.fire({
+                                title: 'Oops!',
+                                text: response.data.message,
+                                icon: 'warning',
+                                confirmButtonText: 'Okay'
+                                });
+                            }
+                        });
+                    }
+                })
+            },
+
+            approveTO() {
+            axios.post("updateto/"+ this.id, {
                 destination : this.destination,
                 purpose : this.purpose,
                 datedepart : this.datedepart,
@@ -140,18 +197,18 @@ export default {
                 toNumber : this.toNumber,
                 currentDept: this.currentDept,
                 currentDeptid: this.currentDeptid,
-                accounttype: this.accounttype
+                id: this.id
                 })
                 .then(response => {
 
-                    if(response.data.message == 'Travel Order Successfully Created'){
+                    if(response.data.message == 'Travel Order Approved'){
                         Swal.fire({
                             title: 'Success!',
                             text: response.data.message,
                             icon: 'success',
                             confirmButtonText: 'Okay'
                         }).then(function() {
-                            window.location = "/denr_personnel_portal/travel";
+                            window.location = "/denr_personnel_portal/travel/aredtsindex";
                         });
 
                     }else{
@@ -164,9 +221,6 @@ export default {
 
 
                     }
-
-
-
                 }).catch(error => {
                     
                     if (!_.isEmpty(error.response)) {
@@ -182,15 +236,11 @@ export default {
                             this.submitted = false;
                         }
                     }
-
-
                 });
             },
 
-
-
             back(){
-                window.location.href='/denr_personnel_portal/travel';
+                window.location.href='/denr_personnel_portal/travel/aredtsindex';
             }
   },
 };

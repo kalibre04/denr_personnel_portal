@@ -160,16 +160,73 @@ class TravelApproverPenroController extends Controller
     }
 
     public function penro_disapprove($id){
-        $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+        
+        $office_assigned = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+        
+        if($office_assigned->office->officename == "PENRO Davao del Norte"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao del Norte')
+                ->orWhere('office', 'CENRO Panabo')
+                ->orWhere('office', 'CENRO New Corella')
+                ->orderBy('created_at', 'DESC')->get();
+        }elseif($office_assigned->office->officename == "PENRO Davao Oriental"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao Oriental')
+                ->orWhere('office', 'CENRO Mati')
+                ->orWhere('office', 'CENRO Manay')
+                ->orWhere('office', 'CENRO Lupon')
+                ->orWhere('office', 'CENRO Baganga')
+                ->orderBy('created_at', 'DESC')->get();
+        }elseif($office_assigned->office->officename == "PENRO Davao del Sur"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao del Sur')
+                ->orWhere('office', 'CENRO Davao')
+                ->orWhere('office', 'CENRO Malalag')
+                ->orWhere('office', 'CENRO Digos')
+                ->orderBy('created_at', 'DESC')->get();
+        }elseif($office_assigned->office->officename == "PENRO Davao de Oro"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao de Oro')
+                ->orWhere('office', 'CENRO Maco')
+                ->orWhere('office', 'CENRO Monkayo')
+                ->orderBy('created_at', 'DESC')->get();
+        }else{
+            $travels_province = TravelOrder::where('office', 'PENRO Davao Occidental');
+        }
 
-        $travel_order = TravelOrder::where('id', $id)->where('office', $user_office->office->officename)->first();
+        $travel_order = $travels_province->where('id', $id)->first();
         return view('travel_order.penro.disapprovetravelpenro', compact('travel_order'));
     }
 
     public function penro_approvefromcancelled($id){
-        $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+        $office_assigned = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
         
-        $travel_order = TravelOrder::where('id', $id)->first();
+        if($office_assigned->office->officename == "PENRO Davao del Norte"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao del Norte')
+                ->orWhere('office', 'CENRO Panabo')
+                ->orWhere('office', 'CENRO New Corella')
+                ->orderBy('created_at', 'DESC')->get();
+        }elseif($office_assigned->office->officename == "PENRO Davao Oriental"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao Oriental')
+                ->orWhere('office', 'CENRO Mati')
+                ->orWhere('office', 'CENRO Manay')
+                ->orWhere('office', 'CENRO Lupon')
+                ->orWhere('office', 'CENRO Baganga')
+                ->orderBy('created_at', 'DESC')->get();
+        }elseif($office_assigned->office->officename == "PENRO Davao del Sur"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao del Sur')
+                ->orWhere('office', 'CENRO Davao')
+                ->orWhere('office', 'CENRO Malalag')
+                ->orWhere('office', 'CENRO Digos')
+                ->orderBy('created_at', 'DESC')->get();
+        }elseif($office_assigned->office->officename == "PENRO Davao de Oro"){
+            $travels_province = TravelOrder::where('office', 'PENRO Davao de Oro')
+                ->orWhere('office', 'CENRO Maco')
+                ->orWhere('office', 'CENRO Monkayo')
+                ->orderBy('created_at', 'DESC')->get();
+        }else{
+            $travels_province = TravelOrder::where('office', 'PENRO Davao Occidental');
+        }
+
+        $travel_disapproved = $travels_province->where('application_status', 'Disapproved');
+        
+        $travel_order = $travel_disapproved->where('id', $id)->first();
         return view('travel_order.penro.approvetravelpenro', compact('travel_order'));
     }
 
@@ -203,8 +260,8 @@ class TravelApproverPenroController extends Controller
         $travel->expenses = $request->expenses;
         $travel->assist_labor_allowed = $request->assist_labor_allowed;
         $travel->instructions = $request->instructions;
-        $travel->aredms_approval_date = Carbon::now();
-        $travel->aredms_approval = Auth::user()->id;
+        $travel->penro_approval_date = Carbon::now();
+        $travel->penro_approval = Auth::user()->id;
         $travel->application_status = 'PENRO Approved';
         
         $travel->save();

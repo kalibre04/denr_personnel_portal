@@ -90,11 +90,17 @@ class TravelController extends Controller
         $travel->assist_labor_allowed = $request->assist_labor_allowed;
         $travel->instructions = $request->instructions;
         $travel->date_submitted = Carbon::now();
+        
+
 
         $travel->to_number = $to_num;
         $travel->office = $request->currentDept;
         $travel->office_id = $request->currentDeptid;
         $travel->account_type = $request->accounttype;
+        if($request->travel_type = "True"){
+            $travel->travel_type = 'Local';
+        }
+        
         $travel->save();
 
         return response()->json(['message' => 'Travel Order Successfully Created' ]);
