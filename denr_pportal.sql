@@ -1815,9 +1815,9 @@ CREATE TABLE IF NOT EXISTS `personnel_assignments` (
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.personnel_assignments: ~17 rows (approximately)
+-- Dumping data for table denr_pportal.personnel_assignments: ~23 rows (approximately)
 REPLACE INTO `personnel_assignments` (`id`, `user_id`, `office_id`, `date_assigned`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(2, 2, 22, '2022-01-07 00:00:00', '2022-01-07 04:01:54', '2022-04-25 07:51:57', NULL),
 	(7, 3, 22, '2022-04-29 00:00:00', '2022-04-29 02:50:14', '2022-04-29 02:50:14', NULL),
@@ -1839,7 +1839,9 @@ REPLACE INTO `personnel_assignments` (`id`, `user_id`, `office_id`, `date_assign
 	(23, 6, 8, '2017-07-21 00:00:00', '2022-05-13 06:18:58', '2022-05-13 06:18:58', NULL),
 	(24, 6, 1, '2022-05-17 00:00:00', '2022-05-17 01:41:28', '2022-05-17 05:35:10', '2022-05-17 05:35:10'),
 	(25, 7, 1, '2022-05-04 00:00:00', '2022-05-17 05:27:14', '2022-05-17 05:27:14', NULL),
-	(26, 8, 26, '2021-04-06 00:00:00', '2022-05-18 00:59:01', '2022-05-18 00:59:01', NULL);
+	(26, 8, 26, '2021-04-06 00:00:00', '2022-05-18 00:59:01', '2022-05-18 00:59:01', NULL),
+	(27, 9, 17, '2018-01-10 00:00:00', '2022-05-18 02:58:49', '2022-05-18 02:58:49', NULL),
+	(28, 10, 17, '2017-05-03 00:00:00', '2022-05-18 03:04:32', '2022-05-18 03:04:32', NULL);
 
 -- Dumping structure for table denr_pportal.plantillas
 CREATE TABLE IF NOT EXISTS `plantillas` (
@@ -1877,9 +1879,9 @@ CREATE TABLE IF NOT EXISTS `promotions` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.promotions: ~6 rows (approximately)
+-- Dumping data for table denr_pportal.promotions: ~11 rows (approximately)
 REPLACE INTO `promotions` (`id`, `user_id`, `plantilla_id`, `salaryStep`, `datePromoted`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(5, 2, 1, 0, '2015-09-07 00:00:00', '2022-04-21 23:45:25', '2022-04-24 21:13:02', NULL),
 	(6, 3, 2, 0, '2022-04-29 00:00:00', '2022-04-28 18:50:02', '2022-04-28 18:50:02', NULL),
@@ -1889,7 +1891,9 @@ REPLACE INTO `promotions` (`id`, `user_id`, `plantilla_id`, `salaryStep`, `dateP
 	(10, 4, 4, 0, '2022-05-13 00:00:00', '2022-05-11 17:08:13', '2022-05-11 17:08:13', NULL),
 	(11, 6, 11, 0, '2017-07-11 00:00:00', '2022-05-12 22:18:38', '2022-05-12 22:18:38', NULL),
 	(12, 7, 11, 0, '2022-05-02 00:00:00', '2022-05-16 21:27:02', '2022-05-16 21:27:02', NULL),
-	(13, 8, 12, 0, '2020-03-03 00:00:00', '2022-05-17 16:50:43', '2022-05-17 16:50:43', NULL);
+	(13, 8, 12, 0, '2020-03-03 00:00:00', '2022-05-17 16:50:43', '2022-05-17 16:50:43', NULL),
+	(14, 9, 2, 0, '2018-03-07 00:00:00', '2022-05-17 18:58:15', '2022-05-17 18:58:15', NULL),
+	(15, 10, 10, 0, '2017-03-15 00:00:00', '2022-05-17 19:03:57', '2022-05-17 19:03:57', NULL);
 
 -- Dumping structure for table denr_pportal.provinces
 CREATE TABLE IF NOT EXISTS `provinces` (
@@ -2038,12 +2042,15 @@ CREATE TABLE IF NOT EXISTS `travel_orders` (
   `office` varchar(50) DEFAULT NULL,
   `office_id` int(11) DEFAULT NULL,
   `account_type` varchar(20) DEFAULT NULL,
+  `travel_type` varchar(20) DEFAULT 'Within AOR',
   `divchief_approval` varchar(10) DEFAULT NULL,
   `divchief_approval_date` datetime DEFAULT NULL,
   `disapprove_reason` varchar(500) DEFAULT NULL,
   `disapprove_date` datetime DEFAULT NULL,
   `cenro_approval` varchar(50) DEFAULT NULL,
   `cenro_approval_date` datetime DEFAULT NULL,
+  `penro_approval` varchar(50) DEFAULT NULL,
+  `penro_approval_date` datetime DEFAULT NULL,
   `aredms_approval` varchar(10) DEFAULT NULL,
   `aredms_approval_date` datetime DEFAULT NULL,
   `aredts_approval` varchar(10) DEFAULT NULL,
@@ -2054,25 +2061,34 @@ CREATE TABLE IF NOT EXISTS `travel_orders` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   KEY `Primary Key` (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.travel_orders: ~14 rows (approximately)
-REPLACE INTO `travel_orders` (`id`, `user_id`, `to_number`, `date_depart`, `date_arrived`, `destination`, `purpose`, `expenses`, `assist_labor_allowed`, `instructions`, `application_status`, `date_submitted`, `office`, `office_id`, `account_type`, `divchief_approval`, `divchief_approval_date`, `disapprove_reason`, `disapprove_date`, `cenro_approval`, `cenro_approval_date`, `aredms_approval`, `aredms_approval_date`, `aredts_approval`, `aredts_approval_date`, `red_approval`, `red_approval_date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(3, 2, '22-00000', '2022-05-16', '2022-05-17', 'Tagum', 'To conduct network and server maintenance/ replace CCTV NVR Hard Drive', '1800', 'yes', 'dala pasalubong', 'ARED MS Approved', '2022-04-28 21:22:28', 'Planning and Management Division', NULL, 'Division Chief', '2', '2022-05-11 08:43:10', 'follow the travel plan', '2022-05-11 00:00:00', NULL, NULL, '4', '2022-05-13 02:07:47', NULL, NULL, NULL, NULL, '2022-04-28 21:22:28', '2022-05-12 18:07:47', NULL),
-	(4, 3, '22-00000', '2022-05-11', '2022-05-11', 'mati', 'To conduct network and server maintenance/ CCTV Maintenance', 'no', 'no', 'no', 'Disapproved', '2022-04-28 21:22:29', 'Planning and Management Division', NULL, 'Personnel', '2', '2022-05-11 00:00:00', 'Nope', '2022-05-06 00:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:22:29', '2022-05-10 22:20:58', NULL),
-	(5, 3, '22-00001', '2022-05-26', '2022-05-27', 'laak ko danrick tkeiko', 'dasdasdsa', 'no', 'no', 'no', 'Disapproved', '2022-04-28 21:29:58', 'Planning and Management Division', NULL, 'Personnel', '2', '2022-05-12 01:40:55', 'follow the travel plan', '2022-05-12 01:42:33', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:29:58', '2022-05-11 17:42:33', NULL),
-	(6, 2, '22-00002', '2022-05-10', '2022-05-13', 'Mawab', 'laag sa mainit', NULL, NULL, 'ask for Report', 'ARED MS Approved', '2022-04-28 21:29:58', 'Planning and Management Division', NULL, 'Division Chief', '2', '2022-05-10 00:00:00', 'Nope', '2022-05-12 08:06:28', '3', '2022-05-11 08:13:51', '4', '2022-05-13 07:28:06', NULL, NULL, NULL, NULL, '2022-04-28 21:29:58', '2022-05-12 23:28:06', NULL),
-	(7, 3, '22-00003', '2022-04-29', '2022-05-07', 'gensan', 'To install software update and install MS Office', 'no', 'no', 'no', 'PENRO Approved', '2022-04-28 23:53:17', 'CENRO Manay', NULL, 'Personnel', '2', '2022-05-11 07:53:15', NULL, NULL, '3', '2022-05-12 07:22:31', '7', '2022-05-17 07:31:19', NULL, NULL, NULL, NULL, '2022-04-28 23:53:17', '2022-05-16 23:31:19', NULL),
-	(10, 2, '22-00004', '2022-05-23', '2022-05-25', 'Carmen', 'Check CCTV', '16789', 'none', 'pangayo ug C.A', 'Disapproved', '2022-05-04 17:58:24', 'Planning and Management Division', 22, 'Personnel', '3', '2022-05-12 00:55:34', 'Pag puyo      /Disapproved By: Luningning Dalayon', '2022-05-13 08:26:42', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-04 17:58:24', '2022-05-13 00:26:42', NULL),
-	(11, 3, '22-00005', '2022-05-11', '2022-05-13', 'DIgos', 'To inspect newly installed structured cabling', '1500', 'no', 'please take geotagged photos', 'ARED MS Approved', '2022-05-05 21:41:22', 'Planning and Management Division', 22, 'Personnel', '2', '2022-05-12 06:22:17', NULL, NULL, NULL, NULL, '4', '2022-05-13 07:38:45', NULL, NULL, NULL, NULL, '2022-05-05 21:41:22', '2022-05-12 23:38:45', NULL),
-	(12, 3, '22-00006', '2022-05-19', '2022-05-20', 'Tagum', 'submit GSIS files', NULL, NULL, NULL, 'Disapproved', '2022-05-11 00:37:34', 'CENRO Manay', 8, 'Personnel', NULL, NULL, 'bawal       /Disapproved By: Amelda Vera Cruz', '2022-05-17 06:28:37', '6', '2022-05-16 09:25:34', NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-11 00:37:34', '2022-05-16 22:28:37', NULL),
-	(13, 2, '22-00007', '2022-05-12', '2022-05-12', 'Monkayo', 'Check CCTV installation', NULL, NULL, NULL, 'Pending', '2022-05-11 16:47:35', 'Legal Division', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-11 16:47:35', '2022-05-11 16:47:35', NULL),
-	(14, 4, '22-00008', '2022-05-12', '2022-05-13', 'Digos', 'Validation', NULL, NULL, NULL, 'ARED TS Approved', '2022-05-11 17:14:53', 'Conservation and Development Division', 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-11 17:14:53', '2022-05-11 17:14:53', NULL),
-	(15, 2, '22-00009', '2022-05-16', '2022-05-17', 'PENRO Davao Del Norte, Tagum City', 'conduct network maintenance', NULL, NULL, NULL, 'Disapproved', '2022-05-12 18:55:04', 'Planning and Management Division', 22, 'Division Chief', NULL, NULL, 'basta dapat walay mulakaw       /Disapproved By: Elmar Jane Barquin', '2022-05-13 08:48:40', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-12 18:55:04', '2022-05-13 00:48:40', NULL),
-	(16, 2, '22-00010', '2022-05-18', '2022-05-19', 'Maco, Davao de Oro', 'Check CCTV installation', NULL, NULL, NULL, 'Disapproved', '2022-05-12 19:06:43', 'Planning and Management Division', 22, 'Personnel', '5', '2022-05-13 05:39:42', 'usaba imo purpose ug dapat 1 day nga travel lng', '2022-05-13 07:57:17', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-12 19:06:43', '2022-05-12 23:57:17', NULL),
-	(17, 3, '22-00011', '2022-05-16', '2022-05-18', 'Mati', 'TO submit documents', NULL, NULL, NULL, 'Pending', '2022-05-16 01:24:16', 'CENRO Manay', 8, 'Personnel', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-16 01:24:16', '2022-05-16 01:24:16', NULL),
-	(18, 3, '22-00012', '2022-05-18', '2022-05-20', 'Lamiawan, Caraga', 'validation of NGP sites', NULL, NULL, NULL, 'PENRO Approved', '2022-05-16 21:29:17', 'CENRO Manay', 8, 'Personnel', NULL, NULL, NULL, NULL, '6', '2022-05-17 05:50:35', '7', '2022-05-17 06:59:24', NULL, NULL, NULL, NULL, '2022-05-16 21:29:17', '2022-05-16 22:59:24', NULL),
-	(19, 7, '22-00013', '2022-05-18', '2022-05-20', 'Macambol, Mati City', 'site inspection of mining site', NULL, NULL, NULL, 'PENRO Approved', '2022-05-16 22:07:56', 'PENRO Davao Oriental', 1, 'PENRO', NULL, NULL, NULL, NULL, NULL, NULL, '7', '2022-05-17 06:08:07', NULL, NULL, NULL, NULL, '2022-05-16 22:07:56', '2022-05-16 22:08:07', NULL);
+-- Dumping data for table denr_pportal.travel_orders: ~24 rows (approximately)
+REPLACE INTO `travel_orders` (`id`, `user_id`, `to_number`, `date_depart`, `date_arrived`, `destination`, `purpose`, `expenses`, `assist_labor_allowed`, `instructions`, `application_status`, `date_submitted`, `office`, `office_id`, `account_type`, `travel_type`, `divchief_approval`, `divchief_approval_date`, `disapprove_reason`, `disapprove_date`, `cenro_approval`, `cenro_approval_date`, `penro_approval`, `penro_approval_date`, `aredms_approval`, `aredms_approval_date`, `aredts_approval`, `aredts_approval_date`, `red_approval`, `red_approval_date`, `created_at`, `updated_at`, `deleted_at`) VALUES
+	(3, 2, '22-00000', '2022-05-16', '2022-05-17', 'Tagum', 'To conduct network and server maintenance/ replace CCTV NVR Hard Drive', '1800', 'yes', 'dala pasalubong', 'ARED MS Approved', '2022-04-28 21:22:28', 'Planning and Management Division', NULL, 'Division Chief', 'Within AOR', '2', '2022-05-11 08:43:10', 'follow the travel plan', '2022-05-11 00:00:00', NULL, NULL, NULL, NULL, '4', '2022-05-13 02:07:47', NULL, NULL, NULL, NULL, '2022-04-28 21:22:28', '2022-05-12 18:07:47', NULL),
+	(4, 3, '22-00000', '2022-05-11', '2022-05-11', 'mati', 'To conduct network and server maintenance/ CCTV Maintenance', 'no', 'no', 'no', 'Disapproved', '2022-04-28 21:22:29', 'Planning and Management Division', NULL, 'Personnel', 'Within AOR', '2', '2022-05-11 00:00:00', 'Nope', '2022-05-06 00:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:22:29', '2022-05-10 22:20:58', NULL),
+	(5, 3, '22-00001', '2022-05-26', '2022-05-27', 'laak ko danrick tkeiko', 'dasdasdsa', 'no', 'no', 'no', 'Disapproved', '2022-04-28 21:29:58', 'Planning and Management Division', NULL, 'Personnel', 'Within AOR', '2', '2022-05-12 01:40:55', 'follow the travel plan', '2022-05-12 01:42:33', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-04-28 21:29:58', '2022-05-11 17:42:33', NULL),
+	(6, 2, '22-00002', '2022-05-10', '2022-05-13', 'Mawab', 'laag sa mainit', NULL, NULL, 'ask for Report', 'ARED MS Approved', '2022-04-28 21:29:58', 'Planning and Management Division', NULL, 'Division Chief', 'Within AOR', '2', '2022-05-10 00:00:00', 'Nope', '2022-05-12 08:06:28', '3', '2022-05-11 08:13:51', NULL, NULL, '4', '2022-05-13 07:28:06', NULL, NULL, NULL, NULL, '2022-04-28 21:29:58', '2022-05-12 23:28:06', NULL),
+	(7, 3, '22-00003', '2022-04-29', '2022-05-07', 'gensan', 'To install software update and install MS Office', 'no', 'no', 'no', 'PENRO Approved', '2022-04-28 23:53:17', 'CENRO Manay', NULL, 'Personnel', 'Within AOR', '2', '2022-05-11 07:53:15', 'nope       /Disapproved By: Amelda Vera Cruz', '2022-05-18 08:19:28', '3', '2022-05-12 07:22:31', '7', '2022-05-18 08:19:51', '7', '2022-05-17 07:31:19', NULL, NULL, NULL, NULL, '2022-04-28 23:53:17', '2022-05-18 00:19:51', NULL),
+	(10, 2, '22-00004', '2022-05-23', '2022-05-25', 'Carmen', 'Check CCTV', '16789', 'none', 'pangayo ug C.A', 'Disapproved', '2022-05-04 17:58:24', 'Planning and Management Division', 22, 'Personnel', 'Within AOR', '3', '2022-05-12 00:55:34', 'Pag puyo      /Disapproved By: Luningning Dalayon', '2022-05-13 08:26:42', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-04 17:58:24', '2022-05-13 00:26:42', NULL),
+	(11, 3, '22-00005', '2022-05-11', '2022-05-13', 'DIgos', 'To inspect newly installed structured cabling', '1500', 'no', 'please take geotagged photos', 'ARED MS Approved', '2022-05-05 21:41:22', 'Planning and Management Division', 22, 'Personnel', 'Within AOR', '2', '2022-05-12 06:22:17', NULL, NULL, NULL, NULL, NULL, NULL, '4', '2022-05-13 07:38:45', NULL, NULL, NULL, NULL, '2022-05-05 21:41:22', '2022-05-12 23:38:45', NULL),
+	(12, 3, '22-00006', '2022-05-19', '2022-05-20', 'Tagum', 'submit GSIS files', NULL, NULL, NULL, 'PENRO Approved', '2022-05-11 00:37:34', 'CENRO Manay', 8, 'Personnel', 'Within AOR', NULL, NULL, 'bawal mag travel       /Disapproved By: Amelda Vera Cruz', '2022-05-18 07:52:22', '6', '2022-05-16 09:25:34', '7', '2022-05-18 08:19:56', '7', '2022-05-18 06:29:46', NULL, NULL, NULL, NULL, '2022-05-11 00:37:34', '2022-05-18 00:19:56', NULL),
+	(13, 2, '22-00007', '2022-05-12', '2022-05-12', 'Monkayo', 'Check CCTV installation', NULL, NULL, NULL, 'Pending', '2022-05-11 16:47:35', 'Legal Division', 3, NULL, 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-11 16:47:35', '2022-05-11 16:47:35', NULL),
+	(14, 4, '22-00008', '2022-05-12', '2022-05-13', 'Digos', 'Validation', NULL, NULL, NULL, 'ARED TS Approved', '2022-05-11 17:14:53', 'Conservation and Development Division', 17, NULL, 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-11 17:14:53', '2022-05-11 17:14:53', NULL),
+	(15, 2, '22-00009', '2022-05-16', '2022-05-17', 'PENRO Davao Del Norte, Tagum City', 'conduct network maintenance', NULL, NULL, NULL, 'Disapproved', '2022-05-12 18:55:04', 'Planning and Management Division', 22, 'Division Chief', 'Within AOR', NULL, NULL, 'basta dapat walay mulakaw       /Disapproved By: Elmar Jane Barquin', '2022-05-13 08:48:40', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-12 18:55:04', '2022-05-13 00:48:40', NULL),
+	(16, 2, '22-00010', '2022-05-18', '2022-05-19', 'Maco, Davao de Oro', 'Check CCTV installation', NULL, NULL, NULL, 'Disapproved', '2022-05-12 19:06:43', 'Planning and Management Division', 22, 'Personnel', 'Within AOR', '5', '2022-05-13 05:39:42', 'usaba imo purpose ug dapat 1 day nga travel lng', '2022-05-13 07:57:17', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-12 19:06:43', '2022-05-12 23:57:17', NULL),
+	(17, 3, '22-00011', '2022-05-16', '2022-05-18', 'Mati', 'TO submit documents', NULL, NULL, NULL, 'PENRO Approved', '2022-05-16 01:24:16', 'CENRO Manay', 8, 'Personnel', 'Within AOR', NULL, NULL, 'nope nope nope       /Disapproved By: Amelda Vera Cruz', '2022-05-18 07:52:50', '6', '2022-05-18 06:40:40', '7', '2022-05-18 08:20:00', '7', '2022-05-18 06:41:14', NULL, NULL, NULL, NULL, '2022-05-16 01:24:16', '2022-05-18 00:20:00', NULL),
+	(18, 3, '22-00012', '2022-05-18', '2022-05-20', 'Lamiawan, Caraga', 'validation of NGP sites', NULL, NULL, NULL, 'PENRO Approved', '2022-05-16 21:29:17', 'CENRO Manay', 8, 'Personnel', 'Within AOR', NULL, NULL, 'No No No       /Disapproved By: Amelda Vera Cruz', '2022-05-18 08:19:39', '6', '2022-05-17 05:50:35', '7', '2022-05-18 08:20:05', '7', '2022-05-17 06:59:24', NULL, NULL, NULL, NULL, '2022-05-16 21:29:17', '2022-05-18 00:20:05', NULL),
+	(19, 7, '22-00013', '2022-05-18', '2022-05-20', 'Macambol, Mati City', 'site inspection of mining site', NULL, NULL, NULL, 'PENRO Approved', '2022-05-16 22:07:56', 'PENRO Davao Oriental', 1, 'PENRO', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '7', '2022-05-17 06:08:07', NULL, NULL, NULL, NULL, '2022-05-16 22:07:56', '2022-05-16 22:08:07', NULL),
+	(20, 9, '22-00014', '2022-05-24', '2022-05-26', 'Laak, Davao de Oro', 'Check NGP sites', NULL, NULL, NULL, 'Disapproved', '2022-05-17 18:59:33', 'Conservation and Development Division', 17, 'Personnel', 'Within AOR', '10', '2022-05-18 03:06:09', 'bawal mag T.O       /Disapproved By: Victor Billones', '2022-05-18 08:16:08', NULL, NULL, NULL, NULL, '8', '2022-05-18 06:17:35', NULL, NULL, NULL, NULL, '2022-05-17 18:59:33', '2022-05-18 00:16:08', NULL),
+	(21, 10, '22-00015', '2022-05-19', '2022-05-20', 'Mabini, Davao de Oro', 'attend PAMB Meeting', NULL, NULL, NULL, 'ARED TS Approved', '2022-05-17 19:13:22', 'Conservation and Development Division', 17, 'Division Chief', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '8', '2022-05-18 03:21:54', NULL, NULL, NULL, NULL, '2022-05-17 19:13:22', '2022-05-17 19:21:54', NULL),
+	(22, 8, '22-00016', '2022-05-19', '2022-05-20', 'CENRO Tagum', 'Attend Meeting', NULL, NULL, NULL, 'Pending', '2022-05-17 22:51:19', 'ARED for Techincal Services', 26, 'ARED TS', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-17 22:51:19', '2022-05-17 22:51:19', NULL),
+	(23, 4, '22-00017', '2022-05-25', '2022-05-27', 'PENRO Davao de Oro', 'attend meeting', NULL, NULL, NULL, 'Pending', '2022-05-17 23:14:03', 'ARED for Management Services', 25, 'ARED MS', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-17 23:14:03', '2022-05-17 23:14:03', NULL),
+	(24, 2, '22-00018', '2022-05-18', '2022-05-18', 'Tagum', 'Install MS Office', NULL, NULL, NULL, 'Pending', '2022-05-18 00:36:28', 'Planning and Management Division', 22, 'Personnel', 'Local', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-18 00:36:28', '2022-05-18 00:36:28', NULL),
+	(25, 2, '22-00019', '2022-05-19', '2022-05-20', 'Nabunturan, Davao de Oro', 'Check network infrastructure', NULL, NULL, NULL, 'Pending', '2022-05-18 00:37:40', 'Planning and Management Division', 22, 'Personnel', 'Local', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-18 00:37:40', '2022-05-18 00:37:40', NULL),
+	(26, 2, '22-00020', '2022-05-19', '2022-05-20', 'Maco', 'Check CCTV', NULL, NULL, NULL, 'Pending', '2022-05-18 00:38:28', 'Planning and Management Division', 22, 'Personnel', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-18 00:38:28', '2022-05-18 00:38:28', NULL),
+	(27, 2, '22-00021', '2022-05-30', '2022-05-31', 'Cebu City', 'Attend Training', NULL, NULL, NULL, 'Pending', '2022-05-18 00:39:15', 'Planning and Management Division', 22, 'Personnel', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-18 00:39:15', '2022-05-18 00:39:15', NULL),
+	(28, 2, '22-00022', '2022-05-24', '2022-05-27', 'Manila', 'Attend training', NULL, NULL, NULL, 'Pending', '2022-05-18 00:40:04', 'Planning and Management Division', 22, 'Personnel', 'Local', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-18 00:40:04', '2022-05-18 00:40:04', NULL);
 
 -- Dumping structure for table denr_pportal.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -2092,9 +2108,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table denr_pportal.users: ~6 rows (approximately)
+-- Dumping data for table denr_pportal.users: ~9 rows (approximately)
 REPLACE INTO `users` (`id`, `firstname`, `middlename`, `lastname`, `date_of_birth`, `gender`, `contact_no`, `email`, `email_verified_at`, `password`, `account_type`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(2, 'Albert Neil', 'Dela Cruz', 'Bandiola', '1991-05-04', 'Male', '09989762395', 'adbandiola@denr.gov.ph', NULL, '$2y$10$tNKaZAE9giCEmfiWZ43uW.gNDxGDJHasPCBHQYNJIDKRUmbEOJBF.', 'Personnel', NULL, '2022-03-29 22:59:14', '2022-04-18 17:56:58'),
 	(3, 'danrick', 'cubal', 'tekiko', '1996-11-15', 'Male', '09199533529', 'dcode0516@gmail.com', NULL, '$2y$10$btfsqX18b16sBtpyEknZUerDkBGcaih3B6EPN8N87BOnOMw31IMzC', 'Personnel', NULL, '2022-04-28 18:49:17', '2022-04-28 18:49:17'),
@@ -2102,7 +2118,9 @@ REPLACE INTO `users` (`id`, `firstname`, `middlename`, `lastname`, `date_of_birt
 	(5, 'Luningning', 'M', 'Dalayon', '1967-07-12', 'Female', '09123456789', 'planning@gmail.com', NULL, '$2y$10$vgpRX8ho7s928MDR6/w35eAUsKri9XC1s59dDm0fdVSNbE6LvCpNu', 'Division Chief', NULL, '2022-05-12 21:07:38', '2022-05-12 21:07:38'),
 	(6, 'Henry', 'G', 'Yap', '1956-04-12', 'Male', '09123456789', 'henryyap@gmail.com', NULL, '$2y$10$6V9RPH.n0Akvr5xPwaHH6u4uh5fP6Rhz2xBK7CHVbPz.9C2rpyp8O', 'CENRO', NULL, '2022-05-12 22:17:08', '2022-05-12 22:17:08'),
 	(7, 'Amelda', 'D', 'Vera Cruz', '1960-04-12', 'Female', '09555555556', 'penroddn@gmail.com', NULL, '$2y$10$macIZ/G484.3rn5TX0ukwuUhNwPHEs2KLD42QQQeCPvbFY9KiXsRC', 'PENRO', NULL, '2022-05-16 21:26:21', '2022-05-16 21:26:21'),
-	(8, 'Victor', 'T', 'Billones', '1961-08-16', 'Male', '09123456789', 'aredts@gmail.com', NULL, '$2y$10$viOcUA07NvuEyJV/7V.4zuH3pJj7qbjSBxlkDm.73qn4SQYhWIOrm', 'ARED TS', NULL, '2022-05-17 16:49:09', '2022-05-17 16:49:09');
+	(8, 'Victor', 'T', 'Billones', '1961-08-16', 'Male', '09123456789', 'aredts@gmail.com', NULL, '$2y$10$viOcUA07NvuEyJV/7V.4zuH3pJj7qbjSBxlkDm.73qn4SQYhWIOrm', 'ARED TS', NULL, '2022-05-17 16:49:09', '2022-05-17 16:49:09'),
+	(9, 'Faith Kerry', 'P', 'Baquirquir', '1993-02-05', 'Female', '09123456789', 'faithkerry@gmail.com', NULL, '$2y$10$LIjyERh.DDgQh53tRCOQq.TKK4Cibh5Thv/faz0ONKOSQIQ9kSZVu', 'Personnel', NULL, '2022-05-17 18:57:30', '2022-05-17 18:57:30'),
+	(10, 'Myrna Erlinda', 'D', 'Arbiol', '2017-05-09', 'Female', '09123456789', 'cdd@gmail.com', NULL, '$2y$10$oV/zPQZ7j/Xu6j/.B4cuBO0WWJPC4Yy1/xCrrAIefAa21VtKJshJO', 'Division Chief', NULL, '2022-05-17 19:03:31', '2022-05-17 19:03:31');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
