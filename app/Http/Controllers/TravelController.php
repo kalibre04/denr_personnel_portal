@@ -64,18 +64,7 @@ class TravelController extends Controller
                 ->withInput();          
         }
 
-        // $now = Carbon::now();
-        // $travel_id = TravelOrder::latest()->first();
-        // if($travel_id == NULL){
-        //     $default = "000001";
-        //     $val = $now->year .'-'.$default;
-            
-        // }else{
-        //     $default = "000000";
-        //     $after_year = sprintf('%06d', $default + intval($travel_id->id + 000001));
-        //     $val = $now->year .'-'.$after_year;
-            
-        // }
+        
         $now = Carbon::now()->format('y');
         $to_num = TravelOrder::IDGenerator(new TravelOrder,'to_number', 5, $now);    
         
@@ -97,12 +86,15 @@ class TravelController extends Controller
         $travel->office = $request->currentDept;
         $travel->office_id = $request->currentDeptid;
         $travel->account_type = $request->accounttype;
-        if($request->travel_type = "True"){
-            $travel->travel_type = 'Local';
+        if($request->travel_type == "True"){
+            $travel->travel_type = 'Outside AOR';
         }
         
         $travel->save();
 
         return response()->json(['message' => 'Travel Order Successfully Created' ]);
+        // $input = $request;
+        // return response()->json(['message' => $input ]);
+
     }
 }

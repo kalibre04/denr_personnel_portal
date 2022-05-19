@@ -70,7 +70,7 @@
                 </div>
                 <div class="form-group mb-0">
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" name="travel_type" class="custom-control-input" id="exampleCheck1">
+                        <input type="checkbox" name="travel_type" v-model="travel_type" value="Outside AOR" class="custom-control-input" id="exampleCheck1">
                         <label class="custom-control-label" for="exampleCheck1">Check this if Travel is outside Area of Jurisdiction</label>
                     </div>
                 </div>
@@ -118,6 +118,7 @@ export default {
       toNumber: "",
       currentDept: "",
       currentDeptid: "",
+      travel_type: "",
       error: false,
       successful: false,
       errors: []
@@ -140,17 +141,21 @@ export default {
                 toNumber : this.toNumber,
                 currentDept: this.currentDept,
                 currentDeptid: this.currentDeptid,
-                accounttype: this.accounttype
+                accounttype: this.accounttype,
+                travel_type: this.travel_type
                 })
                 .then(response => {
-
+                    // let data = response.data;
+                    //         console.log(data);
                     if(response.data.message == 'Travel Order Successfully Created'){
                         Swal.fire({
                             title: 'Success!',
                             text: response.data.message,
                             icon: 'success',
                             confirmButtonText: 'Okay'
+                            
                         }).then(function() {
+                            
                             window.location = "/denr_personnel_portal/travel";
                         });
 

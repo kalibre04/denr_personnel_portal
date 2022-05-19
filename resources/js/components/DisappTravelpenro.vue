@@ -68,6 +68,12 @@
                     <label for="exampleInputEmail1">Remarks or Special Instructions:</label>
                     <input type="text" v-model="instructions" class="form-control" placeholder="Special Instructions"/>
                 </div>
+                <div class="form-group mb-0">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="travel_type" v-model="travel_type" value="Outside AOR" class="custom-control-input" id="exampleCheck1">
+                        <label class="custom-control-label" for="exampleCheck1">Check this if Travel is outside Area of Jurisdiction</label>
+                    </div>
+                </div>
             </div>
 
             <div class="card-footer">
@@ -136,6 +142,7 @@ export default {
       toNumber: "",
       currentDept: "",
       currentDeptid: "",
+      travel_type: "",
       error: false,
       successful: false,
       errors: []
@@ -197,6 +204,7 @@ export default {
                 toNumber : this.toNumber,
                 currentDept: this.currentDept,
                 currentDeptid: this.currentDeptid,
+                travel_type: this.travel_type,
                 id: this.id
                 })
                 .then(response => {

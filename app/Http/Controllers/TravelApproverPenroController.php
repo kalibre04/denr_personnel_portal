@@ -263,7 +263,9 @@ class TravelApproverPenroController extends Controller
         $travel->penro_approval_date = Carbon::now();
         $travel->penro_approval = Auth::user()->id;
         $travel->application_status = 'PENRO Approved';
-        
+        if($request->travel_type == "True"){
+            $travel->travel_type = 'Outside AOR';
+        }
         $travel->save();
 
         return response()->json(['message' => 'Travel Order Approved' ]);

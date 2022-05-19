@@ -6424,6 +6424,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -6474,6 +6480,10 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true
     },
+    travel_type: {
+      type: Boolean,
+      required: true
+    },
     id: {
       type: String,
       required: true
@@ -6491,6 +6501,7 @@ __webpack_require__.r(__webpack_exports__);
       toNumber: "",
       currentDept: "",
       currentDeptid: "",
+      travel_type: "",
       error: false,
       successful: false,
       errors: []
@@ -6551,6 +6562,7 @@ __webpack_require__.r(__webpack_exports__);
         toNumber: this.toNumber,
         currentDept: this.currentDept,
         currentDeptid: this.currentDeptid,
+        travel_type: this.travel_type,
         id: this.id
       }).then(function (response) {
         if (response.data.message == 'Travel Order Approved') {
@@ -6723,6 +6735,7 @@ __webpack_require__.r(__webpack_exports__);
       toNumber: "",
       currentDept: "",
       currentDeptid: "",
+      travel_type: "",
       error: false,
       successful: false,
       errors: []
@@ -6745,8 +6758,11 @@ __webpack_require__.r(__webpack_exports__);
         toNumber: this.toNumber,
         currentDept: this.currentDept,
         currentDeptid: this.currentDeptid,
-        accounttype: this.accounttype
+        accounttype: this.accounttype,
+        travel_type: this.travel_type
       }).then(function (response) {
+        // let data = response.data;
+        //         console.log(data);
         if (response.data.message == 'Travel Order Successfully Created') {
           Swal.fire({
             title: 'Success!',
@@ -7880,6 +7896,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -7935,6 +7957,7 @@ __webpack_require__.r(__webpack_exports__);
       toNumber: "",
       currentDept: "",
       currentDeptid: "",
+      travel_type: "",
       error: false,
       successful: false,
       errors: []
@@ -7995,6 +8018,7 @@ __webpack_require__.r(__webpack_exports__);
         toNumber: this.toNumber,
         currentDept: this.currentDept,
         currentDeptid: this.currentDeptid,
+        travel_type: this.travel_type,
         id: this.id
       }).then(function (response) {
         if (response.data.message == 'Travel Order Approved') {
@@ -9130,6 +9154,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -9185,6 +9215,7 @@ __webpack_require__.r(__webpack_exports__);
       toNumber: "",
       currentDept: "",
       currentDeptid: "",
+      travel_type: "",
       error: false,
       successful: false,
       errors: []
@@ -9245,6 +9276,7 @@ __webpack_require__.r(__webpack_exports__);
         toNumber: this.toNumber,
         currentDept: this.currentDept,
         currentDeptid: this.currentDeptid,
+        travel_type: this.travel_type,
         id: this.id
       }).then(function (response) {
         if (response.data.message == 'Travel Order Approved') {
@@ -35735,6 +35767,63 @@ var render = function () {
           }),
         ]),
         _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-0" }, [
+          _c("div", { staticClass: "custom-control custom-checkbox" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.travel_type,
+                  expression: "travel_type",
+                },
+              ],
+              staticClass: "custom-control-input",
+              attrs: {
+                type: "checkbox",
+                name: "travel_type",
+                value: "Outside AOR",
+                id: "exampleCheck1",
+              },
+              domProps: {
+                checked: Array.isArray(_vm.travel_type)
+                  ? _vm._i(_vm.travel_type, "Outside AOR") > -1
+                  : _vm.travel_type,
+              },
+              on: {
+                change: function ($event) {
+                  var $$a = _vm.travel_type,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "Outside AOR",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.travel_type = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.travel_type = $$a
+                          .slice(0, $$i)
+                          .concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.travel_type = $$c
+                  }
+                },
+              },
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "custom-control-label",
+                attrs: { for: "exampleCheck1" },
+              },
+              [_vm._v("Check this if Travel is outside Area of Jurisdiction")]
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
         _vm.appstatus === "Disapproved"
           ? _c("div", { staticClass: "form-group" }, [
               _c("label", { attrs: { for: "exampleInputEmail1" } }, [
@@ -36143,7 +36232,62 @@ var render = function () {
           }),
         ]),
         _vm._v(" "),
-        _vm._m(3),
+        _c("div", { staticClass: "form-group mb-0" }, [
+          _c("div", { staticClass: "custom-control custom-checkbox" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.travel_type,
+                  expression: "travel_type",
+                },
+              ],
+              staticClass: "custom-control-input",
+              attrs: {
+                type: "checkbox",
+                name: "travel_type",
+                value: "Outside AOR",
+                id: "exampleCheck1",
+              },
+              domProps: {
+                checked: Array.isArray(_vm.travel_type)
+                  ? _vm._i(_vm.travel_type, "Outside AOR") > -1
+                  : _vm.travel_type,
+              },
+              on: {
+                change: function ($event) {
+                  var $$a = _vm.travel_type,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "Outside AOR",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.travel_type = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.travel_type = $$a
+                          .slice(0, $$i)
+                          .concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.travel_type = $$c
+                  }
+                },
+              },
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "custom-control-label",
+                attrs: { for: "exampleCheck1" },
+              },
+              [_vm._v("Check this if Travel is outside Area of Jurisdiction")]
+            ),
+          ]),
+        ]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "card-footer" }, [
@@ -36201,28 +36345,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "input-group-prepend" }, [
       _c("span", { staticClass: "input-group-text" }, [
         _c("i", { staticClass: "far fa-calendar-alt" }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group mb-0" }, [
-      _c("div", { staticClass: "custom-control custom-checkbox" }, [
-        _c("input", {
-          staticClass: "custom-control-input",
-          attrs: { type: "checkbox", name: "travel_type", id: "exampleCheck1" },
-        }),
-        _vm._v(" "),
-        _c(
-          "label",
-          {
-            staticClass: "custom-control-label",
-            attrs: { for: "exampleCheck1" },
-          },
-          [_vm._v("Check this if Travel is outside Area of Jurisdiction")]
-        ),
       ]),
     ])
   },
@@ -38125,6 +38247,63 @@ var render = function () {
               },
             },
           }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-0" }, [
+          _c("div", { staticClass: "custom-control custom-checkbox" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.travel_type,
+                  expression: "travel_type",
+                },
+              ],
+              staticClass: "custom-control-input",
+              attrs: {
+                type: "checkbox",
+                name: "travel_type",
+                value: "Outside AOR",
+                id: "exampleCheck1",
+              },
+              domProps: {
+                checked: Array.isArray(_vm.travel_type)
+                  ? _vm._i(_vm.travel_type, "Outside AOR") > -1
+                  : _vm.travel_type,
+              },
+              on: {
+                change: function ($event) {
+                  var $$a = _vm.travel_type,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "Outside AOR",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.travel_type = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.travel_type = $$a
+                          .slice(0, $$i)
+                          .concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.travel_type = $$c
+                  }
+                },
+              },
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "custom-control-label",
+                attrs: { for: "exampleCheck1" },
+              },
+              [_vm._v("Check this if Travel is outside Area of Jurisdiction")]
+            ),
+          ]),
         ]),
       ]),
       _vm._v(" "),
@@ -40145,6 +40324,63 @@ var render = function () {
               },
             },
           }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-0" }, [
+          _c("div", { staticClass: "custom-control custom-checkbox" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.travel_type,
+                  expression: "travel_type",
+                },
+              ],
+              staticClass: "custom-control-input",
+              attrs: {
+                type: "checkbox",
+                name: "travel_type",
+                value: "Outside AOR",
+                id: "exampleCheck1",
+              },
+              domProps: {
+                checked: Array.isArray(_vm.travel_type)
+                  ? _vm._i(_vm.travel_type, "Outside AOR") > -1
+                  : _vm.travel_type,
+              },
+              on: {
+                change: function ($event) {
+                  var $$a = _vm.travel_type,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "Outside AOR",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.travel_type = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.travel_type = $$a
+                          .slice(0, $$i)
+                          .concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.travel_type = $$c
+                  }
+                },
+              },
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "custom-control-label",
+                attrs: { for: "exampleCheck1" },
+              },
+              [_vm._v("Check this if Travel is outside Area of Jurisdiction")]
+            ),
+          ]),
         ]),
       ]),
       _vm._v(" "),
