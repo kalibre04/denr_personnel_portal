@@ -68,11 +68,12 @@
                     <label for="exampleInputEmail1">Remarks or Special Instructions:</label>
                     <input type="text" v-model="instructions" class="form-control" placeholder="Special Instructions"/>
                 </div>
-                <div class="form-group mb-0">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" name="travel_type" v-model="travel_type" value="Outside AOR" class="custom-control-input" id="exampleCheck1">
-                        <label class="custom-control-label" for="exampleCheck1">Check this if Travel is outside Area of Jurisdiction</label>
-                    </div>
+                <div class="form-group">
+                    <label>Travel Type</label>
+                    <select class="form-control" v-model="travel_type">
+                        <option>Within AOR</option>
+                        <option>Outside AOR</option>
+                    </select>
                 </div>
             </div>
 
@@ -120,6 +121,10 @@ export default {
           required: true
       },
       purpose:{
+          type: String,
+          required: true
+      },
+      travel_type:{
           type: String,
           required: true
       },

@@ -263,9 +263,8 @@ class TravelApproverPenroController extends Controller
         $travel->penro_approval_date = Carbon::now();
         $travel->penro_approval = Auth::user()->id;
         $travel->application_status = 'PENRO Approved';
-        if($request->travel_type == "True"){
-            $travel->travel_type = 'Outside AOR';
-        }
+        $travel->travel_type = $request->travel_type;
+        
         $travel->save();
 
         return response()->json(['message' => 'Travel Order Approved' ]);
@@ -276,6 +275,7 @@ class TravelApproverPenroController extends Controller
         $travel->application_status = 'Disapproved';
         $travel->disapprove_date = Carbon::now();
         $travel->disapprove_reason = $reason ."       /Disapproved By: " . Auth::user()->firstname . " " . Auth::user()->lastname ;
+
         $travel->save();
         return response()->json(['message' => 'Travel Order Disapproved' ]);
     }
