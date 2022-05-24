@@ -5352,6 +5352,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -5394,6 +5401,10 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true
     },
+    travel_type: {
+      type: String,
+      required: true
+    },
     instructions: {
       type: String,
       required: true
@@ -5419,6 +5430,7 @@ __webpack_require__.r(__webpack_exports__);
       toNumber: "",
       currentDept: "",
       currentDeptid: "",
+      travel_type: "",
       error: false,
       successful: false,
       errors: []
@@ -5478,6 +5490,7 @@ __webpack_require__.r(__webpack_exports__);
         instructions: this.instructions,
         toNumber: this.toNumber,
         currentDept: this.currentDept,
+        travel_type: this.travel_type,
         currentDeptid: this.currentDeptid,
         id: this.id
       }).then(function (response) {
@@ -5534,6 +5547,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+var _props;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5621,7 +5645,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {
+  props: (_props = {
     toNumber: {
       type: String,
       required: true
@@ -5646,6 +5670,10 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true
     },
+    travel_type: {
+      type: String,
+      required: true
+    },
     datedepart: {
       type: Date,
       required: true
@@ -5661,20 +5689,20 @@ __webpack_require__.r(__webpack_exports__);
     assist_labor_allowed: {
       type: String,
       required: true
-    },
-    instructions: {
-      type: String,
-      required: true
-    },
-    purpose: {
-      type: String,
-      required: true
-    },
-    id: {
-      type: String,
-      required: true
     }
-  },
+  }, _defineProperty(_props, "travel_type", {
+    type: String,
+    required: true
+  }), _defineProperty(_props, "instructions", {
+    type: String,
+    required: true
+  }), _defineProperty(_props, "purpose", {
+    type: String,
+    required: true
+  }), _defineProperty(_props, "id", {
+    type: String,
+    required: true
+  }), _props),
   data: function data() {
     return {
       destination: "",
@@ -5686,6 +5714,7 @@ __webpack_require__.r(__webpack_exports__);
       instructions: "",
       toNumber: "",
       currentDept: "",
+      travel_type: "",
       currentDeptid: "",
       error: false,
       successful: false,
@@ -5746,6 +5775,7 @@ __webpack_require__.r(__webpack_exports__);
         instructions: this.instructions,
         toNumber: this.toNumber,
         currentDept: this.currentDept,
+        travel_type: this.travel_type,
         currentDeptid: this.currentDeptid,
         id: this.id
       }).then(function (response) {
@@ -5888,6 +5918,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -5934,6 +5971,10 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true
     },
+    travel_type: {
+      type: String,
+      required: true
+    },
     purpose: {
       type: String,
       required: true
@@ -5955,6 +5996,7 @@ __webpack_require__.r(__webpack_exports__);
       toNumber: "",
       currentDept: "",
       currentDeptid: "",
+      travel_type: "",
       error: false,
       successful: false,
       errors: []
@@ -6014,6 +6056,7 @@ __webpack_require__.r(__webpack_exports__);
         instructions: this.instructions,
         toNumber: this.toNumber,
         currentDept: this.currentDept,
+        travel_type: this.travel_type,
         currentDeptid: this.currentDeptid,
         id: this.id
       }).then(function (response) {
@@ -6156,6 +6199,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -6202,6 +6252,10 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true
     },
+    travel_type: {
+      type: String,
+      required: true
+    },
     purpose: {
       type: String,
       required: true
@@ -6223,6 +6277,7 @@ __webpack_require__.r(__webpack_exports__);
       toNumber: "",
       currentDept: "",
       currentDeptid: "",
+      travel_type: "",
       error: false,
       successful: false,
       errors: []
@@ -6282,6 +6337,7 @@ __webpack_require__.r(__webpack_exports__);
         instructions: this.instructions,
         toNumber: this.toNumber,
         currentDept: this.currentDept,
+        travel_type: this.travel_type,
         currentDeptid: this.currentDeptid,
         id: this.id
       }).then(function (response) {
@@ -6898,6 +6954,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -6928,6 +6991,10 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true
     },
+    travel_type: {
+      type: String,
+      required: true
+    },
     instructions: {
       type: String,
       required: true
@@ -6952,6 +7019,7 @@ __webpack_require__.r(__webpack_exports__);
       instructions: "",
       toNumber: "",
       currentDept: "",
+      travel_type: "",
       currentDeptid: "",
       error: false,
       successful: false,
@@ -7012,6 +7080,7 @@ __webpack_require__.r(__webpack_exports__);
         instructions: this.instructions,
         toNumber: this.toNumber,
         currentDept: this.currentDept,
+        travel_type: this.travel_type,
         currentDeptid: this.currentDeptid,
         id: this.id
       }).then(function (response) {
@@ -7148,6 +7217,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -7178,6 +7254,10 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true
     },
+    travel_type: {
+      type: String,
+      required: true
+    },
     instructions: {
       type: String,
       required: true
@@ -7202,6 +7282,7 @@ __webpack_require__.r(__webpack_exports__);
       instructions: "",
       toNumber: "",
       currentDept: "",
+      travel_type: "",
       currentDeptid: "",
       error: false,
       successful: false,
@@ -7262,6 +7343,7 @@ __webpack_require__.r(__webpack_exports__);
         instructions: this.instructions,
         toNumber: this.toNumber,
         currentDept: this.currentDept,
+        travel_type: this.travel_type,
         currentDeptid: this.currentDeptid,
         id: this.id
       }).then(function (response) {
@@ -7398,6 +7480,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -7432,6 +7521,10 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true
     },
+    travel_type: {
+      type: String,
+      required: true
+    },
     purpose: {
       type: String,
       required: true
@@ -7453,6 +7546,7 @@ __webpack_require__.r(__webpack_exports__);
       toNumber: "",
       currentDept: "",
       currentDeptid: "",
+      travel_type: "",
       error: false,
       successful: false,
       errors: []
@@ -7512,6 +7606,7 @@ __webpack_require__.r(__webpack_exports__);
         instructions: this.instructions,
         toNumber: this.toNumber,
         currentDept: this.currentDept,
+        travel_type: this.travel_type,
         currentDeptid: this.currentDeptid,
         id: this.id
       }).then(function (response) {
@@ -7550,7 +7645,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     back: function back() {
-      window.location.href = '/denr_personnel_portal/travel/chiefindex';
+      window.location.href = '/denr_personnel_portal/travel/cenroapproved';
     }
   }
 });
@@ -7648,6 +7743,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -7682,6 +7784,10 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true
     },
+    travel_type: {
+      type: String,
+      required: true
+    },
     purpose: {
       type: String,
       required: true
@@ -7703,6 +7809,7 @@ __webpack_require__.r(__webpack_exports__);
       toNumber: "",
       currentDept: "",
       currentDeptid: "",
+      travel_type: "",
       error: false,
       successful: false,
       errors: []
@@ -7762,6 +7869,7 @@ __webpack_require__.r(__webpack_exports__);
         instructions: this.instructions,
         toNumber: this.toNumber,
         currentDept: this.currentDept,
+        travel_type: this.travel_type,
         currentDeptid: this.currentDeptid,
         id: this.id
       }).then(function (response) {
@@ -8161,6 +8269,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -8195,6 +8310,10 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true
     },
+    travel_type: {
+      type: String,
+      required: true
+    },
     purpose: {
       type: String,
       required: true
@@ -8215,6 +8334,7 @@ __webpack_require__.r(__webpack_exports__);
       instructions: "",
       toNumber: "",
       currentDept: "",
+      travel_type: "",
       currentDeptid: "",
       error: false,
       successful: false,
@@ -8275,6 +8395,7 @@ __webpack_require__.r(__webpack_exports__);
         instructions: this.instructions,
         toNumber: this.toNumber,
         currentDept: this.currentDept,
+        travel_type: this.travel_type,
         currentDeptid: this.currentDeptid,
         id: this.id
       }).then(function (response) {
@@ -8411,6 +8532,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -8441,6 +8569,10 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true
     },
+    travel_type: {
+      type: String,
+      required: true
+    },
     instructions: {
       type: String,
       required: true
@@ -8465,6 +8597,7 @@ __webpack_require__.r(__webpack_exports__);
       instructions: "",
       toNumber: "",
       currentDept: "",
+      travel_type: "",
       currentDeptid: "",
       error: false,
       successful: false,
@@ -8525,6 +8658,7 @@ __webpack_require__.r(__webpack_exports__);
         instructions: this.instructions,
         toNumber: this.toNumber,
         currentDept: this.currentDept,
+        travel_type: this.travel_type,
         currentDeptid: this.currentDeptid,
         id: this.id
       }).then(function (response) {
@@ -8661,6 +8795,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -8695,6 +8836,10 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true
     },
+    travel_type: {
+      type: String,
+      required: true
+    },
     purpose: {
       type: String,
       required: true
@@ -8716,6 +8861,7 @@ __webpack_require__.r(__webpack_exports__);
       toNumber: "",
       currentDept: "",
       currentDeptid: "",
+      travel_type: "",
       error: false,
       successful: false,
       errors: []
@@ -8775,6 +8921,7 @@ __webpack_require__.r(__webpack_exports__);
         instructions: this.instructions,
         toNumber: this.toNumber,
         currentDept: this.currentDept,
+        travel_type: this.travel_type,
         currentDeptid: this.currentDeptid,
         id: this.id
       }).then(function (response) {
@@ -8911,6 +9058,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -8945,6 +9099,10 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true
     },
+    travel_type: {
+      type: String,
+      required: true
+    },
     purpose: {
       type: String,
       required: true
@@ -8965,6 +9123,7 @@ __webpack_require__.r(__webpack_exports__);
       instructions: "",
       toNumber: "",
       currentDept: "",
+      travel_type: "",
       currentDeptid: "",
       error: false,
       successful: false,
@@ -9025,6 +9184,7 @@ __webpack_require__.r(__webpack_exports__);
         instructions: this.instructions,
         toNumber: this.toNumber,
         currentDept: this.currentDept,
+        travel_type: this.travel_type,
         currentDeptid: this.currentDeptid,
         id: this.id
       }).then(function (response) {
@@ -9471,6 +9631,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -9517,6 +9684,10 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true
     },
+    travel_type: {
+      type: String,
+      required: true
+    },
     purpose: {
       type: String,
       required: true
@@ -9538,6 +9709,7 @@ __webpack_require__.r(__webpack_exports__);
       toNumber: "",
       currentDept: "",
       currentDeptid: "",
+      travel_type: "",
       error: false,
       successful: false,
       errors: []
@@ -9597,6 +9769,7 @@ __webpack_require__.r(__webpack_exports__);
         instructions: this.instructions,
         toNumber: this.toNumber,
         currentDept: this.currentDept,
+        travel_type: this.travel_type,
         currentDeptid: this.currentDeptid,
         id: this.id
       }).then(function (response) {
@@ -34147,6 +34320,45 @@ var render = function () {
           }),
         ]),
         _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Travel Type")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.travel_type,
+                  expression: "travel_type",
+                },
+              ],
+              staticClass: "form-control",
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.travel_type = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            [
+              _c("option", [_vm._v("Within AOR")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Outside AOR")]),
+            ]
+          ),
+        ]),
+        _vm._v(" "),
         _vm.appstatus === "Disapproved"
           ? _c("div", { staticClass: "form-group" }, [
               _c("label", { attrs: { for: "exampleInputEmail1" } }, [
@@ -34553,6 +34765,45 @@ var render = function () {
               },
             },
           }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Travel Type")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.travel_type,
+                  expression: "travel_type",
+                },
+              ],
+              staticClass: "form-control",
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.travel_type = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            [
+              _c("option", [_vm._v("Within AOR")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Outside AOR")]),
+            ]
+          ),
         ]),
         _vm._v(" "),
         _vm.appstatus === "Disapproved"
@@ -34963,6 +35214,45 @@ var render = function () {
           }),
         ]),
         _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Travel Type")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.travel_type,
+                  expression: "travel_type",
+                },
+              ],
+              staticClass: "form-control",
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.travel_type = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            [
+              _c("option", [_vm._v("Within AOR")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Outside AOR")]),
+            ]
+          ),
+        ]),
+        _vm._v(" "),
         _vm.appstatus === "Disapproved"
           ? _c("div", { staticClass: "form-group" }, [
               _c("label", { attrs: { for: "exampleInputEmail1" } }, [
@@ -35369,6 +35659,45 @@ var render = function () {
               },
             },
           }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Travel Type")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.travel_type,
+                  expression: "travel_type",
+                },
+              ],
+              staticClass: "form-control",
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.travel_type = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            [
+              _c("option", [_vm._v("Within AOR")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Outside AOR")]),
+            ]
+          ),
         ]),
         _vm._v(" "),
         _vm.appstatus === "Disapproved"
@@ -36656,6 +36985,45 @@ var render = function () {
             },
           }),
         ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Travel Type")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.travel_type,
+                  expression: "travel_type",
+                },
+              ],
+              staticClass: "form-control",
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.travel_type = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            [
+              _c("option", [_vm._v("Within AOR")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Outside AOR")]),
+            ]
+          ),
+        ]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "card-footer" }, [
@@ -37047,6 +37415,45 @@ var render = function () {
               },
             },
           }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Travel Type")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.travel_type,
+                  expression: "travel_type",
+                },
+              ],
+              staticClass: "form-control",
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.travel_type = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            [
+              _c("option", [_vm._v("Within AOR")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Outside AOR")]),
+            ]
+          ),
         ]),
       ]),
       _vm._v(" "),
@@ -37440,6 +37847,45 @@ var render = function () {
             },
           }),
         ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Travel Type")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.travel_type,
+                  expression: "travel_type",
+                },
+              ],
+              staticClass: "form-control",
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.travel_type = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            [
+              _c("option", [_vm._v("Within AOR")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Outside AOR")]),
+            ]
+          ),
+        ]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "card-footer" }, [
@@ -37831,6 +38277,45 @@ var render = function () {
               },
             },
           }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Travel Type")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.travel_type,
+                  expression: "travel_type",
+                },
+              ],
+              staticClass: "form-control",
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.travel_type = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            [
+              _c("option", [_vm._v("Within AOR")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Outside AOR")]),
+            ]
+          ),
         ]),
       ]),
       _vm._v(" "),
@@ -38655,6 +39140,45 @@ var render = function () {
             },
           }),
         ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Travel Type")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.travel_type,
+                  expression: "travel_type",
+                },
+              ],
+              staticClass: "form-control",
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.travel_type = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            [
+              _c("option", [_vm._v("Within AOR")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Outside AOR")]),
+            ]
+          ),
+        ]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "card-footer" }, [
@@ -39061,6 +39585,45 @@ var render = function () {
               },
             },
           }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Travel Type")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.travel_type,
+                  expression: "travel_type",
+                },
+              ],
+              staticClass: "form-control",
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.travel_type = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            [
+              _c("option", [_vm._v("Within AOR")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Outside AOR")]),
+            ]
+          ),
         ]),
       ]),
       _vm._v(" "),
@@ -39469,6 +40032,45 @@ var render = function () {
             },
           }),
         ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Travel Type")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.travel_type,
+                  expression: "travel_type",
+                },
+              ],
+              staticClass: "form-control",
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.travel_type = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            [
+              _c("option", [_vm._v("Within AOR")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Outside AOR")]),
+            ]
+          ),
+        ]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "card-footer" }, [
@@ -39875,6 +40477,45 @@ var render = function () {
               },
             },
           }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Travel Type")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.travel_type,
+                  expression: "travel_type",
+                },
+              ],
+              staticClass: "form-control",
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.travel_type = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            [
+              _c("option", [_vm._v("Within AOR")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Outside AOR")]),
+            ]
+          ),
         ]),
       ]),
       _vm._v(" "),
@@ -40776,6 +41417,45 @@ var render = function () {
               },
             },
           }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Travel Type")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.travel_type,
+                  expression: "travel_type",
+                },
+              ],
+              staticClass: "form-control",
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.travel_type = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            [
+              _c("option", [_vm._v("Within AOR")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Outside AOR")]),
+            ]
+          ),
         ]),
         _vm._v(" "),
         _vm.appstatus === "Disapproved"

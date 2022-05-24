@@ -13,6 +13,7 @@
                       :datearrive="{{ json_encode($travel_order->date_arrived) }}"
                       :expenses="{{ json_encode($travel_order->expenses) }}"
                       :assist_labor_allowed="{{ json_encode($travel_order->assist_labor_allowed) }}"
+                      :travel_type="{{ json_encode($travel_order->travel_type) }}"
                       :instructions="{{ json_encode($travel_order->instructions) }}"
                       :id="{{ json_encode($travel_order->id) }}"
                 ></edittravelaredms>

@@ -17,6 +17,7 @@
                       :id="{{ json_encode($travel_order->id) }}"
                       :appstatus="{{ json_encode($travel_order->application_status) }}"
                       :disappreason="{{ json_encode($travel_order->disapprove_reason) }}"
+                      :travel_type="{{ json_encode($travel_order->travel_type) }}"
                       :disapp_date="{{ json_encode($travel_order->disapprove_date) }}"
                 ></apptravelaredms>
         </div>

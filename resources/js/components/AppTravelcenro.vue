@@ -68,6 +68,13 @@
                     <label for="exampleInputEmail1">Remarks or Special Instructions:</label>
                     <input type="text" v-model="instructions" class="form-control" placeholder="Special Instructions"/>
                 </div>
+                <div class="form-group">
+                    <label>Travel Type</label>
+                    <select class="form-control" v-model="travel_type">
+                        <option>Within AOR</option>
+                        <option>Outside AOR</option>
+                    </select>
+                </div>
                 <div v-if="appstatus === 'Disapproved'" class="form-group">
                     <label for="exampleInputEmail1">Reason for disapproval</label>
                     <p>{{ disappreason }}</p>
@@ -131,6 +138,10 @@ export default {
           type: String,
           required: true
       },
+      travel_type:{
+          type: String,
+          required: true
+      },
       purpose:{
           type: String,
           required: true
@@ -154,6 +165,7 @@ export default {
       toNumber: "",
       currentDept: "",
       currentDeptid: "",
+      travel_type: "",
       error: false,
       successful: false,
       errors: []
@@ -214,6 +226,7 @@ export default {
                 instructions : this.instructions,
                 toNumber : this.toNumber,
                 currentDept: this.currentDept,
+                travel_type: this.travel_type,
                 currentDeptid: this.currentDeptid,
                 id: this.id
                 })

@@ -100,7 +100,7 @@ class TravelApproverCenroController extends Controller
         $travel->cenro_approval_date = Carbon::now();
         $travel->cenro_approval = Auth::user()->id;
         $travel->application_status = 'CENRO Approved';
-        
+        $travel->travel_type = $request->travel_type;
         $travel->save();
 
         return response()->json(['message' => 'Travel Order Approved' ]);

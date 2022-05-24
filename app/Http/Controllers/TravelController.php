@@ -80,21 +80,15 @@ class TravelController extends Controller
         $travel->instructions = $request->instructions;
         $travel->date_submitted = Carbon::now();
         
-
-
         $travel->to_number = $to_num;
         $travel->office = $request->currentDept;
         $travel->office_id = $request->currentDeptid;
         $travel->account_type = $request->accounttype;
-        if($request->travel_type == "True"){
-            $travel->travel_type = 'Outside AOR';
-        }
-        
+        $travel->travel_type = $request->travel_type;
+                
         $travel->save();
 
         return response()->json(['message' => 'Travel Order Successfully Created' ]);
-        // $input = $request;
-        // return response()->json(['message' => $input ]);
 
     }
 }

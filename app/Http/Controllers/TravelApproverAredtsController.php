@@ -173,7 +173,7 @@ class TravelApproverAredtsController extends Controller
         $travel->aredts_approval_date = Carbon::now();
         $travel->aredts_approval = Auth::user()->id;
         $travel->application_status = 'ARED TS Approved';
-        
+        $travel->travel_type = $request->travel_type;
         $travel->save();
 
         return response()->json(['message' => 'Travel Order Approved' ]);

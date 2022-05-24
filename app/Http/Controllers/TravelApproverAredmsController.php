@@ -118,16 +118,37 @@ class TravelApproverAredmsController extends Controller
                 ->orWhere('office', 'Admin Division')
                 ->orWhere('office', 'ARED for Management Services')
                 ->orderBy('created_at', 'DESC')->get();
-        
+        $travels_ts = TravelOrder::where('office', 'Conservation and Development Division')
+                ->orWhere('office', 'Enforcement Division')
+                ->orWhere('office', 'Surveys and Mapping Division')
+                ->orWhere('office', 'Licenses Patents and Deeds Division')
+                ->orWhere('office', 'ARED for Technical Services')
+                ->orderBy('created_at', 'DESC')->get();
+        $trav = $travels_ts->merge($travels_ms);
+        $trav_approved = $trav->where('application_status', 'ARED MS Approved');
 
-        $travel_order = $travels_ms->where('id', $id)->first();
+        $travel_order = $trav_approved->where('id', $id)->first();
         return view('travel_order.aredms.disapprovetravelaredms', compact('travel_order'));
     }
 
     public function aredms_approvefromcancelled($id){
-        $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+        //$user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+        $travels_ms = TravelOrder::where('office', 'Planning and Management Division')
+                ->orWhere('office', 'Finance Division')
+                ->orWhere('office', 'Legal Division')
+                ->orWhere('office', 'Admin Division')
+                ->orWhere('office', 'ARED for Management Services')
+                ->orderBy('created_at', 'DESC')->get();
+        $travels_ts = TravelOrder::where('office', 'Conservation and Development Division')
+                ->orWhere('office', 'Enforcement Division')
+                ->orWhere('office', 'Surveys and Mapping Division')
+                ->orWhere('office', 'Licenses Patents and Deeds Division')
+                ->orWhere('office', 'ARED for Technical Services')
+                ->orderBy('created_at', 'DESC')->get();
+        $trav = $travels_ms->merge($travels_ts);
+
         
-        $travel_order = TravelOrder::where('id', $id)->first();
+        $travel_order = $trav->where('id', $id)->first();
         return view('travel_order.aredms.approvetravelaredms', compact('travel_order'));
     }
 
@@ -164,7 +185,7 @@ class TravelApproverAredmsController extends Controller
         $travel->aredms_approval_date = Carbon::now();
         $travel->aredms_approval = Auth::user()->id;
         $travel->application_status = 'ARED MS Approved';
-        
+        $travel->travel_type = $request->travel_type;
         $travel->save();
 
         return response()->json(['message' => 'Travel Order Approved' ]);

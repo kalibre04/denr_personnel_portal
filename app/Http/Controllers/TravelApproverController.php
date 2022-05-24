@@ -103,7 +103,7 @@ class TravelApproverController extends Controller
         $travel->divchief_approval_date = Carbon::now();
         $travel->divchief_approval = Auth::user()->id;
         $travel->application_status = 'Division Chief Approved';
-        
+        $travel->travel_type = $request->travel_type;
         $travel->save();
 
         return response()->json(['message' => 'Travel Order Approved' ]);
