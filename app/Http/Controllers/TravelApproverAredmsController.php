@@ -58,8 +58,13 @@ class TravelApproverAredmsController extends Controller
         $travel_ts_pending = $travel_ts_divchief->where('application_status', 'ARED TS Approved');
         
         $travels_ts_approved_pending = $travel_ts_approved->merge($travel_ts_pending);
+
+        $travels_penro = TravelOrder::where('application_status', 'PENRO Approved')->get();
+
+        $travels_outside_aor = $travels_penro->where('travel_type', 'Outside AOR');
+        $trav = $travels_ms_approved_pending->merge($travels_ts_approved_pending);
         
-        $travels = $travels_ms_approved_pending->merge($travels_ts_approved_pending);
+        $travels = $trav->merge($travels_outside_aor);
 
         return view('travel_order.aredms.approverindex', compact('travels'));
 
@@ -87,10 +92,14 @@ class TravelApproverAredmsController extends Controller
                 ->orWhere('office', 'Admin Division')
                 ->orWhere('office', 'ARED for Management Services')
                 ->orderBy('created_at', 'DESC')->get();
-        
+        $travels_penro = TravelOrder::where('travel_type', 'Outside AOR')->get();
+
+        $travels_outside_aor = $travels_penro->where('application_status', 'Disapproved');
+
         $trav_ms = $travels_ms->where('application_status', 'Disapproved');
         $trav_ts = $travels_ts->where('application_status', 'Disapproved');
-        $travels = $trav_ms->merge($trav_ts);
+        $trav = $trav_ms->merge($trav_ts);
+        $travels = $trav->merge($travels_outside_aor);
         // $travels = TravelOrder::where('application_status', 'Disapproved')->orderBy('created_at', 'DESC')->get();
         
         return view('travel_order.aredms.cancelledindex', compact('travels'));
@@ -124,10 +133,13 @@ class TravelApproverAredmsController extends Controller
                 ->orWhere('office', 'Licenses Patents and Deeds Division')
                 ->orWhere('office', 'ARED for Technical Services')
                 ->orderBy('created_at', 'DESC')->get();
-        $trav = $travels_ts->merge($travels_ms);
-        $trav_approved = $trav->where('application_status', 'ARED MS Approved');
+        $travels_penro = TravelOrder::where('travel_type', 'Outside AOR')->get();
+        $travels_outside_aor = $travels_penro->where('application_status', 'ARED MS Approved');
 
-        $travel_order = $trav_approved->where('id', $id)->first();
+        $travels_ro = $travels_ts->merge($travels_ms);
+        $trav_approved = $travels_ro->where('application_status', 'ARED MS Approved');
+        $trav = $travels_outside_aor->merge($trav_approved);
+        $travel_order = $trav->where('id', $id)->first();
         return view('travel_order.aredms.disapprovetravelaredms', compact('travel_order'));
     }
 
@@ -145,9 +157,14 @@ class TravelApproverAredmsController extends Controller
                 ->orWhere('office', 'Licenses Patents and Deeds Division')
                 ->orWhere('office', 'ARED for Technical Services')
                 ->orderBy('created_at', 'DESC')->get();
-        $trav = $travels_ms->merge($travels_ts);
 
-        
+        $travels_ro = $travels_ms->merge($travels_ts);
+
+        $travels_cancelled = $travels_ro->where('application_status', 'Disapproved');
+
+        $travels_penro = TravelOrder::where('travel_type', 'Outside AOR')->get();
+        $travels_outside_aor = $travels_penro->where('application_status', 'Disapproved');
+        $trav = $travels_outside_aor->merge($travels_cancelled);
         $travel_order = $trav->where('id', $id)->first();
         return view('travel_order.aredms.approvetravelaredms', compact('travel_order'));
     }

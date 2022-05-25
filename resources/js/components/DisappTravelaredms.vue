@@ -253,7 +253,7 @@ export default {
             },
 
             back(){
-                window.location.href='/denr_personnel_portal/travel/aredmsindex';
+                window.location.href='/denr_personnel_portal/travel/aredmsapproved';
             }
   },
 };

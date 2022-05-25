@@ -7119,7 +7119,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     back: function back() {
-      window.location.href = '/denr_personnel_portal/travel/aredmsindex';
+      window.location.href = '/denr_personnel_portal/travel/aredmsapproved';
     }
   }
 });
