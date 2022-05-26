@@ -7487,6 +7487,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -7522,6 +7525,10 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     travel_type: {
+      type: String,
+      required: true
+    },
+    appstatus: {
       type: String,
       required: true
     },
@@ -7750,6 +7757,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -7785,6 +7794,10 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     travel_type: {
+      type: String,
+      required: true
+    },
+    appstatus: {
       type: String,
       required: true
     },
@@ -37889,20 +37902,24 @@ var render = function () {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "card-footer" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-warning",
-            attrs: { type: "submit" },
-            on: {
-              click: function ($event) {
-                $event.preventDefault()
-                return _vm.disapproveTO()
-              },
-            },
-          },
-          [_vm._v("Disapprove")]
-        ),
+        _vm.appstatus === "CENRO Approved"
+          ? _c("div", { staticClass: "form-group" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-warning",
+                  attrs: { type: "submit" },
+                  on: {
+                    click: function ($event) {
+                      $event.preventDefault()
+                      return _vm.disapproveTO()
+                    },
+                  },
+                },
+                [_vm._v("Disapprove")]
+              ),
+            ])
+          : _vm._e(),
         _vm._v(" "),
         _c(
           "button",
@@ -38320,20 +38337,24 @@ var render = function () {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "card-footer" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-warning",
-            attrs: { type: "submit" },
-            on: {
-              click: function ($event) {
-                $event.preventDefault()
-                return _vm.disapproveTO()
-              },
-            },
-          },
-          [_vm._v("Disapprove")]
-        ),
+        _vm.appstatus === "Division Chief Approved"
+          ? _c("div", { staticClass: "form-group" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-warning",
+                  attrs: { type: "submit" },
+                  on: {
+                    click: function ($event) {
+                      $event.preventDefault()
+                      return _vm.disapproveTO()
+                    },
+                  },
+                },
+                [_vm._v("Disapprove")]
+              ),
+            ])
+          : _vm._e(),
         _vm._v(" "),
         _c(
           "button",

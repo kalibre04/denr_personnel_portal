@@ -26,10 +26,19 @@ class TravelApproverCenroController extends Controller
     }
 
     public function cenro_approvedindex(){
-        $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+        //$user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
 
-        $trav = TravelOrder::where('application_status', 'CENRO Approved')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
-        $travels = $trav->where('account_type', 'Personnel');
+        //$trav = TravelOrder::where('application_status', 'CENRO Approved')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
+        
+        $trav = TravelOrder::where('application_status', 'ARED MS Approved')
+            ->orwhere('application_status', 'CENRO Approved')
+            ->orwhere('application_status', 'RED Approved')
+            ->orwhere('application_status', 'PENRO Approved')->orderBy('created_at', 'DESC')->get();
+        $trav_personnel = $trav->where('account_type', 'Personnel');
+        
+
+        $travels = $trav_personnel->where('cenro_approval', Auth::user()->id);
+        
         return view('travel_order.cenro.approvedindex', compact('travels'));
     }
     public function cenro_cancelledindex(){

@@ -27,10 +27,20 @@ class TravelApproverController extends Controller
     }
 
     public function chief_approvedindex(){
-        $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+        // $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
 
-        $trav = TravelOrder::where('application_status', 'Division Chief Approved')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
-        $travels = $trav->where('account_type', 'Personnel');
+        // $trav = TravelOrder::where('application_status', 'Division Chief Approved')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
+        // $travels = $trav->where('account_type', 'Personnel');
+
+        $trav = TravelOrder::where('application_status', 'ARED MS Approved')
+            ->orwhere('application_status', 'Division Chief Approved')
+            ->orwhere('application_status', 'RED Approved')->orderBy('created_at', 'DESC')->get();
+
+        $trav_personnel = $trav->where('account_type', 'Personnel');
+        
+
+        $travels = $trav_personnel->where('divchief_approval', Auth::user()->id);
+
         return view('travel_order.approvedindex', compact('travels'));
     }
     public function chief_cancelledindex(){

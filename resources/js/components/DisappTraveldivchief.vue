@@ -79,7 +79,9 @@
 
             <div class="card-footer">
                 <!-- <button type="submit" @click.prevent="approveTO()" class="btn btn-primary">Approve</button> -->
+                <div v-if="appstatus === 'Division Chief Approved'" class="form-group">
                 <button type="submit" @click.prevent="disapproveTO()" class="btn btn-warning">Disapprove</button>
+                </div>
                 <button type="button" @click="back" class="btn btn-secondary">Back</button>
             </div>
     </form>
@@ -115,12 +117,16 @@ export default {
       assist_labor_allowed:{
           type: String,
           required: true
-      },
+      }, 
       instructions:{
           type: String,
           required: true
       },
       travel_type:{
+          type: String,
+          required: true
+      },
+      appstatus:{
           type: String,
           required: true
       },

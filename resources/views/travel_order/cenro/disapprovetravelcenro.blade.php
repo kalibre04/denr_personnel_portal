@@ -15,6 +15,7 @@
                       :assist_labor_allowed="{{ json_encode($travel_order->assist_labor_allowed) }}"
                       :instructions="{{ json_encode($travel_order->instructions) }}"
                       :travel_type="{{ json_encode($travel_order->travel_type) }}"
+                      :appstatus="{{ json_encode($travel_order->application_status) }}"
                       :id="{{ json_encode($travel_order->id) }}"
                 ></disapptravelcenro>
         </div>
