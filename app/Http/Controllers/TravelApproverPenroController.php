@@ -101,9 +101,19 @@ class TravelApproverPenroController extends Controller
         }    
 
         //$travels_approved = TravelOrder::where('application_status', 'PENRO Approved')->orderBy('created_at', 'DESC')->get();
-        $travels = $travels_province->where('application_status', 'PENRO Approved');
+        $travels_penro_approved = $travels_province->where('application_status', 'PENRO Approved');
+        $travels_aredms_approved = $travels_province->where('application_status', 'ARED MS Approved');
+        $travels_red_approved = $travels_province->where('application_status', 'RED Approved');
 
+        $trav_outside_merge = $travels_penro_approved->merge($travels_aredms_approved)->merge($travels_red_approved);
+        $trav_outside = $trav_outside_merge->where('travel_type', 'Outside AOR');
         
+        $trav_within_per_id = $travels_penro_approved->where('penro_approval', Auth::user()->id);
+        $trav_outside_per_id = $trav_outside->where('penro_approval', Auth::user()->id);
+
+
+        $travels = $trav_within_per_id->merge($trav_outside_per_id);
+
         return view('travel_order.penro.approvedindex', compact('travels'));
     }
     public function penro_cancelledindex(){

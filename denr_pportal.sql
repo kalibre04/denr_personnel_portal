@@ -2061,12 +2061,13 @@ CREATE TABLE IF NOT EXISTS `travel_orders` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   KEY `Primary Key` (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.travel_orders: ~0 rows (approximately)
+-- Dumping data for table denr_pportal.travel_orders: ~3 rows (approximately)
 REPLACE INTO `travel_orders` (`id`, `user_id`, `to_number`, `date_depart`, `date_arrived`, `destination`, `purpose`, `expenses`, `assist_labor_allowed`, `instructions`, `application_status`, `date_submitted`, `office`, `office_id`, `account_type`, `travel_type`, `divchief_approval`, `divchief_approval_date`, `disapprove_reason`, `disapprove_date`, `cenro_approval`, `cenro_approval_date`, `penro_approval`, `penro_approval_date`, `aredms_approval`, `aredms_approval_date`, `aredts_approval`, `aredts_approval_date`, `red_approval`, `red_approval_date`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(1, 3, '22-00000', '2022-05-31', '2022-06-03', 'Cebu', 'Attend QMS Meeting', NULL, NULL, NULL, 'ARED MS Approved', '2022-05-24 18:42:37', 'CENRO Manay', 8, 'Personnel', 'Outside AOR', NULL, NULL, 'not allowed       /Disapproved By: Elmar Jane Barquin', '2022-05-25 05:51:08', '6', '2022-05-25 02:43:31', '7', '2022-05-25 02:53:24', '4', '2022-05-25 06:19:06', NULL, NULL, NULL, NULL, '2022-05-24 18:42:37', '2022-05-24 22:19:06', NULL),
-	(2, 2, '22-00001', '2022-05-27', '2022-05-27', 'Tagum City', 'Conduct network and cctv maintenance', NULL, NULL, NULL, 'ARED MS Approved', '2022-05-26 00:00:44', 'Planning and Management Division', 22, 'Personnel', 'Within AOR', '5', '2022-05-26 08:01:04', NULL, NULL, NULL, NULL, NULL, NULL, '4', '2022-05-26 08:01:28', NULL, NULL, NULL, NULL, '2022-05-26 00:00:44', '2022-05-26 00:01:28', NULL);
+	(2, 2, '22-00001', '2022-05-27', '2022-05-27', 'Tagum City', 'Conduct network and cctv maintenance', NULL, NULL, NULL, 'ARED MS Approved', '2022-05-26 00:00:44', 'Planning and Management Division', 22, 'Personnel', 'Within AOR', '5', '2022-05-26 08:01:04', NULL, NULL, NULL, NULL, NULL, NULL, '4', '2022-05-26 08:01:28', NULL, NULL, NULL, NULL, '2022-05-26 00:00:44', '2022-05-26 00:01:28', NULL),
+	(3, 9, '22-00002', '2022-06-02', '2022-06-03', 'Laak, Davao de Oro', 'check NGP site/validation', NULL, NULL, NULL, 'ARED TS Approved', '2022-05-26 22:43:26', 'Conservation and Development Division', 17, 'Personnel', 'Within AOR', '10', '2022-05-27 06:44:01', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '8', '2022-05-27 06:51:51', NULL, NULL, '2022-05-26 22:43:26', '2022-05-26 22:51:51', NULL);
 
 -- Dumping structure for table denr_pportal.users
 CREATE TABLE IF NOT EXISTS `users` (

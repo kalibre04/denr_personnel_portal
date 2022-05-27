@@ -124,6 +124,10 @@ export default {
           type: String,
           required: true
       },
+      travel_type:{
+          type: String,
+          required: true
+      },
       purpose:{
           type: String,
           required: true

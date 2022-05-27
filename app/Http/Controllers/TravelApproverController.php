@@ -28,18 +28,42 @@ class TravelApproverController extends Controller
 
     public function chief_approvedindex(){
         // $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
-
         // $trav = TravelOrder::where('application_status', 'Division Chief Approved')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
         // $travels = $trav->where('account_type', 'Personnel');
+        $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
+        $trav = TravelOrder::where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
 
-        $trav = TravelOrder::where('application_status', 'ARED MS Approved')
-            ->orwhere('application_status', 'Division Chief Approved')
-            ->orwhere('application_status', 'RED Approved')->orderBy('created_at', 'DESC')->get();
+        // $travels_ms = TravelOrder::where('office', 'Planning and Management Division')
+        //         ->orWhere('office', 'Finance Division')
+        //         ->orWhere('office', 'Legal Division')
+        //         ->orWhere('office', 'Admin Division')
+        //         ->orWhere('office', 'ARED for Management Services')
+        //         ->orderBy('created_at', 'DESC')->get();
+        // $travels_ts = TravelOrder::where('office', 'Conservation and Development Division')
+        //         ->orWhere('office', 'Enforcement Division')
+        //         ->orWhere('office', 'Surveys and Mapping Division')
+        //         ->orWhere('office', 'Licenses Patents and Deeds Division')
+        //         ->orWhere('office', 'ARED for Technical Services')
+        //         ->orderBy('created_at', 'DESC')->get();
+        // $trav = $travels_ts->merge($travels_ms);
+        $travels_divchief_approved = $trav->where('application_status', 'Division Chief Approved');
+        $travels_aredts_approved = $trav->where('application_status', 'ARED TS Approved');
+        $travels_aredms_approved = $trav->where('application_status', 'ARED MS Approved');
+        $travels_red_approved = $trav->where('application_status', 'RED Approved');
 
-        $trav_personnel = $trav->where('account_type', 'Personnel');
+        $trav_approved = $travels_divchief_approved->merge($travels_aredts_approved)->merge($travels_aredms_approved)->merge($travels_red_approved);
+        //$trav_outside = $trav_outside_merge->where('travel_type', 'Outside AOR');
         
+        $trav_within_per_id = $trav_approved->where('divchief_approval', Auth::user()->id);
 
-        $travels = $trav_personnel->where('divchief_approval', Auth::user()->id);
+        // $trav = TravelOrder::where('application_status', 'ARED MS Approved')
+        //     ->orwhere('application_status', 'Division Chief Approved')
+        //     ->orwhere('application_status', 'RED Approved')->orderBy('created_at', 'DESC')->get();
+
+        // $trav_personnel = $trav->where('account_type', 'Personnel');
+        
+        $travels = $trav_within_per_id;
+        // $travels = $trav_personnel->where('divchief_approval', Auth::user()->id);
 
         return view('travel_order.approvedindex', compact('travels'));
     }

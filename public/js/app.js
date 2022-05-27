@@ -8068,6 +8068,10 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true
     },
+    appstatus: {
+      type: String,
+      required: true
+    },
     id: {
       type: String,
       required: true
@@ -8465,6 +8469,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+var _props;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -8553,7 +8561,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {
+  props: (_props = {
     toNumber: {
       type: String,
       required: true
@@ -8589,16 +8597,17 @@ __webpack_require__.r(__webpack_exports__);
     instructions: {
       type: String,
       required: true
-    },
-    purpose: {
-      type: String,
-      required: true
-    },
-    id: {
-      type: String,
-      required: true
     }
-  },
+  }, _defineProperty(_props, "travel_type", {
+    type: String,
+    required: true
+  }), _defineProperty(_props, "purpose", {
+    type: String,
+    required: true
+  }), _defineProperty(_props, "id", {
+    type: String,
+    required: true
+  }), _props),
   data: function data() {
     return {
       destination: "",
