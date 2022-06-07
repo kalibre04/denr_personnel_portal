@@ -162,5 +162,27 @@ Route::group(['middleware' => 'auth'], function () {
     });
     //ARED TS Middleware end
 
+    //ORED Middleware start
+    Route::group(['middleware' => 'aredms'], function () {
+        Route::get('travel/oredindex', 'App\Http\Controllers\TravelApproverOredController@ored_index')->name('travel.oredindex');
+        Route::get('travel/orededit/{id}', 'App\Http\Controllers\TravelApproverOredController@ored_edit')->name('travel.orededitto');
+
+        // route sa pag disapprove if na approve na ang Travel Order sa Div Chief
+        Route::get('travel/orededitdisapprove/{id}', 'App\Http\Controllers\TravelApproverOredController@ored_disapprove')->name('travel.oreddisapprove');
+        Route::patch('travel/orededitdisapprove/disapproveto/{id}', 'App\Http\Controllers\TravelApproverOredController@ored_disapprove_travel');
+        // end
+
+        // route sa pag approve if gi cancel sa Div Chief and Travel Order 
+        Route::get('travel/oredtravelapprove/{id}', 'App\Http\Controllers\TravelApproverOredController@ored_approvefromcancelled')->name('travel.oredapprovetravel');
+        Route::post('travel/oredtravelapprove/updateto/{id}', 'App\Http\Controllers\TravelApproverOredController@ored_update_travel');
+        // end
+
+        Route::get('travel/oredapproved', 'App\Http\Controllers\TravelApproverOredController@ored_approvedindex')->name('travel.oredapproved');
+        Route::get('travel/oredcancelled', 'App\Http\Controllers\TravelApproverOredController@ored_cancelledindex')->name('travel.oredcancelled');
+        Route::get('travel/oredcompleted', 'App\Http\Controllers\TravelApproverOredController@ored_completedindex')->name('travel.oredcompleted');
+        Route::post('travel/orededit/updateto/{id}', 'App\Http\Controllers\TravelApproverOredController@ored_update_travel');
+        Route::patch('travel/orededit/disapproveto/{id}', 'App\Http\Controllers\TravelApproverOredController@ored_disapprove_travel');
+    });
+    //ORED Middleware end
 
 });
