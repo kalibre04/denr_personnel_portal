@@ -65,7 +65,7 @@ class TravelApproverOredController extends Controller
         
         $travels = $trav->merge($travels_outside_aor);
 
-        return view('travel_order.aredms.approverindex', compact('travels'));
+        return view('travel_order.ored.approverindex', compact('travels'));
 
     }
 
@@ -74,7 +74,7 @@ class TravelApproverOredController extends Controller
                 
         $travels = TravelOrder::where('application_status', 'ARED MS Approved')->orderBy('created_at', 'DESC')->get();
         
-        return view('travel_order.aredms.approvedindex', compact('travels'));
+        return view('travel_order.ored.approvedindex', compact('travels'));
     }
     public function ored_cancelledindex(){
         //$user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
@@ -101,14 +101,14 @@ class TravelApproverOredController extends Controller
         $travels = $trav->merge($travels_outside_aor);
         // $travels = TravelOrder::where('application_status', 'Disapproved')->orderBy('created_at', 'DESC')->get();
         
-        return view('travel_order.aredms.cancelledindex', compact('travels'));
+        return view('travel_order.ored.cancelledindex', compact('travels'));
     }
     
     public function ored_completedindex(){
         $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
         $travels = TravelOrder::where('application_status', 'Completed')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
         
-        return view('travel_order.aredms.completedindex', compact('travels'));
+        return view('travel_order.ored.completedindex', compact('travels'));
     }
 
     public function ored_edit($id){
@@ -116,7 +116,7 @@ class TravelApproverOredController extends Controller
         
         $travel_order = TravelOrder::where('id', $id)->first();
        
-        return view('travel_order.aredms.edittravelaredms', compact('travel_order'));        
+        return view('travel_order.ored.edittravelored', compact('travel_order'));        
     }
 
     public function ored_disapprove($id){
@@ -139,7 +139,7 @@ class TravelApproverOredController extends Controller
         $trav_approved = $travels_ro->where('application_status', 'ARED MS Approved');
         $trav = $travels_outside_aor->merge($trav_approved);
         $travel_order = $trav->where('id', $id)->first();
-        return view('travel_order.aredms.disapprovetravelaredms', compact('travel_order'));
+        return view('travel_order.ored.disapprovetravelored', compact('travel_order'));
     }
 
     public function ored_approvefromcancelled($id){
@@ -165,7 +165,7 @@ class TravelApproverOredController extends Controller
         $travels_outside_aor = $travels_penro->where('application_status', 'Disapproved');
         $trav = $travels_outside_aor->merge($travels_cancelled);
         $travel_order = $trav->where('id', $id)->first();
-        return view('travel_order.aredms.approvetravelaredms', compact('travel_order'));
+        return view('travel_order.ored.approvetravelored', compact('travel_order'));
     }
 
     public function ored_editto($id){
