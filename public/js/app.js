@@ -6591,7 +6591,7 @@ __webpack_require__.r(__webpack_exports__);
                 icon: 'success',
                 confirmButtonText: 'Okay'
               }).then(function () {
-                window.location = "/denr_personnel_portal/travel/aredmsapproved";
+                window.location = "/denr_personnel_portal/travel/oredapproved";
               });
             } else {
               Swal.fire({
@@ -6629,7 +6629,7 @@ __webpack_require__.r(__webpack_exports__);
             icon: 'success',
             confirmButtonText: 'Okay'
           }).then(function () {
-            window.location = "/denr_personnel_portal/travel/aredmscancelled";
+            window.location = "/denr_personnel_portal/travel/oredcancelled";
           });
         } else {
           Swal.fire({
@@ -6657,7 +6657,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     back: function back() {
-      window.location.href = '/denr_personnel_portal/travel/aredmscancelled';
+      window.location.href = '/denr_personnel_portal/travel/oredcancelled';
     }
   }
 });
@@ -8399,7 +8399,7 @@ __webpack_require__.r(__webpack_exports__);
                 icon: 'success',
                 confirmButtonText: 'Okay'
               }).then(function () {
-                window.location = "/denr_personnel_portal/travel/aredmsapproved";
+                window.location = "/denr_personnel_portal/travel/oredapproved";
               });
             } else {
               Swal.fire({
@@ -8437,7 +8437,7 @@ __webpack_require__.r(__webpack_exports__);
             icon: 'success',
             confirmButtonText: 'Okay'
           }).then(function () {
-            window.location = "/denr_personnel_portal/travel/aredmsindex";
+            window.location = "/denr_personnel_portal/travel/oredindex";
           });
         } else {
           Swal.fire({
@@ -8465,7 +8465,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     back: function back() {
-      window.location.href = '/denr_personnel_portal/travel/aredmsapproved';
+      window.location.href = '/denr_personnel_portal/travel/oredapproved';
     }
   }
 });
@@ -9986,7 +9986,7 @@ __webpack_require__.r(__webpack_exports__);
                 icon: 'success',
                 confirmButtonText: 'Okay'
               }).then(function () {
-                window.location = "/denr_personnel_portal/travel/aredmsindex";
+                window.location = "/denr_personnel_portal/travel/oredindex";
               });
             } else {
               Swal.fire({
@@ -10024,7 +10024,7 @@ __webpack_require__.r(__webpack_exports__);
             icon: 'success',
             confirmButtonText: 'Okay'
           }).then(function () {
-            window.location = "/denr_personnel_portal/travel/aredmsindex";
+            window.location = "/denr_personnel_portal/travel/oredindex";
           });
         } else {
           Swal.fire({
@@ -10052,7 +10052,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     back: function back() {
-      window.location.href = '/denr_personnel_portal/travel/aredmsindex';
+      window.location.href = '/denr_personnel_portal/travel/oredindex';
     }
   }
 });
