@@ -66,7 +66,7 @@ class TravelApproverOredController extends Controller
     public function ored_approvedindex(){
         // $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
                 
-        $travels = TravelOrder::where('application_status', 'ARED MS Approved')->orderBy('created_at', 'DESC')->get();
+        $travels = TravelOrder::where('application_status', 'RED Approved')->orderBy('created_at', 'DESC')->get();
         
         return view('travel_order.ored.approvedindex', compact('travels'));
     }
@@ -114,25 +114,27 @@ class TravelApproverOredController extends Controller
     }
 
     public function ored_disapprove($id){
-        $travels_ms = TravelOrder::where('office', 'Planning and Management Division')
-                ->orWhere('office', 'Finance Division')
-                ->orWhere('office', 'Legal Division')
-                ->orWhere('office', 'Admin Division')
-                ->orWhere('office', 'ARED for Management Services')
-                ->orderBy('created_at', 'DESC')->get();
-        $travels_ts = TravelOrder::where('office', 'Conservation and Development Division')
-                ->orWhere('office', 'Enforcement Division')
-                ->orWhere('office', 'Surveys and Mapping Division')
-                ->orWhere('office', 'Licenses Patents and Deeds Division')
-                ->orWhere('office', 'ARED for Technical Services')
-                ->orderBy('created_at', 'DESC')->get();
-        $travels_penro = TravelOrder::where('travel_type', 'Outside AOR')->get();
-        $travels_outside_aor = $travels_penro->where('application_status', 'ARED MS Approved');
+        // $travels_ms = TravelOrder::where('office', 'Planning and Management Division')
+        //         ->orWhere('office', 'Finance Division')
+        //         ->orWhere('office', 'Legal Division')
+        //         ->orWhere('office', 'Admin Division')
+        //         ->orWhere('office', 'ARED for Management Services')
+        //         ->orderBy('created_at', 'DESC')->get();
+        // $travels_ts = TravelOrder::where('office', 'Conservation and Development Division')
+        //         ->orWhere('office', 'Enforcement Division')
+        //         ->orWhere('office', 'Surveys and Mapping Division')
+        //         ->orWhere('office', 'Licenses Patents and Deeds Division')
+        //         ->orWhere('office', 'ARED for Technical Services')
+        //         ->orderBy('created_at', 'DESC')->get();
+        // $travels_penro = TravelOrder::where('travel_type', 'Outside AOR')->get();
+        // $travels_outside_aor = $travels_penro->where('application_status', 'ARED MS Approved');
 
-        $travels_ro = $travels_ts->merge($travels_ms);
-        $trav_approved = $travels_ro->where('application_status', 'ARED MS Approved');
-        $trav = $travels_outside_aor->merge($trav_approved);
-        $travel_order = $trav->where('id', $id)->first();
+        // $travels_ro = $travels_ts->merge($travels_ms);
+        // $trav_approved = $travels_ro->where('application_status', 'ARED MS Approved');
+        // $trav = $travels_outside_aor->merge($trav_approved);
+        // $travel_order = $trav->where('id', $id)->first();
+        $travel_approved = TravelOrder::where('application_status', 'RED Approved')->get();
+        $travel_order = $travel_approved->where('id', $id)->first();
         return view('travel_order.ored.disapprovetravelored', compact('travel_order'));
     }
 
@@ -192,12 +194,11 @@ class TravelApproverOredController extends Controller
         $travel->expenses = $request->expenses;
         $travel->assist_labor_allowed = $request->assist_labor_allowed;
         $travel->instructions = $request->instructions;
-        $travel->aredms_approval_date = Carbon::now();
-        $travel->aredms_approval = Auth::user()->id;
+        $travel->red_approval_date = Carbon::now();
+        $travel->red_approval = Auth::user()->id;
         $travel->application_status = 'RED Approved';
         $travel->travel_type = $request->travel_type;
         $travel->save();
-
         return response()->json(['message' => 'Travel Order Approved' ]);
     }
     public function ored_disapprove_travel(Request $request, $id){

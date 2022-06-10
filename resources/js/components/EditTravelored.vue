@@ -26,7 +26,6 @@
                 <div class="form-group">
                     <label for="exampleInputPassword1">Purpose</label>
                     <textarea class="form-control" rows="3" v-model="purpose"  placeholder="Purpose of travel"></textarea>
-                    
                 </div>
 
                 <div class="form-group">
