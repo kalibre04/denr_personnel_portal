@@ -57,8 +57,10 @@ class TravelApproverOredController extends Controller
         
         // $travels = $trav->merge($travels_outside_aor);
 
-        $travels = TravelOrder::where('application_status', 'ARED MS Approved')->get();
-
+        $travel_msapproved = TravelOrder::where('application_status', 'ARED MS Approved')->get();
+        $travel_ored_ared = TravelOrder::where('account_type', 'ORED')->orWhere('account_type', 'ARED MS')->orWhere('account_type', 'ARED TS')->get();
+        $trav_pending = $travel_ored_ared->where('application_status', 'Pending');
+        $travels = $travel_msapproved->merge($trav_pending);
         return view('travel_order.ored.approverindex', compact('travels'));
 
     }
