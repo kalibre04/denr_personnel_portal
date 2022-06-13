@@ -62,7 +62,6 @@ class TravelApproverOredController extends Controller
         $trav_pending = $travel_ored_ared->where('application_status', 'Pending');
         $travels = $travel_msapproved->merge($trav_pending);
         return view('travel_order.ored.approverindex', compact('travels'));
-
     }
 
     public function ored_approvedindex(){
@@ -74,29 +73,27 @@ class TravelApproverOredController extends Controller
     }
     public function ored_cancelledindex(){
         //$user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
-        
-        $travels_ts = TravelOrder::where('office', 'Conservation and Development Division')
-                ->orWhere('office', 'Enforcement Division')
-                ->orWhere('office', 'Surveys and Mapping Division')
-                ->orWhere('office', 'Licenses Patents and Deeds Division')
-                ->orWhere('office', 'ARED for Technical Services')
-                ->orderBy('created_at', 'DESC')->get();
-        $travels_ms = TravelOrder::where('office', 'Planning and Management Division')
-                ->orWhere('office', 'Finance Division')
-                ->orWhere('office', 'Legal Division')
-                ->orWhere('office', 'Admin Division')
-                ->orWhere('office', 'ARED for Management Services')
-                ->orderBy('created_at', 'DESC')->get();
-        $travels_penro = TravelOrder::where('travel_type', 'Outside AOR')->get();
+        // $travels_ts = TravelOrder::where('office', 'Conservation and Development Division')
+        //         ->orWhere('office', 'Enforcement Division')
+        //         ->orWhere('office', 'Surveys and Mapping Division')
+        //         ->orWhere('office', 'Licenses Patents and Deeds Division')
+        //         ->orWhere('office', 'ARED for Technical Services')
+        //         ->orderBy('created_at', 'DESC')->get();
+        // $travels_ms = TravelOrder::where('office', 'Planning and Management Division')
+        //         ->orWhere('office', 'Finance Division')
+        //         ->orWhere('office', 'Legal Division')
+        //         ->orWhere('office', 'Admin Division')
+        //         ->orWhere('office', 'ARED for Management Services')
+        //         ->orderBy('created_at', 'DESC')->get();
+        // $travels_penro = TravelOrder::where('travel_type', 'Outside AOR')->get();
+        // $travels_outside_aor = $travels_penro->where('application_status', 'Disapproved');
+        // $trav_ms = $travels_ms->where('application_status', 'Disapproved');
+        // $trav_ts = $travels_ts->where('application_status', 'Disapproved');
+        // $trav = $trav_ms->merge($trav_ts);
+        // $travels = $trav->merge($travels_outside_aor);
+        // // $travels = TravelOrder::where('application_status', 'Disapproved')->orderBy('created_at', 'DESC')->get();
+        $travels = TravelOrder::where('application_status', 'Disapproved')->get();
 
-        $travels_outside_aor = $travels_penro->where('application_status', 'Disapproved');
-
-        $trav_ms = $travels_ms->where('application_status', 'Disapproved');
-        $trav_ts = $travels_ts->where('application_status', 'Disapproved');
-        $trav = $trav_ms->merge($trav_ts);
-        $travels = $trav->merge($travels_outside_aor);
-        // $travels = TravelOrder::where('application_status', 'Disapproved')->orderBy('created_at', 'DESC')->get();
-        
         return view('travel_order.ored.cancelledindex', compact('travels'));
     }
     
@@ -142,27 +139,30 @@ class TravelApproverOredController extends Controller
 
     public function ored_approvefromcancelled($id){
         //$user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
-        $travels_ms = TravelOrder::where('office', 'Planning and Management Division')
-                ->orWhere('office', 'Finance Division')
-                ->orWhere('office', 'Legal Division')
-                ->orWhere('office', 'Admin Division')
-                ->orWhere('office', 'ARED for Management Services')
-                ->orderBy('created_at', 'DESC')->get();
-        $travels_ts = TravelOrder::where('office', 'Conservation and Development Division')
-                ->orWhere('office', 'Enforcement Division')
-                ->orWhere('office', 'Surveys and Mapping Division')
-                ->orWhere('office', 'Licenses Patents and Deeds Division')
-                ->orWhere('office', 'ARED for Technical Services')
-                ->orderBy('created_at', 'DESC')->get();
+        // $travels_ms = TravelOrder::where('office', 'Planning and Management Division')
+        //         ->orWhere('office', 'Finance Division')
+        //         ->orWhere('office', 'Legal Division')
+        //         ->orWhere('office', 'Admin Division')
+        //         ->orWhere('office', 'ARED for Management Services')
+        //         ->orderBy('created_at', 'DESC')->get();
+        // $travels_ts = TravelOrder::where('office', 'Conservation and Development Division')
+        //         ->orWhere('office', 'Enforcement Division')
+        //         ->orWhere('office', 'Surveys and Mapping Division')
+        //         ->orWhere('office', 'Licenses Patents and Deeds Division')
+        //         ->orWhere('office', 'ARED for Technical Services')
+        //         ->orderBy('created_at', 'DESC')->get();
+    
+        // $travels_ro = $travels_ms->merge($travels_ts);
 
-        $travels_ro = $travels_ms->merge($travels_ts);
+        // $travels_cancelled = $travels_ro->where('application_status', 'Disapproved');
 
-        $travels_cancelled = $travels_ro->where('application_status', 'Disapproved');
-
-        $travels_penro = TravelOrder::where('travel_type', 'Outside AOR')->get();
-        $travels_outside_aor = $travels_penro->where('application_status', 'Disapproved');
-        $trav = $travels_outside_aor->merge($travels_cancelled);
-        $travel_order = $trav->where('id', $id)->first();
+        // $travels_penro = TravelOrder::where('travel_type', 'Outside AOR')->get();
+        // $travels_outside_aor = $travels_penro->where('application_status', 'Disapproved');
+        // $trav = $travels_outside_aor->merge($travels_cancelled);
+        // $travel_order = $trav->where('id', $id)->first();
+        $travel_disapp = TravelOrder::where('application_status','Disapproved')->get();
+        $travel_red_approved = $travel_disapp->where('red_approval', '!=', null);
+        $travel_order = $travel_red_approved->where('id', $id)->first();
         return view('travel_order.ored.approvetravelored', compact('travel_order'));
     }
 

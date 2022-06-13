@@ -41,7 +41,11 @@
                             <td>{{ $travel->date_depart }}</td>
                             <td>{{ $travel->date_arrived }}</td>
                             <td>{{ $travel->office }}</td>
-                            <td><a href="{{ route('travel.viewtravel', $travel->id) }}" class="btn btn-primary">View</a></td>
+                            <td><a href="{{ route('travel.viewtravel', $travel->id) }}" class="btn btn-primary">View</a>
+                            @if($travel->application_status == 'RED Approved')
+                            <a href="{{ route('travel.viewtravel', $travel->id) }}" class="btn btn-primary">View</a>
+                            @endif
+                            </td>
                           </tr>
                         @endforeach         
                         </tbody>
