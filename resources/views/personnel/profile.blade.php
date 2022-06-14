@@ -26,18 +26,34 @@
                 <div class="card">
                     <div class="card-body">
                         <center class="m-t-30">
+                        <div class="form-group text-center">
                             <!-- <img src="/public/assets/images/users/10_avatar-512.png" class="rounded-circle" width="150" /> -->
+                            @if($user->profile_image)
+                            <img src="{{ asset('/public/img/images/'. $user->lastname.'_'.$user->middlename.'_'.$user->lastname.'/'. $user->profile_image) }}" class="img-profile rounded-circle img-fluid" width="250px" height="100px">
+                            @else
+                              
+                            <p style="color: red">No Photo  uploaded. Please i Upload imung Pinaka gwapa/gwapo na Picture</p>
+                            @endif
+                            </div>
                             <h4 class="card-title m-t-10">{{ $user->firstname." ". substr(Auth::user()->middlename, 0, 1). " " .$user->lastname }}</h4>
-                            <h6 class="card-subtitle">{{ $user->gender }}</h6>
-                            <h6 class="card-subtitle">{{ $user->date_of_birth }}</h6>
+                            <!-- <h6 class="card-subtitle">{{ $user->gender }}</h6>
+                            <h6 class="card-subtitle">{{ $user->date_of_birth }}</h6> -->
                         </center>
                     </div>
                     <div>
                         <hr> </div>
                     <div class="card-body"> <small class="text-muted">Email address </small>
                         <h6>{{ $user->email }}</h6> 
+
+                        <small class="text-muted p-t-30 db">Gender</small>
+                        <h6>{{ $user->gender }}</h6>
+                        
+                        <small class="text-muted p-t-30 db">Birthdate</small>
+                        <h6>{{ $user->date_of_birth }} ({{ \Carbon\Carbon::parse($user->date_of_birth)->age }} Years)</h6>
+
                         <small class="text-muted p-t-30 db">Account Type</small>
                         <h6>{{ $user->account_type }}</h6> 
+                        
                         <small class="text-muted p-t-30 db">Current Department</small>
                         @if($office_assigned == null)
                             
@@ -109,6 +125,14 @@
                                             {{ Form::email('email', null,['class' => 'form-control form-control-line']) }}
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label for="example-email" class="col-md-12">Upload Photo</label>
+                                        <div class="col-md-12">
+                                            {{ Form::file('profile_image', null,['class' => 'form-control form-control-line']) }}
+                                        </div>
+                                    </div>
+
                                     <div class="form-group">
                                         <div class="col-sm-12">
                                             {{ Form::submit('Update Profile',['class' => 'btn btn-success']) }}

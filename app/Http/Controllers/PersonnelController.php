@@ -60,6 +60,7 @@ class PersonnelController extends Controller
             'date_of_birth'    => 'required|date',
             'contact_no'       => 'required',
             'email'            => 'required|email|', 
+            'profile_image'            => 'required|mimes:jpg,png,jpeg|max:5048', 
         ]);
         if ($validator->fails()) { 
             return redirect()->back()
@@ -73,6 +74,16 @@ class PersonnelController extends Controller
         $user->date_of_birth = $request->date_of_birth;
         $user->contact_no = $request->contact_no;
         $user->email = $request->email;
+
+        if($request->hasFile('profile_image')){
+			$now = Carbon::now();
+			$ext = $request->file('profile_image')->extension();
+			$rootName = str_replace(' ', '_', $request->firstname.'_'.$request->middlename.'_'.$request->lastname);
+			$fileName = $now->year. '-'. $rootName. '.' .$ext;
+			$request->profile_image->move(public_path('img/images/'.$request->lastname.'_'.$request->middlename.'_'.$request->lastname), $fileName);
+		}
+        $user->profile_image = $fileName;
+        
 
         $user->save();
         Session::flash('flash_message','Your Profile Was Successfully Updated');

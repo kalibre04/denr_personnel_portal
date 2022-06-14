@@ -18,7 +18,8 @@ class Personnel extends Model
         'middlename',
         'lastname',
         'date_of_birth',
-        'gender'
+        'gender',
+        'profile_image'
 
     ];
 
