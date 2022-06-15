@@ -187,7 +187,6 @@ class TravelApproverOredController extends Controller
         
         $travel = TravelOrder::find($id);
         
-        
         $travel->date_depart = $request->datedepart;
         $travel->date_arrived = $request->datearrive;
         $travel->destination = $request->destination;
