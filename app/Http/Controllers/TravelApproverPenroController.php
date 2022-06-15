@@ -148,7 +148,8 @@ class TravelApproverPenroController extends Controller
             $travels_province = TravelOrder::where('office', 'PENRO Davao Occidental');
         }
                 
-        $travels = $travels_province->where('application_status', 'Disapproved');
+        $trav = $travels_province->where('application_status', 'Disapproved');
+        $travels = $trav->where('disapproved_by_id', Auth::user()->id);
         // $travels = TravelOrder::where('application_status', 'Disapproved')->orderBy('created_at', 'DESC')->get();
         
         return view('travel_order.penro.cancelledindex', compact('travels'));
@@ -274,7 +275,9 @@ class TravelApproverPenroController extends Controller
         $travel->penro_approval = Auth::user()->id;
         $travel->application_status = 'PENRO Approved';
         $travel->travel_type = $request->travel_type;
-        
+        $travel->disapproved_by_id = NULL;
+        $travel->disapprove_date = NULL;
+        $travel->disapprove_reason = NULL;
         $travel->save();
 
         return response()->json(['message' => 'Travel Order Approved' ]);
@@ -283,9 +286,11 @@ class TravelApproverPenroController extends Controller
         $reason = $request->input('value');
         $travel = TravelOrder::find($id);
         $travel->application_status = 'Disapproved';
+        $travel->disapproved_by_id = Auth::user()->id;
         $travel->disapprove_date = Carbon::now();
         $travel->disapprove_reason = $reason ."       /Disapproved By: " . Auth::user()->firstname . " " . Auth::user()->lastname ;
-
+        $travel->penro_approval_date = NULL;
+        $travel->penro_approval = NULL;
         $travel->save();
         return response()->json(['message' => 'Travel Order Disapproved' ]);
     }

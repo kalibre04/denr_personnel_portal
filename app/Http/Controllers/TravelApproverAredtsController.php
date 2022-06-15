@@ -90,10 +90,10 @@ class TravelApproverAredtsController extends Controller
         //         ->orderBy('created_at', 'DESC')->get();
         
         // $trav_ms = $travels_ms->where('application_status', 'Disapproved');
-        $travels = $travels_ts->where('application_status', 'Disapproved');
+        $trav1 = $travels_ts->where('application_status', 'Disapproved');
         // $travels = $trav_ms->merge($trav_ts);
         // $travels = TravelOrder::where('application_status', 'Disapproved')->orderBy('created_at', 'DESC')->get();
-        
+        $travels = $trav1->where('disapproved_by_id', Auth::user()->id);
         return view('travel_order.aredts.cancelledindex', compact('travels'));
     }
     
@@ -174,6 +174,9 @@ class TravelApproverAredtsController extends Controller
         $travel->aredts_approval = Auth::user()->id;
         $travel->application_status = 'ARED TS Approved';
         $travel->travel_type = $request->travel_type;
+        $travel->disapproved_by_id = NULL;
+        $travel->disapprove_date = NULL;
+        $travel->disapprove_reason = NULL ;
         $travel->save();
 
         return response()->json(['message' => 'Travel Order Approved' ]);
@@ -182,8 +185,11 @@ class TravelApproverAredtsController extends Controller
         $reason = $request->input('value');
         $travel = TravelOrder::find($id);
         $travel->application_status = 'Disapproved';
+        $travel->disapproved_by_id = Auth::user()->id;
         $travel->disapprove_date = Carbon::now();
         $travel->disapprove_reason = $reason ."       /Disapproved By: " . Auth::user()->firstname . " " . Auth::user()->lastname ;
+        $travel->aredts_approval_date = NULL;
+        $travel->aredts_approval = NULL;
         $travel->save();
         return response()->json(['message' => 'Travel Order Disapproved' ]);
     }

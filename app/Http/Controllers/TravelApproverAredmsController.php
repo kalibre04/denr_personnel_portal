@@ -93,12 +93,14 @@ class TravelApproverAredmsController extends Controller
                 ->orWhere('office', 'ARED for Management Services')
                 ->orderBy('created_at', 'DESC')->get();
         $travels_penro = TravelOrder::where('travel_type', 'Outside AOR')->get();
-
-        $travels_outside_aor = $travels_penro->where('application_status', 'Disapproved');
+        $travels_penro1 = $travels_penro->where('application_status', 'Disapproved');
+        $travels_outside_aor = $travels_penro1->where('disapproved_by_id', Auth::user()->id);
 
         $trav_ms = $travels_ms->where('application_status', 'Disapproved');
         $trav_ts = $travels_ts->where('application_status', 'Disapproved');
-        $trav = $trav_ms->merge($trav_ts);
+
+        $trav1 = $trav_ms->merge($trav_ts);
+        $trav = $trav1->where('disapproved_by_id', Auth::user()->id);
         $travels = $trav->merge($travels_outside_aor);
         // $travels = TravelOrder::where('application_status', 'Disapproved')->orderBy('created_at', 'DESC')->get();
         
@@ -203,6 +205,9 @@ class TravelApproverAredmsController extends Controller
         $travel->aredms_approval = Auth::user()->id;
         $travel->application_status = 'ARED MS Approved';
         $travel->travel_type = $request->travel_type;
+        $travel->disapproved_by_id = NULL;
+        $travel->disapprove_date = NULL;
+        $travel->disapprove_reason = NULL;
         $travel->save();
 
         return response()->json(['message' => 'Travel Order Approved' ]);
@@ -211,8 +216,11 @@ class TravelApproverAredmsController extends Controller
         $reason = $request->input('value');
         $travel = TravelOrder::find($id);
         $travel->application_status = 'Disapproved';
+        $travel->disapproved_by_id = Auth::user()->id;
         $travel->disapprove_date = Carbon::now();
         $travel->disapprove_reason = $reason ."       /Disapproved By: " . Auth::user()->firstname . " " . Auth::user()->lastname ;
+        $travel->aredms_approval_date = NULL;
+        $travel->aredms_approval = NULL;
         $travel->save();
         return response()->json(['message' => 'Travel Order Disapproved' ]);
     }

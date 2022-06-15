@@ -70,7 +70,8 @@ class TravelApproverController extends Controller
     public function chief_cancelledindex(){
         $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
         
-        $trav = TravelOrder::where('application_status', 'Disapproved')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
+        $trav1 = TravelOrder::where('application_status', 'Disapproved')->where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
+        $trav = $trav1->where('disapproved_by_id', Auth::user()->id);
         $travels = $trav->where('account_type', 'Personnel');
         return view('travel_order.cancelledindex', compact('travels'));
     }
@@ -138,6 +139,9 @@ class TravelApproverController extends Controller
         $travel->divchief_approval = Auth::user()->id;
         $travel->application_status = 'Division Chief Approved';
         $travel->travel_type = $request->travel_type;
+        $travel->disapprove_date = NULL;
+        $travel->disapprove_reason = NULL;
+        $travel->disapproved_by_id = NULL;
         $travel->save();
 
         return response()->json(['message' => 'Travel Order Approved' ]);
@@ -148,6 +152,9 @@ class TravelApproverController extends Controller
         $travel->application_status = 'Disapproved';
         $travel->disapprove_date = Carbon::now();
         $travel->disapprove_reason = $reason ."       /Disapproved By: " . Auth::user()->firstname . " " . Auth::user()->lastname ;
+        $travel->disapproved_by_id = Auth::user()->id;
+        $travel->divchief_approval_date = NULL;
+        $travel->divchief_approval = NULL;
         $travel->save();
         return response()->json(['message' => 'Travel Order Disapproved' ]);
     }

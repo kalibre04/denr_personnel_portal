@@ -38,7 +38,7 @@
                             <td>{{ $travel->to_number }}</td>
                             <td>{{ App\Models\User::find($travel->user_id)->firstname ." ".  substr(App\Models\User::find($travel->user_id)->middlename, 0, 1) ." ". App\Models\User::find($travel->user_id)->lastname }}</td>
                             <td>{{ $travel->purpose }}</td>
-                            <td><span class="tag tag-success">{{ $travel->application_status }}</span></td>
+                            <td><span class="badge badge-warning">{{ $travel->application_status }}</span></td>
                             <td>{{ $travel->destination }}</td>
                             <td>{{ $travel->date_depart }}</td>
                             <td>{{ $travel->date_arrived }}</td>

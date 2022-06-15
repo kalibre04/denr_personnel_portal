@@ -38,7 +38,8 @@ class TravelOrder extends Model
         'red_approval',
         'red_approval_date',
         'disapprove_reason',
-        'disapprove_date'
+        'disapprove_date',
+        'disapproved_by_id'
     ];
 
     public static function IDGenerator($model,$trow,$length = 4, $prefix){
