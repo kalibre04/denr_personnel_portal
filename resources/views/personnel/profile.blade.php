@@ -35,7 +35,8 @@
                             <p style="color: red">No Photo  uploaded. Please i Upload imung Pinaka gwapa/gwapo na Picture</p>
                             @endif
                             </div>
-                            <h4 class="card-title m-t-10">{{ $user->firstname." ". substr(Auth::user()->middlename, 0, 1). " " .$user->lastname }}</h4>
+                            <!-- <h4 class="card-title m-t-10">{{ $user->firstname." ". substr(Auth::user()->middlename, 0, 1). " " .$user->lastname }}</h4> -->
+                            <p>{{ $user->firstname." ". substr(Auth::user()->middlename, 0, 1). " " .$user->lastname }}</p>
                             <!-- <h6 class="card-subtitle">{{ $user->gender }}</h6>
                             <h6 class="card-subtitle">{{ $user->date_of_birth }}</h6> -->
                         </center>

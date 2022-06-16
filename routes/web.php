@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('travel/createtravel', 'App\Http\Controllers\TravelController@create')->name('travel.create');
     Route::post('travel/saveto', 'App\Http\Controllers\TravelController@create_travel');
+    Route::get('travel/travelpdf/{id}', 'App\Http\Controllers\PDFReportController@printTravel')->name('travel.printravel');
 
     //Division Chief Middleware start
     Route::group(['middleware' => 'divchief'], function () {

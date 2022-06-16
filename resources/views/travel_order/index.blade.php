@@ -68,14 +68,6 @@
                             <td><span class="badge badge-success">{{ $travel->application_status }}</span></td>
                             @endif
 
-
-
-
-
-
-                           
-
-                          
                            
                             <td>{{ $travel->destination }}</td>
                             <td>{{ $travel->date_depart }}</td>
@@ -83,7 +75,7 @@
                             <td>{{ $travel->office }}</td>
                             <td><a href="{{ route('travel.viewtravel', $travel->id) }}" class="btn btn-primary">View</a>
                             @if($travel->application_status == 'RED Approved')
-                            <a href="{{ route('travel.viewtravel', $travel->id) }}" class="btn btn-primary">Print Travel Order</a>
+                            <a href="{{ route('travel.printravel', $travel->id) }}" class="btn btn-primary">Print Travel Order</a>
                             @endif
                             </td>
                           </tr>
