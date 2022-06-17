@@ -19,14 +19,28 @@ use PDF;
 class PDFReportController extends Controller
 {
     public function printTravel($id){
-        $travel = TravelOrder::find($id);
-        $user = User::find($travel->user_id);
+        $trav = TravelOrder::find($id);
+        $user = User::find($trav->user_id);
+        
+        $filename = $trav->to_number. " - " .$user->lastname . ", " . $user->firstname;
+        $fullname = $user->lastname . ", " . $user->firstname;
+        $travel = [
+            'to_number' => $trav->to_number,
+            'date_depart' => $trav->date_depart,
+            'date_arrived' => $trav->date_arrived,
+            'destination' => $trav->destination,
+            'purpose' => $trav->purpose,
+            'expenses' => $trav->expenses,
+            'assist_labor_allowed' => $trav->assist_labor_allowed,
+            'instructions' => $trav->instructions,
+            'fullname' => $fullname
 
-        $fullname = $travel->to_number. " - " .$user->lastname . ", " . $user->firstname;
+        ];
+        
+        //$travels_penro_approved->merge($travels_aredms_approved);
 
-        return $fullname;
-        //$pdf = PDF::loadView('travelpdf', $data);
+        $pdf = PDF::loadView('travel_order.reports.travelorders_pdf.travelpdf', $travel);
     
-        //return $pdf->download('itsolutionstuff.pdf');
+        return $pdf->download($filename . '.pdf');
     }
 }
