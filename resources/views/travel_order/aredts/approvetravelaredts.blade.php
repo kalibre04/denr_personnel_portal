@@ -18,6 +18,7 @@
                       :appstatus="{{ json_encode($travel_order->application_status) }}"
                       :disappreason="{{ json_encode($travel_order->disapprove_reason) }}"
                       :disapp_date="{{ json_encode($travel_order->disapprove_date) }}"
+                      :salary="{{ json_encode($travel_order->salary) }}"
                 ></apptravelaredts>
         </div>
 </div>

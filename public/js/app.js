@@ -5359,9 +5359,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
+      type: String,
+      required: true
+    },
+    salary: {
       type: String,
       required: true
     },
@@ -5422,6 +5428,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -5483,6 +5490,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -5644,6 +5652,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: (_props = {
     toNumber: {
@@ -5651,6 +5661,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       required: true
     },
     disappreason: {
+      type: String,
+      required: true
+    },
+    salary: {
       type: String,
       required: true
     },
@@ -5707,6 +5721,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -5768,6 +5783,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -5925,6 +5941,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -5932,6 +5950,10 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     disappreason: {
+      type: String,
+      required: true
+    },
+    salary: {
       type: String,
       required: true
     },
@@ -5988,6 +6010,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -6049,6 +6072,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -6206,6 +6230,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -6213,6 +6239,10 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     disappreason: {
+      type: String,
+      required: true
+    },
+    salary: {
       type: String,
       required: true
     },
@@ -6269,6 +6299,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -6330,6 +6361,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -6486,6 +6518,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -6493,6 +6528,10 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     disappreason: {
+      type: String,
+      required: true
+    },
+    salary: {
       type: String,
       required: true
     },
@@ -6549,6 +6588,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -6610,6 +6650,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -6767,6 +6808,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -6774,6 +6817,10 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     disappreason: {
+      type: String,
+      required: true
+    },
+    salary: {
       type: String,
       required: true
     },
@@ -6830,6 +6877,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -6891,6 +6939,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -7041,6 +7090,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -7064,6 +7118,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -7088,6 +7143,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('saveto', {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -7241,6 +7297,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -7248,6 +7306,10 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     destination: {
+      type: String,
+      required: true
+    },
+    salary: {
       type: String,
       required: true
     },
@@ -7292,6 +7354,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -7353,6 +7416,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -7504,6 +7568,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -7511,6 +7577,10 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     destination: {
+      type: String,
+      required: true
+    },
+    salary: {
       type: String,
       required: true
     },
@@ -7555,6 +7625,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -7616,6 +7687,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -7770,6 +7842,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -7777,6 +7851,10 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     destination: {
+      type: String,
+      required: true
+    },
+    salary: {
       type: String,
       required: true
     },
@@ -7825,6 +7903,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -7886,6 +7965,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -8039,6 +8119,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -8046,6 +8129,10 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     destination: {
+      type: String,
+      required: true
+    },
+    salary: {
       type: String,
       required: true
     },
@@ -8094,6 +8181,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -8155,6 +8243,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -8306,6 +8395,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -8313,6 +8404,10 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     destination: {
+      type: String,
+      required: true
+    },
+    salary: {
       type: String,
       required: true
     },
@@ -8357,6 +8452,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -8418,6 +8514,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -8569,6 +8666,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -8576,6 +8675,10 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     destination: {
+      type: String,
+      required: true
+    },
+    salary: {
       type: String,
       required: true
     },
@@ -8624,6 +8727,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -8685,6 +8789,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -8836,6 +8941,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -8843,6 +8950,10 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     destination: {
+      type: String,
+      required: true
+    },
+    salary: {
       type: String,
       required: true
     },
@@ -8887,6 +8998,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -8948,6 +9060,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -9103,6 +9216,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: (_props = {
     toNumber: {
@@ -9110,6 +9225,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       required: true
     },
     destination: {
+      type: String,
+      required: true
+    },
+    salary: {
       type: String,
       required: true
     },
@@ -9155,6 +9274,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -9216,6 +9336,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -9367,6 +9488,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -9374,6 +9497,10 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     destination: {
+      type: String,
+      required: true
+    },
+    salary: {
       type: String,
       required: true
     },
@@ -9418,6 +9545,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -9479,6 +9607,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -9630,6 +9759,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -9637,6 +9768,10 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     destination: {
+      type: String,
+      required: true
+    },
+    salary: {
       type: String,
       required: true
     },
@@ -9681,6 +9816,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -9742,6 +9878,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -9892,6 +10029,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -9899,6 +10039,10 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     destination: {
+      type: String,
+      required: true
+    },
+    salary: {
       type: String,
       required: true
     },
@@ -9943,6 +10087,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -10004,6 +10149,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -10155,6 +10301,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -10162,6 +10310,10 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     destination: {
+      type: String,
+      required: true
+    },
+    salary: {
       type: String,
       required: true
     },
@@ -10206,6 +10358,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -10267,6 +10420,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -10465,6 +10619,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     toNumber: {
@@ -10472,6 +10628,10 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     disappreason: {
+      type: String,
+      required: true
+    },
+    salary: {
       type: String,
       required: true
     },
@@ -10528,6 +10688,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -10589,6 +10750,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("updateto/" + this.id, {
         destination: this.destination,
         purpose: this.purpose,
+        salary: this.salary,
         datedepart: this.datedepart,
         datearrive: this.datearrive,
         expenses: this.expenses,
@@ -35220,6 +35382,34 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
           _c("label", [_vm._v("Departure Date:")]),
           _vm._v(" "),
           _c("div", { staticClass: "input-group" }, [
@@ -35661,6 +35851,34 @@ var render = function () {
                   return
                 }
                 _vm.purpose = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
               },
             },
           }),
@@ -36114,6 +36332,34 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
           _c("label", [_vm._v("Departure Date:")]),
           _vm._v(" "),
           _c("div", { staticClass: "input-group" }, [
@@ -36555,6 +36801,34 @@ var render = function () {
                   return
                 }
                 _vm.purpose = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
               },
             },
           }),
@@ -37008,6 +37282,34 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
           _c("label", [_vm._v("Departure Date:")]),
           _vm._v(" "),
           _c("div", { staticClass: "input-group" }, [
@@ -37449,6 +37751,34 @@ var render = function () {
                   return
                 }
                 _vm.purpose = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
               },
             },
           }),
@@ -37902,6 +38232,34 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputPassword1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
           _c("label", [_vm._v("Departure Date:")]),
           _vm._v(" "),
           _c("div", { staticClass: "input-group" }, [
@@ -38327,6 +38685,34 @@ var render = function () {
                   return
                 }
                 _vm.purpose = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
               },
             },
           }),
@@ -38764,6 +39150,34 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
           _c("label", [_vm._v("Departure Date:")]),
           _vm._v(" "),
           _c("div", { staticClass: "input-group" }, [
@@ -39189,6 +39603,34 @@ var render = function () {
                   return
                 }
                 _vm.purpose = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
               },
             },
           }),
@@ -39630,6 +40072,34 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
           _c("label", [_vm._v("Departure Date:")]),
           _vm._v(" "),
           _c("div", { staticClass: "input-group" }, [
@@ -40059,6 +40529,34 @@ var render = function () {
                   return
                 }
                 _vm.purpose = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
               },
             },
           }),
@@ -40496,6 +40994,34 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
           _c("label", [_vm._v("Departure Date:")]),
           _vm._v(" "),
           _c("div", { staticClass: "input-group" }, [
@@ -40921,6 +41447,34 @@ var render = function () {
                   return
                 }
                 _vm.purpose = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
               },
             },
           }),
@@ -41373,6 +41927,34 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
           _c("label", [_vm._v("Departure Date:")]),
           _vm._v(" "),
           _c("div", { staticClass: "input-group" }, [
@@ -41813,6 +42395,34 @@ var render = function () {
                   return
                 }
                 _vm.purpose = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
               },
             },
           }),
@@ -42265,6 +42875,34 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
           _c("label", [_vm._v("Departure Date:")]),
           _vm._v(" "),
           _c("div", { staticClass: "input-group" }, [
@@ -42711,6 +43349,34 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
           _c("label", [_vm._v("Departure Date:")]),
           _vm._v(" "),
           _c("div", { staticClass: "input-group" }, [
@@ -43151,6 +43817,34 @@ var render = function () {
                   return
                 }
                 _vm.purpose = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
               },
             },
           }),
@@ -43645,6 +44339,34 @@ var render = function () {
                   return
                 }
                 _vm.purpose = $event.target.value
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+            _vm._v("Salary"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.salary,
+                expression: "salary",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Salary" },
+            domProps: { value: _vm.salary },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.salary = $event.target.value
               },
             },
           }),

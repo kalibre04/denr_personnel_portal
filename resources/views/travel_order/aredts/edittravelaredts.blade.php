@@ -16,6 +16,7 @@
                       :instructions="{{ json_encode($travel_order->instructions) }}"
                       :travel_type="{{ json_encode($travel_order->travel_type) }}"
                       :id="{{ json_encode($travel_order->id) }}"
+                      :salary="{{ json_encode($travel_order->salary) }}"
                 ></edittravelaredts>
         </div>
 </div>

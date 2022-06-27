@@ -26,9 +26,11 @@
                 <div class="form-group">
                     <label for="exampleInputPassword1">Purpose</label>
                     <textarea class="form-control" rows="3" v-model="purpose"  placeholder="Purpose of travel"></textarea>
-                    
                 </div>
-
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Salary</label>
+                    <input type="text" v-model="salary" class="form-control" placeholder="Salary"/>
+                </div>
                 <div class="form-group">
                     <label>Departure Date:</label>
                     <div class="input-group">
@@ -99,6 +101,10 @@ export default {
           type: String,
           required: true
       },
+      salary:{
+          type: String,
+          required: true
+      },
       currentDept:{
           type: String,
           required: true
@@ -146,6 +152,7 @@ export default {
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -208,6 +215,7 @@ export default {
             axios.post("updateto/"+ this.id, {
                 destination : this.destination,
                 purpose : this.purpose,
+                salary : this.salary,
                 datedepart : this.datedepart,
                 datearrive : this.datearrive,
                 expenses : this.expenses,

@@ -41,7 +41,7 @@
                             @endif
 
                             @if($travel->application_status=="Pending")
-                            <td><span class="badge badge-danger">{{ $travel->application_status }}</span></td>
+                            <td><span class="badge badge-warning">{{ $travel->application_status }}</span></td>
                             @endif
 
                             @if($travel->application_status=="RED Approved")

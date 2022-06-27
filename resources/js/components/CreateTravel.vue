@@ -28,6 +28,11 @@
                     <textarea class="form-control" rows="3" v-model="purpose"  placeholder="Purpose of travel"></textarea>
                     
                 </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Salary</label>
+                    <input type="text" v-model="salary" class="form-control" placeholder="Salary"/>
+                    
+                </div>
 
                 <div class="form-group">
                     <label>Departure Date:</label>
@@ -110,6 +115,7 @@ export default {
     return {
       destination: "",
       purpose: "",
+      salary: "",
       datedepart: "",
       datearrive: "",
       expenses: "",
@@ -134,6 +140,7 @@ export default {
             axios.post('saveto', {
                 destination : this.destination,
                 purpose : this.purpose,
+                salary: this.salary,
                 datedepart : this.datedepart,
                 datearrive : this.datearrive,
                 expenses : this.expenses,

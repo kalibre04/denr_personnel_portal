@@ -45,7 +45,7 @@
                             <td>{{ $travel->office }}</td>
                             <td><a href="{{ route('travel.chiefeditto', $travel->id) }}" class="btn btn-primary">View</a></td>
                           </tr>
-                        @endforeach         
+                        @endforeach
                         </tbody>
                       </table>
                   </div>

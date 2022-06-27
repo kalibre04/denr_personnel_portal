@@ -17,6 +17,7 @@
                       :travel_type="{{ json_encode($travel_order->travel_type) }}"
                       :appstatus="{{ json_encode($travel_order->application_status) }}"
                       :id="{{ json_encode($travel_order->id) }}"
+                      :salary="{{ json_encode($travel_order->salary) }}"
                 ></disapptravelcenro>
         </div>
 </div>

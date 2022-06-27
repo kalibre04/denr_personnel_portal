@@ -17,6 +17,7 @@ class TravelOrder extends Model
     protected $fillable = [
         'user_id',
         'to_number',
+        'salary',
         'date_depart',
         'date_arrived',
         'destination',

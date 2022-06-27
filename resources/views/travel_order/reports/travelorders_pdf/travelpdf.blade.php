@@ -4,8 +4,8 @@
     <title>Hi</title>
 </head>
 <body>
-    <h1>{{ $to_number }}</h1>
-    <p>{{ $fullname }}</p>
+    <h1><center>{{ $to_number }}</center></h1>
+    <p><center>{{ $fullname }}</center></p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
