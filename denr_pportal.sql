@@ -1740,19 +1740,19 @@ REPLACE INTO `offices` (`id`, `officename`, `province_id`, `officetype`, `locati
 	(14, 'CENRO Davao', 54, 'CENRO', 'Davao'),
 	(15, 'CENRO Digos', 54, 'CENRO', 'Digos'),
 	(16, 'CENRO Malalag', 54, 'CENRO', 'Malalag'),
-	(17, 'Conservation and Development Division', 54, 'ARED TS', 'Regional Office'),
-	(18, 'Licences Patents and Deeds Division', 54, 'ARED TS', 'Regional Office'),
-	(19, 'Surveys and Mapping Division', 54, 'ARED TS', 'Regional Office'),
-	(20, 'Enforcement Division', 54, 'ARED TS', 'Regional Office'),
-	(21, 'Finance Division', 54, 'ARED MS', 'Regional Office'),
-	(22, 'Planning and Management Division', 54, 'ARED MS', 'Regional Office'),
-	(23, 'Legal Division', 54, 'ARED MS', 'Regional Office'),
-	(24, 'Admin Division', 54, 'ARED MS', 'Regional Office'),
-	(25, 'ARED for Management Services', 54, 'ARED MS', 'Regional Office'),
-	(26, 'ARED for Techincal Services', 54, 'ARED TS', 'Regional Office'),
-	(27, 'Office of the Regional Executive Director', 54, 'RED', 'Regional Office'),
-	(28, 'Regional Strategic Communications Initiatives Group', 54, 'RED', 'Regional Office'),
-	(29, 'Program Monitoring and Coordination Center', 54, 'RED', 'Regional Office');
+	(17, 'Conservation and Development Division', 54, 'ARED TS', 'DENR RXI, Lanang, Davao City'),
+	(18, 'Licences Patents and Deeds Division', 54, 'ARED TS', 'DENR RXI, Lanang, Davao City'),
+	(19, 'Surveys and Mapping Division', 54, 'ARED TS', 'DENR RXI, Lanang, Davao City'),
+	(20, 'Enforcement Division', 54, 'ARED TS', 'DENR RXI, Lanang, Davao City'),
+	(21, 'Finance Division', 54, 'ARED MS', 'DENR RXI, Lanang, Davao City'),
+	(22, 'Planning and Management Division', 54, 'ARED MS', 'DENR RXI, Lanang, Davao City'),
+	(23, 'Legal Division', 54, 'ARED MS', 'DENR RXI, Lanang, Davao City'),
+	(24, 'Admin Division', 54, 'ARED MS', 'DENR RXI, Lanang, Davao City'),
+	(25, 'ARED for Management Services', 54, 'ARED MS', 'DENR RXI, Lanang, Davao City'),
+	(26, 'ARED for Techincal Services', 54, 'ARED TS', 'DENR RXI, Lanang, Davao City'),
+	(27, 'Office of the Regional Executive Director', 54, 'RED', 'DENR RXI, Lanang, Davao City'),
+	(28, 'Regional Strategic Communications Initiatives Group', 54, 'RED', 'DENR RXI, Lanang, Davao City'),
+	(29, 'Program Monitoring and Coordination Center', 54, 'RED', 'DENR RXI, Lanang, Davao City');
 
 -- Dumping structure for table denr_pportal.password_resets
 CREATE TABLE IF NOT EXISTS `password_resets` (
@@ -2033,6 +2033,7 @@ CREATE TABLE IF NOT EXISTS `travel_orders` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
   `to_number` varchar(50) DEFAULT NULL,
+  `salary` varchar(9) DEFAULT NULL,
   `date_depart` date DEFAULT NULL,
   `date_arrived` date DEFAULT NULL,
   `destination` varchar(255) DEFAULT NULL,
@@ -2065,14 +2066,16 @@ CREATE TABLE IF NOT EXISTS `travel_orders` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   KEY `Primary Key` (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table denr_pportal.travel_orders: ~4 rows (approximately)
-REPLACE INTO `travel_orders` (`id`, `user_id`, `to_number`, `date_depart`, `date_arrived`, `destination`, `purpose`, `expenses`, `assist_labor_allowed`, `instructions`, `application_status`, `date_submitted`, `office`, `office_id`, `account_type`, `travel_type`, `divchief_approval`, `divchief_approval_date`, `disapproved_by_id`, `disapprove_reason`, `disapprove_date`, `cenro_approval`, `cenro_approval_date`, `penro_approval`, `penro_approval_date`, `aredms_approval`, `aredms_approval_date`, `aredts_approval`, `aredts_approval_date`, `red_approval`, `red_approval_date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(1, 3, '22-00000', '2022-05-31', '2022-06-03', 'Cebu', 'Attend QMS Meeting', NULL, NULL, NULL, 'PENRO Approved', '2022-05-24 18:42:37', 'CENRO Manay', 8, 'Personnel', 'Outside AOR', NULL, NULL, NULL, NULL, NULL, '6', '2022-06-15 02:55:38', '7', '2022-06-15 02:58:01', NULL, NULL, NULL, NULL, '11', '2022-06-10 02:45:54', '2022-05-24 18:42:37', '2022-06-14 18:58:01', NULL),
-	(2, 2, '22-00001', '2022-05-27', '2022-05-27', 'Tagum City', 'Conduct network and cctv maintenance', NULL, NULL, NULL, 'Disapproved', '2022-05-26 00:00:44', 'Planning and Management Division', 22, 'Personnel', 'Within AOR', '5', '2022-06-15 06:30:38', 4, 'not allowed       /Disapproved By: Elmar Jane Barquin', '2022-06-15 06:31:19', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-05-26 00:00:44', '2022-06-14 22:31:19', NULL),
-	(3, 9, '22-00002', '2022-06-02', '2022-06-03', 'Laak, Davao de Oro', 'check NGP site/validation', NULL, NULL, NULL, 'Pending', '2022-05-26 22:43:26', 'Conservation and Development Division', 17, 'Personnel', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '8', NULL, NULL, NULL, '2022-05-26 22:43:26', '2022-06-08 19:12:37', NULL),
-	(4, 8, '22-00003', '2022-06-10', '2022-06-10', 'Tagum City', 'To conduct validation of NGP Site', NULL, NULL, NULL, 'Pending', '2022-06-09 23:17:50', 'ARED for Techincal Services', 26, 'ARED TS', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '11', '2022-06-13 05:50:20', '2022-06-09 23:17:50', '2022-06-12 21:50:20', NULL);
+REPLACE INTO `travel_orders` (`id`, `user_id`, `to_number`, `salary`, `date_depart`, `date_arrived`, `destination`, `purpose`, `expenses`, `assist_labor_allowed`, `instructions`, `application_status`, `date_submitted`, `office`, `office_id`, `account_type`, `travel_type`, `divchief_approval`, `divchief_approval_date`, `disapproved_by_id`, `disapprove_reason`, `disapprove_date`, `cenro_approval`, `cenro_approval_date`, `penro_approval`, `penro_approval_date`, `aredms_approval`, `aredms_approval_date`, `aredts_approval`, `aredts_approval_date`, `red_approval`, `red_approval_date`, `created_at`, `updated_at`, `deleted_at`) VALUES
+	(1, 3, '22-00000', NULL, '2022-05-31', '2022-06-03', 'Cebu', 'Attend QMS Meeting', NULL, NULL, NULL, 'Disapproved', '2022-05-24 18:42:37', 'CENRO Manay', 8, 'Personnel', 'Outside AOR', NULL, NULL, 7, 'not allowed       /Disapproved By: Amelda Vera Cruz', '2022-06-15 08:14:41', '6', '2022-06-15 02:55:38', NULL, NULL, NULL, NULL, NULL, NULL, '11', '2022-06-10 02:45:54', '2022-05-24 18:42:37', '2022-06-15 00:14:41', NULL),
+	(2, 2, '22-00001', NULL, '2022-05-27', '2022-05-27', 'Tagum City', 'Conduct network and cctv maintenance', NULL, NULL, NULL, 'RED Approved', '2022-05-26 00:00:44', 'Planning and Management Division', 22, 'Personnel', 'Within AOR', '5', '2022-06-15 06:30:38', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '4', '2022-06-16 07:07:34', NULL, NULL, '11', '2022-06-16 07:08:14', '2022-05-26 00:00:44', '2022-06-15 23:08:14', NULL),
+	(3, 9, '22-00002', NULL, '2022-06-02', '2022-06-03', 'Laak, Davao de Oro', 'check NGP site/validation', NULL, NULL, NULL, 'Pending', '2022-05-26 22:43:26', 'Conservation and Development Division', 17, 'Personnel', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '8', NULL, NULL, NULL, '2022-05-26 22:43:26', '2022-06-08 19:12:37', NULL),
+	(4, 8, '22-00003', NULL, '2022-06-10', '2022-06-10', 'Tagum City', 'To conduct validation of NGP Site', NULL, NULL, NULL, 'Pending', '2022-06-09 23:17:50', 'ARED for Techincal Services', 26, 'ARED TS', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '11', '2022-06-13 05:50:20', '2022-06-09 23:17:50', '2022-06-12 21:50:20', NULL),
+	(5, 2, '22-00004', '38987', '2022-06-21', '2022-06-23', 'PENRO Davao de Oro and Davao Oriental and its vicinities', 'To conduct ICT Inventory', NULL, NULL, NULL, 'ARED MS Approved', '2022-06-26 21:13:04', 'Planning and Management Division', 22, 'Personnel', 'Within AOR', '5', '2022-06-27 06:07:50', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '4', '2022-06-27 06:19:46', NULL, NULL, NULL, NULL, '2022-06-26 21:13:04', '2022-06-26 22:19:46', NULL),
+	(6, 3, '22-00005', NULL, '2022-06-28', '2022-06-29', 'Tagum', 'Laag', NULL, NULL, NULL, 'Pending', '2022-06-26 23:36:19', 'CENRO Manay', 8, 'Personnel', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-26 23:36:19', '2022-06-26 23:36:19', NULL);
 
 -- Dumping structure for table denr_pportal.users
 CREATE TABLE IF NOT EXISTS `users` (
