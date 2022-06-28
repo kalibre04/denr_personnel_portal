@@ -24,6 +24,8 @@ class PDFReportController extends Controller
         
         $filename = $trav->to_number. " - " .$user->lastname . ", " . $user->firstname;
         $fullname = $user->lastname . ", " . $user->firstname . " " . substr($user->middlename, 0, 1). ".";
+        $position = Promotion::where('user_id', $trav->user_id)->with('plantilla')->latest()->first();
+
         $travel = [
             'to_number' => $trav->to_number,
             'date_depart' => $trav->date_depart,
@@ -34,7 +36,9 @@ class PDFReportController extends Controller
             'expenses' => $trav->expenses,
             'assist_labor_allowed' => $trav->assist_labor_allowed,
             'instructions' => $trav->instructions,
-            'fullname' => $fullname
+            'fullname' => $fullname,
+            'position' => $position, 
+            'office' => $trav->office
         ];
         
         //$travels_penro_approved->merge($travels_aredms_approved);

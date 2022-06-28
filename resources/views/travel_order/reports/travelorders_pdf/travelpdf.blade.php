@@ -59,12 +59,14 @@
             <h3><center>TRAVEL ORDER</center></h3>
             <h4><center>No: {{ $to_number }}</center></h4>
 
-            
+
             <div class="column">
                 <p>Name: <u>{{ $fullname }}</u> </p>
+                <p>Position: {{ $position->plantilla->plantilla_position }}</p>
             </div>
             <div class="column">
                 <p>Salary: <u>{{ $salary }}</u></p>
+                <p>Div/Sec/Unit: <u>{{ $office }}</u></p>
             </div>
 
 
