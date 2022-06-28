@@ -23,18 +23,18 @@ class PDFReportController extends Controller
         $user = User::find($trav->user_id);
         
         $filename = $trav->to_number. " - " .$user->lastname . ", " . $user->firstname;
-        $fullname = $user->lastname . ", " . $user->firstname;
+        $fullname = $user->lastname . ", " . $user->firstname . " " . substr($user->middlename, 0, 1). ".";
         $travel = [
             'to_number' => $trav->to_number,
             'date_depart' => $trav->date_depart,
             'date_arrived' => $trav->date_arrived,
             'destination' => $trav->destination,
+            'salary' => $trav->salary,
             'purpose' => $trav->purpose,
             'expenses' => $trav->expenses,
             'assist_labor_allowed' => $trav->assist_labor_allowed,
             'instructions' => $trav->instructions,
             'fullname' => $fullname
-
         ];
         
         //$travels_penro_approved->merge($travels_aredms_approved);
