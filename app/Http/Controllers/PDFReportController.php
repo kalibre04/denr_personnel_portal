@@ -25,6 +25,64 @@ class PDFReportController extends Controller
         $filename = $trav->to_number. " - " .$user->lastname . ", " . $user->firstname;
         $fullname = $user->lastname . ", " . $user->firstname . " " . substr($user->middlename, 0, 1). ".";
         $position = Promotion::where('user_id', $trav->user_id)->with('plantilla')->latest()->first();
+        $office_assigned = Personnel_Assignment::where('user_id', $trav->user_id)->with('office')->latest()->first();
+
+        if($office_assigned == "Conservation and Development Division"){
+            $approver = User::find($trav->aredts_approval);
+            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
+        }elseif($office_assigned == "Enforcement Division"){
+            $approver = User::find($trav->aredts_approval);
+            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
+        }elseif($office_assigned == "Licences Patents and Deeds Division"){
+            $approver = User::find($trav->aredts_approval);
+            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
+        }elseif($office_assigned == "Surveys and Mapping Division"){
+            $approver = User::find($trav->aredts_approval);
+            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
+        }elseif($office_assigned == "ARED for Technical Services"){
+            $approver = User::find($trav->aredts_approval);
+            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
+        }elseif($office_assigned == "Planning and Management Division"){
+            $approver = User::find($trav->aredms_approval);
+            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
+        }elseif($office_assigned == "Legal Division"){
+            $approver = User::find($trav->aredms_approval);
+            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
+        }elseif($office_assigned == "ARED for Management Services"){
+            $approver = User::find($trav->aredms_approval);
+            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
+        }elseif($office_assigned == "Finance Division"){
+            $approver = User::find($trav->aredms_approval);
+            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
+        }elseif($office_assigned == "Admin Division"){
+            $approver = User::find($trav->aredms_approval);
+            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
+        }elseif($office_assigned == "Planning and Management Division"){
+            $approver = User::find($trav->aredms_approval);
+            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
+        }elseif($office_assigned == "Planning and Management Division"){
+            $approver = User::find($trav->aredms_approval);
+            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
+        }elseif($office_assigned == "Planning and Management Division"){
+            $approver = User::find($trav->aredms_approval);
+            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
+        }elseif($office_assigned == "Planning and Management Division"){
+            $approver = User::find($trav->aredms_approval);
+            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
+        }
+
+
+        if($office_assigned == "Conservation and Development Division"){
+            $aredtype = "Technical";
+        }elseif($office_assigned == "Enforcement Division"){
+            $aredtype = "Technical";
+        }elseif($office_assigned == "Licences Patents and Deeds Division"){
+            $aredtype = "Technical";
+        }elseif($office_assigned == "Surveys and Mapping Division"){
+            $aredtype = "Technical";
+        }elseif($office_assigned == "ARED for Technical Services"){
+            $aredtype = "Technical";
+        }
 
         $travel = [
             'to_number' => $trav->to_number,
@@ -38,7 +96,9 @@ class PDFReportController extends Controller
             'instructions' => $trav->instructions,
             'fullname' => $fullname,
             'position' => $position, 
-            'office' => $trav->office
+            'office' => $trav->office,
+            'official_station' => $office_assigned,
+            'aredtype' => $aredtype
         ];
         
         //$travels_penro_approved->merge($travels_aredms_approved);

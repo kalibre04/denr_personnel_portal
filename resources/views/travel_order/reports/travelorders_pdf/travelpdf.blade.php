@@ -39,7 +39,40 @@
             }
             .column {
                 float: left;
-                width: 50%;
+                width: 35%;
+            }
+            .column2 {
+                float: left;
+                width: 80%;
+            }
+            .column-label {
+                float: left;
+                width: 15%;
+            }
+            .column-label2 {
+                float: left;
+                width: 10%;
+            }
+            .column-purpose {
+                float: left;
+                width: 18%;
+            }
+            .column-perdiem {
+                float: left;
+                width: 25%;
+            }
+            .column-labor {
+                float: left;
+                width: 30%;
+            }
+            .column-divider {
+                float: left;
+                width: 5%;
+            }
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
             }
 		</style>
 	    <title>BUMS | Report</title>
@@ -59,16 +92,105 @@
             <h3><center>TRAVEL ORDER</center></h3>
             <h4><center>No: {{ $to_number }}</center></h4>
 
-
-            <div class="column">
-                <p>Name: <u>{{ $fullname }}</u> </p>
-                <p>Position: {{ $position->plantilla->plantilla_position }}</p>
+            <div class="row">
+                    <div class="column-label">
+                        <p>Name: </p>
+                        <p>Position: </p>
+                        <p>Destination</p>
+                        <p>Departure Date:</p>
+                    </div>
+                    <div class="column">
+                        <p><u>{{ $fullname }}</u></p>
+                        <p><u>{{ $position->plantilla->plantilla_position }}</u></p>
+                        <p><u>{{ $destination }}</u></p>
+                        <p><u>{{ $date_depart }}</u></p>
+                    </div>
+                    <div class="column-divider">
+                        <p></p>
+                        
+                    </div>
+                    <div class="column-label">
+                        <p>Salary: </p>
+                        <p>Div/Sec/Unit: </p>
+                        <p>Official Station: </p>
+                        <p>Arrival Date: </p>
+                    </div>
+                    <div class="column">
+                        <p><u>{{ $salary }}</u></p>
+                        <p><u>{{ $office }}</u></p>
+                        <p><u>{{ $official_station->office->location }}</u></p>
+                        <p><u>{{ $date_arrived }}</u></p>
+                    </div>
             </div>
-            <div class="column">
-                <p>Salary: <u>{{ $salary }}</u></p>
-                <p>Div/Sec/Unit: <u>{{ $office }}</u></p>
+            <div class="row">
+                <div class="column-purpose">
+                    <p>Purpose of Travel: </p>
+                </div>
+                <div class="column2">
+                    <p><u>{{ $purpose }}</u></p>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="column-perdiem">
+                    <p>Per Diems/Expenses Allowed: </p>
+                </div>
+                <div class="column2">
+                    <p><u>{{ $expenses }}</u></p>
+                </div>
             </div>
-
-
+            <div class="row">
+                <div class="column-labor">
+                    <p>Assistants or Laborers Allowed: </p>
+                </div>
+                <div class="column2">
+                    <p><u>{{ $assist_labor_allowed }}</u></p>
+                </div>
+            </div>  
+            <div class="row">
+                <div class="column-labor">
+                    <p>Remarks or Special Instructions: </p>
+                </div>
+                <div class="column2">
+                    <p><u>{{ $instructions }}</u></p>
+                </div>
+            </div>      
+            <h4>Certification: </h4>
+            <p>This is to certify that the travel is necessary and is connected with the functions of the official/employee of this Division/Section/Unit.</p>
+            <div class="row">
+                <div class="column-label2">
+                        
+                </div>
+                <div class="column">
+                    <p>Recommending Approval: </p>
+                </div>
+                <div class="column-divider">
+                        <p></p>
+                        
+                </div>
+                <div class="column-label">
+                        
+                </div>
+                <div class="column">
+                    <p>Approved:</p>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="column-label2">
+                        
+                </div>
+                <div class="column">
+                    <p>Recommending Approval: </p>
+                </div>
+                <div class="column-divider">
+                        <p></p>
+                        
+                </div>
+                <div class="column-label">
+                        
+                </div>
+                <div class="column">
+                    <p>Approved:</p>
+                </div>
+            </div>        
 </body>
 </html>
