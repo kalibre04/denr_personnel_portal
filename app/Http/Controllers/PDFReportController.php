@@ -27,51 +27,124 @@ class PDFReportController extends Controller
         $position = Promotion::where('user_id', $trav->user_id)->with('plantilla')->latest()->first();
         $office_assigned = Personnel_Assignment::where('user_id', $trav->user_id)->with('office')->latest()->first();
 
-        if($office_assigned == "Conservation and Development Division"){
-            $approver = User::find($trav->aredts_approval);
-            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
-        }elseif($office_assigned == "Enforcement Division"){
-            $approver = User::find($trav->aredts_approval);
-            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
-        }elseif($office_assigned == "Licences Patents and Deeds Division"){
-            $approver = User::find($trav->aredts_approval);
-            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
-        }elseif($office_assigned == "Surveys and Mapping Division"){
-            $approver = User::find($trav->aredts_approval);
-            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
-        }elseif($office_assigned == "ARED for Technical Services"){
-            $approver = User::find($trav->aredts_approval);
-            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
-        }elseif($office_assigned == "Planning and Management Division"){
-            $approver = User::find($trav->aredms_approval);
-            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
-        }elseif($office_assigned == "Legal Division"){
-            $approver = User::find($trav->aredms_approval);
-            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
-        }elseif($office_assigned == "ARED for Management Services"){
-            $approver = User::find($trav->aredms_approval);
-            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
-        }elseif($office_assigned == "Finance Division"){
-            $approver = User::find($trav->aredms_approval);
-            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
-        }elseif($office_assigned == "Admin Division"){
-            $approver = User::find($trav->aredms_approval);
-            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
-        }elseif($office_assigned == "Planning and Management Division"){
-            $approver = User::find($trav->aredms_approval);
-            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
-        }elseif($office_assigned == "Planning and Management Division"){
-            $approver = User::find($trav->aredms_approval);
-            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
-        }elseif($office_assigned == "Planning and Management Division"){
-            $approver = User::find($trav->aredms_approval);
-            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
-        }elseif($office_assigned == "Planning and Management Division"){
-            $approver = User::find($trav->aredms_approval);
-            $approver_fullname = $approver->firstname . " " . substr($approver->middlename, 0, 1) . "." . " " . $approver->lastname;
+        //Conditions to determine kinsay signatory sa Travel Order
+
+        
+        if($trav->office == "Conservation and Development Division"){
+            $approverts = User::find($trav->aredts_approval);
+            $apporverms = User::find($trav->aredms_approval);
+            $approverred = User::find($trav->red_approval);
+
+            $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
+            $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+            $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
+
+        }elseif($trav->office == "Enforcement Division"){
+            $approverts = User::find($trav->aredts_approval);
+            $apporverms = User::find($trav->aredms_approval);
+            $approverred = User::find($trav->red_approval);
+            
+            $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
+            $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+            $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
+
+        }elseif($trav->office == "Licences Patents and Deeds Division"){
+            $approverts = User::find($trav->aredts_approval);
+            $apporverms = User::find($trav->aredms_approval);
+            $approverred = User::find($trav->red_approval);
+            
+            $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
+            $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+            $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
+
+        }elseif($trav->office == "Surveys and Mapping Division"){
+            $approverts = User::find($trav->aredts_approval);
+            $apporverms = User::find($trav->aredms_approval);
+            $approverred = User::find($trav->red_approval);
+            
+            $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
+            $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+            $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
+
+        }elseif($trav->office == "ARED for Technical Services"){
+            $approverts = User::find($trav->aredts_approval);
+            $apporverms = User::find($trav->aredms_approval);
+            $approverred = User::find($trav->red_approval);
+            
+            $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
+            $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+            $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
+
+        }elseif($trav->office == "Planning and Management Division"){
+            $approverms = User::find($trav->aredms_approval);
+            $approverred = User::find($trav->red_approval);
+
+            $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+            $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+
+        }elseif($trav->office == "Legal Division"){
+            $approverms = User::find($trav->aredms_approval);
+            $approverred = User::find($trav->red_approval);
+
+            $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+            $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+
+        }elseif($trav->office == "ARED for Management Services"){
+            $approverms = User::find($trav->aredms_approval);
+            $approverred = User::find($trav->red_approval);
+
+            $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+            $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+
+        }elseif($trav->office == "Finance Division"){
+            $approverms = User::find($trav->aredms_approval);
+            $approverred = User::find($trav->red_approval);
+
+            $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+            $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+
+        }elseif($trav->office == "Admin Division"){
+            $approverms = User::find($trav->aredms_approval);
+            $approverred = User::find($trav->red_approval);
+
+            $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+            $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+
+        }elseif($trav->office == "CENRO Baganga"){
+            
+        }elseif($trav->office == "CENRO Manay"){
+            
+        }elseif($trav->office == "CENRO Mati"){
+            
+        }elseif($trav->office == "CENRO Lupon"){
+            
+        }elseif($trav->office == "CENRO Monkayo"){
+            
+        }elseif($trav->office == "CENRO Maco"){
+            
+        }elseif($trav->office == "CENRO New Corella"){
+            
+        }elseif($trav->office == "CENRO Panabo"){
+            
+        }elseif($trav->office == "CENRO Davao"){
+            
+        }elseif($trav->office == "CENRO Digos"){
+            
+        }elseif($trav->office == "CENRO Malalag"){
+            
+        }elseif($trav->office == "PENRO Davao Oriental"){
+            
+        }elseif($trav->office == "PENRO Davao de Oro"){
+            
+        }elseif($trav->office == "PENRO Davao del Norte"){
+            
+        }elseif($trav->office == "PENRO Davao del Sur"){
+            
+        }elseif($trav->office == "PENRO Davao Occidental"){
+            
         }
 
-
+        //Conditions if Taga ARED TS ba ang employee 
         if($office_assigned == "Conservation and Development Division"){
             $aredtype = "Technical";
         }elseif($office_assigned == "Enforcement Division"){
