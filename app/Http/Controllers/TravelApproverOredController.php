@@ -18,51 +18,17 @@ class TravelApproverOredController extends Controller
     // FUNCTIONS FOR ORED
     public function ored_index(){
         
-        // $travels_ms = TravelOrder::where('office', 'Planning and Management Division')
-        //         ->orWhere('office', 'Finance Division')
-        //         ->orWhere('office', 'Legal Division')
-        //         ->orWhere('office', 'Admin Division')
-        //         ->orWhere('office', 'ARED for Management Services')
-        //         ->orderBy('created_at', 'DESC')->get();
-
         
-        // $travel_ms_divchief = $travels_ms->where('account_type', 'Division Chief');
-        // $travel_ms_personnel = $travels_ms->where('account_type', 'Personnel');
-
-        // $travel_ms_approved = $travel_ms_personnel->where('application_status', 'Division Chief Approved');
-        // $travel_ms_pending = $travel_ms_divchief->where('application_status', 'Pending');
-        
-
-        // $travels_ms_approved_pending = $travel_ms_approved->merge($travel_ms_pending);
-
-        // $travels_ts = TravelOrder::where('office', 'Conservation and Development Division')
-        //         ->orWhere('office', 'Enforcement Division')
-        //         ->orWhere('office', 'Surveys and Mapping Division')
-        //         ->orWhere('office', 'Licenses Patents and Deeds Division')
-        //         ->orWhere('office', 'ARED for Technical Services')
-        //         ->orderBy('created_at', 'DESC')->get();
-        
-        // $travel_ts_divchief = $travels_ts->where('account_type', 'Division Chief');
-        // $travel_ts_personnel = $travels_ts->where('account_type', 'Personnel');
-        
-        // $travel_ts_approved = $travel_ts_personnel->where('application_status', 'ARED TS Approved');
-        // $travel_ts_pending = $travel_ts_divchief->where('application_status', 'ARED TS Approved');
-        
-        // $travels_ts_approved_pending = $travel_ts_approved->merge($travel_ts_pending);
-
-        // $travels_penro = TravelOrder::where('application_status', 'PENRO Approved')->get();
-
-        // $travels_outside_aor = $travels_penro->where('travel_type', 'Outside AOR');
-        // $trav = $travels_ms_approved_pending->merge($travels_ts_approved_pending);
-        
-        // $travels = $trav->merge($travels_outside_aor);
-
         $travel_msapproved = TravelOrder::where('application_status', 'ARED MS Approved')->get();
         $travel_ored_ared = TravelOrder::where('account_type', 'ORED')->orWhere('account_type', 'ARED MS')->orWhere('account_type', 'ARED TS')->get();
         $travel_rscig = TravelOrder::where('office', 'Regional Strategic Communications Initiatives Group')->get();
-        $travel_pmcc = TravelOrder::where('Program Monitoring and Coordination Center')->get();
+        $travel_pmcc = TravelOrder::where('office', 'Program Monitoring and Coordination Center')->get();
+        $travel_ored = TravelOrder::where('office', 'Office of the Regional Executive Director')->get();
+        $trav_pmcc_ored_rscig = $travel_pmcc->merge($travel_rscig)->merge($travel_ored);
+        
         $trav_pending = $travel_ored_ared->where('application_status', 'Pending');
-        $travels = $travel_msapproved->merge($trav_pending)->merge($travel_pmcc)->merge($travel_rscig);
+        $trav_pending2 = $trav_pmcc_ored_rscig->where('application_status', 'Pending');
+        $travels = $travel_msapproved->merge($trav_pending)->merge($trav_pending2);
         return view('travel_order.ored.approverindex', compact('travels'));
     }
 

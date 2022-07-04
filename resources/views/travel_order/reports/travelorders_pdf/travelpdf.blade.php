@@ -53,6 +53,18 @@
                 float: left;
                 width: 10%;
             }
+            .column-label-aredts {
+                float: left;
+                width: 40%;
+            }
+            .column-red {
+                float: left;
+                width: 50%;
+            }
+            .column-label-aredts2 {
+                float: left;
+                width: 10%;
+            }
             .column-purpose {
                 float: left;
                 width: 18%;
@@ -100,7 +112,7 @@
                         <p>Departure Date:</p>
                     </div>
                     <div class="column">
-                        <p><u>{{ $fullname }}</u></p>
+                        <p><u><b>{{ $fullname }}</b></u></p>
                         <p><u>{{ $position->plantilla->plantilla_position }}</u></p>
                         <p><u>{{ $destination }}</u></p>
                         <p><u>{{ $date_depart }}</u></p>
@@ -156,41 +168,124 @@
             </div>      
             <h4>Certification: </h4>
             <p>This is to certify that the travel is necessary and is connected with the functions of the official/employee of this Division/Section/Unit.</p>
-            <div class="row">
-                <div class="column-label2">
+            
+            @if($travtype == 'Within AOR')
                         
-                </div>
-                <div class="column">
-                    <p>Recommending Approval: </p>
-                </div>
-                <div class="column-divider">
-                        <p></p>
+                        @if($officetype == 'ms')
+                                <div class="row">
+                                    <div class="column-label2">
+                                            
+                                    </div>
+                                    <div class="column">
+                                        <p>Recommending Approval: </p>
+                                    </div>
+                                    <div class="column-divider">
+                                            <p> </p>
+                                            
+                                    </div>
+                                    <div class="column-label">
+                                            
+                                    </div>
+                                    <div class="column">
+                                        <p>Approved:</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p> </p>
+                                </div> 
                         
-                </div>
-                <div class="column-label">
+                                <div class="row">
+                                    <div class="column-label2">
+                                            
+                                    </div>
+                                    <div class="column">
+                                        <p><u><b>  {{ $aredmsfullname }}</b></u></p>
+                                        <p>ARD for Management Services</p>
+                                    </div>
+                                    <div class="column-divider">
+                                            <p></p>
+                                            
+                                    </div>
+                                    <div class="column-label">
+                                            
+                                    </div>
+                                    <div class="column">
+                                        <p><u><b>{{ $redfullname }}</b></u></p>
+                                        <p>Regional Executive Director</p>
+                                    </div>
+                                </div>
+                        @elseif($officetype == 'ts')
+                                <div class="row">
+                                    <div class="column-label2">
+                                            
+                                    </div>
+                                    <div class="column">
+                                        <p>Recommending Approval: </p>
+                                    </div>
+                                    <div class="column-divider">
+                                            <p> </p>
+                                            
+                                    </div>
+                                    <div class="column-label">
+                                            
+                                    </div>
+                                    <div class="column">
+                                        <p>Approved:</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p> </p>
+                                </div>
+
+                                <div class="row">
+                                    <div class="column-label2">
+                                            
+                                    </div>
+                                    <div class="column">
+                                        <p><u><b>  {{ $aredtsfullname }}</b></u></p>
+                                        <p>ARD for Technical Services</p>
+                                    </div>
+                                    <div class="column-divider">
+                                            <p></p>
+                                            
+                                    </div>
+                                    <div class="column-label">
+                                            
+                                    </div>
+                                    <div class="column">
+                                        <p><u><b>{{ $aredmsfullname }}</b></u></p>
+                                        <p>ARD for Management Services</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="column-label-aredts">
+                                            <p> </p>
+                                    </div>
+                                    
+                                    <div class="column-red">
+                                        <p><u><b>{{ $redfullname }}</b></u></p>
+                                        <p>Regional Executive Director</p>
+                                    </div>
+                                    <div class="column-label-aredts2">
+                                            
+                                    </div>
+                                    
+                                </div>
+
+
+                        @elseif($officetype == 'cenro')
+
+                        @elseif($officetype == 'penro')
+
+
+                        @endif
+
+            @elseif($travtype == 'Outside AOR')
+
                         
-                </div>
-                <div class="column">
-                    <p>Approved:</p>
-                </div>
-            </div> 
-            <div class="row">
-                <div class="column-label2">
-                        
-                </div>
-                <div class="column">
-                    <p>Recommending Approval: </p>
-                </div>
-                <div class="column-divider">
-                        <p></p>
-                        
-                </div>
-                <div class="column-label">
-                        
-                </div>
-                <div class="column">
-                    <p>Approved:</p>
-                </div>
-            </div>        
+
+            @endif
+            
 </body>
 </html>

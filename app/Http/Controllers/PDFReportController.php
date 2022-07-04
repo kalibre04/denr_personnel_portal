@@ -33,7 +33,12 @@ class PDFReportController extends Controller
                         $approverts = User::find($trav->aredts_approval);
                         $approverms = User::find($trav->aredms_approval);
                         $approverred = User::find($trav->red_approval);
+                        
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
 
+                        $travtype = 'Within AOR';
+                        $officetype = 'ts';
                         $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
                         $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
                         $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
@@ -43,6 +48,11 @@ class PDFReportController extends Controller
                         $approverms = User::find($trav->aredms_approval);
                         $approverred = User::find($trav->red_approval);
                         
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $officetype = 'ts';
                         $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
                         $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
                         $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
@@ -52,6 +62,11 @@ class PDFReportController extends Controller
                         $approverms = User::find($trav->aredms_approval);
                         $approverred = User::find($trav->red_approval);
                         
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $officetype = 'ts';
                         $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
                         $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
                         $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
@@ -61,6 +76,11 @@ class PDFReportController extends Controller
                         $approverms = User::find($trav->aredms_approval);
                         $approverred = User::find($trav->red_approval);
                         
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $officetype = 'ts';
                         $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
                         $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
                         $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
@@ -70,6 +90,11 @@ class PDFReportController extends Controller
                         $approverms = User::find($trav->aredms_approval);
                         $approverred = User::find($trav->red_approval);
                         
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $officetype = 'ts';
                         $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
                         $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
                         $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
@@ -78,6 +103,12 @@ class PDFReportController extends Controller
                         $approverms = User::find($trav->aredms_approval);
                         $approverred = User::find($trav->red_approval);
 
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
+                        $approverts_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $officetype = 'ms';
                         $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
                         $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
 
@@ -85,6 +116,12 @@ class PDFReportController extends Controller
                         $approverms = User::find($trav->aredms_approval);
                         $approverred = User::find($trav->red_approval);
 
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
+                        $approverts_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $officetype = 'ms';
                         $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
                         $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
 
@@ -92,6 +129,12 @@ class PDFReportController extends Controller
                         $approverms = User::find($trav->aredms_approval);
                         $approverred = User::find($trav->red_approval);
 
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
+                        $approverts_fullname = NULL;
+                        
+                        $travtype = 'Within AOR';
+                        $officetype = 'ms';
                         $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
                         $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
 
@@ -99,6 +142,12 @@ class PDFReportController extends Controller
                         $approverms = User::find($trav->aredms_approval);
                         $approverred = User::find($trav->red_approval);
 
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
+                        $approverts_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $officetype = 'ms';
                         $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
                         $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
 
@@ -106,369 +155,634 @@ class PDFReportController extends Controller
                         $approverms = User::find($trav->aredms_approval);
                         $approverred = User::find($trav->red_approval);
 
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
+                        $approverts_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $officetype = 'ms';
                         $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
                         $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
 
                     }elseif($trav->office == "Regional Strategic Communications Initiatives Group"){
-                        $approverms = User::find($trav->aredms_approval);
+                        // $approverms = User::find($trav->aredms_approval);
                         $approverred = User::find($trav->red_approval);
 
-                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $officetype = 'red';
+                        // $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
                         $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
 
                     }elseif($trav->office == "Program Monitoring and Coordination Center"){
-                        $approverms = User::find($trav->aredms_approval);
+                        // $approverms = User::find($trav->aredms_approval);
                         $approverred = User::find($trav->red_approval);
 
-                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $officetype = 'red';
+                        // $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+
+                    }elseif($trav->office == "Office of the Regional Executive Director"){
+                        // $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $officetype = 'red';
+                        // $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
                         $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
 
                     }elseif($trav->office == "CENRO Baganga"){
                         $approvercenro = User::find($trav->cenro_approval);
                         $approverpenro = User::find($trav->penro_approval);
+                        
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
+                        $approverred_fullname = NULL;
 
+                        $travtype = 'Within AOR';
+                        $travtype = 'cenro';
                         $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
                         $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
                     }elseif($trav->office == "CENRO Manay"){
                         $approvercenro = User::find($trav->cenro_approval);
                         $approverpenro = User::find($trav->penro_approval);
 
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
+                        $approverred_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $travtype = 'cenro';
                         $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
                         $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
                     }elseif($trav->office == "CENRO Mati"){
                         $approvercenro = User::find($trav->cenro_approval);
                         $approverpenro = User::find($trav->penro_approval);
 
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
+                        $approverred_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $travtype = 'cenro';
                         $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
                         $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
                     }elseif($trav->office == "CENRO Lupon"){
                         $approvercenro = User::find($trav->cenro_approval);
                         $approverpenro = User::find($trav->penro_approval);
 
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
+                        $approverred_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $travtype = 'cenro';
                         $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
                         $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
                     }elseif($trav->office == "CENRO Monkayo"){
                         $approvercenro = User::find($trav->cenro_approval);
                         $approverpenro = User::find($trav->penro_approval);
 
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
+                        $approverred_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $travtype = 'cenro';
                         $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
                         $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
                     }elseif($trav->office == "CENRO Maco"){
                         $approvercenro = User::find($trav->cenro_approval);
                         $approverpenro = User::find($trav->penro_approval);
 
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
+                        $approverred_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $travtype = 'cenro';
                         $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
                         $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
                     }elseif($trav->office == "CENRO New Corella"){
                         $approvercenro = User::find($trav->cenro_approval);
                         $approverpenro = User::find($trav->penro_approval);
 
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
+                        $approverred_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $travtype = 'cenro';
                         $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
                         $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
                     }elseif($trav->office == "CENRO Panabo"){
                         $approvercenro = User::find($trav->cenro_approval);
                         $approverpenro = User::find($trav->penro_approval);
 
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
+                        $approverred_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $travtype = 'cenro';
                         $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
                         $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
                     }elseif($trav->office == "CENRO Davao"){
                         $approvercenro = User::find($trav->cenro_approval);
                         $approverpenro = User::find($trav->penro_approval);
 
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
+                        $approverred_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $travtype = 'cenro';
                         $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
                         $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
                     }elseif($trav->office == "CENRO Digos"){
                         $approvercenro = User::find($trav->cenro_approval);
                         $approverpenro = User::find($trav->penro_approval);
 
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
+                        $approverred_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $travtype = 'cenro';
                         $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
                         $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
                     }elseif($trav->office == "CENRO Malalag"){
                         $approvercenro = User::find($trav->cenro_approval);
                         $approverpenro = User::find($trav->penro_approval);
 
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
+                        $approverred_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $travtype = 'cenro';
                         $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
                         $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
                     }elseif($trav->office == "PENRO Davao Oriental"){
                         $approverpenro = User::find($trav->penro_approval);
+
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
+                        $approverred_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $travtype = 'penro';
                         $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
                     }elseif($trav->office == "PENRO Davao de Oro"){
                         $approverpenro = User::find($trav->penro_approval);
+
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
+                        $approverred_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $travtype = 'penro';
                         $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
                     }elseif($trav->office == "PENRO Davao del Norte"){
                         $approverpenro = User::find($trav->penro_approval);
+
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
+                        $approverred_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $travtype = 'penro';
                         $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
                     }elseif($trav->office == "PENRO Davao del Sur"){
                         $approverpenro = User::find($trav->penro_approval);
+
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
+                        $approverred_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $travtype = 'penro';
                         $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
                     }elseif($trav->office == "PENRO Davao Occidental"){
                         $approverpenro = User::find($trav->penro_approval);
+
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
+                        $approverred_fullname = NULL;
+
+                        $travtype = 'Within AOR';
+                        $travtype = 'penro';
                         $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
                     }
         }elseif($trav->travel_type == "Outside AOR"){
-            if($trav->office == "Conservation and Development Division"){
-                $approverts = User::find($trav->aredts_approval);
-                $apporverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                    if($trav->office == "Conservation and Development Division"){
+                        $approverts = User::find($trav->aredts_approval);
+                        $apporverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
 
-                $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
 
-            }elseif($trav->office == "Enforcement Division"){
-                $approverts = User::find($trav->aredts_approval);
-                $apporverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
-                
-                $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
+                        $travtype = 'Outside AOR';
+                        $officetype = 'ts';
+                        $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
 
-            }elseif($trav->office == "Licences Patents and Deeds Division"){
-                $approverts = User::find($trav->aredts_approval);
-                $apporverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
-                
-                $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
+                    }elseif($trav->office == "Enforcement Division"){
+                        $approverts = User::find($trav->aredts_approval);
+                        $apporverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+                        
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
 
-            }elseif($trav->office == "Surveys and Mapping Division"){
-                $approverts = User::find($trav->aredts_approval);
-                $apporverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
-                
-                $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
+                        $travtype = 'Outside AOR';
+                        $officetype = 'ts';
+                        $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
 
-            }elseif($trav->office == "ARED for Technical Services"){
-                $approverts = User::find($trav->aredts_approval);
-                $apporverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
-                
-                $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
+                    }elseif($trav->office == "Licences Patents and Deeds Division"){
+                        $approverts = User::find($trav->aredts_approval);
+                        $apporverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+                        
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
 
-            }elseif($trav->office == "Planning and Management Division"){
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                        $travtype = 'Outside AOR';
+                        $officetype = 'ts';
+                        $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                    }elseif($trav->office == "Surveys and Mapping Division"){
+                        $approverts = User::find($trav->aredts_approval);
+                        $apporverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+                        
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
 
-            }elseif($trav->office == "Legal Division"){
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                        $travtype = 'Outside AOR';
+                        $officetype = 'ts';
+                        $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                    }elseif($trav->office == "ARED for Technical Services"){
+                        $approverts = User::find($trav->aredts_approval);
+                        $apporverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+                        
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
 
-            }elseif($trav->office == "ARED for Management Services"){
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                        $travtype = 'Outside AOR';
+                        $officetype = 'ts';
+                        $approverts_fullname = $approverts->firstname . " " . substr($approverts->middlename, 0, 1) . "." . " " . $approverts->lastname;
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname; 
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                    }elseif($trav->office == "Planning and Management Division"){
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
 
-            }elseif($trav->office == "Finance Division"){
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                        $travtype = 'Outside AOR';
+                        $officetype = 'ms';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
 
-            }elseif($trav->office == "Admin Division"){
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                    }elseif($trav->office == "Legal Division"){
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
 
-            }elseif($trav->office == "Regional Strategic Communications Initiatives Group"){
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                        $travtype = 'Outside AOR';
+                        $officetype = 'ms';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                    }elseif($trav->office == "ARED for Management Services"){
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
 
-            }elseif($trav->office == "Program Monitoring and Coordination Center"){
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                        $travtype = 'Outside AOR';
+                        $officetype = 'ms';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
 
-            }elseif($trav->office == "CENRO Baganga"){
-                $approvercenro = User::find($trav->cenro_approval);
-                $approverpenro = User::find($trav->penro_approval);
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                    }elseif($trav->office == "Finance Division"){
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
-                $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
-                $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
-            }elseif($trav->office == "CENRO Manay"){
-                $approvercenro = User::find($trav->cenro_approval);
-                $approverpenro = User::find($trav->penro_approval);
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
-                $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
-                $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
-            }elseif($trav->office == "CENRO Mati"){
-                $approvercenro = User::find($trav->cenro_approval);
-                $approverpenro = User::find($trav->penro_approval);
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                        $travtype = 'Outside AOR';
+                        $officetype = 'ms';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
-                $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
-                $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
-            }elseif($trav->office == "CENRO Lupon"){
-                $approvercenro = User::find($trav->cenro_approval);
-                $approverpenro = User::find($trav->penro_approval);
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                    }elseif($trav->office == "Admin Division"){
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
-                $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
-                $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
-            }elseif($trav->office == "CENRO Monkayo"){
-                $approvercenro = User::find($trav->cenro_approval);
-                $approverpenro = User::find($trav->penro_approval);
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
-                $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
-                $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
-            }elseif($trav->office == "CENRO Maco"){
-                $approvercenro = User::find($trav->cenro_approval);
-                $approverpenro = User::find($trav->penro_approval);
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                        $travtype = 'Outside AOR';
+                        $officetype = 'ms';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
-                $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
-                $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
-            }elseif($trav->office == "CENRO New Corella"){
-                $approvercenro = User::find($trav->cenro_approval);
-                $approverpenro = User::find($trav->penro_approval);
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                    }elseif($trav->office == "Regional Strategic Communications Initiatives Group"){
+                        // $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+                        
+                        $approverms_fullname = NULL;
+                        $approverts_fullname = NULL;
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
-                $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
-                $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
-            }elseif($trav->office == "CENRO Panabo"){
-                $approvercenro = User::find($trav->cenro_approval);
-                $approverpenro = User::find($trav->penro_approval);
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                        $travtype = 'Outside AOR';
+                        $officetype = 'red';
+                        // $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
-                $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
-                $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
-            }elseif($trav->office == "CENRO Davao"){
-                $approvercenro = User::find($trav->cenro_approval);
-                $approverpenro = User::find($trav->penro_approval);
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                    }elseif($trav->office == "Office of the Regional Executive Director"){
+                        // $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
-                $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
-                $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
-            }elseif($trav->office == "CENRO Digos"){
-                $approvercenro = User::find($trav->cenro_approval);
-                $approverpenro = User::find($trav->penro_approval);
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
+                        $approverts_fullname = NULL;
+                        $approverms_fullname = NULL;
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
-                $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
-                $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
-            }elseif($trav->office == "CENRO Malalag"){
-                $approvercenro = User::find($trav->cenro_approval);
-                $approverpenro = User::find($trav->penro_approval);
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                        $travtype = 'Outside AOR';
+                        $officetype = 'red';
+                        // $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
-                $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
-                $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
-            }elseif($trav->office == "PENRO Davao Oriental"){
-                $approverpenro = User::find($trav->penro_approval);
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                    }elseif($trav->office == "Program Monitoring and Coordination Center"){
+                        // $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
-                $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
-            }elseif($trav->office == "PENRO Davao de Oro"){
-                $approverpenro = User::find($trav->penro_approval);
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                        $approverms_fullname = NULL;
+                        $approverts_fullname = NULL;
+                        $approvercenro_fullname = NULL;
+                        $approverpenro_fullname = NULL;
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
-                $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
-            }elseif($trav->office == "PENRO Davao del Norte"){
-                $approverpenro = User::find($trav->penro_approval);
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                        $travtype = 'Outside AOR';
+                        $officetype = 'red';
+                        // $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
-                $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
-            }elseif($trav->office == "PENRO Davao del Sur"){
-                $approverpenro = User::find($trav->penro_approval);
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                    }elseif($trav->office == "CENRO Baganga"){
+                        $approvercenro = User::find($trav->cenro_approval);
+                        $approverpenro = User::find($trav->penro_approval);
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
-                $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
-            }elseif($trav->office == "PENRO Davao Occidental"){
-                $approverpenro = User::find($trav->penro_approval);
-                $approverms = User::find($trav->aredms_approval);
-                $approverred = User::find($trav->red_approval);
+                        $approverts_fullname = NULL;
 
-                $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
-                $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
-                $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
-            }
+                        $travtype = 'Outside AOR';
+                        $officetype = 'cenro';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                        $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
+                        $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
+                    }elseif($trav->office == "CENRO Manay"){
+                        $approvercenro = User::find($trav->cenro_approval);
+                        $approverpenro = User::find($trav->penro_approval);
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+
+                        $approverts_fullname = NULL;
+                        
+                        $travtype = 'Outside AOR';
+                        $officetype = 'cenro';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                        $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
+                        $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
+                    }elseif($trav->office == "CENRO Mati"){
+                        $approvercenro = User::find($trav->cenro_approval);
+                        $approverpenro = User::find($trav->penro_approval);
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+
+                        $approverts_fullname = NULL;
+
+                        $travtype = 'Outside AOR';
+                        $officetype = 'cenro';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                        $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
+                        $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
+                    }elseif($trav->office == "CENRO Lupon"){
+                        $approvercenro = User::find($trav->cenro_approval);
+                        $approverpenro = User::find($trav->penro_approval);
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+
+                        $approverts_fullname = NULL;
+
+                        $travtype = 'Outside AOR';
+                        $officetype = 'cenro';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                        $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
+                        $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
+                    }elseif($trav->office == "CENRO Monkayo"){
+                        $approvercenro = User::find($trav->cenro_approval);
+                        $approverpenro = User::find($trav->penro_approval);
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+
+                        $approverts_fullname = NULL;
+
+                        $travtype = 'Outside AOR';
+                        $officetype = 'cenro';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                        $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
+                        $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
+                    }elseif($trav->office == "CENRO Maco"){
+                        $approvercenro = User::find($trav->cenro_approval);
+                        $approverpenro = User::find($trav->penro_approval);
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+
+                        $approverts_fullname = NULL;
+
+                        $travtype = 'Outside AOR';
+                        $officetype = 'cenro';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                        $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
+                        $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
+                    }elseif($trav->office == "CENRO New Corella"){
+                        $approvercenro = User::find($trav->cenro_approval);
+                        $approverpenro = User::find($trav->penro_approval);
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+
+                        $approverts_fullname = NULL;
+
+                        $travtype = 'Outside AOR';
+                        $officetype = 'cenro';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                        $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
+                        $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
+                    }elseif($trav->office == "CENRO Panabo"){
+                        $approvercenro = User::find($trav->cenro_approval);
+                        $approverpenro = User::find($trav->penro_approval);
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+
+                        $approverts_fullname = NULL;
+
+                        $travtype = 'Outside AOR';
+                        $officetype = 'cenro';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                        $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
+                        $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
+                    }elseif($trav->office == "CENRO Davao"){
+                        $approvercenro = User::find($trav->cenro_approval);
+                        $approverpenro = User::find($trav->penro_approval);
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+
+                        $approverts_fullname = NULL;
+
+                        $travtype = 'Outside AOR';
+                        $officetype = 'cenro';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                        $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
+                        $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
+                    }elseif($trav->office == "CENRO Digos"){
+                        $approvercenro = User::find($trav->cenro_approval);
+                        $approverpenro = User::find($trav->penro_approval);
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+
+                        $approverts_fullname = NULL;
+
+                        $travtype = 'Outside AOR';
+                        $officetype = 'cenro';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                        $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
+                        $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
+                    }elseif($trav->office == "CENRO Malalag"){
+                        $approvercenro = User::find($trav->cenro_approval);
+                        $approverpenro = User::find($trav->penro_approval);
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+
+                        $approverts_fullname = NULL;
+
+                        $travtype = 'Outside AOR';
+                        $officetype = 'cenro';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                        $approvercenro_fullname = $approvercenro->firstname . " " . substr($approvercenro->middlename, 0, 1) . "." . " " . $approvercenro->lastname;
+                        $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
+                    }elseif($trav->office == "PENRO Davao Oriental"){
+                        $approverpenro = User::find($trav->penro_approval);
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+
+                        $approvercenro_fullname = NULL;
+                        $approverts_fullname = NULL;
+
+                        $travtype = 'Outside AOR';
+                        $officetype = 'penro';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                        $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
+                    }elseif($trav->office == "PENRO Davao de Oro"){
+                        $approverpenro = User::find($trav->penro_approval);
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+
+                        $approvercenro_fullname = NULL;
+                        $approverts_fullname = NULL;
+
+                        $travtype = 'Outside AOR';
+                        $officetype = 'penro';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                        $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
+                    }elseif($trav->office == "PENRO Davao del Norte"){
+                        $approverpenro = User::find($trav->penro_approval);
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+
+                        $approvercenro_fullname = NULL;
+                        $approverts_fullname = NULL;
+
+                        $travtype = 'Outside AOR';
+                        $officetype = 'penro';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                        $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
+                    }elseif($trav->office == "PENRO Davao del Sur"){
+                        $approverpenro = User::find($trav->penro_approval);
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+
+                        $approvercenro_fullname = NULL;
+                        $approverts_fullname = NULL;
+
+                        $travtype = 'Outside AOR';
+                        $officetype = 'penro';
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                        $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
+                    }elseif($trav->office == "PENRO Davao Occidental"){
+                        $approverpenro = User::find($trav->penro_approval);
+                        $approverms = User::find($trav->aredms_approval);
+                        $approverred = User::find($trav->red_approval);
+
+                        $travtype = 'Outside AOR';
+                        $officetype = 'penro';
+                        $approvercenro_fullname = NULL;
+                        $approverts_fullname = NULL;
+
+                        $approverms_fullname = $approverms->firstname . " " . substr($approverms->middlename, 0, 1) . "." . " " . $approverms->lastname;
+                        $approverred_fullname = $approverred->firstname . " " . substr($approverred->middlename, 0, 1) . "." . " " . $approverred->lastname;
+                        $approverpenro_fullname = $approverpenro->firstname . " " . substr($approverpenro->middlename, 0, 1) . "." . " " . $approverpenro->lastname;
+                    }
         
-        }
-
-
-
-
-
-        //Conditions if Taga ARED TS ba ang employee 
-        if($office_assigned == "Conservation and Development Division"){
-            $aredtype = "Technical";
-        }elseif($office_assigned == "Enforcement Division"){
-            $aredtype = "Technical";
-        }elseif($office_assigned == "Licences Patents and Deeds Division"){
-            $aredtype = "Technical";
-        }elseif($office_assigned == "Surveys and Mapping Division"){
-            $aredtype = "Technical";
-        }elseif($office_assigned == "ARED for Technical Services"){
-            $aredtype = "Technical";
         }
 
         $travel = [
@@ -485,11 +799,13 @@ class PDFReportController extends Controller
             'position' => $position, 
             'office' => $trav->office,
             'official_station' => $office_assigned,
-            'aredtype' => $aredtype,
+            'travtype' => $travtype,
+            'officetype' => $officetype,
             'penrofullname' =>  $approverpenro_fullname,
             'cenrofullname' =>  $approvercenro_fullname,
             'aredtsfullname' =>  $approverts_fullname,
             'aredmsfullname' => $approverms_fullname,
+            'redfullname' => $approverred_fullname
         ];
         
         //$travels_penro_approved->merge($travels_aredms_approved);
