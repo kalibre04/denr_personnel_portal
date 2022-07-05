@@ -39,7 +39,11 @@
             }
             .column {
                 float: left;
-                width: 35%;
+                width: 30%;
+            }
+            .column-50 {
+                float: left;
+                width: 50%;
             }
             .column2 {
                 float: left;
@@ -55,11 +59,11 @@
             }
             .column-label-aredts {
                 float: left;
-                width: 40%;
+                width: 30%;
             }
             .column-red {
                 float: left;
-                width: 50%;
+                width: 40%;
             }
             .column-label-aredts2 {
                 float: left;
@@ -80,6 +84,18 @@
             .column-divider {
                 float: left;
                 width: 5%;
+            }
+            .container {
+            position: relative;
+            text-align: center;
+            color: black;
+            
+            }
+            .centered {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             }
             .row:after {
                 content: "";
@@ -181,7 +197,6 @@
                                     </div>
                                     <div class="column-divider">
                                             <p> </p>
-                                            
                                     </div>
                                     <div class="column-label">
                                             
@@ -199,8 +214,8 @@
                                             
                                     </div>
                                     <div class="column">
-                                        <p><u><b>  {{ $aredmsfullname }}</b></u></p>
-                                        <p>ARD for Management Services</p>
+                                        <center><p><u><b>  {{ $aredmsfullname }}</b></u><br>
+                                        ARD for Management Services</p></center>
                                     </div>
                                     <div class="column-divider">
                                             <p></p>
@@ -210,8 +225,8 @@
                                             
                                     </div>
                                     <div class="column">
-                                        <p><u><b>{{ $redfullname }}</b></u></p>
-                                        <p>Regional Executive Director</p>
+                                        <center><p><u><b>{{ $redfullname }}</b></u><br>
+                                        Regional Executive Director</p></center>
                                     </div>
                                 </div>
                         @elseif($officetype == 'ts')
@@ -233,42 +248,53 @@
                                         <p>Approved:</p>
                                     </div>
                                 </div>
+                                
+
+                                <div class="row">
+                                    <!-- <div class="column-label2">
+                                            
+                                    </div> -->
+                                    <div class="column-50">
+                                        <div class="container">
+                                                <img src="{{ asset('/public/img/esign/vbillones.png') }}" width="100px" height="100px">
+                                                <div class="centered">        
+                                                    <p><u><b>  {{ $aredtsfullname }}</b></u><br>
+                                                    ARD for Technical Services</p></center>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="column-divider">
+                                            <p></p>
+                                            
+                                    </div> -->
+                                    <!-- <div class="column-label">
+                                            
+                                    </div> -->
+                                    <div class="column-50">
+                                        <div class="container">
+                                                <img src="{{ asset('/public/img/esign/vbillones.png') }}" width="100px" height="100px">
+                                                <div class="centered">        
+                                                    <p><u><b>  {{ $aredmsfullname }}</b></u><br>
+                                                    ARD for Management Services</p></center>
+                                                </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <p> </p>
                                 </div>
-
-                                <div class="row">
-                                    <div class="column-label2">
-                                            
-                                    </div>
-                                    <div class="column">
-                                        <p><u><b>  {{ $aredtsfullname }}</b></u></p>
-                                        <p>ARD for Technical Services</p>
-                                    </div>
-                                    <div class="column-divider">
-                                            <p></p>
-                                            
-                                    </div>
-                                    <div class="column-label">
-                                            
-                                    </div>
-                                    <div class="column">
-                                        <p><u><b>{{ $aredmsfullname }}</b></u></p>
-                                        <p>ARD for Management Services</p>
-                                    </div>
-                                </div>
-
                                 <div class="row">
                                     <div class="column-label-aredts">
                                             <p> </p>
                                     </div>
                                     
                                     <div class="column-red">
-                                        <p><u><b>{{ $redfullname }}</b></u></p>
-                                        <p>Regional Executive Director</p>
+                                        <center><p><u><b>{{ $redfullname }}</b></u><br>
+                                        Regional Executive Director</p></center>
                                     </div>
                                     <div class="column-label-aredts2">
-                                            
+                                            <p> </p>
                                     </div>
                                     
                                 </div>
