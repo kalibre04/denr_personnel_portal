@@ -278,7 +278,6 @@
                                                     ARD for Management Services</p></center>
                                                 </div>
                                         </div>
-                                        
                                     </div>
                                 </div>
                                 <div class="row">
@@ -288,7 +287,6 @@
                                     <div class="column-label-aredts">
                                             <p> </p>
                                     </div>
-                                    
                                     <div class="column-red">
                                         <center><p><u><b>{{ $redfullname }}</b></u><br>
                                         Regional Executive Director</p></center>
@@ -296,7 +294,6 @@
                                     <div class="column-label-aredts2">
                                             <p> </p>
                                     </div>
-                                    
                                 </div>
 
 
