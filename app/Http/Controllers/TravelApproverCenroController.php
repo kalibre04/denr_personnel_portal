@@ -149,6 +149,7 @@ class TravelApproverCenroController extends Controller
         $travel->cenro_approval = Auth::user()->id;
         $travel->application_status = 'CENRO Approved';
         $travel->travel_type = $request->travel_type;
+        $travel->salary = $request->salary;
         $travel->disapproved_by_id = NULL;
         $travel->disapprove_date = NULL;
         $travel->disapprove_reason = NULL;

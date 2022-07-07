@@ -139,6 +139,7 @@ class TravelApproverController extends Controller
         $travel->divchief_approval = Auth::user()->id;
         $travel->application_status = 'Division Chief Approved';
         $travel->travel_type = $request->travel_type;
+        $travel->salary = $request->salary;
         $travel->disapprove_date = NULL;
         $travel->disapprove_reason = NULL;
         $travel->disapproved_by_id = NULL;

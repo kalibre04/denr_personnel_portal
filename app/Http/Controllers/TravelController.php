@@ -55,8 +55,8 @@ class TravelController extends Controller
             'destination'        => 'required',
             'purpose'       => 'required',
             'datedepart'         => 'required|date',
-            'datearrive'    => 'required|date'
-            
+            'datearrive'    => 'required|date',
+            'salary'    => 'required'
         ]);
         if ($validator->fails()) { 
             return redirect()->back()
@@ -80,6 +80,7 @@ class TravelController extends Controller
         $travel->instructions = $request->instructions;
         $travel->date_submitted = Carbon::now();
         
+        $travel->salary = $request->salary;
         $travel->to_number = $to_num;
         $travel->office = $request->currentDept;
         $travel->office_id = $request->currentDeptid;

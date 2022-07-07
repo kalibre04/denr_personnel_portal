@@ -174,6 +174,7 @@ class TravelApproverAredtsController extends Controller
         $travel->aredts_approval = Auth::user()->id;
         $travel->application_status = 'ARED TS Approved';
         $travel->travel_type = $request->travel_type;
+        $travel->salary = $request->salary;
         $travel->disapproved_by_id = NULL;
         $travel->disapprove_date = NULL;
         $travel->disapprove_reason = NULL ;
