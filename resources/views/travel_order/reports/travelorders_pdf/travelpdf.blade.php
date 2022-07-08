@@ -266,10 +266,8 @@
                                     </div>
                                     <!-- <div class="column-divider">
                                             <p></p>
-                                            
                                     </div> -->
-                                    <!-- <div class="column-label">
-                                            
+                                    <!-- <div class="column-label">   
                                     </div> -->
                                     <div class="column-50">
                                         <div class="container">
