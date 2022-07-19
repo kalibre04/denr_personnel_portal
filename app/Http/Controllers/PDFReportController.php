@@ -810,8 +810,9 @@ class PDFReportController extends Controller
         
         //$travels_penro_approved->merge($travels_aredms_approved);
 
-        $pdf = PDF::loadView('travel_order.reports.travelorders_pdf.travelpdf', $travel);
+         $pdf = PDF::loadView('travel_order.reports.travelorders_pdf.travelpdf', $travel);
     
-        return $pdf->download($filename . '.pdf');
+         return $pdf->download($filename . '.pdf');
+        // return view('travel_order.reports.travelorders_pdf.travelpdf', $travel);
     }
 }

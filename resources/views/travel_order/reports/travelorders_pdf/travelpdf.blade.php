@@ -43,6 +43,10 @@
             }
             .column-50 {
                 float: left;
+                width: 60%;
+            }
+            .column-40 {
+                float: left;
                 width: 50%;
             }
             .column2 {
@@ -63,7 +67,7 @@
             }
             .column-red {
                 float: left;
-                width: 40%;
+                width: 100%;
             }
             .column-label-aredts2 {
                 float: left;
@@ -89,7 +93,11 @@
             position: relative;
             text-align: center;
             color: black;
-            
+            }
+            .container-red {
+            position: relative;
+            text-align: center;
+            color: black;
             }
             .centered {
             position: absolute;
@@ -97,10 +105,27 @@
             left: 50%;
             transform: translate(-50%, -50%);
             }
+            .centered-red {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            }
             .row:after {
                 content: "";
-                display: table;
-                clear: both;
+                display: inline-table;
+                clear: both; 
+            }
+            .row2{
+                content: "";
+            }
+            .tab {
+                display: inline-block;
+                margin-left: 40px;
+            }
+            div {
+                text-align: justify;
+                text-justify: inter-word;
             }
 		</style>
 	    <title>BUMS | Report</title>
@@ -214,8 +239,13 @@
                                             
                                     </div>
                                     <div class="column">
-                                        <center><p><u><b>  {{ $aredmsfullname }}</b></u><br>
-                                        ARD for Management Services</p></center>
+                                    <div class="container">
+                                                <img src="{{ asset('/public/img/esign/mmvdumagan.png') }}" width="180px" height="100px">
+                                                <div class="centered">        
+                                                    <p><u><b>  {{ $aredmsfullname }}</b></u><br>
+                                                    ARD for Management Services</p>
+                                                </div>
+                                        </div>
                                     </div>
                                     <div class="column-divider">
                                             <p></p>
@@ -225,8 +255,13 @@
                                             
                                     </div>
                                     <div class="column">
-                                        <center><p><u><b>{{ $redfullname }}</b></u><br>
-                                        Regional Executive Director</p></center>
+                                    <div class="container">
+                                                <img src="{{ asset('/public/img/esign/bfaevasco.png') }}" width="180px" height="100px">
+                                                <div class="centered">        
+                                                    <p><u><b>  {{ $redfullname }}</b></u><br>
+                                                    ARD for Management Services</p>
+                                                </div>
+                                        </div>
                                     </div>
                                 </div>
                         @elseif($officetype == 'ts')
@@ -248,53 +283,44 @@
                                         <p>Approved:</p>
                                     </div>
                                 </div>
-                                <!-- <div class="row">
-                                <p> </p>
-                                </div> -->
                                 <div class="row">
-                                    <!-- <div class="column-label2">
-                                            
-                                    </div> -->
-                                    <div class="column-50">
+                                    <div class="column-40">
                                         <div class="container">
-                                                <img src="{{ asset('/public/img/esign/vbillones.png') }}" width="100px" height="100px">
+                                                <img src="{{ asset('/public/img/esign/vbillones.png') }}" width="150px" height="150px">
                                                 <div class="centered">        
                                                     <p><u><b>  {{ $aredtsfullname }}</b></u><br>
-                                                    ARD for Technical Services</p></center>
+                                                    ARD for Technical Services</p>
                                                 </div>
                                         </div>
                                     </div>
-                                    <!-- <div class="column-divider">
-                                            <p></p>
-                                    </div> -->
-                                    <!-- <div class="column-label">   
-                                    </div> -->
                                     <div class="column-50">
                                         <div class="container">
-                                                <img src="{{ asset('/public/img/esign/vbillones.png') }}" width="100px" height="100px">
+                                                <img src="{{ asset('/public/img/esign/mmvdumagan.png') }}" width="180px" height="100px">
                                                 <div class="centered">        
                                                     <p><u><b>  {{ $aredmsfullname }}</b></u><br>
-                                                    ARD for Management Services</p></center>
+                                                    ARD for Management Services</p>
                                                 </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <p> </p>
-                                </div>
-                                <div class="row">
-                                    <div class="column-label-aredts">
-                                            <p> </p>
-                                    </div>
+                                
+                                <div class="row2">
                                     <div class="column-red">
-                                        <center><p><u><b>{{ $redfullname }}</b></u><br>
-                                        Regional Executive Director</p></center>
+                                        <div class="container-red">
+                                                <img src="{{ asset('/public/img/esign/bfaevasco.png') }}" width="70px" height="100px">
+                                                <div class="centered-red">        
+                                                    <p><u><b>  {{ $redfullname }}</b></u><br>
+                                                    Regional Executive Director</p>
+                                                </div>  
+                                                <p>__________________________________________________________________________________________________</p>
+                                        </div>
                                     </div>
-                                    <div class="column-label-aredts2">
-                                            <p> </p>
-                                    </div>
+                                   
                                 </div>
-
+                                <div class="row">
+                                    <h4><center>AUTHORIZATION</center></h4>
+                                    <div>I hereby authorize the Accountant to deduct the corresponding amount of the unliquidated cash advance from my succeeding salary for my failure to liquidate this travel within the prescribed thirty-day period upon return to my permanent official station pursuant to Item 5.1.3 COA Circular 97-002 dated February 10, 1997 and Sec. 16 EO No. 248 dated May 29, 1995.</div>
+                                </div>
 
                         @elseif($officetype == 'cenro')
 
@@ -302,12 +328,14 @@
 
 
                         @endif
-
+                        
             @elseif($travtype == 'Outside AOR')
 
                         
 
             @endif
+
+
             
 </body>
 </html>
