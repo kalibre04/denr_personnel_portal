@@ -24,6 +24,7 @@ class PDFReportController extends Controller
         
         $filename = $trav->to_number. " - " .$user->lastname . ", " . $user->firstname;
         $fullname = $user->lastname . ", " . $user->firstname . " " . substr($user->middlename, 0, 1). ".";
+        $fullname2 = $user->firstname . " " . substr($user->middlename, 0, 1). "." . " " .$user->lastname;
         $position = Promotion::where('user_id', $trav->user_id)->with('plantilla')->latest()->first();
         $office_assigned = Personnel_Assignment::where('user_id', $trav->user_id)->with('office')->latest()->first();
 
@@ -784,7 +785,7 @@ class PDFReportController extends Controller
                     }
         
         }
-
+        
         $travel = [
             'to_number' => $trav->to_number,
             'date_depart' => $trav->date_depart,
@@ -796,6 +797,7 @@ class PDFReportController extends Controller
             'assist_labor_allowed' => $trav->assist_labor_allowed,
             'instructions' => $trav->instructions,
             'fullname' => $fullname,
+            'fullname2' => $fullname2,
             'position' => $position, 
             'office' => $trav->office,
             'official_station' => $office_assigned,
@@ -806,11 +808,12 @@ class PDFReportController extends Controller
             'aredtsfullname' =>  $approverts_fullname,
             'aredmsfullname' => $approverms_fullname,
             'redfullname' => $approverred_fullname
+            
         ];
         
         //$travels_penro_approved->merge($travels_aredms_approved);
 
-         $pdf = PDF::loadView('travel_order.reports.travelorders_pdf.travelpdf', $travel);
+        $pdf = PDF::loadView('travel_order.reports.travelorders_pdf.travelpdf', $travel);
     
         return $pdf->download($filename . '.pdf');
         // return view('travel_order.reports.travelorders_pdf.travelpdf', $travel);

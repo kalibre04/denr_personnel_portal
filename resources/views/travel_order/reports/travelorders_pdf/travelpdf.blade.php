@@ -162,19 +162,17 @@
 	    
     </head>
 <body>
-    <!-- <div style="position: absolute;">
-	        
-    </div> -->
+        
             <center><p>
                Republic of the Philippines<br>
                <b>Department of Environment and Natural resources</b><br>
                Office of the Regional Director<br>
-               Regional Office XI Km. 7, Lanang, Davao City, 8000 Philippines<br>
-               Tel. #: (082) 233-2779 Fax: (082) 234-0811<br>
-               Email: oredenrxi@yahoo.com.ph Website: r11.denr.gov.ph
+               Regional Office XI Km. 7, Lanang, Davao City, 8000 Philippines               
             </p></center>
-            <h3><center>TRAVEL ORDER</center></h3>
-            <h4><center>No: {{ $to_number }}</center></h4>
+
+                        <h3><center>TRAVEL ORDER</center></h3>
+
+                        <h4><center>No: {{ $to_number }}</center></h4>
 
             <div class="row">
                     <div class="column-label">
@@ -288,16 +286,18 @@
                                                     </div>
                                             </div>
                                         </div>
-                                        <p>__________________________________________________________________________________________________</p>
+                                        
                                 </div>
                                 <div class="row">
+                                <p>__________________________________________________________________________________________________</p>
                                     <h4><center>AUTHORIZATION</center></h4>
                                     <div>I hereby authorize the Accountant to deduct the corresponding amount of the unliquidated cash advance from my succeeding salary for my failure to liquidate this travel within the prescribed thirty-day period upon return to my permanent official station pursuant to Item 5.1.3 COA Circular 97-002 dated February 10, 1997 and Sec. 16 EO No. 248 dated May 29, 1995.</div>
                                 </div>
                                 <div class="row">
-                                             
-                                                            <center><p>_________________________<br>
+                                                            <br>
+                                                            <center><p><b><u>{{ $fullname2 }}</u></b><br>
                                                             Signature of Employee</p></center>
+                                                            <p>{!! DNS1D::getBarcodeHTML("$to_number", 'C39') !!}</p>
                                          
                                 </div>
 
@@ -342,7 +342,7 @@
                                             </div>
                                             <br>
                                             <br>
-                                            <br><br><br><br>
+                                            <br><br>
                                             <div class="row">
                                                     <div class="column-red">
                                                         <div class="container">
@@ -353,34 +353,21 @@
                                                                 </div>
                                                         </div>
                                                     </div>
-                                                    <p>__________________________________________________________________________________________________</p>
-                                            </div>
+                                            </div> 
                                             
                                 </div>
-                                <!-- <br>
-                                        <div class="row2">
-                                             <div class="column-red"> 
-                                                <div class="column-red">
-                                                        <img src="{{ asset('/public/img/esign/bfaevasco.png') }}" width="70px" height="100px">
-                                                        <div class="centered-red">        
-                                                            <p><u><b>  {{ $redfullname }}</b></u><br>
-                                                            Regional Executive Director</p>
-                                                        </div>  
-                                                        
-                                                </div>
-                                             </div> 
-                                        </div> -->
                                 
                                 
                                 <div class="row">
+                                    <p>___________________________________________________________________________________________________</p>
                                     <h4><center>AUTHORIZATION</center></h4>
                                     <div>I hereby authorize the Accountant to deduct the corresponding amount of the unliquidated cash advance from my succeeding salary for my failure to liquidate this travel within the prescribed thirty-day period upon return to my permanent official station pursuant to Item 5.1.3 COA Circular 97-002 dated February 10, 1997 and Sec. 16 EO No. 248 dated May 29, 1995.</div>
                                 </div>
                                 <div class="row">
-                                             
-                                                            <center><p>_________________________<br>
+                                                            <br>
+                                                            <center><p><b><u>{{ $fullname2 }}</u></b><br>
                                                             Signature of Employee</p></center>
-                                         
+                                                            <p>{!! DNS1D::getBarcodeHTML("$to_number", 'C39') !!}</p>
                                 </div>
                         @elseif($officetype == 'cenro')
 
