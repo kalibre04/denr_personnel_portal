@@ -812,7 +812,7 @@ class PDFReportController extends Controller
 
          $pdf = PDF::loadView('travel_order.reports.travelorders_pdf.travelpdf', $travel);
     
-         return $pdf->download($filename . '.pdf');
+        return $pdf->download($filename . '.pdf');
         // return view('travel_order.reports.travelorders_pdf.travelpdf', $travel);
     }
 }
