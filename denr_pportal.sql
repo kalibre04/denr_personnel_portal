@@ -1749,7 +1749,7 @@ REPLACE INTO `offices` (`id`, `officename`, `province_id`, `officetype`, `locati
 	(23, 'Legal Division', 54, 'ARED MS', 'DENR RXI, Lanang, Davao City'),
 	(24, 'Admin Division', 54, 'ARED MS', 'DENR RXI, Lanang, Davao City'),
 	(25, 'ARED for Management Services', 54, 'ARED MS', 'DENR RXI, Lanang, Davao City'),
-	(26, 'ARED for Techincal Services', 54, 'ARED TS', 'DENR RXI, Lanang, Davao City'),
+	(26, 'ARED for Technical Services', 54, 'ARED TS', 'DENR RXI, Lanang, Davao City'),
 	(27, 'Office of the Regional Executive Director', 54, 'RED', 'DENR RXI, Lanang, Davao City'),
 	(28, 'Regional Strategic Communications Initiatives Group', 54, 'RED', 'DENR RXI, Lanang, Davao City'),
 	(29, 'Program Monitoring and Coordination Center', 54, 'RED', 'DENR RXI, Lanang, Davao City');
@@ -1815,11 +1815,11 @@ CREATE TABLE IF NOT EXISTS `personnel_assignments` (
   `updated_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.personnel_assignments: ~23 rows (approximately)
+-- Dumping data for table denr_pportal.personnel_assignments: ~32 rows (approximately)
 REPLACE INTO `personnel_assignments` (`id`, `user_id`, `office_id`, `date_assigned`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(2, 2, 22, '2022-01-07 00:00:00', '2022-01-07 04:01:54', '2022-04-25 07:51:57', NULL),
+	(2, 2, 22, '2022-01-07 00:00:00', '2022-01-07 04:01:54', '2022-07-07 02:04:49', '2022-07-07 02:04:49'),
 	(7, 3, 22, '2022-04-29 00:00:00', '2022-04-29 02:50:14', '2022-04-29 02:50:14', NULL),
 	(8, 3, 8, '2022-04-29 00:00:00', '2022-04-29 07:52:05', '2022-05-06 05:40:21', '2022-05-06 05:40:21'),
 	(9, 3, 11, '2022-04-29 00:00:00', '2022-04-29 08:01:36', '2022-05-06 05:40:24', '2022-05-06 05:40:24'),
@@ -1842,7 +1842,19 @@ REPLACE INTO `personnel_assignments` (`id`, `user_id`, `office_id`, `date_assign
 	(26, 8, 26, '2021-04-06 00:00:00', '2022-05-18 00:59:01', '2022-05-18 00:59:01', NULL),
 	(27, 9, 17, '2018-01-10 00:00:00', '2022-05-18 02:58:49', '2022-05-18 02:58:49', NULL),
 	(28, 10, 17, '2017-05-03 00:00:00', '2022-05-18 03:04:32', '2022-05-18 03:04:32', NULL),
-	(29, 11, 27, '2020-11-04 00:00:00', '2022-06-08 07:03:36', '2022-06-08 07:03:36', NULL);
+	(29, 11, 27, '2020-11-04 00:00:00', '2022-06-08 07:03:36', '2022-06-08 07:03:36', NULL),
+	(30, 2, 20, '2022-07-04 00:00:00', '2022-07-04 08:40:35', '2022-07-04 08:51:07', '2022-07-04 08:51:07'),
+	(31, 5, 20, '2022-07-04 00:00:00', '2022-07-04 08:42:21', '2022-07-07 05:35:05', '2022-07-07 05:35:05'),
+	(32, 2, 20, '2022-07-04 00:00:00', '2022-07-05 02:52:16', '2022-07-20 02:33:50', '2022-07-20 02:33:50'),
+	(33, 2, 22, '2022-07-07 00:00:00', '2022-07-07 02:05:04', '2022-07-07 02:06:14', '2022-07-07 02:06:14'),
+	(34, 2, 22, '2022-07-06 00:00:00', '2022-07-07 05:30:39', '2022-07-07 05:30:39', NULL),
+	(35, 2, 20, '2022-07-19 00:00:00', '2022-07-19 05:14:32', '2022-07-19 05:14:32', NULL),
+	(36, 2, 22, '2022-07-20 00:00:00', '2022-07-20 01:25:11', '2022-07-20 01:25:11', NULL),
+	(37, 2, 20, '2022-07-20 00:00:00', '2022-07-20 02:34:34', '2022-07-21 02:17:55', '2022-07-21 02:17:55'),
+	(38, 2, 28, '2022-07-21 00:00:00', '2022-07-21 06:18:36', '2022-07-21 06:18:36', NULL),
+	(39, 3, 27, '2022-07-21 00:00:00', '2022-07-21 06:22:57', '2022-07-21 06:22:57', NULL),
+	(40, 3, 28, '2022-07-28 00:00:00', '2022-07-21 06:26:29', '2022-07-21 07:05:54', '2022-07-21 07:05:54'),
+	(41, 2, 29, '2022-07-21 00:00:00', '2022-07-21 07:20:43', '2022-07-21 07:20:43', NULL);
 
 -- Dumping structure for table denr_pportal.plantillas
 CREATE TABLE IF NOT EXISTS `plantillas` (
@@ -2043,7 +2055,7 @@ CREATE TABLE IF NOT EXISTS `travel_orders` (
   `instructions` varchar(255) DEFAULT NULL,
   `application_status` varchar(255) DEFAULT 'Pending',
   `date_submitted` timestamp NULL DEFAULT NULL,
-  `office` varchar(50) DEFAULT NULL,
+  `office` varchar(100) DEFAULT NULL,
   `office_id` int(11) DEFAULT NULL,
   `account_type` varchar(20) DEFAULT NULL,
   `travel_type` varchar(20) DEFAULT 'Within AOR',
@@ -2066,16 +2078,22 @@ CREATE TABLE IF NOT EXISTS `travel_orders` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   KEY `Primary Key` (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.travel_orders: ~4 rows (approximately)
+-- Dumping data for table denr_pportal.travel_orders: ~8 rows (approximately)
 REPLACE INTO `travel_orders` (`id`, `user_id`, `to_number`, `salary`, `date_depart`, `date_arrived`, `destination`, `purpose`, `expenses`, `assist_labor_allowed`, `instructions`, `application_status`, `date_submitted`, `office`, `office_id`, `account_type`, `travel_type`, `divchief_approval`, `divchief_approval_date`, `disapproved_by_id`, `disapprove_reason`, `disapprove_date`, `cenro_approval`, `cenro_approval_date`, `penro_approval`, `penro_approval_date`, `aredms_approval`, `aredms_approval_date`, `aredts_approval`, `aredts_approval_date`, `red_approval`, `red_approval_date`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(1, 3, '22-00000', NULL, '2022-05-31', '2022-06-03', 'Cebu', 'Attend QMS Meeting', NULL, NULL, NULL, 'Disapproved', '2022-05-24 18:42:37', 'CENRO Manay', 8, 'Personnel', 'Outside AOR', NULL, NULL, 7, 'not allowed       /Disapproved By: Amelda Vera Cruz', '2022-06-15 08:14:41', '6', '2022-06-15 02:55:38', NULL, NULL, NULL, NULL, NULL, NULL, '11', '2022-06-10 02:45:54', '2022-05-24 18:42:37', '2022-06-15 00:14:41', NULL),
-	(2, 2, '22-00001', NULL, '2022-05-27', '2022-05-27', 'Tagum City', 'Conduct network and cctv maintenance', NULL, NULL, NULL, 'RED Approved', '2022-05-26 00:00:44', 'Planning and Management Division', 22, 'Personnel', 'Within AOR', '5', '2022-06-15 06:30:38', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '4', '2022-06-16 07:07:34', NULL, NULL, '11', '2022-06-16 07:08:14', '2022-05-26 00:00:44', '2022-06-15 23:08:14', NULL),
+	(2, 2, '22-00001', '38987', '2022-05-27', '2022-05-27', 'Tagum City', 'Conduct network and cctv maintenance', NULL, NULL, NULL, 'RED Approved', '2022-05-26 00:00:44', 'Planning and Management Division', 22, 'Personnel', 'Within AOR', '5', '2022-06-15 06:30:38', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '4', '2022-06-16 07:07:34', NULL, NULL, '11', '2022-06-16 07:08:14', '2022-05-26 00:00:44', '2022-06-15 23:08:14', NULL),
 	(3, 9, '22-00002', NULL, '2022-06-02', '2022-06-03', 'Laak, Davao de Oro', 'check NGP site/validation', NULL, NULL, NULL, 'Pending', '2022-05-26 22:43:26', 'Conservation and Development Division', 17, 'Personnel', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '8', NULL, NULL, NULL, '2022-05-26 22:43:26', '2022-06-08 19:12:37', NULL),
-	(4, 8, '22-00003', NULL, '2022-06-10', '2022-06-10', 'Tagum City', 'To conduct validation of NGP Site', NULL, NULL, NULL, 'Pending', '2022-06-09 23:17:50', 'ARED for Techincal Services', 26, 'ARED TS', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '11', '2022-06-13 05:50:20', '2022-06-09 23:17:50', '2022-06-12 21:50:20', NULL),
+	(4, 8, '22-00003', NULL, '2022-06-10', '2022-06-10', 'Tagum City', 'To conduct validation of NGP Site', NULL, NULL, NULL, 'RED Approved', '2022-06-09 23:17:50', 'ARED for Technical Services', 26, 'ARED TS', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '11', '2022-07-04 08:34:09', '2022-06-09 23:17:50', '2022-07-04 00:34:09', NULL),
 	(5, 2, '22-00004', '38987', '2022-06-21', '2022-06-23', 'PENRO Davao de Oro and Davao Oriental and its vicinities', 'To conduct ICT Inventory', NULL, NULL, NULL, 'ARED MS Approved', '2022-06-26 21:13:04', 'Planning and Management Division', 22, 'Personnel', 'Within AOR', '5', '2022-06-27 06:07:50', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '4', '2022-06-27 06:19:46', NULL, NULL, NULL, NULL, '2022-06-26 21:13:04', '2022-06-26 22:19:46', NULL),
-	(6, 3, '22-00005', NULL, '2022-06-28', '2022-06-29', 'Tagum', 'Laag', NULL, NULL, NULL, 'Pending', '2022-06-26 23:36:19', 'CENRO Manay', 8, 'Personnel', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-26 23:36:19', '2022-06-26 23:36:19', NULL);
+	(6, 3, '22-00005', NULL, '2022-06-28', '2022-06-29', 'Tagum', 'Laag', NULL, NULL, NULL, 'Pending', '2022-06-26 23:36:19', 'CENRO Manay', 8, 'Personnel', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-26 23:36:19', '2022-06-26 23:36:19', NULL),
+	(7, 2, '22-00006', '38987', '2022-07-05', '2022-07-07', 'Digos', 'Conduct site inspection', 'Yes', 'Yes', NULL, 'RED Approved', '2022-07-04 00:41:24', 'Enforcement Division', 20, 'Personnel', 'Within AOR', '5', '2022-07-04 08:42:29', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '4', '2022-07-04 08:43:25', '8', '2022-07-04 08:42:50', '11', '2022-07-04 08:44:06', '2022-07-04 00:41:24', '2022-07-04 00:44:06', NULL),
+	(8, 2, '22-00007', '38987', '2022-07-12', '2022-07-14', 'Monkayo, Davao de Oro', 'To conduct network maintenance', NULL, NULL, NULL, 'Division Chief Approved', '2022-07-06 21:33:25', 'Planning and Management Division', 22, 'Personnel', 'Within AOR', '5', '2022-07-07 05:54:49', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-06 21:33:25', '2022-07-06 21:54:49', NULL),
+	(9, 4, '22-00008', '120000', '2022-07-26', '2022-07-27', 'PENRO Tagum and vicinities', 'To conduct office inspection', NULL, NULL, NULL, 'Pending', '2022-07-19 21:34:22', 'ARED for Management Services', 25, 'ARED MS', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-19 21:34:22', '2022-07-19 21:34:22', NULL),
+	(10, 3, '22-00009', '25000', '2022-07-27', '2022-07-28', 'Digos', 'Laag', NULL, NULL, NULL, 'RED Approved', '2022-07-20 22:23:26', 'Office of the Regional Executive Director', 27, 'Personnel', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '11', '2022-07-21 06:24:04', '2022-07-20 22:23:26', '2022-07-20 22:24:04', NULL),
+	(11, 2, '22-00010', '25000', '2022-07-28', '2022-07-28', 'davao', 'laag', NULL, NULL, NULL, 'RED Approved', '2022-07-20 22:38:52', 'Regional Strategic Communications Initiatives Group', 28, 'Personnel', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '11', '2022-07-21 06:43:09', '2022-07-20 22:38:52', '2022-07-20 22:43:09', NULL),
+	(12, 2, '22-00011', '38987', '2022-07-26', '2022-07-27', 'Buda', 'Laag', NULL, NULL, NULL, 'RED Approved', '2022-07-20 23:21:23', 'Program Monitoring and Coordination Center', 29, 'Personnel', 'Within AOR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '11', '2022-07-21 07:21:42', '2022-07-20 23:21:23', '2022-07-20 23:21:42', NULL);
 
 -- Dumping structure for table denr_pportal.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -2102,7 +2120,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 REPLACE INTO `users` (`id`, `firstname`, `middlename`, `lastname`, `date_of_birth`, `gender`, `contact_no`, `email`, `email_verified_at`, `password`, `account_type`, `profile_image`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(2, 'Albert Neil', 'Dela Cruz', 'Bandiola', '1991-05-04', 'Male', '09989762395', 'adbandiola@denr.gov.ph', NULL, '$2y$10$tNKaZAE9giCEmfiWZ43uW.gNDxGDJHasPCBHQYNJIDKRUmbEOJBF.', 'Personnel', _binary 0x323032322d416c626572745f4e65696c5f44656c615f4372757a5f42616e64696f6c612e6a7067, NULL, '2022-03-29 22:59:14', '2022-06-13 18:37:40'),
 	(3, 'danrick', 'cubal', 'tekiko', '1996-11-15', 'Male', '09199533529', 'dcode0516@gmail.com', NULL, '$2y$10$btfsqX18b16sBtpyEknZUerDkBGcaih3B6EPN8N87BOnOMw31IMzC', 'Personnel', NULL, NULL, '2022-04-28 18:49:17', '2022-04-28 18:49:17'),
-	(4, 'Elmar Jane', 'H', 'Barquin', '1994-06-21', 'Female', '09123456789', 'ejbarquin@gmail.com', NULL, '$2y$10$/vlHzxr7XM.wGr3alwS0eOSEuWw/ngE0OA83E6DtLVdBBQ7B6YDTS', 'ARED MS', _binary 0x323032322d456c6d61725f4a616e655f485f4261727175696e2e6a7067, NULL, '2022-05-11 17:06:41', '2022-06-13 23:52:00'),
+	(4, 'Ma. Mercedes', 'V', 'Dumagan', '1994-06-21', 'Female', '09123456789', 'ejbarquin@gmail.com', NULL, '$2y$10$/vlHzxr7XM.wGr3alwS0eOSEuWw/ngE0OA83E6DtLVdBBQ7B6YDTS', 'ARED MS', _binary 0x323032322d456c6d61725f4a616e655f485f4261727175696e2e6a7067, NULL, '2022-05-11 17:06:41', '2022-06-13 23:52:00'),
 	(5, 'Luningning', 'M', 'Dalayon', '1967-07-12', 'Female', '09123456789', 'planning@gmail.com', NULL, '$2y$10$vgpRX8ho7s928MDR6/w35eAUsKri9XC1s59dDm0fdVSNbE6LvCpNu', 'Division Chief', NULL, NULL, '2022-05-12 21:07:38', '2022-05-12 21:07:38'),
 	(6, 'Henry', 'G', 'Yap', '1956-04-12', 'Male', '09123456789', 'henryyap@gmail.com', NULL, '$2y$10$6V9RPH.n0Akvr5xPwaHH6u4uh5fP6Rhz2xBK7CHVbPz.9C2rpyp8O', 'CENRO', NULL, NULL, '2022-05-12 22:17:08', '2022-05-12 22:17:08'),
 	(7, 'Amelda', 'D', 'Vera Cruz', '1960-04-12', 'Female', '09555555556', 'penroddn@gmail.com', NULL, '$2y$10$macIZ/G484.3rn5TX0ukwuUhNwPHEs2KLD42QQQeCPvbFY9KiXsRC', 'PENRO', NULL, NULL, '2022-05-16 21:26:21', '2022-05-16 21:26:21'),
