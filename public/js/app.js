@@ -7155,8 +7155,8 @@ __webpack_require__.r(__webpack_exports__);
         accounttype: this.accounttype,
         travel_type: this.travel_type
       }).then(function (response) {
-        // let data = response.data;
-        //         console.log(data);
+        //  let data = response.data;
+        //          console.log(data);
         if (response.data.message == 'Travel Order Successfully Created') {
           Swal.fire({
             title: 'Success!',

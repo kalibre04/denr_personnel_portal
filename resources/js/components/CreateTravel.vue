@@ -153,8 +153,8 @@ export default {
                 travel_type: this.travel_type
                 })
                 .then(response => {
-                    // let data = response.data;
-                    //         console.log(data);
+                    //  let data = response.data;
+                    //          console.log(data);
                     if(response.data.message == 'Travel Order Successfully Created'){
                         Swal.fire({
                             title: 'Success!',

@@ -39,7 +39,7 @@
             }
             .column {
                 float: left;
-                width: 30%;
+                width: 45%;
             }
             .column-50 {
                 float: left;
@@ -48,6 +48,10 @@
             .column-40 {
                 float: left;
                 width: 50%;
+            }
+            .column-40-2 {
+                float: left;
+                width: 33%;
             }
             .column-40-ms {
                 float: left;
@@ -63,7 +67,7 @@
             }
             .column-label {
                 float: left;
-                width: 15%;
+                width: 14%;
             }
             .column-label2 {
                 float: left;
@@ -123,6 +127,12 @@
             left: 50%;
             transform: translate(-50%, -50%);
             }
+            .centered-barcode {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            }
             .centered-red {
             position: absolute;
             top: 25%;
@@ -178,28 +188,31 @@
                     <div class="column-label">
                         <p>Name: </p>
                         <p>Position: </p>
+                        
                         <p>Destination</p>
+                        
                         <p>Departure Date:</p>
                     </div>
-                    <div class="column">
+                    <div class="column-40-2">
                         <p><u><b>{{ $fullname }}</b></u></p>
                         <p><u>{{ $position->plantilla->plantilla_position }}</u></p>
+                        
                         <p><u>{{ $destination }}</u></p>
+                        
                         <p><u>{{ $date_depart }}</u></p>
                     </div>
-                    <div class="column-divider">
-                        <p></p>
-                        
-                    </div>
+                    
                     <div class="column-label">
                         <p>Salary: </p>
                         <p>Div/Sec/Unit: </p>
+                        
                         <p>Official Station: </p>
                         <p>Arrival Date: </p>
                     </div>
                     <div class="column">
                         <p><u>{{ $salary }}</u></p>
                         <p><u>{{ $office }}</u></p>
+                        
                         <p><u>{{ $official_station->office->location }}</u></p>
                         <p><u>{{ $date_arrived }}</u></p>
                     </div>
@@ -297,7 +310,9 @@
                                                             <br>
                                                             <center><p><b><u>{{ $fullname2 }}</u></b><br>
                                                             Signature of Employee</p></center>
-                                                            <p>{!! DNS1D::getBarcodeHTML("$to_number", 'C39') !!}</p>
+                                                            <div class="centered-barcode">
+                                                            {!! DNS1D::getBarcodeHTML("$to_number", 'C39') !!}
+                                                            </div>
                                          
                                 </div>
 
@@ -367,8 +382,61 @@
                                                             <br>
                                                             <center><p><b><u>{{ $fullname2 }}</u></b><br>
                                                             Signature of Employee</p></center>
-                                                            <p>{!! DNS1D::getBarcodeHTML("$to_number", 'C39') !!}</p>
+                                                            <div class="centered-barcode">
+                                                            {!! DNS1D::getBarcodeHTML("$to_number", 'C39') !!}
+                                                            </div>
                                 </div>
+                        @elseif($officetype == 'red')
+                        <div class="row">
+                                    <div class="column-label2">
+                                            
+                                    </div>
+                                    <div class="column">
+                                        <p>Approved: </p>
+                                    </div>
+                                    <div class="column-divider">
+                                            <p> </p>
+                                    </div>
+                                    <div class="column-label">
+                                            
+                                    </div>
+                                    <div class="column">
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p> </p>
+                                </div> 
+                        
+                                <div class="row">
+                                            <div class="row">
+                                                    <div class="column-red">
+                                                        <div class="container">
+                                                                <img src="{{ asset('/public/img/esign/bfaevasco.png') }}" width="70px" height="100px">
+                                                                <div class="centered">        
+                                                                    <p><u><b>  {{ $redfullname }}</b></u><br>
+                                                                    Regional Executive Director</p>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                            </div> 
+                                </div>
+                                <div class="row">
+                                <p>__________________________________________________________________________________________________</p>
+                                    <h4><center>AUTHORIZATION</center></h4>
+                                    <div>I hereby authorize the Accountant to deduct the corresponding amount of the unliquidated cash advance from my succeeding salary for my failure to liquidate this travel within the prescribed thirty-day period upon return to my permanent official station pursuant to Item 5.1.3 COA Circular 97-002 dated February 10, 1997 and Sec. 16 EO No. 248 dated May 29, 1995.</div>
+                                </div>
+                                <div class="row">
+                                                            <br>
+                                                            <center><p><b><u>{{ $fullname2 }}</u></b><br>
+                                                            Signature of Employee</p></center>
+                                                            <div class="centered-barcode">
+                                                            {!! DNS1D::getBarcodeHTML("$to_number", 'C39') !!}
+                                                            </div>
+                                         
+                                </div>
+
+
                         @elseif($officetype == 'cenro')
 
                         @elseif($officetype == 'penro')
