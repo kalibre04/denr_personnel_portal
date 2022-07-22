@@ -1817,7 +1817,7 @@ CREATE TABLE IF NOT EXISTS `personnel_assignments` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.personnel_assignments: ~32 rows (approximately)
+-- Dumping data for table denr_pportal.personnel_assignments: ~36 rows (approximately)
 REPLACE INTO `personnel_assignments` (`id`, `user_id`, `office_id`, `date_assigned`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(2, 2, 22, '2022-01-07 00:00:00', '2022-01-07 04:01:54', '2022-07-07 02:04:49', '2022-07-07 02:04:49'),
 	(7, 3, 22, '2022-04-29 00:00:00', '2022-04-29 02:50:14', '2022-04-29 02:50:14', NULL),
@@ -1864,9 +1864,9 @@ CREATE TABLE IF NOT EXISTS `plantillas` (
   `office_id` int(11) DEFAULT NULL,
   `salary_grade` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.plantillas: ~11 rows (approximately)
+-- Dumping data for table denr_pportal.plantillas: ~21 rows (approximately)
 REPLACE INTO `plantillas` (`id`, `plantilla_position`, `item_no`, `office_id`, `salary_grade`) VALUES
 	(1, 'Information Systems Analyst II', 'OSEC-DENRB-INFOSA2-25-2014', 1, 16),
 	(2, 'Forest Technician I', '1111111111', 1, NULL),
@@ -1880,7 +1880,15 @@ REPLACE INTO `plantillas` (`id`, `plantilla_position`, `item_no`, `office_id`, `
 	(10, 'Development Management Officer IV', 'DMOIV-1111-1111', 4, NULL),
 	(11, 'CENR Officer', 'CENRO-11111-11111', 1, NULL),
 	(12, 'PENR Officer', 'PENRO-1111-1111', 2, NULL),
-	(13, 'Regional Executive Director', 'ORED-1111-1111', 27, NULL);
+	(13, 'Regional Executive Director', 'ORED-1111-1111', 27, NULL),
+	(14, 'Development Management Officer III', '111111111', 1, NULL),
+	(15, 'Forester I', '1111111', 1, NULL),
+	(16, 'Forester II', '11111111', 1, NULL),
+	(17, 'Forester III', '1111111', 1, NULL),
+	(18, 'Admin Aide VI', '1111111', 1, NULL),
+	(19, 'Admin Assistant I', '11111', 1, NULL),
+	(20, 'Admin Assistant II', '11111', 1, NULL),
+	(21, 'Forest Ranger', '111111', 1, NULL);
 
 -- Dumping structure for table denr_pportal.promotions
 CREATE TABLE IF NOT EXISTS `promotions` (
@@ -2080,7 +2088,7 @@ CREATE TABLE IF NOT EXISTS `travel_orders` (
   KEY `Primary Key` (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
--- Dumping data for table denr_pportal.travel_orders: ~8 rows (approximately)
+-- Dumping data for table denr_pportal.travel_orders: ~12 rows (approximately)
 REPLACE INTO `travel_orders` (`id`, `user_id`, `to_number`, `salary`, `date_depart`, `date_arrived`, `destination`, `purpose`, `expenses`, `assist_labor_allowed`, `instructions`, `application_status`, `date_submitted`, `office`, `office_id`, `account_type`, `travel_type`, `divchief_approval`, `divchief_approval_date`, `disapproved_by_id`, `disapprove_reason`, `disapprove_date`, `cenro_approval`, `cenro_approval_date`, `penro_approval`, `penro_approval_date`, `aredms_approval`, `aredms_approval_date`, `aredts_approval`, `aredts_approval_date`, `red_approval`, `red_approval_date`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(1, 3, '22-00000', NULL, '2022-05-31', '2022-06-03', 'Cebu', 'Attend QMS Meeting', NULL, NULL, NULL, 'Disapproved', '2022-05-24 18:42:37', 'CENRO Manay', 8, 'Personnel', 'Outside AOR', NULL, NULL, 7, 'not allowed       /Disapproved By: Amelda Vera Cruz', '2022-06-15 08:14:41', '6', '2022-06-15 02:55:38', NULL, NULL, NULL, NULL, NULL, NULL, '11', '2022-06-10 02:45:54', '2022-05-24 18:42:37', '2022-06-15 00:14:41', NULL),
 	(2, 2, '22-00001', '38987', '2022-05-27', '2022-05-27', 'Tagum City', 'Conduct network and cctv maintenance', NULL, NULL, NULL, 'RED Approved', '2022-05-26 00:00:44', 'Planning and Management Division', 22, 'Personnel', 'Within AOR', '5', '2022-06-15 06:30:38', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '4', '2022-06-16 07:07:34', NULL, NULL, '11', '2022-06-16 07:08:14', '2022-05-26 00:00:44', '2022-06-15 23:08:14', NULL),
