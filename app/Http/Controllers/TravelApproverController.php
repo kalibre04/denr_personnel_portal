@@ -32,7 +32,6 @@ class TravelApproverController extends Controller
         // $travels = $trav->where('account_type', 'Personnel');
         $user_office = Personnel_Assignment::where('user_id', Auth::user()->id)->with('office')->latest()->first();
         $trav = TravelOrder::where('office', $user_office->office->officename)->orderBy('created_at', 'DESC')->get();
-
         // $travels_ms = TravelOrder::where('office', 'Planning and Management Division')
         //         ->orWhere('office', 'Finance Division')
         //         ->orWhere('office', 'Legal Division')
